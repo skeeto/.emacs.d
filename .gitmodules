@@ -1,0 +1,18 @@
+[submodule "emacs-java"]
+	path = emacs-java
+	url = https://github.com/skeeto/emacs-java.git
+[submodule "emacs-httpd"]
+	path = emacs-httpd
+	url = https://github.com/skeeto/emacs-http-server.git
+[submodule "magit"]
+	path = magit
+	url = https://github.com/magit/magit.git
+[submodule "smex"]
+	path = smex
+	url = https://github.com/nonsequitur/smex.git
+[submodule "yasnippet-java"]
+	path = yasnippet-java
+	url = https://github.com/chuwb/yasnippet-java-topcoder.git
+[submodule "yasnippet"]
+	path = yasnippet
+	url = https://github.com/skeeto/yasnippet.git
