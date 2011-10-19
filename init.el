@@ -6,6 +6,7 @@
 (require 'htmlize)
 (require 'highlight-tags-mode)
 (require 'dired+)
+(require 'markdown-mode)
 (require 'my-funcs) ; custom functions
 
 ;; Turn off the newbie crap
