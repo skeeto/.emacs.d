@@ -118,3 +118,11 @@
   (interactive "P")
   (insert (number-to-string (random n))))
 (global-set-key (kbd "C-c r") 'insert-random)
+
+(defun eval-and-replace (value)
+  "Evaluate the sexp at point and replace it with its value."
+  (interactive (list (eval-last-sexp nil)))
+  (kill-sexp -1)
+  (insert (format "%S" value)))
+
+(global-set-key "\C-ce" 'eval-and-replace)
