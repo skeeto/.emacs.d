@@ -24,7 +24,6 @@
 (setq dabbrev-case-distinction nil)
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
-(setq compilation-ask-about-save nil)
 
 ;; Uniquify buffer names
 (require 'uniquify)
