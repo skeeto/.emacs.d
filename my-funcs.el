@@ -50,7 +50,7 @@
 ;; ID: 90aebf38-b33a-314b-1198-c9bffea2f2a2
 (defun uuid-create ()
   "Return a newly generated UUID. This uses a simple hashing of variable data."
-  (let ((s (md5 (format "%s%s%s%s%s%s%s%s%s%s"
+  (let ((s (md5 (format "%s%s%s%s%s%s%s%s%s%s%s%s"
                         (user-uid)
                         (emacs-pid)
                         (system-name)
@@ -60,6 +60,8 @@
                         (emacs-uptime)
                         (garbage-collect)
                         (random)
+                        (buffer-list)
+                        (buffer-string)
                         (recent-keys)))))
     (format "%s-%s-3%s-%s-%s"
             (substring s 0 8)
