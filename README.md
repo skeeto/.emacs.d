@@ -16,7 +16,7 @@ out of the way, since it being there prevents Emacs from using the
 system-specific configuration, but I put this at the top,
 
 ```cl
-    (load-file "~/.emacs.d/init.el")
+(load-file "~/.emacs.d/init.el")
 ```
 
 If you did everything right Emacs should simply launch with no errors
@@ -68,7 +68,7 @@ keybindings and `ant-bind*` creates them for `java-mode` only. For
 example, this one was already defined,
 
 ```cl
-    (make-bind* "C-x C" 'clean)   ; Note the capital C
+(make-bind* "C-x C" 'clean)   ; Note the capital C
 ```
 
 Hitting `C-x C` runs `make` with the `clean` target.
