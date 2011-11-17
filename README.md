@@ -105,9 +105,9 @@ demo.
 
 ### YASnippet
 
-I use [YASnippet](http://code.google.com/p/yasnippet/), a Git mirror
-of which is provided for this configuration. It allows you to type a
-keyword and hit tab, expanding it into a full code *snippet*,
+I use [YASnippet](https://github.com/capitaomorte/yasnippet), a Git
+mirror of which is provided for this configuration. It allows you to
+type a keyword and hit tab, expanding it into a full code *snippet*,
 sometimes with further assistance filling out components of the
 snippet. There are way too many of them to describe here, so look in
 `yasnippet/snippets/`, `yasnippet-java/`, and `emacs-java/snippets` to

@@ -15,4 +15,4 @@
 	url = https://github.com/skeeto/yasnippet-java-topcoder.git
 [submodule "yasnippet"]
 	path = yasnippet
-	url = https://github.com/skeeto/yasnippet.git
+	url = https://github.com/capitaomorte/yasnippet.git
