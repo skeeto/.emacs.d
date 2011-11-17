@@ -6,7 +6,6 @@
 (require 'htmlize)
 (require 'highlight-tags-mode)
 (require 'dired+)
-(require 'markdown-mode)
 (require 'my-funcs) ; custom functions
 
 ;; Turn off the newbie crap
@@ -43,6 +42,11 @@
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
+
+;; Markdown
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 
 ;; Printing
 (require 'ps-print)
