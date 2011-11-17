@@ -139,3 +139,7 @@ configuration? That's where I put the hook to load Slime.
 ### Java
 
 TODO: write this section
+
+See the
+[`java-mode-plus.el` header](/skeeto/emacs-java/master/java-mode-plus.el)
+for full documentation.
