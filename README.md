@@ -166,7 +166,12 @@ I gave it the standard Javadoc path and a bunch more I keep in my home
 directory. These directories are scanned and the results cached in
 `~/.java-docs/` for faster loading in the future. Once you've done
 this you can jump to any class's documentation with `C-h j`. I use
-Firefox, so this will try to open the documentation in Firefox.
+Firefox, so this will try to open the documentation in Firefox if
+possible.
+
+If you don't specify the core Java Javadoc, it will attempt add it for
+you, linking to the official website rather than a file on the local
+system.
 
 Next, if you're in a `java-mode` buffer, you can add an import to the
 imports section at any time with `C-x I` (the
