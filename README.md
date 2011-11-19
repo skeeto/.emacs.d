@@ -56,22 +56,27 @@ you're an Elisp developer,
 * `expose`
 * `measure-time`
 
-Particularly special ones are `make-bind*` (i.e. Makefiles) and
-`ant-bind*` (i.e. Apache Ant). This creates a special compile binding
-for a particular target. I use these bindings literally hundreds of
-times per day.
+Particularly special ones are `compile-bind*` and `ant-bind*`
+(i.e. Apache Ant specifically). This creates a special compile
+keybinding for a specific build system target. I use these bindings
+literally hundreds of times per day.
 
-When used, the current buffer is automatically saved and the build
-system is run with the pre-selected target. Give it a prefix argument
-and it uses a numbered compilation buffer. `make-bind*` creates global
-keybindings and `ant-bind*` creates them for `java-mode` only. For
-example, this one was already defined,
+When these bindings are used, the current buffer is automatically
+saved and the build system is run with the pre-selected target. Give
+it a prefix argument and it uses a numbered compilation
+buffer. `compile-bind*` creates keybindings in a given keymap and
+`ant-bind*` creates them for `java-mode` only. For example, these two
+bindings are already defined globally,
 
 ```cl
-(make-bind* "C-x C" 'clean)   ; Note the capital C
+(compile-bind*
+ (current-global-map)
+ 'make ("C-x c" 'compile
+        "C-x C" 'clean))  ; Note the capital C
 ```
 
-Hitting `C-x C` runs `make` with the `clean` target.
+`C-x c` runs `make` with the `compile` target and `C-x C` runs `make`
+with the `clean` target.
 
 `ant-bind*` is part of `java-mode-plus`.
 
