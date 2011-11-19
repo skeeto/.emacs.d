@@ -120,7 +120,8 @@
 (add-to-list 'load-path "~/.emacs.d/emacs-java")
 (require 'java-mode-plus)
 (require 'java-docs)
-(setq browse-url-browser-function 'browse-url-firefox)
+(if (executable-find "firefox")
+    (setq browse-url-browser-function 'browse-url-firefox))
 (add-hook 'java-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (java-mode-short-keybindings)
 
