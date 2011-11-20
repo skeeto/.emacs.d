@@ -102,6 +102,10 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
+;; imenu
+(require 'idomenu)
+(global-set-key (kbd "C-c c") 'idomenu)
+
 ;; Set the color theme
 (when (boundp 'custom-safe-themes)
   (setq custom-safe-themes '(default
