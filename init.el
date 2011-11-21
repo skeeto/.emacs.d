@@ -64,8 +64,9 @@
 ;; groff
 (add-to-list 'auto-mode-alist '("\\.mom\\'" . nroff-mode))
 
-;; ERC
-(setq erc-nick "skeeto")
+;; ERC (only set it for me)
+(if (equal (substring (user-login-name) 0 5) "wello")
+    (setq erc-nick "skeeto"))
 
 ;; C
 (require 'cc-mode)
