@@ -72,7 +72,9 @@ in your path. Useful for reading non-regular files like
                         (random)
                         (buffer-list)
                         (buffer-string)
-                        (recent-keys)))))
+                        (recent-keys)
+                        (if (file-exists-p "/dev/urandom")
+                            (get-bytes "/dev/urandom" 16))))))
     (format "%s-%s-3%s-%s-%s"
             (substring s 0 8)
             (substring s 8 12)
