@@ -46,6 +46,7 @@
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
+;; ID: 54eada16-ca15-3267-d16a-cd03d5b84de4
 (defun get-bytes (file count)
   "Get the first COUNT bytes from FILE. Requires the head program
 in your path. Useful for reading non-regular files like
