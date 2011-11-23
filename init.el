@@ -139,6 +139,12 @@
 (yas/load-directory "~/.emacs.d/yasnippet-java")
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
 
+;; mark-multiple
+(add-to-list 'load-path "~/.emacs.d/mark-multiple")
+(require 'mark-more-like-this)
+(global-set-key (kbd "C-<") 'mark-previous-like-this)
+(global-set-key (kbd "C->") 'mark-next-like-this)
+
 ;; Custom bindings
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-x\C-k" 'compile)

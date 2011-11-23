@@ -16,3 +16,6 @@
 [submodule "yasnippet"]
 	path = yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "mark-multiple"]
+	path = mark-multiple
+	url = https://github.com/magnars/mark-multiple.el.git
