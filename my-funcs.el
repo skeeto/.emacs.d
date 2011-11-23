@@ -46,6 +46,16 @@
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
+(defun get-bytes (file count)
+  "Get the first COUNT bytes from FILE. Requires the head program
+in your path. Useful for reading non-regular files like
+/dev/random or /dev/urandom."
+  (with-temp-buffer
+    (set-buffer-multibyte nil)
+    (call-process "head" file (current-buffer) nil
+                  "-c" (number-to-string count))
+    (substring (buffer-string) 0 count)))
+
 ;; Create UUIDs
 ;; ID: 90aebf38-b33a-314b-1198-c9bffea2f2a2
 (defun uuid-create ()
