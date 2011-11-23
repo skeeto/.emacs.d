@@ -14,6 +14,7 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 (setq backup-inhibited t)
+(setq auto-save-default nil)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 (setq wdired-allow-to-change-permissions t)
