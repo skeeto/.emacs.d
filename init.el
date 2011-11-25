@@ -113,13 +113,13 @@
 ;; Set the color theme
 (when (boundp 'custom-safe-themes)
   (setq custom-safe-themes '(default
-			      "7a6bbc6f0af4a34f3e2bad5d334c045350d0705a"
-			      "28b1914fbb2b71fd5d597783dd72c4ccaeb2cf19"
-			      "649ccffdb140fcd021013f6297dedeb313b74fa5")))
+                              "7a6bbc6f0af4a34f3e2bad5d334c045350d0705a"
+                              "28b1914fbb2b71fd5d597783dd72c4ccaeb2cf19"
+                              "649ccffdb140fcd021013f6297dedeb313b74fa5")))
 (add-to-list (if (boundp 'custom-theme-load-path)
-		 'custom-theme-load-path
-	       'load-path)
-	     "~/.emacs.d/themes/")
+                 'custom-theme-load-path
+               'load-path)
+             "~/.emacs.d/themes/")
 (load-theme 'wombat)
 ;(set-face-attribute 'default nil :height 100)
 ;(set-frame-parameter (selected-frame) 'alpha 80)
@@ -173,18 +173,18 @@ ant, scons) in a particular keymap."
      (lambda (n)
        (interactive "p")
        (let* ((buffer-name (format "*compilation-%d*" n))
-	      (compilation-buffer-name-function (lambda (x) buffer-name)))
-	 (save-buffer)
-	 (compile (format "%s %s" ,builder ,target) t)))))
+              (compilation-buffer-name-function (lambda (x) buffer-name)))
+         (save-buffer)
+         (compile (format "%s %s" ,builder ,target) t)))))
 
 (defmacro compile-bind* (map builder keys/fns)
   "Create several compile-bind bindings in a row."
   `(progn
      ,@(loop for (key fn) on keys/fns by 'cddr
-	     collecting `(compile-bind ,map (kbd ,key) ,builder ,fn))))
+             collecting `(compile-bind ,map (kbd ,key) ,builder ,fn))))
 
 (compile-bind*	; example of compile-bind*, global make bindings
  (current-global-map)
  'make ("C-x c" ""
-	"C-x r" 'run
-	"C-x C" 'clean))
+        "C-x r" 'run
+        "C-x C" 'clean))
