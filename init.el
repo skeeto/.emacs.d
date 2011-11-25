@@ -18,12 +18,15 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 (setq wdired-allow-to-change-permissions t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (put 'narrow-to-region 'disabled nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq dabbrev-case-distinction nil)
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
+
+;; Use proper whitespace
+(setq-default indent-tabs-mode nil)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Uniquify buffer names
 (require 'uniquify)
@@ -128,7 +131,6 @@
 (require 'java-docs)
 (if (executable-find "firefox")
     (setq browse-url-browser-function 'browse-url-firefox))
-(add-hook 'java-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (java-mode-short-keybindings)
 
 ;; YASnippet
