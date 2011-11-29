@@ -141,3 +141,22 @@ in your path. Useful for reading non-regular files like
   (insert (format "%S" value)))
 
 (global-set-key "\C-ce" 'eval-and-replace)
+
+(defun launch (command)
+  "Launch an application from Emacs, with its own output
+buffer. This is like asynch-shell-command but allows for any
+number of processes at a time, rather than just one. If given a
+prefix argument, the process's buffer is displayed."
+  (interactive (list (read-shell-command (concat default-directory "$ "))))
+  (let* ((name (car (split-string-and-unquote command)))
+         (buffer (generate-new-buffer (concat "*" name "*"))))
+    (set-process-sentinel (start-process-shell-command name buffer command)
+                          'launch-sentinel)
+    (if (eq (car current-prefix-arg) 4)
+        (display-buffer buffer))))
+
+(defun launch-sentinel (proc event)
+  "Reports on changes in `launch'ed applications."
+  (message (format "%s: %s" proc event)))
+
+(global-set-key (kbd "s-x") 'launch)
