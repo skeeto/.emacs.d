@@ -56,8 +56,11 @@
 
 ;; Jekyll
 (require 'jekyll)
-(setq jekyll-home "~/src/skeeto.github.com/")
 (global-set-key (kbd "C-c n") 'jekyll/new-post)
+(setq jekyll-home "~/src/skeeto.github.com/")
+(when (file-exists-p jekyll-home)
+  (setq httpd-root (concat jekyll-home "_site"))
+  (httpd-start))
 
 ;; Printing
 (require 'ps-print)
