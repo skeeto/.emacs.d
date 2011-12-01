@@ -54,6 +54,11 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (define-key markdown-mode-map (kbd "<tab>") nil) ; fix for YASnippet
 
+;; Jekyll
+(require 'jekyll)
+(setq jekyll-home "~/src/skeeto.github.com/")
+(global-set-key (kbd "C-c n") 'jekyll/new-post)
+
 ;; Printing
 (require 'ps-print)
 (setq ps-print-header nil)
