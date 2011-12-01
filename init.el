@@ -60,7 +60,8 @@
 (setq jekyll-home "~/src/skeeto.github.com/")
 (when (file-exists-p jekyll-home)
   (setq httpd-root (concat jekyll-home "_site"))
-  (httpd-start))
+  (httpd-start)
+  (jekyll/start))
 
 ;; Printing
 (require 'ps-print)
