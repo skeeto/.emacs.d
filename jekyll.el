@@ -9,6 +9,7 @@
 
 ;; The relevant user functions are:
 ;;   * `jekyll/new-post' -- Create a new blog post
+;;   * `jekyll/start' -- Start jekyll in auto mode
 
 ;; More functions will be added in the future as I think of them. I do
 ;; all my publishing through Git, for which I use Magit. That means I
@@ -37,6 +38,12 @@
                             jekyll-home
                             (format-time-string "%Y-%m-%d")
                             (replace-regexp-in-string "\\W+" "-" title))))
+
+(defun jekyll/start ()
+  "Start the Jekyll daemon in auto mode."
+  (interactive)
+  (let ((default-directory jekyll-home))
+    (start-process-shell-command "jekyll" "*jekyll*" "jekyll --auto")))
 
 (provide 'jekyll)
 
