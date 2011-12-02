@@ -131,7 +131,9 @@
   (setq custom-safe-themes '(default
                               "7a6bbc6f0af4a34f3e2bad5d334c045350d0705a"
                               "28b1914fbb2b71fd5d597783dd72c4ccaeb2cf19"
-                              "649ccffdb140fcd021013f6297dedeb313b74fa5")))
+                              "649ccffdb140fcd021013f6297dedeb313b74fa5"
+                              "eed91eb89a7b7a70c6b27137a2b1a0ae31faff7c"
+                              "9ab6bc847421718564299a33e9b6ffd4516e53e1")))
 (add-to-list (if (boundp 'custom-theme-load-path)
                  'custom-theme-load-path
                'load-path)
