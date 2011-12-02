@@ -25,6 +25,7 @@
 (setq delete-active-region nil)
 
 ;; Use proper whitespace
+(require 'whitespace)
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook
           (lambda ()
