@@ -113,9 +113,10 @@ in your path. Useful for reading non-regular files like
   (adjust-window-trailing-edge (selected-window) (- n (window-width)) t))
 
 (defun set-80-columns ()
-  "Set the selected window to 80 columns."
+  "Set the selected window to 80 columns. If given a prefix
+argument, set so that number of columns instead."
   (interactive)
-  (set-window-width 80))
+  (set-window-width (or current-prefix-arg 80)))
 
 (global-set-key "\C-x~" 'set-80-columns)
 
