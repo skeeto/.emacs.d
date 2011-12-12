@@ -88,8 +88,9 @@
 (if (equal (substring (user-login-name) 0 5) "wello")
     (setq erc-nick "skeeto"))
 
-;; C
+;; C (and fix Emacs' incorrect k&r indentation)
 (require 'cc-mode)
+(setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
 (add-to-list 'c-default-style '(c-mode . "k&r"))
 
 ;; Parenthesis
