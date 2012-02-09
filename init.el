@@ -27,12 +27,15 @@
 ;; Use proper whitespace
 (require 'whitespace)
 (setq-default indent-tabs-mode nil)
+(defcustom do-whitespace-cleanup t "Perform whitespace-cleanup on save.")
+(make-variable-buffer-local 'do-whitespace-cleanup)
 (add-hook 'before-save-hook
           (lambda ()
             ;; turn off and on to work around Emacs bug #4069
             (whitespace-turn-on)
             (whitespace-turn-off)
-            (whitespace-cleanup)))
+            (if do-whitespace-cleanup
+                (whitespace-cleanup))))
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; Uniquify buffer names
