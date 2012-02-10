@@ -80,6 +80,15 @@ with the `clean` target.
 
 `ant-bind*` is part of `java-mode-plus`.
 
+### Whitespace
+
+There's a customized hook for `whitespace-cleanup` in
+`before-save-hook`. It will remove all trailing whitespace, and,
+because I'm so picky, also convert all tabs to spaces just before
+saving a buffer. To disable this on a per-file basis -- for example,
+to precisely edit a sloppily-spaced file -- set the buffer-local
+variable `do-whitespace-cleanup` to `nil`.
+
 ### Ido Mode
 
 Something experienced Emacs users may notice at first is that I make
