@@ -169,11 +169,11 @@ example from the current machine I'm using.
 ```cl
 (java-docs "/usr/share/doc/openjdk-6-jdk/api"
            "~/doc/lwjgl"
-		   "~/doc/commons-cli"
-		   "~/doc/guava"
-		   "~/doc/jline"
-		   "~/doc/rxtx"
-		   "~/doc/junit4")
+           "~/doc/commons-cli"
+           "~/doc/guava"
+           "~/doc/jline"
+           "~/doc/rxtx"
+           "~/doc/junit4")
 ```
 
 I gave it the standard Javadoc path and a bunch more I keep in my home
