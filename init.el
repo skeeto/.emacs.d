@@ -23,6 +23,9 @@
 (setq dabbrev-case-distinction nil)
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
+(mapatoms (lambda (sym)
+            (if (get sym 'disabled)
+                (put sym 'disabled nil))))
 
 ;; Use proper whitespace
 (require 'whitespace)
