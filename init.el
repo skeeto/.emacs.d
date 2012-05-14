@@ -89,6 +89,7 @@
 (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.fs\\'" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.vs\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.cl$" . c-mode)) ; OpenCL
 
 ;; groff
 (add-to-list 'auto-mode-alist '("\\.mom\\'" . nroff-mode))
