@@ -75,6 +75,9 @@
   (httpd-start)
   (jekyll/start))
 
+;; Octave
+(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+
 ;; Printing
 (require 'ps-print)
 (setq ps-print-header nil)
