@@ -187,6 +187,13 @@ If you don't specify the core Java Javadoc, it will attempt add it for
 you, linking to the official website rather than a file on the local
 system.
 
+The `javadoc` directory in this repository contains a build script
+that uses Apache Ivy to fetch my preferred Javadoc jars from the Maven
+repository. All you need to do is run `ant` in this directory and the
+documentation will be fetched and unzipped. Everything fetched will be
+automatically loaded into java-docs by `init.el` on the next Emacs
+startup. Edit `ivy.xml` to add more default documentation.
+
 Next, if you're in a `java-mode` buffer, you can add an import to the
 imports section at any time with `C-x I` (the
 `java-mode-short-keybindings` binding). Like `java-docs-lookup`, `C-h

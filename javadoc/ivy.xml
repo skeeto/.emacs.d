@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ivy-module version="2.0">
+  <info organisation="com.nullprogram" module="javadoc"/>
+  <dependencies>
+    <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.8.2"/>
+    <dependency org="com.nullprogram" name="native-guide" rev="0.2"/>
+    <dependency org="junit" name="junit" rev="4.10"/>
+    <dependency org="org.projectlombok" name="lombok" rev="0.10.4"/>
+  </dependencies>
+</ivy-module>

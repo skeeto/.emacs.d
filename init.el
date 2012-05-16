@@ -159,6 +159,9 @@
 (if (executable-find "firefox")
     (setq browse-url-browser-function 'browse-url-firefox))
 (java-mode-short-keybindings)
+(apply 'java-docs
+       (remove-if-not 'file-directory-p
+                      (directory-files "~/.emacs.d/javadoc" t "^[^.].*$")))
 
 ;; YASnippet
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
