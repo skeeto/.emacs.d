@@ -4,6 +4,11 @@
   <target name="retrieve" description="Retrieve Javadoc jars with Ivy.">
     <ivy:retrieve pattern="[organisation].[artifact]/javadoc.[ext]"
                   type="javadoc"/>
+    <!-- Hardcode JCIP, since it lacks a Javadoc jar. -->
+    <mkdir dir="net.jcip.jcip-annotations"/>
+    <get dest="net.jcip.jcip-annotations" skipexisting="true">
+      <url url="http://repo1.maven.org/maven/mule/dependencies/maven2/net/jcip/annotations/1.0/annotations-1.0-javadoc.jar"/>
+    </get>
   </target>
 
   <target name="prepare" depends="retrieve" description="Unzip all jars.">
