@@ -27,6 +27,12 @@
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
 
+;; tramp
+(require 'tramp)  ; manual require due to Emacs 23 bug
+(require 'tramp-cache)
+(setq tramp-persistency-file-name
+      (concat temporary-file-directory "tramp-" (user-login-name)))
+
 ;; Use proper whitespace
 (require 'whitespace)
 (setq-default indent-tabs-mode nil)
