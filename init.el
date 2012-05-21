@@ -147,8 +147,13 @@
 (global-set-key (kbd "C-c c") 'idomenu)
 
 ;; Set the color theme
-(if (>= emacs-major-version 24)
-    (load-theme 'wombat t))
+(when (>= emacs-major-version 24)
+  (load-theme 'wombat t)
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              (let ((themes custom-enabled-themes))
+                (mapc 'disable-theme themes)
+                (mapc 'enable-theme (reverse themes))))))
 ;(set-face-attribute 'default nil :height 100)
 ;(set-frame-parameter (selected-frame) 'alpha 80)
 ;(set-default-font "Inconsolata-12")
