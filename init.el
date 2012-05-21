@@ -72,8 +72,11 @@
 (setq jekyll-home "~/src/skeeto.github.com/")
 (when (file-exists-p jekyll-home)
   (setq httpd-root (concat jekyll-home "_site"))
-  (httpd-start)
-  (jekyll/start))
+  (condition-case e
+      (progn
+        (httpd-start)
+        (jekyll/start))
+    ('error (message (format "notice: httpd failed: %s" e)))))
 
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
