@@ -1,13 +1,13 @@
 # My Personal Emacs Configuration
 
 What you see before you is my personal Emacs configuration. This is
-the very first repository I clone when settling in on a new
-computer. Currently it should work with both Emacs 23 and the
-bleeding-edge Emacs 24. If you clone this repository, don't forget to
-clone the submodules too. They're critical, because this is primarily
-a repository of repositories.
+the very first repository I recursively clone when settling in on a
+new computer. Currently it should work with both Emacs 23 and the
+bleeding-edge Emacs 24. If you clone this repository non-recursively,
+don't forget to recursively clone the submodules too. They're
+critical, because this is primarily a repository of repositories.
 
-    git submodule update --init
+    git submodule update --init --recursive
 
 Make sure you clone it into your home directory, or at least wherever
 Emacs thinks your home directory is. Move your existing `.emacs` file
