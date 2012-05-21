@@ -147,16 +147,8 @@
 (global-set-key (kbd "C-c c") 'idomenu)
 
 ;; Set the color theme
-(when (boundp 'custom-safe-themes)
-  (setq custom-safe-themes
-        '(default
-          "2ad265f1125873a1116dee3f3362df66c6b7ef5ea21040f0383f584c606b0e54"
-          "e86e849176f3020d3a93e193fb5ddc5f3d3310d5b810d39a5ff76201fefd7c78")))
-(add-to-list (if (boundp 'custom-theme-load-path)
-                 'custom-theme-load-path
-               'load-path)
-             "~/.emacs.d/themes/")
-(load-theme 'wombat)
+(if (>= emacs-major-version 24)
+    (load-theme 'wombat t))
 ;(set-face-attribute 'default nil :height 100)
 ;(set-frame-parameter (selected-frame) 'alpha 80)
 ;(set-default-font "Inconsolata-12")
