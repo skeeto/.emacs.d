@@ -98,7 +98,7 @@
 (add-to-list 'auto-mode-alist '("\\.mom\\'" . nroff-mode))
 
 ;; ERC (only set it for me)
-(if (equal (substring (user-login-name) 0 5) "wello")
+(if (eq 0 (string-match "wello" (user-login-name)))
     (setq erc-nick "skeeto"))
 
 ;; C (and fix Emacs' incorrect k&r indentation)
