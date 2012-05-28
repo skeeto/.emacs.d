@@ -27,6 +27,9 @@
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
 
+;; Display the time
+(display-time-mode 1)
+
 ;; tramp
 (require 'tramp)  ; manual require due to Emacs 23 bug
 (require 'tramp-cache)
