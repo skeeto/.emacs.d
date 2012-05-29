@@ -41,6 +41,11 @@
 (setq-default indent-tabs-mode nil)
 (defcustom do-whitespace-cleanup t "Perform whitespace-cleanup on save.")
 (make-variable-buffer-local 'do-whitespace-cleanup)
+(defun toggle-whitespace-cleanup ()
+  "Turn the whitespace-cleanup hook on and off."
+  (interactive)
+  (setq do-whitespace-cleanup (not do-whitespace-cleanup))
+  (message "do-whitespace-cleanup set to %s" do-whitespace-cleanup))
 (add-hook 'before-save-hook
           (lambda ()
             ;; turn off and on to work around Emacs bug #4069
