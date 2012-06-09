@@ -28,7 +28,10 @@
                 (put sym 'disabled nil))))
 
 ;; Display the time
-(display-time-mode 1)
+(setq display-time-default-load-average nil)
+(setq display-time-use-mail-icon t)
+(setq display-time-24hr-format t)
+(display-time-mode t)
 
 ;; tramp
 (require 'tramp)  ; manual require due to Emacs 23 bug
@@ -73,6 +76,7 @@
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
+(setq vc-display-status nil)
 
 ;; Markdown
 (require 'markdown-mode)
