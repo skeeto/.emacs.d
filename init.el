@@ -236,3 +236,5 @@ ant, scons) in a particular keymap."
  'make ("C-x c" ""
         "C-x r" 'run
         "C-x C" 'clean))
+
+(provide 'init) ; for those who want to (require 'init)
