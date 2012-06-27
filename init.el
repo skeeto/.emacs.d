@@ -80,8 +80,8 @@
 
 ;; Markdown
 (require 'markdown-mode)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (define-key markdown-mode-map (kbd "<tab>") nil) ; fix for YASnippet
 
 ;; Jekyll
@@ -105,15 +105,15 @@
 
 ;; GLSL
 (require 'glsl-mode)
-(add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
-(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
-(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
-(add-to-list 'auto-mode-alist '("\\.fs\\'" . glsl-mode))
-(add-to-list 'auto-mode-alist '("\\.vs\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.frag$" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.fs$" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode)) ; OpenCL
 
 ;; groff
-(add-to-list 'auto-mode-alist '("\\.mom\\'" . nroff-mode))
+(add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 
 ;; ERC (only set it for me)
 (if (eq 0 (string-match "wello" (user-login-name)))
