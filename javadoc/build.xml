@@ -13,6 +13,7 @@
 
   <target name="prepare" depends="retrieve" description="Unzip all jars.">
     <exec executable="find">
+      <arg value="."/>
       <arg value="-name"/>
       <arg value="*.jar"/>
       <arg value="-execdir"/>
