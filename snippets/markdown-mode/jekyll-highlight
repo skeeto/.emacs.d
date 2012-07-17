@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Jekyll highlight
+# key: hl
+# --
+{% highlight ${1:language} %}
+$0
+{% endhighlight %}
