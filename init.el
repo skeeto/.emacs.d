@@ -212,6 +212,10 @@
 (global-set-key [f1] (lambda () (interactive) (ansi-term "/bin/bash")))
 (global-set-key [f2] (expose (apply-partially 'revert-buffer nil t)))
 
+;; graphviz-dot-mode
+(require 'graphviz-dot-mode)
+(setq graphviz-dot-indent-width 2)
+
 ;; Dedicated windows
 (defun toggle-current-window-dedication ()
   (interactive)
