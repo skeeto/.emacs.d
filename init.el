@@ -1,5 +1,7 @@
+;; Set up load-path for everything
 (add-to-list 'load-path "~/.emacs.d")
-(random t)
+(let ((default-directory "~/.emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
 
 (require 'cl)
 (require 'memoize)
@@ -7,6 +9,9 @@
 (require 'highlight-tags-mode)
 (require 'dired+)
 (require 'my-funcs) ; custom functions
+
+;; Seed the PRNG
+(random t)
 
 ;; Turn off the newbie crap
 (menu-bar-mode -1)
@@ -63,7 +68,6 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; Web server
-(add-to-list 'load-path "~/.emacs.d/emacs-httpd")
 (require 'httpd)
 
 ;; Winner mode
@@ -83,7 +87,6 @@
 (setq org-log-done 'time)
 
 ;; Git
-(add-to-list 'load-path "~/.emacs.d/magit")
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
@@ -159,7 +162,6 @@
 (ido-mode 1)
 
 ;; Smex
-(add-to-list 'load-path "~/.emacs.d/smex")
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
@@ -182,7 +184,6 @@
 ;(set-default-font "Inconsolata-12")
 
 ;; Java
-(add-to-list 'load-path "~/.emacs.d/emacs-java")
 (require 'java-mode-plus)
 (require 'java-docs)
 (if (executable-find "firefox")
@@ -193,7 +194,6 @@
                       (directory-files "~/.emacs.d/javadoc" t "^[^.].*$")))
 
 ;; YASnippet
-(add-to-list 'load-path "~/.emacs.d/yasnippet")
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/yasnippet/snippets")
@@ -201,7 +201,6 @@
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
 
 ;; mark-multiple
-(add-to-list 'load-path "~/.emacs.d/mark-multiple")
 (require 'mark-more-like-this)
 (global-set-key (kbd "C-<") 'mark-previous-like-this)
 (global-set-key (kbd "C->") 'mark-next-like-this)
