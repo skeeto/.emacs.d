@@ -72,7 +72,6 @@ in your path. Useful for reading non-regular files like
                         (garbage-collect)
                         (random)
                         (buffer-list)
-                        (buffer-string)
                         (recent-keys)
                         (if (file-exists-p "/dev/urandom")
                             (get-bytes "/dev/urandom" 16))))))
