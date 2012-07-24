@@ -1,24 +1,32 @@
 [submodule "emacs-java"]
 	path = emacs-java
 	url = https://github.com/skeeto/emacs-java.git
+	ignore = untracked
 [submodule "emacs-httpd"]
 	path = emacs-httpd
 	url = https://github.com/skeeto/emacs-http-server.git
+	ignore = untracked
 [submodule "magit"]
 	path = magit
 	url = https://github.com/magit/magit.git
+	ignore = untracked
 [submodule "smex"]
 	path = smex
 	url = https://github.com/nonsequitur/smex.git
+	ignore = untracked
 [submodule "yasnippet-java"]
 	path = yasnippet-java
 	url = https://github.com/skeeto/yasnippet-java-topcoder.git
+	ignore = untracked
 [submodule "yasnippet"]
 	path = yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+	ignore = untracked
 [submodule "mark-multiple"]
 	path = mark-multiple
 	url = https://github.com/magnars/mark-multiple.el.git
+	ignore = untracked
 [submodule "graphviz-dot-mode"]
 	path = graphviz-dot-mode
 	url = https://github.com/ppareit/graphviz-dot-mode.git
+	ignore = untracked
