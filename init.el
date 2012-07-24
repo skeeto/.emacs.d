@@ -215,6 +215,7 @@
 ;; graphviz-dot-mode
 (require 'graphviz-dot-mode)
 (setq graphviz-dot-indent-width 2)
+(setq graphviz-dot-auto-indent-on-semi nil)
 
 ;; Dedicated windows
 (defun toggle-current-window-dedication ()
