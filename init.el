@@ -5,9 +5,7 @@
 
 (require 'cl)
 (require 'memoize)
-(require 'htmlize)
 (require 'highlight-tags-mode)
-(require 'dired+)
 (require 'my-funcs) ; custom functions
 
 ;; Seed the PRNG
