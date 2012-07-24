@@ -19,3 +19,6 @@
 [submodule "mark-multiple"]
 	path = mark-multiple
 	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "graphviz-dot-mode"]
+	path = graphviz-dot-mode
+	url = https://github.com/ppareit/graphviz-dot-mode.git
