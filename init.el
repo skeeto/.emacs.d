@@ -208,6 +208,7 @@
 (global-set-key "\C-x\C-k" 'compile)
 (global-set-key [f1] (lambda () (interactive) (ansi-term "/bin/bash")))
 (global-set-key [f2] (expose (apply-partially 'revert-buffer nil t)))
+(global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile)))
 
 ;; graphviz-dot-mode
 (require 'graphviz-dot-mode)
