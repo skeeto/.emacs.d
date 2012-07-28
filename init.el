@@ -5,6 +5,7 @@
 
 (require 'cl)
 (require 'memoize)
+(require 'imgur)
 (require 'highlight-tags-mode)
 (require 'my-funcs) ; custom functions
 
