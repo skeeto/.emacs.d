@@ -30,6 +30,8 @@
   (insert "---\n")
   (insert (format "title: %s\n" title))
   (insert (format "layout: %s\n" jekyll-post-layout))
+  (insert (format "tags: []\n" jekyll-post-layout))
+  (insert (format "uuid: %s\n" (uuid-create)))
   (insert "---\n\n"))
 
 (defun jekyll/get-post-file (title)
