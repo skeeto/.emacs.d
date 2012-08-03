@@ -1,3 +1,4 @@
+;; -*-lexical-binding: t; -*-
 ;;; memoize.el --- memoize elisp functions
 
 ;; Written by Christopher Wellons <mosquitopsu@gmail.com>
@@ -25,21 +26,21 @@
   "Memoize the given function. If argument is a symbol then
 install the memoized function over the original function."
   (typecase func
-    (symbol (fset func (memoize-wrap (symbol-function func))) func)
+    (symbol
+     (put func 'function-documentation
+          (concat (documentation func) " (memoized)"))
+     (fset func (memoize-wrap (symbol-function func)))
+     func)
     (function (memoize-wrap func))))
 
 ;; ID: 83bae208-da65-3e26-2ecb-4941fb310848
 (defun memoize-wrap (func)
-  "Return the memoized version of the given function."
-  (let ((table-sym (gensym))
-	(val-sym (gensym))
-	(args-sym (gensym)))
-    (set table-sym (make-hash-table :test 'equal))
-    `(lambda (&rest ,args-sym)
-       ,(concat (documentation func) "\n(memoized function)")
-       (let ((,val-sym (gethash ,args-sym ,table-sym)))
-	 (if ,val-sym
-	     ,val-sym
-	   (puthash ,args-sym (apply ,func ,args-sym) ,table-sym))))))
+  "Return the memoized version of FUNC."
+  (let ((table (make-hash-table :test 'equal)))
+    (lambda (&rest args)
+      (let ((value (gethash args table)))
+        (if value
+            value
+          (puthash args (apply func args) table))))))
 
 (provide 'memoize)
