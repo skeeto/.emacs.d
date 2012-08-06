@@ -30,3 +30,6 @@
 	path = graphviz-dot-mode
 	url = https://github.com/ppareit/graphviz-dot-mode.git
 	ignore = untracked
+[submodule "memoize"]
+	path = memoize
+	url = https://github.com/skeeto/emacs-memoize.git
