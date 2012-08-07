@@ -2,8 +2,8 @@
 
 What you see before you is my personal Emacs configuration. This is
 the very first repository I recursively clone when settling in on a
-new computer. Currently it should work with both Emacs 23 and the
-bleeding-edge Emacs 24. If you clone this repository non-recursively,
+new computer. I'm using `package.el` and Emacs 24 themes, so **this
+requires Emacs 24!** If you clone this repository non-recursively,
 don't forget to recursively clone the submodules too. They're
 critical, because this is primarily a repository of repositories.
 
