@@ -10,6 +10,3 @@
         path = yasnippet-java
         url = https://github.com/skeeto/yasnippet-java-topcoder.git
         ignore = untracked
-[submodule "memoize"]
-        path = memoize
-        url = https://github.com/skeeto/emacs-memoize.git
