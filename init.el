@@ -181,13 +181,12 @@
 (global-set-key (kbd "M-x") 'smex)
 
 ;; Set the color theme
-(when (>= emacs-major-version 24)
-  (load-theme 'wombat t)
-  (add-hook 'after-make-frame-functions
-            (lambda (frame)
-              (let ((themes custom-enabled-themes))
-                (mapc 'disable-theme themes)
-                (mapc 'enable-theme (reverse themes))))))
+(load-theme 'wombat t)
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (let ((themes custom-enabled-themes))
+              (mapc 'disable-theme themes)
+              (mapc 'enable-theme (reverse themes)))))
 ;(set-face-attribute 'default nil :height 100)
 ;(set-frame-parameter (selected-frame) 'alpha 80)
 ;(set-default-font "Inconsolata-12")
@@ -260,5 +259,12 @@ ant, scons) in a particular keymap."
  'make ("C-x c" ""
         "C-x r" 'run
         "C-x C" 'clean))
+
+;; Fix broken faces from Wombat and Magit
+(custom-set-faces
+ '(diff-added           ((t :foreground "green")))
+ '(diff-removed         ((t :foreground "red")))
+ '(highlight            ((t (:background "black"))))
+ '(magit-item-highlight ((t :background "black"))))
 
 (provide 'init) ; for those who want to (require 'init)
