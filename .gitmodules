@@ -10,10 +10,6 @@
         path = yasnippet-java
         url = https://github.com/skeeto/yasnippet-java-topcoder.git
         ignore = untracked
-[submodule "mark-multiple"]
-        path = mark-multiple
-        url = https://github.com/magnars/mark-multiple.el.git
-        ignore = untracked
 [submodule "memoize"]
         path = memoize
         url = https://github.com/skeeto/emacs-memoize.git
