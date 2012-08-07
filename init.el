@@ -174,6 +174,7 @@
 (setq ido-show-dot-for-dired t) ; Old habits die hard!
 (setq ido-everywhere t)
 (ido-mode 1)
+(ido-ubiquitous-mode)
 
 ;; Smex
 (require 'smex)
