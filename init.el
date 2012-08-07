@@ -3,10 +3,25 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
+;; Set up package system
+(defvar my-packages
+  '(ido-ubiquitous smex magit yasnippet markdown-mode paredit
+    glsl-mode parenface graphviz-dot-mode)
+  "A list of packages to ensure are installed at launch.")
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
 (require 'cl)
 (require 'memoize)
 (require 'imgur)
-(require 'highlight-tags-mode)
 (require 'my-funcs) ; custom functions
 
 ;; Seed the PRNG
@@ -164,11 +179,6 @@
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;; imenu
-(require 'idomenu)
-(global-set-key (kbd "C-c c") 'idomenu)
 
 ;; Set the color theme
 (when (>= emacs-major-version 24)
@@ -195,7 +205,6 @@
 ;; YASnippet
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/yasnippet/snippets")
 (yas/load-directory "~/.emacs.d/yasnippet-java")
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
 
