@@ -206,6 +206,10 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/yasnippet-java")
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
+(defun disable-yas ()
+  (yas/minor-mode -1))
+(add-hook 'emacs-lisp-mode-hook 'disable-yas)
+(add-hook 'lisp-interaction-mode-hook 'disable-yas)
 
 ;; mark-multiple
 (require 'mark-more-like-this)
