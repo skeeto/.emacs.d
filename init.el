@@ -6,7 +6,7 @@
 ;; Set up package system
 (defvar my-packages
   '(ido-ubiquitous smex magit yasnippet markdown-mode paredit
-    glsl-mode parenface graphviz-dot-mode mark-multiple memoize)
+    glsl-mode parenface graphviz-dot-mode mark-multiple memoize simple-httpd)
   "A list of packages to ensure are installed at launch.")
 
 (require 'package)
@@ -81,9 +81,6 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-;; Web server
-(require 'httpd)
-
 ;; Winner mode
 (require 'winner)
 (winner-mode 1)
@@ -114,7 +111,7 @@
 
 ;; Jekyll
 (require 'jekyll)
-(global-set-key (kbd "C-c n") 'jekyll/new-post)
+(require 'simple-httpd)
 (setq jekyll-home "~/src/skeeto.github.com/")
 (when (file-exists-p jekyll-home)
   (setq httpd-root (concat jekyll-home "_site"))
