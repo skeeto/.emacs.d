@@ -100,7 +100,6 @@
 ;; Git
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
-(setq magit-status-buffer-switch-function 'switch-to-buffer)
 (setq vc-display-status nil)
 
 ;; Markdown
