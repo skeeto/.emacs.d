@@ -160,3 +160,8 @@ prefix argument, the process's buffer is displayed."
   (message (format "%s: %s" proc event)))
 
 (global-set-key (kbd "s-x") 'launch)
+
+(defun ert-uninstall-all-tests ()
+  "Uninstall all ERT tests. Useful when switching projects."
+  (interactive)
+  (mapc 'unintern (remove-if-not (lambda (s) (get s 'ert--test)) obarray)))
