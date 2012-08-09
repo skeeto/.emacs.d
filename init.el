@@ -164,6 +164,14 @@
 ;(set-face-foreground 'paren-face "gray50")
 ;(set-face-foreground 'paren-face "gray60")
 
+;; ERT
+(require 'ert)
+(defun ert-silently ()
+  (interactive)
+  (ert t))
+(define-key emacs-lisp-mode-map (kbd "C-x r") 'ert-silently)
+(define-key lisp-interaction-mode-map (kbd "C-x r") 'ert-silently)
+
 ;; Ido
 (require 'ido)
 (setq ido-enable-flex-matching t)
