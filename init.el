@@ -111,6 +111,7 @@
 ;; Jekyll
 (require 'jekyll)
 (require 'simple-httpd)
+(setq httpd-servlets t)
 (setq jekyll-home "~/src/skeeto.github.com/")
 (when (file-exists-p jekyll-home)
   (setq httpd-root (concat jekyll-home "_site"))
