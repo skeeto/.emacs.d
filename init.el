@@ -77,6 +77,11 @@
                 (whitespace-cleanup))))
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
+;; visual-line-mode
+(require 'simple)
+(define-key visual-line-mode-map (kbd "M-q")
+  (lambda () (interactive))) ; disable so I don't use it by accident
+
 ;; Uniquify buffer names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
