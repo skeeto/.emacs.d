@@ -209,7 +209,7 @@
 
 ;; YASnippet
 (require 'yasnippet)
-(yas/initialize)
+(if (fboundp 'yas/initialize) (yas/initialize))
 (yas/load-directory "~/.emacs.d/yasnippet-java")
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
 (defun disable-yas ()
