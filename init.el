@@ -5,7 +5,7 @@
 
 ;; Set up package system
 (defvar my-packages
-  '(ido-ubiquitous smex magit yasnippet markdown-mode paredit
+  '(ido-ubiquitous smex magit yasnippet markdown-mode paredit impatient-mode
     glsl-mode parenface graphviz-dot-mode mark-multiple memoize simple-httpd)
   "A list of packages to ensure are installed at launch.")
 
