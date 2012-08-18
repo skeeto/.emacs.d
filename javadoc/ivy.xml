@@ -11,5 +11,6 @@
     <dependency org="com.google.guava" name="guava" rev="12.0"/>
     <dependency org="org.jbox2d" name="jbox2d-library" rev="2.1.2.2"/>
     <dependency org="org.apache.commons" name="commons-math3" rev="3.0"/>
+    <dependency org="org.pcollections" name="pcollections" rev="2.1.2"/>
   </dependencies>
 </ivy-module>
