@@ -214,11 +214,11 @@
 
 ;; YASnippet
 (require 'yasnippet)
-(if (fboundp 'yas/initialize) (yas/initialize))
+(yas-global-mode 1)
 (yas/load-directory "~/.emacs.d/yasnippet-java")
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
 (defun disable-yas ()
-  (yas/minor-mode -1))
+  (yas-minor-mode -1))
 (add-hook 'emacs-lisp-mode-hook 'disable-yas)
 (add-hook 'lisp-interaction-mode-hook 'disable-yas)
 
