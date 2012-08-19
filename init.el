@@ -39,6 +39,7 @@
 (setq wdired-allow-to-change-permissions t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq dabbrev-case-distinction nil)
+(setq dabbrev-case-fold-search nil)
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
 (mapatoms (lambda (sym)
