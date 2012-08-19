@@ -37,7 +37,6 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 (setq wdired-allow-to-change-permissions t)
-(put 'narrow-to-region 'disabled nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq dabbrev-case-distinction nil)
 (setq echo-keystrokes 0.1)
