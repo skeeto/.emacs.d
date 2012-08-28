@@ -6,3 +6,6 @@
         path = yasnippet-java
         url = https://github.com/skeeto/yasnippet-java-topcoder.git
         ignore = untracked
+[submodule "geiser"]
+	path = geiser
+	url = http://git.savannah.gnu.org/r/geiser.git
