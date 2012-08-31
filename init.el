@@ -185,6 +185,7 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 (ido-ubiquitous-mode)
+(setq ido-ubiquitous-enable-compatibility nil)
 
 ;; Smex
 (require 'smex)
