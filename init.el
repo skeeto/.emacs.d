@@ -223,6 +223,9 @@
 (add-hook 'emacs-lisp-mode-hook 'disable-yas)
 (add-hook 'lisp-interaction-mode-hook 'disable-yas)
 
+;; Scheme
+(require 'geiser)
+
 ;; mark-multiple
 (require 'mark-more-like-this)
 (global-set-key (kbd "C-<") 'mark-previous-like-this)
