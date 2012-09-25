@@ -27,6 +27,9 @@
 ;; Seed the PRNG
 (random t)
 
+;; Custom general bindings
+(global-set-key (kbd "C-S-j") 'join-line)
+
 ;; Turn off the newbie crap
 (menu-bar-mode -1)
 (tool-bar-mode -1)
