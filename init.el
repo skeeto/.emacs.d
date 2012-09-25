@@ -229,6 +229,8 @@
 
 ;; Scheme
 (require 'geiser)
+(font-lock-add-keywords 'scheme-mode
+  '(("define-\\w+" . font-lock-keyword-face)))
 
 ;; mark-multiple
 (require 'mark-more-like-this)
