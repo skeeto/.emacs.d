@@ -13,7 +13,7 @@
   "Get JSON data from an imgur album at URL."
   (with-current-buffer (url-retrieve-synchronously url)
     (goto-char (point-min))
-    (search-forward "images: ")
+    (re-search-forward "images[[:space:]]*:")
     (json-read)))
 
 (defun imgur/get-hashes (json)
@@ -24,7 +24,7 @@
   "Insert a download script with a filename PREFIX for the list of HASHES."
   (let ((count 0))
     (dolist (hash hashes)
-      (insert (format "wget -O %s-%03d.jpg http://imgur.com/%s.jpg\n"
+      (insert (format "wget -O %s-%03d.jpg http://i.imgur.com/%s.jpg\n"
                       prefix count hash))
       (incf count))))
 
