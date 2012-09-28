@@ -24,8 +24,8 @@
   "Insert a download script with a filename PREFIX for the list of HASHES."
   (let ((count 0))
     (dolist (hash hashes)
-      (insert (format "wget -O %s-%03d.jpg http://i.imgur.com/%s.jpg\n"
-                      prefix count hash))
+      (insert (format "wget -O %s-%03d-%s.jpg http://i.imgur.com/%s.jpg\n"
+                      prefix count hash hash))
       (incf count))))
 
 (defun imgur/gen-script (prefix url)
