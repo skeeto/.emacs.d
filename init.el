@@ -74,11 +74,11 @@
   (message "do-whitespace-cleanup set to %s" do-whitespace-cleanup))
 (add-hook 'before-save-hook
           (lambda ()
-            ;; turn off and on to work around Emacs bug #4069
-            (whitespace-turn-on)
-            (whitespace-turn-off)
-            (if do-whitespace-cleanup
-                (whitespace-cleanup))))
+            (when (and (not buffer-read-only) do-whitespace-cleanup)
+              ;; turn off and on to work around Emacs bug #4069
+              (whitespace-turn-on)
+              (whitespace-turn-off)
+              (whitespace-cleanup))))
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; visual-line-mode
