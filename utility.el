@@ -6,12 +6,7 @@
 
 (require 'cl)
 
-(defun partition (predicate seq)
-  "Divide SEQ into two lists, selected by PREDICATE."
-  (loop for element in (coerce seq 'list)
-        when (funcall predicate element) collect element into a
-        else collect element into b
-        finally (return (list a b))))
+;; Higher-order functions
 
 (defun curry (function args)
   "Partially apply FUNCTION to ARGS."
@@ -39,5 +34,40 @@ and returns the opposite truth value."
 right-associatively."
   (lambda (x)
     (reduce #'funcall functions :initial-value x :from-end t)))
+
+;; Utility
+
+(defun partition (predicate seq)
+  "Divide SEQ into two lists, selected by PREDICATE."
+  (loop for element in (coerce seq 'list)
+        when (funcall predicate element) collect element into a
+        else collect element into b
+        finally (return (list a b))))
+
+;; Anaphoric macros
+
+(defmacro amap (expression seq)
+  "Anahoric map: binds IT in expression to SEQ elements."
+  `(mapcar (lambda (it) ,expression) ,seq))
+
+(defmacro aif (condition then &rest else)
+  "Anaphoric if: binds IT to the condition."
+  `(let ((it ,condition))
+     (if it ,then ,@else)))
+
+(defmacro awhile (condition &rest body)
+  "Anaphoric while: binds IT to CONDITION in BODY."
+  (declare (indent defun))
+  `(let (it)
+     (while (setf it ,condition)
+       ,@body)))
+
+(defmacro alambda (params &rest body)
+  "Anaphoric lambda: binds SELF to the anonymous function itself."
+  (declare (indent defun))
+  `(labels ((self ,params ,@body))
+     #'self))
+
+(provide 'utility)
 
 ;;; utility.el ends here

@@ -24,6 +24,7 @@
 (require 'memoize)
 (require 'imgur)
 (require 'my-funcs) ; custom functions
+(require 'utility)
 
 ;; Seed the PRNG
 (random t)
