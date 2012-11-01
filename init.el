@@ -7,7 +7,7 @@
 (defvar my-packages
   '(glsl-mode graphviz-dot-mode ido-ubiquitous impatient-mode
     js2-mode magit mark-multiple markdown-mode memoize paredit
-    parenface rdp simple-httpd smex yasnippet)
+    parenface rdp simple-httpd skewer-mode smex yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (require 'package)
