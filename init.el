@@ -57,6 +57,16 @@
 (setq display-time-24hr-format t)
 (display-time-mode t)
 
+;; Fix up comint annoyances
+(require 'comint)
+(setq comint-prompt-read-only t
+      comint-history-isearch t)
+(define-key comint-mode-map (kbd "<down>") 'comint-next-input)
+(define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
+(define-key comint-mode-map (kbd "C-n") 'comint-next-input)
+(define-key comint-mode-map (kbd "C-p") 'comint-previous-input)
+(define-key comint-mode-map (kbd "C-r") 'comint-history-isearch-backward)
+
 ;; tramp
 (require 'tramp)  ; manual require due to Emacs 23 bug
 (require 'tramp-cache)
