@@ -160,3 +160,15 @@ prefix argument, the process's buffer is displayed."
   (message (format "%s: %s" proc event)))
 
 (global-set-key (kbd "s-x") 'launch)
+
+;; Quick switch to scratch buffers
+
+(defmacro scratch-key (key buffer-name mode)
+  `(global-set-key ,key (lambda ()
+                          (interactive)
+                          (switch-to-buffer ,buffer-name)
+                          (,mode))))
+
+(scratch-key (kbd "C-S-s") "*scratch*"    lisp-interaction-mode)
+(scratch-key (kbd "C-S-d") "*javascript*" js2-mode)
+(scratch-key (kbd "C-S-a") "*lisp*"       lisp-mode)
