@@ -58,20 +58,21 @@
 (display-time-mode t)
 
 ;; Fix up comint annoyances
-(require 'comint)
-(setq comint-prompt-read-only t
-      comint-history-isearch t)
-(define-key comint-mode-map (kbd "<down>") 'comint-next-input)
-(define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
-(define-key comint-mode-map (kbd "C-n") 'comint-next-input)
-(define-key comint-mode-map (kbd "C-p") 'comint-previous-input)
-(define-key comint-mode-map (kbd "C-r") 'comint-history-isearch-backward)
+(eval-after-load 'comint
+  '(progn
+     (message "comint loaded: %s" (featurep 'comint))
+     (setq comint-prompt-read-only t
+           comint-history-isearch t)
+     (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
+     (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
+     (define-key comint-mode-map (kbd "C-n") 'comint-next-input)
+     (define-key comint-mode-map (kbd "C-p") 'comint-previous-input)
+     (define-key comint-mode-map (kbd "C-r") 'comint-history-isearch-backward)))
 
 ;; tramp
-(require 'tramp)  ; manual require due to Emacs 23 bug
-(require 'tramp-cache)
-(setq tramp-persistency-file-name
-      (concat temporary-file-directory "tramp-" (user-login-name)))
+(eval-after-load 'tramp-cache
+  '(setq tramp-persistency-file-name
+         (concat temporary-file-directory "tramp-" (user-login-name))))
 
 ;; Use proper whitespace
 (require 'whitespace)
@@ -93,9 +94,9 @@
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; visual-line-mode
-(require 'simple)
-(define-key visual-line-mode-map (kbd "M-q")
-  (lambda () (interactive))) ; disable so I don't use it by accident
+(eval-after-load 'simple
+  '(define-key visual-line-mode-map (kbd "M-q")
+     (lambda () (interactive)))) ; disable so I don't use it by accident
 
 ;; Uniquify buffer names
 (require 'uniquify)
@@ -118,16 +119,15 @@
 (setq org-log-done 'time)
 
 ;; Git
-(require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 (setq vc-display-status nil)
 
 ;; Markdown
-(require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("pentadactyl.txt$" . markdown-mode))
-(define-key markdown-mode-map (kbd "<tab>") nil) ; fix for YASnippet
+(eval-after-load 'markdown-mode
+  '(define-key markdown-mode-map (kbd "<tab>") nil)) ; fix for YASnippet
 
 ;; Jekyll
 (require 'jekyll)
@@ -146,11 +146,10 @@
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
 ;; Printing
-(require 'ps-print)
-(setq ps-print-header nil)
+(eval-after-load 'ps-print
+  '(setq ps-print-header nil))
 
 ;; GLSL
-(require 'glsl-mode)
 (add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.frag$" . glsl-mode))
@@ -166,28 +165,25 @@
     (setq erc-nick "skeeto"))
 
 ;; C (and fix Emacs' incorrect k&r indentation)
-(require 'cc-mode)
-(setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
-(add-to-list 'c-default-style '(c-mode . "k&r"))
+(eval-after-load 'cc-mode
+  '(progn
+     (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
+     (add-to-list 'c-default-style '(c-mode . "k&r"))))
 
 ;; Parenthesis
-(require 'paredit)
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode 1)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode 1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode 1)))
-(add-hook 'scheme-mode-hook           (lambda () (paredit-mode 1)))
-(add-hook 'ielm-mode-hook             (lambda () (paredit-mode 1)))
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode)))
+(add-hook 'ielm-mode-hook             (lambda () (paredit-mode)))
 (defadvice ielm-eval-input (after ielm-paredit activate)
   "Begin each ielm prompt with a paredit pair.."
   (paredit-open-round))
-(show-paren-mode 1)
+(show-paren-mode)
 (require 'parenface)
 (set-face-foreground 'paren-face "gray30")
-;(set-face-foreground 'paren-face "gray50")
-;(set-face-foreground 'paren-face "gray60")
 
 ;; ERT
-(require 'ert)
 (defun ert-silently ()
   (interactive)
   (ert t))
@@ -230,7 +226,6 @@
                       (directory-files "~/.emacs.d/javadoc" t "^[^.].*$")))
 
 ;; YASnippet
-(require 'yasnippet)
 (yas-global-mode 1)
 (yas/load-directory "~/.emacs.d/yasnippet-java")
 (yas/load-directory "~/.emacs.d/emacs-java/snippets")
@@ -240,12 +235,11 @@
 (add-hook 'lisp-interaction-mode-hook 'disable-yas)
 
 ;; Scheme
-(require 'geiser)
-(font-lock-add-keywords 'scheme-mode
-  '(("define-\\w+" . font-lock-keyword-face)))
+(eval-after-load 'geiser
+  '(font-lock-add-keywords 'scheme-mode
+                           '(("define-\\w+" . font-lock-keyword-face))))
 
 ;; mark-multiple
-(require 'mark-more-like-this)
 (global-set-key (kbd "C-<") 'mark-previous-like-this)
 (global-set-key (kbd "C->") 'mark-next-like-this)
 
@@ -257,9 +251,10 @@
 (global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile)))
 
 ;; graphviz-dot-mode
-(require 'graphviz-dot-mode)
-(setq graphviz-dot-indent-width 2)
-(setq graphviz-dot-auto-indent-on-semi nil)
+(eval-after-load 'graphviz-dot-mode
+  '(progn
+     (setq graphviz-dot-indent-width 2)
+     (setq graphviz-dot-auto-indent-on-semi nil)))
 
 ;; Dedicated windows
 (defun toggle-current-window-dedication ()
