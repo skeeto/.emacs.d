@@ -167,7 +167,8 @@ prefix argument, the process's buffer is displayed."
   `(global-set-key ,key (lambda ()
                           (interactive)
                           (switch-to-buffer ,buffer-name)
-                          (,mode))))
+                          (unless (eq major-mode ',mode)
+                            (,mode)))))
 
 (scratch-key (kbd "C-S-s") "*scratch*"    lisp-interaction-mode)
 (scratch-key (kbd "C-S-d") "*javascript*" js2-mode)
