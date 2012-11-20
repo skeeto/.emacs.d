@@ -142,6 +142,10 @@
         (jekyll/start))
     ('error (message (format "notice: httpd failed: %s" e)))))
 
+;;; JavaScript
+(eval-after-load 'js2-mode
+  '(setq-default js2-additional-externs '("$")))
+
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
