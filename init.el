@@ -136,11 +136,11 @@
 (setq jekyll-home "~/src/skeeto.github.com/")
 (when (file-exists-p jekyll-home)
   (setq httpd-root (concat jekyll-home "_site"))
-  (condition-case e
+  (condition-case error
       (progn
         (httpd-start)
         (jekyll/start))
-    ('error (message (format "notice: httpd failed: %s" e)))))
+    (error nil)))
 
 ;;; JavaScript
 (eval-after-load 'js2-mode
