@@ -50,6 +50,7 @@
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
+(defalias 'lisp-interaction-mode 'emacs-lisp-mode)
 
 ;; Display the time
 (setq display-time-default-load-average nil)
@@ -179,7 +180,6 @@
 ;; Parenthesis
 (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode)))
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode)))
 (add-hook 'ielm-mode-hook             (lambda () (paredit-mode)))
 (defadvice ielm-eval-input (after ielm-paredit activate)
@@ -194,7 +194,6 @@
   (interactive)
   (ert t))
 (define-key emacs-lisp-mode-map (kbd "C-x r") 'ert-silently)
-(define-key lisp-interaction-mode-map (kbd "C-x r") 'ert-silently)
 
 ;; Ido
 (require 'ido)
@@ -238,7 +237,6 @@
 (defun disable-yas ()
   (yas-minor-mode -1))
 (add-hook 'emacs-lisp-mode-hook 'disable-yas)
-(add-hook 'lisp-interaction-mode-hook 'disable-yas)
 
 ;; Scheme
 (eval-after-load 'geiser
