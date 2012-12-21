@@ -147,7 +147,7 @@
 (eval-after-load 'js2-mode
   '(setq-default js2-additional-externs
                  '("$" "unsafeWindow" "localStorage"
-                   "setTimeout" "setInterval")))
+                   "setTimeout" "setInterval" "location")))
 
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
