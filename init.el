@@ -5,7 +5,7 @@
 
 ;; Set up package system
 (defvar my-packages
-  '(glsl-mode graphviz-dot-mode ido-ubiquitous impatient-mode
+  '(dired-details glsl-mode graphviz-dot-mode ido-ubiquitous impatient-mode
     js2-mode magit markdown-mode memoize multiple-cursors paredit
     parenface rdp simple-httpd skewer-mode smex yasnippet)
   "A list of packages to ensure are installed at launch.")
@@ -203,6 +203,11 @@
 (ido-mode 1)
 (ido-ubiquitous-mode)
 (setq ido-ubiquitous-enable-compatibility nil)
+
+;; Dired
+(require 'dired-details)
+(setq-default dired-details-hidden-string "--- ")
+(dired-details-install)
 
 ;; Smex
 (require 'smex)
