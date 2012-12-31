@@ -6,7 +6,7 @@
 ;; Set up package system
 (defvar my-packages
   '(dired-details glsl-mode graphviz-dot-mode ido-ubiquitous impatient-mode
-    js2-mode magit markdown-mode memoize multiple-cursors paredit
+    js2-mode lua-mode magit markdown-mode memoize multiple-cursors paredit
     parenface rdp simple-httpd skewer-mode smex yasnippet)
   "A list of packages to ensure are installed at launch.")
 
