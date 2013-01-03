@@ -5,9 +5,10 @@
 
 ;; Set up package system
 (defvar my-packages
-  '(dired-details glsl-mode graphviz-dot-mode ido-ubiquitous impatient-mode
-    js2-mode lua-mode magit markdown-mode memoize multiple-cursors paredit
-    parenface rdp simple-httpd skewer-mode smex yasnippet)
+  '(clojure-mode dired-details glsl-mode graphviz-dot-mode ido-ubiquitous
+    impatient-mode js2-mode lua-mode magit markdown-mode memoize
+    multiple-cursors nrepl paredit parenface rdp simple-httpd skewer-mode
+    smex yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (require 'package)
@@ -149,6 +150,11 @@
                  '("$" "unsafeWindow" "localStorage" "jQuery"
                    "setTimeout" "setInterval" "location")))
 
+;; Clojure
+(defadvice nrepl-default-err-handler (after nrepl-focus-errors activate)
+  "Focus the error buffer after errors, like Emacs normally does."
+  (select-window (get-buffer-window "*nrepl-error*")))
+
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
@@ -178,16 +184,19 @@
      (add-to-list 'c-default-style '(c-mode . "k&r"))))
 
 ;; Parenthesis
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode)))
-(add-hook 'scheme-mode-hook           (lambda () (paredit-mode)))
-(add-hook 'ielm-mode-hook             (lambda () (paredit-mode)))
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+(add-hook 'lisp-mode-hook 'paredit-mode)
+(add-hook 'scheme-mode-hook 'paredit-mode)
+(add-hook 'ielm-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 (defadvice ielm-eval-input (after ielm-paredit activate)
   "Begin each ielm prompt with a paredit pair.."
   (paredit-open-round))
 (show-paren-mode)
 (require 'parenface)
 (set-face-foreground 'paren-face "gray30")
+(add-hook 'clojure-mode-hook
+          (paren-face-add-support clojure-font-lock-keywords))
 
 ;; ERT
 (defun ert-silently ()

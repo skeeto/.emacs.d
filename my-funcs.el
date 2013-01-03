@@ -173,3 +173,4 @@ prefix argument, the process's buffer is displayed."
 (scratch-key (kbd "C-S-s") "*scratch*"    emacs-lisp-mode)
 (scratch-key (kbd "C-S-d") "*javascript*" js2-mode)
 (scratch-key (kbd "C-S-a") "*lisp*"       lisp-mode)
+(scratch-key (kbd "C-S-c") "*clojure*"    clojure-mode)
