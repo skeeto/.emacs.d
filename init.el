@@ -194,9 +194,30 @@
   (paredit-open-round))
 (show-paren-mode)
 (require 'parenface)
-(set-face-foreground 'paren-face "gray30")
+(set-face-foreground 'paren-face "Gray30")
 (add-hook 'clojure-mode-hook
           (paren-face-add-support clojure-font-lock-keywords))
+
+;; Brackets
+(defvar bracket-face 'bracket-face)
+(defface bracket-face
+    '((((class color))
+       (:foreground "Gray60")))
+  "Face for displaying a bracket."
+  :group 'faces)
+
+(defmacro bracket-face (keywords)
+  "Generate a lambda expression for use in a hook."
+  `(lambda ()
+     (let* ((regexp"\\[\\|\\]\\|{\\|}")
+            (match (assoc regexp ,keywords)))
+       (unless (eq (cdr match) bracket-face)
+         (setq ,keywords (cons (cons regexp bracket-face) ,keywords))))))
+
+(add-hook 'scheme-mode-hook (bracket-face scheme-font-lock-keywords-2))
+(add-hook 'lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
+(add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
+(add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords))
 
 ;; ERT
 (defun ert-silently ()
