@@ -155,6 +155,14 @@
   "Focus the error buffer after errors, like Emacs normally does."
   (select-window (get-buffer-window "*nrepl-error*")))
 
+(defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
+  (if (fboundp 'slime-flash-region)
+      (slime-flash-region (save-excursion (backward-sexp) (point)) (point))))
+
+(defadvice nrepl-eval-expression-at-point (after nrepl-flash-at activate)
+  (if (fboundp 'slime-flash-region)
+      (apply #'slime-flash-region (nrepl-region-for-expression-at-point))))
+
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
