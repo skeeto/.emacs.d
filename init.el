@@ -151,6 +151,8 @@
                    "setTimeout" "setInterval" "location")))
 
 ;; Clojure
+(add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
+
 (defadvice nrepl-default-err-handler (after nrepl-focus-errors activate)
   "Focus the error buffer after errors, like Emacs normally does."
   (select-window (get-buffer-window "*nrepl-error*")))
