@@ -165,6 +165,9 @@
   (if (fboundp 'slime-flash-region)
       (apply #'slime-flash-region (nrepl-region-for-expression-at-point))))
 
+; Remove ":headless" to work around Leiningen bug
+(setq nrepl-server-command "lein repl")
+
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
