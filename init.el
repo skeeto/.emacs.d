@@ -148,7 +148,7 @@
 (eval-after-load 'js2-mode
   '(setq-default js2-additional-externs
                  '("$" "unsafeWindow" "localStorage" "jQuery"
-                   "setTimeout" "setInterval" "location")))
+                   "setTimeout" "setInterval" "location" "skewer")))
 
 ;; Clojure
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
