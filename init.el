@@ -6,9 +6,9 @@
 ;; Set up package system
 (defvar my-packages
   '(clojure-mode dired-details glsl-mode graphviz-dot-mode ido-ubiquitous
-    impatient-mode js2-mode lua-mode magit markdown-mode memoize
-    multiple-cursors nrepl paredit parenface rdp simple-httpd skewer-mode
-    smex yasnippet)
+    impatient-mode javadoc-lookup js2-mode lua-mode magit markdown-mode
+    memoize multiple-cursors nrepl paredit parenface rdp simple-httpd
+    skewer-mode smex yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (require 'package)
@@ -269,13 +269,23 @@
 
 ;; Java
 (require 'java-mode-plus)
-(require 'java-docs)
-(if (executable-find "firefox")
-    (setq browse-url-browser-function 'browse-url-firefox))
 (java-mode-short-keybindings)
-(apply 'java-docs
-       (remove-if-not 'file-directory-p
-                      (directory-files "~/.emacs.d/javadoc" t "^[^.].*$")))
+(javadoc-add-artifacts
+ ["org.lwjgl.lwjgl" "lwjgl" "2.8.2"]
+ ["com.nullprogram" "native-guide" "0.2"]
+ ["junit" "junit" "4.10"]
+ ["org.projectlombok" "lombok" "0.10.4"]
+ ["org.mockito" "mockito-all" "1.9.0"]
+ ["com.beust" "jcommander" "1.25"]
+ ["com.google.guava" "guava" "12.0"]
+ ["org.jbox2d" "jbox2d-library" "2.1.2.2"]
+ ["org.apache.commons" "commons-math3" "3.0"]
+ ["org.pcollections" "pcollections" "2.1.2"]
+ ["org.xerial" "sqlite-jdbc" "3.7.2"])
+
+;; Browser
+(when (executable-find "firefox")
+  (setq browse-url-browser-function 'browse-url-firefox))
 
 ;; YASnippet
 (yas-global-mode 1)
