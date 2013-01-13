@@ -1,7 +1,3 @@
-[submodule "emacs-java"]
-        path = emacs-java
-        url = https://github.com/skeeto/emacs-java.git
-        ignore = untracked
 [submodule "yasnippet-java"]
         path = yasnippet-java
         url = https://github.com/skeeto/yasnippet-java-topcoder.git
