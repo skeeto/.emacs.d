@@ -268,6 +268,7 @@
 ;(set-default-font "Inconsolata-12")
 
 ;; Java
+(global-set-key (kbd "C-h j") 'javadoc-lookup)
 (javadoc-add-artifacts
  ["org.lwjgl.lwjgl" "lwjgl" "2.8.2"]
  ["com.nullprogram" "native-guide" "0.2"]
