@@ -268,8 +268,6 @@
 ;(set-default-font "Inconsolata-12")
 
 ;; Java
-(require 'java-mode-plus)
-(java-mode-short-keybindings)
 (javadoc-add-artifacts
  ["org.lwjgl.lwjgl" "lwjgl" "2.8.2"]
  ["com.nullprogram" "native-guide" "0.2"]
@@ -290,7 +288,6 @@
 ;; YASnippet
 (yas-global-mode 1)
 (yas/load-directory "~/.emacs.d/yasnippet-java")
-(yas/load-directory "~/.emacs.d/emacs-java/snippets")
 (defun disable-yas ()
   (yas-minor-mode -1))
 (add-hook 'emacs-lisp-mode-hook 'disable-yas)
