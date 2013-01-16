@@ -153,7 +153,7 @@
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
 ; Fix nrepl.el's broken error buffer
-(defalias 'nrepl-popup-buffer-quit-function 'quit-window)
+(defalias 'nrepl-popup-buffer-quit 'quit-window)
 (defadvice nrepl-default-err-handler (after nrepl-focus-errors activate)
   "Focus the error buffer after errors, like Emacs normally does."
   (select-window (get-buffer-window "*nrepl-error*")))
