@@ -5,7 +5,7 @@
 
 ;; Set up package system
 (defvar my-packages
-  '(clojure-mode dired-details glsl-mode graphviz-dot-mode ido-ubiquitous
+  '(clojure-mode glsl-mode graphviz-dot-mode ido-ubiquitous
     impatient-mode javadoc-lookup js2-mode lua-mode magit markdown-mode
     memoize multiple-cursors nrepl paredit parenface rdp simple-httpd
     skewer-mode smex yasnippet)
@@ -247,11 +247,6 @@
 (ido-mode 1)
 (ido-ubiquitous-mode)
 (setq ido-ubiquitous-enable-compatibility nil)
-
-;; Dired
-(require 'dired-details)
-(setq-default dired-details-hidden-string "--- ")
-(dired-details-install)
 
 ;; Smex
 (require 'smex)
