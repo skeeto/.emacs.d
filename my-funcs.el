@@ -161,6 +161,14 @@ prefix argument, the process's buffer is displayed."
 
 (global-set-key (kbd "s-x") 'launch)
 
+;; Dictionary lookup
+
+(defun lookup-word (word)
+  (interactive (list (save-excursion (car (ispell-get-word nil)))))
+  (browse-url (format "http://en.wiktionary.org/wiki/%s" word)))
+
+(global-set-key (kbd "M-#") 'lookup-word)
+
 ;; Quick switch to scratch buffers
 
 (defmacro scratch-key (key buffer-name mode)
