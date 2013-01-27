@@ -147,7 +147,8 @@
      (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
      (setq-default js2-additional-externs
                    '("$" "unsafeWindow" "localStorage" "jQuery"
-                     "setTimeout" "setInterval" "location" "skewer"))))
+                     "setTimeout" "setInterval" "location" "skewer"
+                     "console" "phantom"))))
 
 ;; Clojure
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
