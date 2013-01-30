@@ -169,6 +169,14 @@ prefix argument, the process's buffer is displayed."
 
 (global-set-key (kbd "M-#") 'lookup-word)
 
+;; File input
+
+(defun slurp (file)
+  "Return FILE contents as a string."
+  (with-temp-buffer
+    (insert-file-contents file)
+    (buffer-string)))
+
 ;; Quick switch to scratch buffers
 
 (defmacro scratch-key (key buffer-name mode)
