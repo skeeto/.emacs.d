@@ -36,17 +36,17 @@ important.
 Here's a list of some small features added by `init.el` or
 `my-funcs.el`.
 
-* `M-<up>` -- Move the current line up.
-* `M-<down>` -- Move the current line down.
-* `C-x !` -- Insert a UUID.
-* `C-x ~` -- Set the current buffer to 80 columns.
-* `C-c r` -- Insert random number.
-* `C-c e` -- Eval and replace.
-* `M-g` -- Go to line.
-* `C-x C-k` -- Compile.
-* `[f1]` -- Start a terminal.
-* `[f2]` -- Revert the buffer, *no questions asked*.
-* `[pause]` -- Dedicate the current window to the current buffer.
+* <kbd>M-<up></kbd> -- Move the current line up.
+* <kbd>M-<down></kbd> -- Move the current line down.
+* <kbd>C-x !</kbd> -- Insert a UUID.
+* <kbd>C-x ~</kbd> -- Set the current buffer to 80 columns.
+* <kbd>C-c r</kbd> -- Insert random number.
+* <kbd>C-c e</kbd> -- Eval and replace.
+* <kbd>M-g</kbd> -- Go to line.
+* <kbd>C-x C-k</kbd> -- Compile.
+* <kbd>[f1]</kbd> -- Start a terminal.
+* <kbd>[f2]</kbd> -- Revert the buffer, *no questions asked*.
+* <kbd>[pause]</kbd> -- Dedicate the current window to the current buffer.
 
 And some of the more interesting functions/macros, especially if
 you're an Elisp developer,
@@ -75,10 +75,10 @@ bindings are already defined globally,
         "C-x C" 'clean))  ; Note the capital C
 ```
 
-`C-x c` runs `make` with the `compile` target and `C-x C` runs `make`
-with the `clean` target.
+<kbd>C-x c</kbd> runs `make` with the `compile` target and <kbd>C-x
+C</kbd> runs `make` with the `clean` target.
 
-`ant-bind*` is part of `java-mode-plus`.
+`ant-bind*` is part of `ant-project-mode`.
 
 ### Whitespace
 
@@ -93,15 +93,15 @@ variable `do-whitespace-cleanup` to `nil`.
 
 Something experienced Emacs users may notice at first is that I make
 heavy use of `ido-mode`. It's turned on with flex matching, I've got
-`smex` loaded to complete `M-x` commands, and I use it for picking
-Java documentation. It's a wonderful feature and every Emacs user
-should be using it.
+`smex` loaded to complete <kbd>M-x</kbd> commands, and I use it for
+picking Java documentation. It's a wonderful feature and every Emacs
+user should be using it.
 
 ### Magit
 
 To interact with Git repositories, I use
 [Magit](http://philjackson.github.com/magit/) (pronounced like
-"magic"). You can run it at any time with `C-x g`. As
+"magic"). You can run it at any time with <kbd>C-x g</kbd>. As
 [the manual](http://philjackson.github.com/magit/magit.html) points
 out, Magit is not a complete interface for Git, nor should it be. It
 covers 95% of my Git use, with the other 5% directly with Git on the
@@ -152,68 +152,54 @@ configuration? That's where I put the hook to load Slime.
 
 ### Java
 
-This is one of the big ones. Because I spend so much time writing
+This was one of the big ones when I used spend a lot of time writing
 Java, and Emacs was lacking solid Java support, I built up my own
 extensions to support Java development. The full documentation is
 listed in the
-[`java-mode-plus.el` header](https://raw.github.com/skeeto/emacs-java/master/java-mode-plus.el),
+[`ant-project-mode.el` header](https://github.com/skeeto/ant-project-mode/blob/master/ant-project-mode.el),
 but here's a quick rundown of my configuration.
 
-First, my extensions do class completion and look-up by examining the
-file structure of Javadoc documentation. So to make any effective use
-of these extensions you need to tell it where to find some Javadoc
-hierarchies. This is another great use of a system-specific `.emacs`
-file, since these locations vary from system to system. Here's an
-example from the current machine I'm using.
+First, I use
+[javadoc-lookup](https://github.com/skeeto/javadoc-lookup) for class
+completion and lookup, which works by examining the file structure of
+Javadoc documentation. While it comes with the core API Javadoc
+built-in, to make more effective use of it I need to tell it about
+what other things I'll want to look up. Its configuration looks like
+this,
 
 ```cl
-(java-docs "/usr/share/doc/openjdk-6-jdk/api"
-           "~/doc/lwjgl"
-           "~/doc/commons-cli"
-           "~/doc/guava"
-           "~/doc/jline"
-           "~/doc/rxtx"
-           "~/doc/junit4")
+(javadoc-add-artifacts [org.lwjgl.lwjgl lwjgl "2.8.2"]
+                       [com.nullprogram native-guide "0.2"]
+                       [joda-time joda-time "2.1"])
 ```
 
-I gave it the standard Javadoc path and a bunch more I keep in my home
-directory. These directories are scanned and the results cached in
-`~/.java-docs/` for faster loading in the future. Once you've done
-this you can jump to any class's documentation with `C-h j`. I use
+I can jump to any class's documentation with <kbd>C-h j</kbd>. I use
 Firefox, so this will try to open the documentation in Firefox if
 possible.
 
-If you don't specify the core Java Javadoc, it will attempt add it for
-you, linking to the official website rather than a file on the local
-system.
+> Notice: *`ant-project-mode` is not currently part of this
+> configuration, so the following will not work at the moment.*
 
-The `javadoc` directory in this repository contains a build script
-that uses Apache Ivy to fetch my preferred Javadoc jars from the Maven
-repository. All you need to do is run `ant` in this directory and the
-documentation will be fetched and unzipped. Everything fetched will be
-automatically loaded into java-docs by `init.el` on the next Emacs
-startup. Edit `ivy.xml` to add more default documentation.
+Next, when in a `java-mode` buffer, I can add an import to the imports
+section at any time with <kbd>C-x I</kbd> (the
+`ant-project-short-keybindings` binding). Like `javadoc-lookup`,
+<kbd>C-h j</kbd>, Ido will do a completing read asking you which class
+I'd like to import. It's inserted in the proper position inside the
+imports section.
 
-Next, if you're in a `java-mode` buffer, you can add an import to the
-imports section at any time with `C-x I` (the
-`java-mode-short-keybindings` binding). Like `java-docs-lookup`, `C-h
-j`, Ido will do a completing read asking you which class you'd like to
-import. It's inserted in the proper position inside the imports
-section.
-
-If you're using
+When using
 [Ant like I do](https://github.com/skeeto/SampleJavaProject), there
 are a number of bindings that trigger specific Ant targets. The three
 I use most often are,
 
-* `C-x c` -- Compile the program.
-* `C-x r` -- Run the program.
-* `C-x t` -- Run the unit tests.
+* <kbd>C-x c</kbd> -- Compile the program.
+* <kbd>C-x r</kbd> -- Run the program.
+* <kbd>C-x t</kbd> -- Run the unit tests.
 
 The compilation buffer name is derived from the prefix argument. Using
-prefixes (`C-u` *number*), you can run any number of compilation
-processes at once. I find this especially useful for hot code
-replacement.
+prefixes (<kbd>C-u</kbd> *number*), you can run any number of
+compilation processes at once. I find this especially useful for hot
+code replacement.
 
 The YASnippets in `emacs-java/snippets/` take advantage of my
 `java-mode` extensions. My favorite snippet is `cls` ("class"): start
