@@ -89,7 +89,7 @@ saving a buffer. To disable this on a per-file basis -- for example,
 to precisely edit a sloppily-spaced file -- set the buffer-local
 variable `do-whitespace-cleanup` to `nil`.
 
-### Ido Mode
+### Ido
 
 Something experienced Emacs users may notice at first is that I make
 heavy use of `ido-mode`. It's turned on with flex matching, I've got
@@ -114,8 +114,16 @@ can launch it with `httpd-start` and stop it with `httpd-stop`. It
 will serve files from the directory at `httpd-root` and log messages
 in s-expression form to the `*httpd*` buffer.
 
-I don't use this much, but I think it's cool. It also makes a great
-demo.
+#### Skewer
+
+The most important use of the web server is for
+[skewer-mode](https://github.com/skeeto/skewer-mode). I run its
+associated userscript in my browser allowing me to, at *any* time on
+*any* page, attach Emacs to a webpage. Once attached to Emacs I can
+fully interact with the browser's JavaScript runtime through a
+JavaScript REPL (`skewer-repl`) and live expression evaluation in
+JavaScript buffers, very similar to the various lisp interaction
+modes. It can also do live "evaluation" of CSS (`skewer-css-mode`).
 
 ### YASnippet
 
@@ -150,12 +158,19 @@ let [Quicklisp](http://www.quicklisp.org/) install and manage it for
 me. Remember my note about using `.emacs` for system-specific
 configuration? That's where I put the hook to load Slime.
 
+#### nrepl.el
+
+I interact with Clojure projects using
+[`nrepl.el`](https://github.com/kingtim/nrepl.el) and nREPL. This can
+be fired up at any time with `nrepl-jack-in`. This requires Leiningen,
+[which is very easy to set up](http://nullprogram.com/blog/2013/01/07/).
+
 ### Java
 
 This was one of the big ones when I used spend a lot of time writing
-Java, and Emacs was lacking solid Java support, I built up my own
-extensions to support Java development. The full documentation is
-listed in the
+Java, and Emacs was lacking solid Java support. I built up my own
+extensions to support Java development: `ant-project-mode` and
+`javadoc-lookup`. The full documentation is listed in the
 [`ant-project-mode.el` header](https://github.com/skeeto/ant-project-mode/blob/master/ant-project-mode.el),
 but here's a quick rundown of my configuration.
 
