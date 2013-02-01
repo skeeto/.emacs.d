@@ -5,7 +5,7 @@ the very first repository I recursively clone when settling in on a
 new computer. I'm using `package.el` and Emacs 24 themes, so **this
 requires Emacs 24!** If you clone this repository non-recursively,
 don't forget to recursively clone the submodules too. They're
-critical, because this is primarily a repository of repositories.
+critical.
 
     git submodule update --init --recursive
 
@@ -19,9 +19,9 @@ system-specific configuration, but I put this at the top,
 (load-file "~/.emacs.d/init.el")
 ```
 
-If you did everything right Emacs should simply launch with no errors
-and maybe just one warning from YASnippet. You will be greeted with a
-featureless, empty gray box awaiting your instructions.
+If you did everything right Emacs should simply launch with no
+errors. You will be greeted with a featureless, empty gray box
+awaiting your instructions.
 
 ## Features
 
