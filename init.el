@@ -140,6 +140,8 @@
         (httpd-start)
         (jekyll/start))
     (error nil)))
+(defservlet robots.txt text/plain ()
+  (insert "User-agent: *\nDisallow: /\n"))
 
 ;;; JavaScript
 (eval-after-load 'js2-mode
