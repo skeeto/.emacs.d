@@ -147,6 +147,7 @@
 (eval-after-load 'js2-mode
   '(progn
      (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
+     (setq js2-skip-preprocessor-directives t)
      (setq-default js2-additional-externs
                    '("$" "unsafeWindow" "localStorage" "jQuery"
                      "setTimeout" "setInterval" "location" "skewer"
