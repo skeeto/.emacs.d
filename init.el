@@ -284,7 +284,8 @@
  [org.pcollections pcollections "2.1.2"]
  [org.xerial sqlite-jdbc "3.7.2"]
  [com.googlecode.lanterna lanterna "2.1.2"]
- [joda-time joda-time "2.1"])
+ [joda-time joda-time "2.1"]
+ [org.apache.lucene lucene-core "3.3.0"])
 
 ;; Browser
 (when (executable-find "firefox")
