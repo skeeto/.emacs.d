@@ -51,7 +51,16 @@
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
+
+;; Emacs Lisp
 (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
+
+(defun ielm-repl ()
+  (interactive)
+  (pop-to-buffer (get-buffer-create "*ielm*"))
+  (ielm))
+
+(define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
 
 ;; Display the time
 (setq display-time-default-load-average nil)
