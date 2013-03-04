@@ -61,6 +61,7 @@
   (ielm))
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
+(define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
 
 ;; Display the time
 (setq display-time-default-load-average nil)
