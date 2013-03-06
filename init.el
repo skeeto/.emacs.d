@@ -169,9 +169,9 @@
 ; Fix nrepl.el's broken error buffer
 (eval-after-load 'nrepl
   '(defalias 'nrepl-popup-buffer-quit 'quit-window))
-(defadvice nrepl-default-err-handler (after nrepl-focus-errors activate)
+(defadvice nrepl-popup-buffer-display (after nrepl-focus-errors activate)
   "Focus the error buffer after errors, like Emacs normally does."
-  (select-window (get-buffer-window "*nrepl-error*")))
+  (select-window (get-buffer-window nrepl-error-buffer)))
 
 (defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
   (if (fboundp 'slime-flash-region)
