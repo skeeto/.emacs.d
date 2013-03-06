@@ -190,3 +190,16 @@ prefix argument, the process's buffer is displayed."
 (scratch-key (kbd "C-S-d") "*javascript*" js2-mode)
 (scratch-key (kbd "C-S-a") "*lisp*"       lisp-mode)
 (scratch-key (kbd "C-S-c") "*clojure*"    clojure-mode)
+
+;; ID: 72dc0a9e-c41c-31f8-c8f5-d9db8482de1e
+(defun find-all-files (dir)
+  "Open all files and sub-directories below the given directory."
+  (interactive "DBase directory: ")
+  (let* ((list (directory-files dir t "^[^.]"))
+         (files (remove-if 'file-directory-p list))
+         (dirs (remove-if-not 'file-directory-p list)))
+    (dolist (file files)
+      (find-file-noselect file))
+    (dolist (dir dirs)
+      (find-file-noselect dir)
+      (find-all-files dir))))
