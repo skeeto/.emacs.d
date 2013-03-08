@@ -163,6 +163,8 @@
                      "setTimeout" "setInterval" "location" "skewer"
                      "console" "phantom"))))
 
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
 ;; Clojure
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
