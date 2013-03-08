@@ -169,6 +169,14 @@ prefix argument, the process's buffer is displayed."
 
 (global-set-key (kbd "M-#") 'lookup-word)
 
+;; Region fashing (from Slime)
+
+(defun flash-region (start end &optional timeout)
+  "Temporarily highlight region from START to END."
+  (let ((overlay (make-overlay start end)))
+    (overlay-put overlay 'face 'secondary-selection)
+    (run-with-timer (or timeout 0.2) nil 'delete-overlay overlay)))
+
 ;; File input
 
 (defun slurp (file)

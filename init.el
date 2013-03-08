@@ -174,12 +174,10 @@
   (select-window (get-buffer-window nrepl-error-buffer)))
 
 (defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
-  (if (fboundp 'slime-flash-region)
-      (slime-flash-region (save-excursion (backward-sexp) (point)) (point))))
+  (flash-region (save-excursion (backward-sexp) (point)) (point)))
 
 (defadvice nrepl-eval-expression-at-point (after nrepl-flash-at activate)
-  (if (fboundp 'slime-flash-region)
-      (apply #'slime-flash-region (nrepl-region-for-expression-at-point))))
+  (apply #'flash-region (nrepl-region-for-expression-at-point)))
 
 ; Remove ":headless" to work around Leiningen bug
 (setq nrepl-server-command "lein repl")
