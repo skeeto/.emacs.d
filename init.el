@@ -8,7 +8,7 @@
   '(clojure-mode glsl-mode graphviz-dot-mode ido-ubiquitous
     impatient-mode javadoc-lookup js2-mode lua-mode magit markdown-mode
     memoize multiple-cursors nrepl paredit parenface rdp simple-httpd
-    skewer-mode smex yasnippet)
+    skewer-mode smex yasnippet inf-ruby)
   "A list of packages to ensure are installed at launch.")
 
 (require 'package)
@@ -186,6 +186,23 @@
 
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+
+;; Ruby
+(defadvice inf-ruby-output-filter (after ruby-echo (output) activate)
+  (macrolet ((r (regex input) `(replace-regexp-in-string ,regex "" ,input)))
+    (let ((echo (r "[ \n\r\t]+$" (r inf-ruby-prompt-pattern output))))
+      (when (> (length echo) 0)
+        (message "%s" echo)))))
+
+(defadvice ruby-send-last-sexp (after ruby-flash-last activate)
+  (flash-region (save-excursion (ruby-backward-sexp) (point)) (point)))
+
+(defadvice ruby-send-definition (after ruby-flash-defun activate)
+  (save-excursion
+    (ruby-end-of-defun)
+    (let ((end (point)))
+      (ruby-beginning-of-defun)
+      (flash-region (point) end))))
 
 ;; Printing
 (eval-after-load 'ps-print
