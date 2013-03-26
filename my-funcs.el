@@ -198,6 +198,7 @@ prefix argument, the process's buffer is displayed."
 (scratch-key (kbd "C-S-d") "*javascript*" js2-mode)
 (scratch-key (kbd "C-S-a") "*lisp*"       lisp-mode)
 (scratch-key (kbd "C-S-c") "*clojure*"    clojure-mode)
+(scratch-key (kbd "C-S-x") "*css*"        css-mode)
 
 ;; ID: 72dc0a9e-c41c-31f8-c8f5-d9db8482de1e
 (defun find-all-files (dir)
