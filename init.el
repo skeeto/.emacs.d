@@ -138,6 +138,8 @@
 (eval-after-load 'markdown-mode
   '(define-key markdown-mode-map (kbd "<tab>") nil)) ; fix for YASnippet
 
+(setq sentence-end-double-space nil)
+
 ;; Jekyll
 (require 'jekyll)
 (require 'simple-httpd)
