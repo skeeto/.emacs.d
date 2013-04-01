@@ -63,6 +63,11 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
 (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
 
+(font-lock-add-keywords 'emacs-lisp-mode
+  '(("(\\<\\(\\(?:ert-\\)?deftest\\)\\> +\\([^ ()]+\\)"
+     (1 'font-lock-keyword-face)
+     (2 'font-lock-function-name-face))))
+
 ;; Display the time
 (setq display-time-default-load-average nil)
 (setq display-time-use-mail-icon t)
