@@ -52,9 +52,6 @@
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
 
-;; Idenifier expansion
-(global-set-key (kbd "M-/") 'hippie-expand) ; dabbrev-expand is too buggy
-
 ;; Emacs Lisp
 (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
 
