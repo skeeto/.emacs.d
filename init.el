@@ -332,11 +332,6 @@
   (yas-minor-mode -1))
 (add-hook 'emacs-lisp-mode-hook 'disable-yas)
 
-;; Scheme
-(eval-after-load 'geiser
-  '(font-lock-add-keywords 'scheme-mode
-                           '(("define-\\w+" . font-lock-keyword-face))))
-
 ;; mark-multiple
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
