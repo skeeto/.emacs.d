@@ -157,8 +157,13 @@
         (httpd-start)
         (jekyll/start))
     (error nil)))
+
 (defservlet robots.txt text/plain ()
   (insert "User-agent: *\nDisallow: /\n"))
+
+(defservlet uptime "text/plain" ()
+  (princ (emacs-uptime)))
+
 
 ;;; JavaScript
 (eval-after-load 'js2-mode
