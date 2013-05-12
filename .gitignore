@@ -1,5 +1,5 @@
 auto-save-list
-javadoc-cache
+*-cache/
 elpa
 *.elc
 url
