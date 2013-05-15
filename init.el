@@ -175,8 +175,9 @@
                      "setTimeout" "setInterval" "location" "skewer"
                      "console" "phantom"))))
 
-(define-key skewer-mode-map (kbd "C-c $")
-  (expose (apply-partially #'skewer-bower-load "jquery" "1.9.1")))
+(eval-after-load 'skewer-mode
+  '(define-key skewer-mode-map (kbd "C-c $")
+     (expose (apply-partially #'skewer-bower-load "jquery" "1.9.1"))))
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
