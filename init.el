@@ -20,6 +20,7 @@
                 (put sym 'disabled nil))))
 
 ;;; Packages
+
 (require 'package)
 (require 'package-helper)
 
@@ -27,8 +28,10 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-;; Install/load packages not needing configuration
+;; Install packages not needing configuration
 (with-package (impatient-mode lua-mode memoize rdp))
+
+;; Load local packages
 (require 'imgur)
 (require 'my-funcs)
 
