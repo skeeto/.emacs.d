@@ -76,24 +76,8 @@
   (setq tramp-persistency-file-name
         (concat temporary-file-directory "tramp-" (user-login-name))))
 
-;; Use proper whitespace XXX
-(require 'whitespace)
-(setq-default indent-tabs-mode nil)
-(defcustom do-whitespace-cleanup t "Perform whitespace-cleanup on save.")
-(make-variable-buffer-local 'do-whitespace-cleanup)
-(defun toggle-whitespace-cleanup ()
-  "Turn the whitespace-cleanup hook on and off."
-  (interactive)
-  (setq do-whitespace-cleanup (not do-whitespace-cleanup))
-  (message "do-whitespace-cleanup set to %s" do-whitespace-cleanup))
-(add-hook 'before-save-hook
-          (lambda ()
-            (when (and (not buffer-read-only) do-whitespace-cleanup)
-              ;; turn off and on to work around Emacs bug #4069
-              (whitespace-turn-on)
-              (whitespace-turn-off)
-              (whitespace-cleanup))))
-(add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
+(with-package* whitespace-cleanup
+  (setq-default indent-tabs-mode nil))
 
 (with-package (simple utility)
   ;; disable so I don't use it by accident
