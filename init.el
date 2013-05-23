@@ -298,28 +298,10 @@
 
 (global-set-key [pause] 'toggle-current-window-dedication)
 
-;; Make bindings like my java-mode-plus stuff
-(defmacro compile-bind (map key builder target)
-  "Define a key binding for a build system target (i.e. make,
-ant, scons) in a particular keymap."
-  `(define-key ,map ,key
-     (lambda (n)
-       (interactive "p")
-       (let* ((buffer-name (format "*compilation-%d*" n))
-              (compilation-buffer-name-function (lambda (x) buffer-name)))
-         (save-buffer)
-         (compile (format "%s %s" ,builder ,target) t)))))
-
-(defmacro compile-bind* (map builder keys/fns)
-  "Create several compile-bind bindings in a row."
-  `(progn
-     ,@(loop for (key fn) on keys/fns by 'cddr
-             collecting `(compile-bind ,map (kbd ,key) ,builder ,fn))))
-
-(compile-bind*	; example of compile-bind*, global make bindings
- (current-global-map)
- 'make ("C-x c" ""
-        "C-x r" 'run
-        "C-x C" 'clean))
+(with-package* compile-bind
+  (compile-bind* (current-global-map)
+                 'make ("C-x c" ""
+                        "C-x r" 'run
+                        "C-x C" 'clean)))
 
 (provide 'init) ; for those who want to (require 'init)
