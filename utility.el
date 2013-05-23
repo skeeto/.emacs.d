@@ -35,6 +35,12 @@ right-associatively."
   (lambda (x)
     (reduce #'funcall functions :initial-value x :from-end t)))
 
+(defun expose (function &rest args)
+  "Return an interactive version of FUNCTION, 'exposing' it to the user."
+  (lambda ()
+    (interactive)
+    (apply function args)))
+
 ;; Utility
 
 (defun partition (predicate seq)

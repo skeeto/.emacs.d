@@ -89,15 +89,6 @@ in your path. Useful for reading non-regular files like
 
 (global-set-key "\C-x!" 'uuid-insert)
 
-;; Higher-order, turn functions into interactive functions
-;; ID: c7db6dec-e7ab-3b0f-bf26-0fa268674c6c
-(defun expose (function)
-  "Return an interactive version of FUNCTION."
-  (lexical-let ((lex-func function))
-    (lambda ()
-      (interactive)
-      (funcall lex-func))))
-
 ;; Fibonacci
 
 (defun fib (n)
