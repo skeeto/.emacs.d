@@ -1,7 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d")
 
-(random t) ; Seed the PRNG
-
 ;;; Turn off the annoying crap immediately
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -280,6 +278,10 @@
 (with-package graphviz-dot-mode
   (setq graphviz-dot-indent-width 2)
   (setq graphviz-dot-auto-indent-on-semi nil))
+
+(with-package* uuid-simple
+  (global-set-key "\C-x!" 'uuid-insert)
+  (random (make-uuid)))
 
 ;; Dedicated windows
 (defun toggle-current-window-dedication ()

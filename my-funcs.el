@@ -46,49 +46,6 @@
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
-;; ID: 54eada16-ca15-3267-d16a-cd03d5b84de4
-(defun get-bytes (file count)
-  "Get the first COUNT bytes from FILE. Requires the head program
-in your path. Useful for reading non-regular files like
-/dev/random or /dev/urandom."
-  (with-temp-buffer
-    (set-buffer-multibyte nil)
-    (call-process "head" file (current-buffer) nil
-                  "-c" (number-to-string count))
-    (substring (buffer-string) 0 count)))
-
-;; Create UUIDs
-;; ID: 90aebf38-b33a-314b-1198-c9bffea2f2a2
-(defun uuid-create ()
-  "Return a newly generated UUID. This uses a simple hashing of variable data."
-  (let ((s (md5 (format "%s%s%s%s%s%s%s%s%s%s%s%s"
-                        (user-uid)
-                        (emacs-pid)
-                        (system-name)
-                        (user-full-name)
-                        user-mail-address
-                        (current-time)
-                        (emacs-uptime)
-                        (garbage-collect)
-                        (random)
-                        (buffer-list)
-                        (recent-keys)
-                        (if (file-exists-p "/dev/urandom")
-                            (get-bytes "/dev/urandom" 16))))))
-    (format "%s-%s-3%s-%s-%s"
-            (substring s 0 8)
-            (substring s 8 12)
-            (substring s 13 16)
-            (substring s 16 20)
-            (substring s 20 32))))
-
-(defun uuid-insert ()
-  "Inserts a new UUID at the point."
-  (interactive)
-  (insert (uuid-create)))
-
-(global-set-key "\C-x!" 'uuid-insert)
-
 ;; Fibonacci
 
 (defun fib (n)

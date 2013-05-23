@@ -17,6 +17,8 @@
 
 ;;; Code:
 
+(require 'uuid-simple)
+
 (defvar jekyll-home "."
   "The root directory for your Jekyll blog.")
 
@@ -31,7 +33,7 @@
   (insert (format "title: %s\n" title))
   (insert (format "layout: %s\n" jekyll-post-layout))
   (insert (format "tags: []\n" jekyll-post-layout))
-  (insert (format "uuid: %s\n" (uuid-create)))
+  (insert (format "uuid: %s\n" (make-uuid)))
   (insert "---\n\n"))
 
 (defun jekyll/get-post-file (title)
