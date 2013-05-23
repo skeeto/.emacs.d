@@ -28,6 +28,7 @@
                       prefix count hash hash))
       (incf count))))
 
+;;;###autoload
 (defun imgur/gen-script (prefix url)
   "Insert a download script with file PREFIX for the image album at URL."
   (interactive "sPrefix: \nsUrl: ")
