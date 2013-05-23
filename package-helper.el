@@ -1,3 +1,33 @@
+;;; package-helper.el --- nice macros/functions for use with package
+
+;;; Commentary:
+
+;; The two important macros are `with-package' and `with-package*'.
+;; Package names given to these are automatically installed by
+;; `package-install' and the body of these macros are not evaluated
+;; until the listed packages are actually loaded, similar to
+;; `eval-after-load'. The latter macro will automatically `require'
+;; the listed packages.
+
+;; Examples:
+
+;;     (with-package skewer-mode
+;;       ... <config for skewer-mode> ...)
+
+;;     (with-package (js2-mode less-css-mode)
+;;       ... <config depending on both packages> ...)
+
+;; A nice trick is to use <package>-autoloads as the package name.
+;; This sets up configuration after package has been activated but
+;; before it has been loaded. It's useful for adding keybindings to
+;; autoloaded functions. The macros provided here are smart enough to
+;; find the real package name from the autoloads name.
+
+;; Remember to call `package-initialize' in your config *before*
+;; making use of these macros.
+
+;;; Code:
+
 (require 'cl)
 (require 'package)
 
@@ -60,3 +90,5 @@ This is mostly for code organization purposes."
      (2 'font-lock-constant-face))))
 
 (provide 'package-helper)
+
+;;; package-helper.el ends here
