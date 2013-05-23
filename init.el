@@ -31,9 +31,9 @@
 ;; Install packages not needing configuration
 (with-package (impatient-mode lua-mode memoize rdp))
 
-;; Load local packages
+;; Load local "packages"
 (require 'imgur)
-(require 'my-funcs)
+(require 'misc)
 
 ;;; Custom global bindings
 

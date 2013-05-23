@@ -1,5 +1,6 @@
-;;; Small-ish functions
-(provide 'my-funcs)
+;;; misc.el --- a bunch of small clutter that doesn't fit elsewhere
+
+;;; Code:
 
 ;; Move line functions
 (defun move-line (n)
@@ -173,3 +174,7 @@ prefix argument, the process's buffer is displayed."
              (buffer-name))))
 
 (global-set-key [pause] 'toggle-current-window-dedication)
+
+(provide 'misc)
+
+;;; misc.el ends here
