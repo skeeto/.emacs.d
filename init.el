@@ -35,20 +35,31 @@
 (require 'my-funcs)
 
 ;;; Custom global bindings
+
+(require 'utility)
 (global-set-key (kbd "C-S-j") 'join-line)
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-x\C-k" 'compile)
-(global-set-key [f2] (expose (apply-partially 'revert-buffer nil t)))
+(global-set-key [f2] (expose #'revert-buffer nil t))
 (global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile)))
+
+;;; auto-mode-alist entries
+
+(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+(add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 
 ;;; Individual package configurations
 
-(with-package emacs-lisp-mode
+(with-package (lisp-mode utility)
   (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
   (defun ielm-repl ()
     (interactive)
     (pop-to-buffer (get-buffer-create "*ielm*"))
     (ielm))
+  (defun ert-silently ()
+    (interactive)
+    (ert t))
+  (define-key emacs-lisp-mode-map (kbd "C-x r") (expose #'ert t))
   (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
   (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
   (font-lock-add-keywords 'emacs-lisp-mode
@@ -128,7 +139,7 @@
 
 (with-package (skewer-mode utility)
   (define-key skewer-mode-map (kbd "C-c $")
-    (expose (apply-partially #'skewer-bower-load "jquery" "1.9.1"))))
+    (expose #'skewer-bower-load "jquery" "1.9.1")))
 
 (with-package clojure-mode-autoloads
   (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
@@ -143,9 +154,6 @@
     (apply #'flash-region (nrepl-region-for-expression-at-point)))
   ;; Remove ":headless" to work around Leiningen bug
   (setq nrepl-server-command "lein repl"))
-
-;; Octave XXX
-(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 
 (with-package inf-ruby
   (defadvice inf-ruby-output-filter (after ruby-echo (output) activate)
@@ -172,9 +180,6 @@
   (add-to-list 'auto-mode-alist '("\\.fs$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode))) ; OpenCL
-
-;; groff XXX
-(add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 
 (with-package erc
   (when (eq 0 (string-match "wello" (user-login-name)))
@@ -209,12 +214,6 @@
   (add-hook 'lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords))
-
-;; XXX
-(defun ert-silently ()
-  (interactive)
-  (ert t))
-(define-key emacs-lisp-mode-map (kbd "C-x r") 'ert-silently)
 
 (with-package* (ido ido-ubiquitous)
   (setq ido-enable-flex-matching t)
