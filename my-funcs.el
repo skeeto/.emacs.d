@@ -161,3 +161,15 @@ prefix argument, the process's buffer is displayed."
     (dolist (dir dirs)
       (find-file-noselect dir)
       (find-all-files dir))))
+
+;; Dedicated windows
+(defun toggle-current-window-dedication ()
+  (interactive)
+  (let* ((window (selected-window))
+         (dedicated (window-dedicated-p window)))
+    (set-window-dedicated-p window (not dedicated))
+    (message "Window %sdedicated to %s"
+             (if dedicated "no longer " "")
+             (buffer-name))))
+
+(global-set-key [pause] 'toggle-current-window-dedication)
