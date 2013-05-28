@@ -64,7 +64,7 @@ literal future `eval', so it appears as data to the compiler."
                        (unless ,has-run-sym
                          (setq ,has-run-sym t)
                          ,@(loop for package in packages collect
-                                 `(require ',(package-real-name package)))
+                                 `(require ',package))
                          ,@body)))
        ,@(loop for package in packages
                for real-name = (package-real-name package)
