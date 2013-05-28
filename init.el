@@ -175,6 +175,7 @@
   (setq ps-print-header nil))
 
 (with-package glsl-mode-autoloads
+  (autoload 'glsl-mode "glsl-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.frag$" . glsl-mode))
