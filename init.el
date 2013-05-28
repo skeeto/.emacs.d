@@ -243,8 +243,8 @@
    '(highlight            ((t (:background "black"))))
    '(magit-item-highlight ((t :background "black")))))
 
-(with-package javadoc-lookup-autoloads)
-  (global-set-key (kbd "C-h j") 'javadoc-lookup)
+(with-package javadoc-lookup-autoloads
+  (global-set-key (kbd "C-h j") 'javadoc-lookup))
 
 (with-package javadoc-lookup
   (javadoc-add-artifacts
