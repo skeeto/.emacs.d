@@ -48,6 +48,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
+(add-to-list 'auto-mode-alist '("[._]bash.*" . shell-script-mode))
 
 ;;; Individual package configurations
 
