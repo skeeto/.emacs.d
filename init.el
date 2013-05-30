@@ -140,6 +140,7 @@
                   "console" "phantom")))
 
 (with-package (skewer-mode utility)
+  (skewer-setup)
   (define-key skewer-mode-map (kbd "C-c $")
     (expose #'skewer-bower-load "jquery" "1.9.1")))
 
