@@ -33,7 +33,7 @@
 
 ;; Load local "packages"
 (require 'imgur)
-(require 'misc)
+(require 'extras)
 
 ;;; Custom global bindings
 

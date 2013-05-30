@@ -1,4 +1,4 @@
-;;; misc.el --- a bunch of small clutter that doesn't fit elsewhere
+;;; extras.el --- a bunch of small clutter that doesn't fit elsewhere
 
 ;;; Code:
 
@@ -190,6 +190,6 @@ everything the original function does, except for modifying
             do (eval sexp lexical-binding)))
     (message "%S loaded" (current-buffer))))
 
-(provide 'misc)
+(provide 'extras)
 
-;;; misc.el ends here
+;;; extras.el ends here
