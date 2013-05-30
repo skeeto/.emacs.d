@@ -63,7 +63,7 @@
     (ert t))
   (define-key emacs-lisp-mode-map (kbd "C-x r") (expose #'ert t))
   (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
-  (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
+  (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer*)
   (font-lock-add-keywords 'emacs-lisp-mode
     '(("(\\<\\(\\(?:ert-\\)?deftest\\)\\> +\\([^ ()]+\\)"
        (1 'font-lock-keyword-face)

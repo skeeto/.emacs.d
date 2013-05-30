@@ -175,6 +175,21 @@ prefix argument, the process's buffer is displayed."
 
 (global-set-key [pause] 'toggle-current-window-dedication)
 
+(defun eval-buffer* (&optional buffer)
+  "Like `eval-buffer', but obey `lexical-binding'. It does
+everything the original function does, except for modifying
+`load-history'."
+  (interactive)
+  (with-current-buffer (or buffer (current-buffer))
+    (save-excursion
+      (goto-char (point-min))
+      (loop while (< (point) (point-max))
+            for sexp = (condition-case e
+                           (read (current-buffer))
+                         (end-of-file nil))
+            do (eval sexp lexical-binding)))
+    (message "%S loaded" (current-buffer))))
+
 (provide 'misc)
 
 ;;; misc.el ends here
