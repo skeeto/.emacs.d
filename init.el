@@ -195,7 +195,7 @@
 
 (with-package ielm
   (defadvice ielm-eval-input (after ielm-paredit activate)
-    "Begin each ielm prompt with a paredit pair.."
+    "Begin each ielm prompt with a paredit pair."
     (paredit-open-round)))
 
 (with-package paredit-autoloads

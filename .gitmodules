@@ -1,4 +1,0 @@
-[submodule "yasnippet-java"]
-        path = yasnippet-java
-        url = https://github.com/skeeto/yasnippet-java-topcoder.git
-        ignore = untracked
