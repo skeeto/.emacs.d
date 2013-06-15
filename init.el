@@ -271,7 +271,6 @@
 
 (with-package* yasnippet
   (yas-global-mode 1)
-  (yas/load-directory "~/.emacs.d/yasnippet-java")
   (defun disable-yas ()
     (yas-minor-mode -1))
   (add-hook 'emacs-lisp-mode-hook 'disable-yas))
