@@ -249,21 +249,23 @@
   (global-set-key (kbd "C-h j") 'javadoc-lookup))
 
 (with-package javadoc-lookup
-  (javadoc-add-artifacts
-   [org.lwjgl.lwjgl lwjgl "2.8.2"]
-   [com.nullprogram native-guide "0.2"]
-   [junit junit "4.10"]
-   [org.projectlombok lombok "0.10.4"]
-   [org.mockito mockito-all "1.9.0"]
-   [com.beust jcommander "1.25"]
-   [com.google.guava guava "12.0"]
-   [org.jbox2d jbox2d-library "2.1.2.2"]
-   [org.apache.commons commons-math3 "3.0"]
-   [org.pcollections pcollections "2.1.2"]
-   [org.xerial sqlite-jdbc "3.7.2"]
-   [com.googlecode.lanterna lanterna "2.1.2"]
-   [joda-time joda-time "2.1"]
-   [org.apache.lucene lucene-core "3.3.0"]))
+  (condition-case _
+      (javadoc-add-artifacts
+       [org.lwjgl.lwjgl lwjgl "2.8.2"]
+       [com.nullprogram native-guide "0.2"]
+       [junit junit "4.10"]
+       [org.projectlombok lombok "0.10.4"]
+       [org.mockito mockito-all "1.9.0"]
+       [com.beust jcommander "1.25"]
+       [com.google.guava guava "12.0"]
+       [org.jbox2d jbox2d-library "2.1.2.2"]
+       [org.apache.commons commons-math3 "3.0"]
+       [org.pcollections pcollections "2.1.2"]
+       [org.xerial sqlite-jdbc "3.7.2"]
+       [com.googlecode.lanterna lanterna "2.1.2"]
+       [joda-time joda-time "2.1"]
+       [org.apache.lucene lucene-core "3.3.0"])
+    (file-error nil)))
 
 (with-package browse-url
   (when (executable-find "firefox")
