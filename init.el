@@ -15,6 +15,7 @@
 (setq dabbrev-case-fold-search nil)
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
+(setq vc-follow-symlinks t)
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
