@@ -249,6 +249,9 @@
 (with-package javadoc-lookup-autoloads
   (global-set-key (kbd "C-h j") 'javadoc-lookup))
 
+(with-package java-mode
+  (global-set-key (kbd "C-x I") 'add-java-import))
+
 (with-package javadoc-lookup
   (condition-case _
       (javadoc-add-artifacts
