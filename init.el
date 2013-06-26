@@ -127,7 +127,10 @@
   (defservlet robots.txt text/plain ()
     (insert "User-agent: *\nDisallow: /\n"))
   (defservlet uptime "text/plain" ()
-    (princ (emacs-uptime))))
+    (princ (emacs-uptime)))
+  (defun httpd-here ()
+    (interactive)
+    (setq httpd-root default-directory)))
 
 (with-package js2-mode-autoloads
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
