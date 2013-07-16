@@ -2,8 +2,8 @@
 
 ;;; Turn off the annoying crap immediately
 (menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (blink-cursor-mode -1)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
