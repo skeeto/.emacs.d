@@ -305,4 +305,7 @@
                         "C-x r" 'run
                         "C-x C" 'clean)))
 
+(with-package* batch-mode
+  (add-hook 'batch-mode-hook (lambda () (setq mode-name "Batch"))))
+
 (provide 'init) ; make (require 'init) happy
