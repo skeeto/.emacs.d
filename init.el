@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/etc")
 
 ;;; Turn off the annoying crap immediately
 (menu-bar-mode -1)
