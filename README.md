@@ -1,15 +1,11 @@
 # My Personal Emacs Configuration
 
-What you see before you is my personal Emacs configuration. This is
-the very first repository I recursively clone when settling in on a
-new computer. I'm using `package.el` and Emacs 24 themes, so **this
-requires Emacs 24!** If you clone this repository non-recursively,
-don't forget to recursively clone the submodules too. They're
-critical.
+This is my personal Emacs configuration. This is the second repository
+I clone -- after [my dotfiles](https://github.com/skeeto/dotfiles) --
+when settling in on a new computer . I'm using `package.el` and Emacs
+24 themes, so **this requires at least Emacs 24.3!**
 
-    git submodule update --init --recursive
-
-Make sure you clone it into your home directory, or at least wherever
+To use it, clone it into your home directory, or at least wherever
 Emacs thinks your home directory is. Move your existing `.emacs` file
 out of the way, since it being there prevents Emacs from using the
 `init.el` in this repository. I do still use a `.emacs` file for
@@ -25,16 +21,15 @@ awaiting your instructions.
 
 ## Features
 
-I keep my Emacs configuration light. Almost everything is either
-written by me or is something I use regularly. I generally spend
-somewhere between 35-80 hours a week in front of Emacs, so this
+I try to keep my Emacs configuration tight and tidy. I generally spend
+somewhere between 30-60 hours a week in front of Emacs, so this
 configuration has been carefully pieced together and every line is
 important.
 
 ### The Little Things
 
 Here's a list of some small features added by `init.el` or
-`my-funcs.el`.
+`extras.el`.
 
 * <kbd>M-<up></kbd> -- Move the current line up.
 * <kbd>M-<down></kbd> -- Move the current line down.
@@ -55,39 +50,22 @@ you're an Elisp developer,
 * `dos2unix` and `unix2dos`
 * `expose`
 * `measure-time`
+* `compile-bind*`
 
-Particularly special ones are `compile-bind*` and `ant-bind*`
-(i.e. Apache Ant specifically). This creates a special compile
-keybinding for a specific build system target. I use these bindings
-literally hundreds of times per day.
-
-When these bindings are used, the current buffer is automatically
-saved and the build system is run with the pre-selected target. Give
-it a prefix argument and it uses a numbered compilation
-buffer. `compile-bind*` creates keybindings in a given keymap and
-`ant-bind*` creates them for `java-mode` only. For example, these two
-bindings are already defined globally,
-
-```cl
-(compile-bind*
- (current-global-map)
- 'make ("C-x c" 'compile
-        "C-x C" 'clean))  ; Note the capital C
-```
-
-<kbd>C-x c</kbd> runs `make` with the `compile` target and <kbd>C-x
-C</kbd> runs `make` with the `clean` target.
-
-`ant-bind*` is part of `ant-project-mode`.
+That last one is used to create bindings to run `make`: <kbd>C-x
+c</kbd> runs `make` with the `compile` target and <kbd>C-x C</kbd>
+runs `make` with the `clean` target.
 
 ### Whitespace
 
 There's a customized hook for `whitespace-cleanup` in
 `before-save-hook`. It will remove all trailing whitespace, and,
 because I'm so picky, also convert all tabs to spaces just before
-saving a buffer. To disable this on a per-file basis -- for example,
-to precisely edit a sloppily-spaced file -- set the buffer-local
-variable `do-whitespace-cleanup` to `nil`.
+saving a buffer. To disable this on a per-buffer basis -- for example,
+to precisely edit a sloppily-spaced file -- run
+`toggle-whitespace-cleanup`.
+
+See `whitespace-cleanup.el` for all the details.
 
 ### Ido
 
@@ -123,18 +101,8 @@ associated userscript in my browser allowing me to, at *any* time on
 fully interact with the browser's JavaScript runtime through a
 JavaScript REPL (`skewer-repl`) and live expression evaluation in
 JavaScript buffers, very similar to the various lisp interaction
-modes. It can also do live "evaluation" of CSS (`skewer-css-mode`).
-
-### YASnippet
-
-I use [YASnippet](https://github.com/capitaomorte/yasnippet), a Git
-mirror of which is provided for this configuration. It allows you to
-type a keyword and hit tab, expanding it into a full code *snippet*,
-sometimes with further assistance filling out components of the
-snippet. There are way too many of them to describe here, so look in
-`yasnippet/snippets/`, `yasnippet-java/`, and `emacs-java/snippets` to
-learn what's there. If you're too lazy to look and just want to see
-one work, when in a code-oriented mode type `if` and hit tab.
+modes. It can also do live "evaluation" of CSS (`skewer-css-mode`) and
+HTML (`skewer-html-mode`).
 
 ### Lisp: Paredit and Parenface
 
