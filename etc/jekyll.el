@@ -47,7 +47,7 @@
   "Start the Jekyll daemon in auto mode."
   (interactive)
   (let ((default-directory jekyll-home))
-    (start-process-shell-command "jekyll" "*jekyll*" "jekyll --auto")))
+    (start-process-shell-command "jekyll" "*jekyll*" "jekyll build --watch")))
 
 (provide 'jekyll)
 
