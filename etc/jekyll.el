@@ -32,9 +32,19 @@
   (insert "---\n")
   (insert (format "title: %s\n" title))
   (insert (format "layout: %s\n" jekyll-post-layout))
-  (insert (format "tags: []\n" jekyll-post-layout))
+  (insert (format-time-string "date: %Y-%m-%dT%H:%M:%SZ\n" nil t))
+  (insert (format "tags: []\n"))
   (insert (format "uuid: %s\n" (make-uuid)))
   (insert "---\n\n"))
+
+(defun jekyll/update-date ()
+  "Update the YAML date element to the current time."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (search-forward-regexp "^date: +")
+    (kill-line)
+    (insert (format-time-string "%Y-%m-%dT%H:%M:%SZ" nil t))))
 
 (defun jekyll/get-post-file (title)
   "Return the filename for a new post given the TITLE."
