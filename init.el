@@ -55,8 +55,8 @@
 
 ;;; Individual package configurations
 
-(with-package mu4e
-  (setq mu4e-mu-binary "~/bin/mu-remote"
+(with-package (mu4e mu4e-setup)
+  (setq mu4e-mu-home "~/Maildir/.mu"
         message-send-mail-function 'smtpmail-send-it
         mu4e-update-interval 60
         mu4e-confirm-quit nil
