@@ -55,17 +55,21 @@
 
 ;;; Individual package configurations
 
-(with-package (mu4e mu4e-setup)
-  (setq mu4e-mu-home "~/Maildir/.mu"
+(with-package (notmuch notmuch-address)
+  (setq notmuch-command "notmuch-remote"
         message-send-mail-function 'smtpmail-send-it
-        mu4e-update-interval 60
-        mu4e-confirm-quit nil
         message-kill-buffer-on-exit t
         smtpmail-smtp-server "localhost"
-        smtpmail-smtp-service 2525)
-  (add-hook 'mu4e-compose-mode-hook 'mml-secure-sign-pgpmime)
-  (defun mu4e-create-maildir-maybe (dir) t))
-(global-set-key (kbd "C-x m") 'mu4e)
+        smtpmail-smtp-service 2525
+        notmuch-address-command "addrlookup-remote"
+        notmuch-fcc-dirs nil)
+  (notmuch-address-message-insinuate)
+  ;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+  (add-hook 'message-header-setup-hook
+            (lambda () (insert (format "Bcc: %s <%s>\n"
+                                       (notmuch-user-name)
+                                       (notmuch-user-primary-email)))))))
+(global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (lisp-mode utility)
   (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
