@@ -55,6 +55,18 @@
 
 ;;; Individual package configurations
 
+(with-package mu4e
+  (setq mu4e-mu-binary "~/bin/mu-remote"
+        message-send-mail-function 'smtpmail-send-it
+        mu4e-update-interval 60
+        mu4e-confirm-quit nil
+        message-kill-buffer-on-exit t
+        smtpmail-smtp-server "localhost"
+        smtpmail-smtp-service 2525)
+  (add-hook 'mu4e-compose-mode-hook 'mml-secure-sign-pgpmime)
+  (defun mu4e-create-maildir-maybe (dir) t))
+(global-set-key (kbd "C-x m") 'mu4e)
+
 (with-package (lisp-mode utility)
   (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
   (defun ielm-repl ()
