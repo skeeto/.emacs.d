@@ -55,20 +55,17 @@
 
 ;;; Individual package configurations
 
-(with-package (notmuch notmuch-address)
+(with-package (notmuch notmuch-address email-setup)
   (setq notmuch-command "notmuch-remote"
         message-send-mail-function 'smtpmail-send-it
         message-kill-buffer-on-exit t
         smtpmail-smtp-server "localhost"
         smtpmail-smtp-service 2525
         notmuch-address-command "addrlookup-remote"
-        notmuch-fcc-dirs nil)
-  (notmuch-address-message-insinuate)
+        notmuch-fcc-dirs nil
+        notmuch-archive-tags '("-inbox" "+archive"))
   ;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
-  (add-hook 'message-header-setup-hook
-            (lambda () (insert (format "Bcc: %s <%s>\n"
-                                       (notmuch-user-name)
-                                       (notmuch-user-primary-email))))))
+  (notmuch-address-message-insinuate))
 (global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (lisp-mode utility)
