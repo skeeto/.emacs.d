@@ -35,6 +35,12 @@
 (define-key notmuch-hello-mode-map "g"
   'notmuch-hello-poll-and-update)
 
+(define-key notmuch-hello-mode-map "i"
+  (expose #'notmuch-hello-search "tag:inbox"))
+
+(define-key notmuch-hello-mode-map "u"
+  (expose #'notmuch-hello-search "tag:unread"))
+
 (provide 'email-setup)
 
 ;;; email-setup.el ends here
