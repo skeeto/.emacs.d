@@ -195,6 +195,13 @@ everything the original function does, except for modifying
   (interactive)
   (insert (coerce (loop repeat 7 collect (+ ?a (random 26))) 'string)))
 
+(defun what-face (pos)
+  "Show the name of face under point."
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+    (if face (message "Face: %s" face) (message "No face at %d" pos))))
+
 (provide 'extras)
 
 ;;; extras.el ends here
