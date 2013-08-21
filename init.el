@@ -68,7 +68,7 @@
   (add-hook 'message-header-setup-hook
             (lambda () (insert (format "Bcc: %s <%s>\n"
                                        (notmuch-user-name)
-                                       (notmuch-user-primary-email)))))))
+                                       (notmuch-user-primary-email))))))
 (global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (lisp-mode utility)
