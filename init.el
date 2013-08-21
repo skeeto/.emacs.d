@@ -260,12 +260,13 @@
               (let ((themes custom-enabled-themes))
                 (mapc 'disable-theme themes)
                 (mapc 'enable-theme (reverse themes)))))
-  ;; Fix broken faces between Wombat and Magit
+  ;; Fix broken faces between Wombat, Magit, and Notmuch
   (custom-set-faces
    '(diff-added           ((t :foreground "green")))
    '(diff-removed         ((t :foreground "red")))
    '(highlight            ((t (:background "black"))))
-   '(magit-item-highlight ((t :background "black")))))
+   '(magit-item-highlight ((t :background "black")))
+   '(hl-line              ((t :background "gray10")))))
 
 (with-package javadoc-lookup-autoloads
   (global-set-key (kbd "C-h j") 'javadoc-lookup))
