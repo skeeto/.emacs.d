@@ -63,7 +63,7 @@
         smtpmail-smtp-service 2525
         notmuch-address-command "addrlookup-remote"
         notmuch-fcc-dirs nil
-        notmuch-archive-tags '("-inbox" "+archive"))
+        notmuch-archive-tags '("-inbox" "-unread" "+archive"))
   ;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
   (notmuch-address-message-insinuate))
 (global-set-key (kbd "C-x m") 'notmuch)
