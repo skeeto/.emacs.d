@@ -66,7 +66,11 @@
         notmuch-search-oldest-first nil
         notmuch-archive-tags '("-inbox" "-unread" "+archive"))
   ;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
-  (notmuch-address-message-insinuate))
+  (notmuch-address-message-insinuate)
+  (custom-set-faces
+   '(notmuch-search-subject ((t :foreground "#afa")))
+   '(notmuch-search-date    ((t :foreground "#aaf")))
+   '(notmuch-search-count   ((t :foreground "#777")))))
 (global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (lisp-mode utility)
