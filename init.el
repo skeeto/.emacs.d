@@ -128,6 +128,9 @@
   (winner-mode 1)
   (windmove-default-keybindings))
 
+(with-package calc
+  (setq calc-display-trail nil))
+
 (with-package magit-autoloads
   (setq vc-display-status nil)
   (global-set-key "\C-xg" 'magit-status))
