@@ -70,7 +70,11 @@
   (custom-set-faces
    '(notmuch-search-subject ((t :foreground "#afa")))
    '(notmuch-search-date    ((t :foreground "#aaf")))
-   '(notmuch-search-count   ((t :foreground "#777")))))
+   '(notmuch-search-count   ((t :foreground "#777"))))
+  (setq notmuch-hello-sections
+        '(notmuch-hello-insert-header
+          notmuch-hello-insert-saved-searches
+          notmuch-hello-insert-search)))
 (global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (lisp-mode utility)
