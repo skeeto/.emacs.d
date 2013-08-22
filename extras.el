@@ -202,6 +202,16 @@ everything the original function does, except for modifying
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
+(defun eshell-as (name)
+  "Start or find an eshell buffer named NAME and pop to it."
+  (interactive (list (buffer-name)))
+  (let* ((buffer-name (concat "*eshell " name "*"))
+         (buffer (or (get-buffer buffer-name)
+                     (save-window-excursion (eshell t)))))
+    (pop-to-buffer buffer)
+    (setf (buffer-name) buffer-name)
+    buffer))
+
 (provide 'extras)
 
 ;;; extras.el ends here

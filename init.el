@@ -43,7 +43,6 @@
   (global-set-key (kbd "C-S-j") 'join-line)
   (global-set-key "\M-g" 'goto-line)
   (global-set-key "\C-x\C-k" 'compile)
-  (global-set-key [f1] (expose #'eshell t))
   (global-set-key [f2] (expose #'revert-buffer nil t))
   (global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile))))
 
@@ -130,6 +129,11 @@
 
 (with-package calc
   (setq calc-display-trail nil))
+
+(with-package eshell
+  (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
+            (lambda () (define-key eshell-mode-map [f1] 'quit-window))))
+(global-set-key [f1] 'eshell-as)
 
 (with-package magit-autoloads
   (setq vc-display-status nil)
