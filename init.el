@@ -136,8 +136,12 @@
 (global-set-key [f1] 'eshell-as)
 
 (with-package magit-autoloads
+  (global-set-key (kbd "C-x g") 'magit-status)
   (setq vc-display-status nil)
-  (global-set-key "\C-xg" 'magit-status))
+  (add-hook 'git-commit-mode-hook
+            (lambda () (when (looking-at "\n") (open-line 1))))
+  (defadvice git-commit-commit (after delete-window activate)
+    (delete-window)))
 
 (with-package markdown-mode-autoloads
   (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
