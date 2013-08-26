@@ -212,6 +212,20 @@ everything the original function does, except for modifying
     (setf (buffer-name) buffer-name)
     buffer))
 
+;;; Process menu killing
+
+(define-key process-menu-mode-map "k" 'process-menu-kill)
+
+(defun process-menu-kill ()
+  "Kill selected process in the process menu buffer."
+  (interactive)
+  (let ((process (get-text-property (point) 'tabulated-list-id)))
+    (when (processp process) (kill-process process))
+    (run-at-time 0.1 nil (lambda ()
+                           (let ((n (line-number-at-pos)))
+                             (revert-buffer)
+                             (forward-line (1- n)))))))
+
 (provide 'extras)
 
 ;;; extras.el ends here
