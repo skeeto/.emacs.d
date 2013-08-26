@@ -76,6 +76,10 @@
           notmuch-hello-insert-search)))
 (global-set-key (kbd "C-x m") 'notmuch)
 
+(with-package (elfeed feed-setup)
+  (setq-default elfeed-search-filter "+unread @5-days-ago"))
+(global-set-key (kbd "C-x w") 'elfeed)
+
 (with-package (lisp-mode utility)
   (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
   (defun ielm-repl ()
