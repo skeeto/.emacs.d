@@ -182,8 +182,9 @@
                   "setTimeout" "setInterval" "location" "skewer"
                   "console" "phantom")))
 
-(with-package (skewer-mode utility)
+(with-package (skewer-mode skewer-repl)
   (skewer-setup)
+  (define-key skewer-repl-mode-map (kbd "C-c C-z") 'quit-window)
   (define-key skewer-mode-map (kbd "C-c $")
     (expose #'skewer-bower-load "jquery" "1.9.1")))
 
@@ -237,6 +238,7 @@
   (add-to-list 'c-default-style '(c-mode . "k&r")))
 
 (with-package ielm
+  (define-key ielm-map (kbd "C-c C-z") 'quit-window)
   (defadvice ielm-eval-input (after ielm-paredit activate)
     "Begin each ielm prompt with a paredit pair."
     (paredit-open-round)))
