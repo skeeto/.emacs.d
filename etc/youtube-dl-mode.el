@@ -16,7 +16,7 @@
 
 (defun youtube-dl-get-id (url)
   "Get the YouTube video ID from URL."
-  (let ((match (string-match-p "[-a-zA-Z0-9]\\{11\\}" url)))
+  (let ((match (string-match-p "[-_a-zA-Z0-9]\\{11\\}" url)))
     (when match
       (substring url match (+ match 11)))))
 
