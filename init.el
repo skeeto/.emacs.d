@@ -80,7 +80,7 @@
   (setq-default elfeed-search-filter "+unread @5-days-ago"))
 (global-set-key (kbd "C-x w") 'elfeed)
 
-(with-package (lisp-mode utility)
+(with-package (lisp-mode)
   (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
   (defun ielm-repl ()
     (interactive)
