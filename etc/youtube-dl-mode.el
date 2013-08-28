@@ -40,10 +40,10 @@
   (let ((buffer (process-buffer process)))
     (with-current-buffer buffer
       (when (string-match-p "finished" event)
-        (message "Download of %s completed." (youtube-dl-get-id youtube-dl-url))
+        (message "youtube-dl %s completed." (youtube-dl-get-id youtube-dl-url))
         (kill-buffer buffer))
       (when (string-match-p "abnormal" event)
-        (message "Download of %s failed." (youtube-dl-get-id youtube-dl-url))))))
+        (message "youtube-dl %s failed." (youtube-dl-get-id youtube-dl-url))))))
 
 (defvar youtube-dl-mode-map
   (let ((map (make-sparse-keymap)))
@@ -84,7 +84,7 @@ download completes successfully."
                   (concat (directory-file-name youtube-dl-directory) "/"))
             (set-process-sentinel
              (apply #'start-process process-name buffer "youtube-dl" "--newline"
-                    (append youtube-dl-arguments (list id)))
+                    (append youtube-dl-arguments (list "--" id)))
              'youtube-dl-sentinel)))
         buffer))))
 
