@@ -32,6 +32,9 @@
 (define-key notmuch-search-mode-map "d"
   (notmuch-search-toggle "trash"))
 
+(define-key notmuch-search-mode-map "S"
+  (notmuch-search-toggle "spam"))
+
 (define-key notmuch-hello-mode-map "g"
   'notmuch-hello-poll-and-update)
 
