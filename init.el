@@ -77,7 +77,7 @@
 (global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (elfeed feed-setup)
-  (setq-default elfeed-search-filter "+unread @5-days-ago"))
+  (setq-default elfeed-search-filter "@5-days-ago +unread"))
 (global-set-key (kbd "C-x w") 'elfeed)
 
 (with-package (lisp-mode)
