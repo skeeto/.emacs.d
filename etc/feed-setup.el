@@ -3,12 +3,6 @@
 (require 'elfeed)
 (require 'youtube-dl-mode)
 
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-regexp-tagger "youtube\\.com" 'youtube))
-
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-time-untagger "1 week ago" 'unread))
-
 ;; youtube-dl config
 
 (setq youtube-dl-directory "/media/wellons")
@@ -35,16 +29,25 @@
 
 ;; Special filters
 
-(defun elfeed-blh (entry)
-  "Filter out everything but Bronze League Heroes from HuskyStarcraft."
-  (let ((feed (elfeed-entry-feed entry))
-        (case-fold-search t))
-    (when (string-match-p "HuskyStarcraft" (elfeed-feed-url feed))
-      (unless (string-match-p "bronze" (elfeed-entry-title entry))
-        (elfeed-tag entry 'junk)
-        (elfeed-untag entry 'unread)))))
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "youtube\\.com"
+                              :add 'youtube))
 
-(add-hook 'elfeed-new-entry-hook 'elfeed-blh)
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :before "5 days ago"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "HuskyStarcraft"
+                              :entry-title '(not "bronze league")
+                              :add 'junk
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "github\\.com"
+                              :entry-title "\\(drinkup\\|githubber\\)"
+                              :add 'junk
+                              :remove 'unread))
 
 ;; The actual feeds listing
 
