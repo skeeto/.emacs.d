@@ -33,6 +33,19 @@
 (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
 (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
 
+;; Special filters
+
+(defun elfeed-blh (entry)
+  "Filter out everything but Bronze League Heroes from HuskyStarcraft."
+  (let ((feed (elfeed-entry-feed entry))
+        (case-fold-search t))
+    (when (string-match-p "HuskyStarcraft" (elfeed-feed-url feed))
+      (unless (string-match-p "bronze" (elfeed-entry-title entry))
+        (elfeed-tag entry 'junk)
+        (elfeed-untag entry 'unread)))))
+
+(add-hook 'elfeed-new-entry-hook 'elfeed-blh)
+
 ;; The actual feeds listing
 
 (setq elfeed-feeds
@@ -150,6 +163,7 @@
         "http://gdata.youtube.com/feeds/base/users/GetDaved/uploads"
         "http://gdata.youtube.com/feeds/base/users/GhazPlays/uploads"
         "http://gdata.youtube.com/feeds/base/users/HuntrBlackLuna/uploads"
+        "http://gdata.youtube.com/feeds/base/users/HuskyStarcraft/uploads"
         "http://gdata.youtube.com/feeds/base/users/JonTronShow/uploads"
         "http://gdata.youtube.com/feeds/base/users/MatthiasWandel/uploads"
         "http://gdata.youtube.com/feeds/base/users/Mestherion/uploads"
