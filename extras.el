@@ -226,6 +226,18 @@ everything the original function does, except for modifying
                              (revert-buffer)
                              (forward-line (1- n)))))))
 
+;; pp
+
+(defun pp-macroexpand-all-last-sexp (arg)
+  "Run `macroexpand-all' on sexp before point.
+With argument, pretty-print output into current buffer.
+Ignores leading comment characters."
+  (interactive "P")
+  (if arg
+      (insert (pp-to-string (eval (pp-last-sexp))))
+    (pp-display-expression (macroexpand-all (pp-last-sexp))
+                           "*Pp Macroexpand Output*")))
+
 (provide 'extras)
 
 ;;; extras.el ends here
