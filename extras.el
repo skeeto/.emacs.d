@@ -190,11 +190,6 @@ everything the original function does, except for modifying
             do (eval sexp lexical-binding)))
     (message "%S loaded" (current-buffer))))
 
-(defun insert-liferea-id ()
-  "Use this to generate an ID for a new Liferea entry."
-  (interactive)
-  (insert (coerce (loop repeat 7 collect (+ ?a (random 26))) 'string)))
-
 (defun what-face (pos)
   "Show the name of face under point."
   (interactive "d")
