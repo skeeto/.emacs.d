@@ -76,9 +76,9 @@
           notmuch-hello-insert-search)))
 (global-set-key (kbd "C-x m") 'notmuch)
 
-(with-package (elfeed feed-setup)
+(with-package (elfeed elfeed-web feed-setup)
   (setq-default elfeed-search-filter "-junk @5-days-ago +unread")
-  (setq elfeed-web-enabled t))
+  (elfeed-web-start))
 (global-set-key (kbd "C-x w") 'elfeed)
 
 (with-package (lisp-mode)
