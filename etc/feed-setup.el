@@ -30,10 +30,6 @@
 ;; Special filters
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "youtube\\.com"
-                              :add 'youtube))
-
-(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :before "5 days ago"
                               :remove 'unread))
 
@@ -51,143 +47,166 @@
 
 ;; The actual feeds listing
 
+(setq elfeed-feeds-alist
+      '(("http://threesixty360.wordpress.com/feed/" blog math)
+        ("http://www.50ply.com/atom.xml" blog dev)
+        ("http://abstrusegoose.com/feed.xml" comic)
+        ("http://curiousprogrammer.wordpress.com/feed/" blog dev)
+        ("http://feeds.feedburner.com/amazingsuperpowers" comic)
+        ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
+        ("http://theatticlight.net/atom.xml" blog)
+        ("http://pages.cs.wisc.edu/~psilord/blog/rssfeed.rss" blog)
+        ("http://www.anticscomic.com/?feed=rss2" comic)
+        ("http://feeds.feedburner.com/blogspot/TPQSS" blog dev)
+        ("http://www.rsspect.com/rss/asw.xml" comic)
+        ("http://beardfluff.com/feed/" comic)
+        ("http://bit-player.org/feed" blog math)
+        ("http://feeds.feedburner.com/bitquabit" blog dev)
+        ("http://simblob.blogspot.com/feeds/posts/default" blog dev)
+        ("http://blogofholding.com/?feed=rss2" blog gaming)
+        ("http://demonastery.org/rss.php" blog gaming)
+        ("http://feeds.feedburner.com/Buttersafe" comic)
+        ("http://feeds.feedburner.com/CatVersusHuman" comic)
+        ("http://chainsawsuit.com/feed/" comic)
+        ("http://feeds.feedburner.com/channelATE" comic)
+        ("http://www.cheeseburgersinthesky.com/feed/" comic)
+        ("http://feeds.feedburner.com/codeincomplete" blog dev)
+        ("http://lisptips.com/rss" blog dev lisp)
+        ("http://completelyseriouscomics.com/?feed=rss2" comic)
+        ("http://cowbirdsinlove.com/feed/" comic)
+        ("http://feeds.feedburner.com/DamnCoolPics" image)
+        ("http://echosa.github.io/atom.xml" blog dev)
+        ("http://www.devrand.org/feeds/posts/default" blog dev)
+        ("http://random.terminally-incoherent.com/rss" image)
+        ("http://divisbyzero.com/feed/" blog math)
+        ("http://dorophone.blogspot.com/feeds/posts/default" blog dev)
+        ("http://www.drawuntilitsfunny.com/feed/" comic)
+        ("http://crawl.develz.org/wordpress/feed" blog gaming)
+        ("http://dvdp.tumblr.com/rss" image)
+        ("http://bay12games.com/dwarves/dev_now.rss" blog gaming)
+        ("http://www.soa-world.de/echelon/feed" blog dev)
+        ("http://emacs-fu.blogspot.com/feeds/posts/default" blog dev emacs)
+        ("http://www.ericsink.com/rss.xml" blog dev)
+        ("http://feeds.feedburner.com/Explosm" comic)
+        ("http://www.extrafabulouscomics.com/1/feed" comic)
+        ("http://exocomics.com/feed" comic)
+        ("http://feeds.feedburner.com/Pidjin" comic)
+        ("http://inkwellideas.com/feed/" blog gaming)
+        ("http://feeds.feedburner.com/InvisibleBread" comic)
+        ("http://blog.ioactive.com/feeds/posts/default" blog security)
+        ("http://irreal.org/blog/?feed=rss2" blog emacs)
+        ("http://feeds.feedburner.com/JoelKirchartz" blog)
+        ("http://jorgetavares.com/feed/" blog dev)
+        ("http://www.leadpaintcomics.com/feed/" comic)
+        ("http://feeds.feedburner.com/lefthandedtoons/awesome" comic)
+        ("http://gottwurfelt.wordpress.com/feed/" blog math)
+        ("http://loldwell.com/?feed=rss2" comic)
+        ("http://www.malloc47.com/rss.xml" blog dev)
+        ("http://maneggs.com/feed/" comic)
+        ("http://www.masteringemacs.org/feed/" blog emacs)
+        ("http://www.ma3comic.com/comic.rss" comic)
+        ("http://www.mercworks.net/feed/" comic)
+        ("http://feeds.feedburner.com/MimiAndEunice" comic)
+        ("http://mrdiv.tumblr.com/rss" image)
+        ("http://www.mrlovenstein.com/rss.xml" comic)
+        ("http://mycardboardlife.com/feed" comic)
+        ("http://nedroid.com/feed/" comic)
+        ("http://nklein.com/feed/" blog dev)
+        ("http://www.npccomic.com/feed/" comic)
+        ("http://nullprogram.com/feed/" blog dev)
+        ("http://www.optipess.com/feed/" comic)
+        ("http://pandyland.net/feed/" comic)
+        ("http://www.rsspect.com/rss/pfsc.xml" comic)
+        ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
+        ("http://problemtown.com/feed/" comic)
+        ("http://feeds.wnyc.org/radiolab" audio)
+        ("http://raganwald.com/atom.xml" blog dev)
+        ("http://research.swtch.com/feed.atom" blog security)
+        ("http://richardwiseman.wordpress.com/feed/" blog puzzle)
+        ("http://stochastix.wordpress.com/feed/" blog math)
+        ("http://feeds.feedburner.com/rolang" blog gaming)
+        ("http://www.safelyendangered.com/feed/" comic)
+        ("http://www.schneier.com/blog/atom.xml" blog security)
+        ("http://sea-of-memes.com/rss.xml" blog dev)
+        ("http://seemikedraw.com.au/feed" comic)
+        ("http://www.skullsecurity.org/blog/feed" blog security)
+        ("http://www.smbc-comics.com/rss.php" comic)
+        ("http://sorrycomics.blogspot.com/feeds/posts/default" comic)
+        ("http://feeds.feedburner.com/spaceavalanche1" comic)
+        ("http://stevelosh.com/feed/" blog dev)
+        ("http://storyboardcomics.blogspot.com/feeds/posts/default" comic)
+        ("http://www.terminally-incoherent.com/blog/feed/" blog)
+        ("http://bradcolbow.com/feed/" comic)
+        ("http://thecodelesscode.com/rss" dev story)
+        ("https://github.com/blog.atom" blog dev)
+        ("http://feeds.feedburner.com/thetechnium" blog)
+        ("http://blog.plover.com/index.atom" blog dev)
+        ("http://notch.tumblr.com/rss" blog gaming)
+        ("http://batsov.com/atom.xml" blog emacs)
+        ("http://towerdive.com/feed/" blog)
+        ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
+        ("http://blog.vivekhaldar.com/rss" blog)
+        ("http://what-if.xkcd.com/feed.atom" blog)
+        ("http://whattheemacsd.com/atom.xml" emacs)
+        ("http://www.whompcomic.com/feed/" comic)
+        ("http://blag.xkcd.com/feed/" blog)
+        ("http://xkcd.com/atom.xml" comic)
+        ("Base14Productions" youtube)
+        ("BattleBunny1979" youtube)
+        ("BlueXephos" youtube)
+        ("Briarstoned" youtube)
+        ("Campster" youtube)
+        ("DonkeyPuncher1976" youtube)
+        ("GetDaved" youtube)
+        ("GhazPlays" youtube)
+        ("HuntrBlackLuna" youtube)
+        ("HuskyStarcraft" youtube)
+        ("JonTronShow" youtube)
+        ("MatthiasWandel" youtube)
+        ("Mestherion" youtube)
+        ("MrUnderlay" youtube)
+        ("PlumpHelmetPunk" youtube)
+        ("Scruit" youtube)
+        ("Vihart" youtube)
+        ("ZombieOrpheusEnt" youtube)
+        ("ZoochosisCom" youtube)
+        ("davidr64yt" youtube)
+        ("eEconomics" youtube)
+        ("emacsrocks" youtube)
+        ("engineerguyvideo" youtube)
+        ("friendznet" youtube)
+        ("jefmajor" youtube)
+        ("kmgpsu" youtube)
+        ("phreakindee" youtube)
+        ("praxgirl" youtube)
+        ("quill18" youtube)
+        ("skiptherules" youtube)
+        ("zzandr1o" youtube)
+        ("PLibNZv5Zd0dwAkwoZtRHfn3tPsdOy-VuF" codefellas playlist)))
+
+(defvar elfeed-tagger-db (make-hash-table :test 'equal)
+  "Marks what feeds get what tags.")
+
 (setq elfeed-feeds
-      '("http://threesixty360.wordpress.com/feed/"
-        "http://www.50ply.com/atom.xml"
-        "http://abstrusegoose.com/feed.xml"
-        "http://curiousprogrammer.wordpress.com/feed/"
-        "http://feeds.feedburner.com/amazingsuperpowers"
-        "http://amitp.blogspot.com/feeds/posts/default"
-        "http://theatticlight.net/atom.xml"
-        "http://pages.cs.wisc.edu/~psilord/blog/rssfeed.rss"
-        "http://www.anticscomic.com/?feed=rss2"
-        "http://feeds.feedburner.com/blogspot/TPQSS"
-        "http://www.rsspect.com/rss/asw.xml"
-        "http://beardfluff.com/feed/"
-        "http://bit-player.org/feed"
-        "http://feeds.feedburner.com/bitquabit"
-        "http://simblob.blogspot.com/feeds/posts/default"
-        "http://blogofholding.com/?feed=rss2"
-        "http://demonastery.org/rss.php"
-        "http://feeds.feedburner.com/Buttersafe"
-        "http://feeds.feedburner.com/CatVersusHuman"
-        "http://chainsawsuit.com/feed/"
-        "http://feeds.feedburner.com/channelATE"
-        "http://www.cheeseburgersinthesky.com/feed/"
-        "http://feeds.feedburner.com/codeincomplete"
-        "http://lisptips.com/rss"
-        "http://completelyseriouscomics.com/?feed=rss2"
-        "http://feeds.feedburner.com/cowbirdsinlove"
-        "http://feeds.feedburner.com/DamnCoolPics"
-        "http://echosa.github.io/atom.xml"
-        "http://www.devrand.org/feeds/posts/default"
-        "http://random.terminally-incoherent.com/rss"
-        "http://feeds.feedburner.com/wordpress/divisbyzero"
-        "http://dorophone.blogspot.com/feeds/posts/default"
-        "http://feeds.feedburner.com/DUIF"
-        "http://crawl.develz.org/wordpress/feed"
-        "http://dvdp.tumblr.com/rss"
-        "http://bay12games.com/dwarves/dev_now.rss"
-        "http://www.soa-world.de/echelon/feed"
-        "http://emacs-fu.blogspot.com/feeds/posts/default"
-        "http://www.ericsink.com/rss.xml"
-        "http://feeds.feedburner.com/Explosm"
-        "http://www.extrafabulouscomics.com/1/feed"
-        "http://exocomics.com/feed"
-        "http://feeds.feedburner.com/Pidjin"
-        "http://inkwellideas.com/feed/"
-        "http://feeds.feedburner.com/InvisibleBread"
-        "http://blog.ioactive.com/feeds/posts/default"
-        "http://irreal.org/blog/?feed=rss2"
-        "http://feeds.feedburner.com/JoelKirchartz"
-        "http://jorgetavares.com/feed/"
-        "http://feeds.feedburner.com/kinokofryfeed"
-        "http://www.leadpaintcomics.com/feed/"
-        "http://feeds.feedburner.com/lefthandedtoons/awesome"
-        "http://gottwurfelt.wordpress.com/feed/"
-        "http://loldwell.com/?feed=rss2"
-        "http://www.malloc47.com/rss.xml"
-        "http://maneggs.com/feed/"
-        "http://www.masteringemacs.org/feed/"
-        "http://www.ma3comic.com/comic.rss"
-        "http://www.mercworks.net/feed/"
-        "http://feeds.feedburner.com/MimiAndEunice"
-        "http://mrdiv.tumblr.com/rss"
-        "http://www.mrlovenstein.com/rss.xml"
-        "http://mycardboardlife.com/feed"
-        "http://nedroid.com/feed/"
-        "http://nklein.com/feed/"
-        "http://feeds.feedburner.com/NpcComic"
-        "http://nullprogram.com/feed/"
-        "http://feeds.feedburner.com/Optipess"
-        "http://pandyland.net/feed/"
-        "http://www.rsspect.com/rss/pfsc.xml"
-        "http://possiblywrong.wordpress.com/feed/"
-        "http://problemtown.com/feed/"
-        "http://feeds.wnyc.org/radiolab"
-        "http://raganwald.com/atom.xml"
-        "http://research.swtch.com/feed.atom"
-        "http://feeds.feedburner.com/RichardWisemansBlog"
-        "http://feeds.feedburner.com/ReasonableDeviations"
-        "http://feeds.feedburner.com/rolang"
-        "http://www.safelyendangered.com/feed/"
-        "http://www.schneier.com/blog/atom.xml"
-        "http://sea-of-memes.com/rss.xml"
-        "http://seemikedraw.com.au/feed"
-        "http://www.skullsecurity.org/blog/feed"
-        "http://feeds.feedburner.com/smbc-comics/PvLb"
-        "http://sorrycomics.blogspot.com/feeds/posts/default"
-        "http://feeds.feedburner.com/spaceavalanche1"
-        "http://stevelosh.com/feed/"
-        "http://storyboardcomics.blogspot.com/feeds/posts/default"
-        "http://www.terminally-incoherent.com/blog/feed/"
-        "http://feeds.feedburner.com/thebrads"
-        "http://thecodelesscode.com/rss"
-        "https://github.com/blog.atom"
-        "http://blog.theoldreader.com/rss"
-        "http://feeds.feedburner.com/thetechnium"
-        "http://blog.plover.com/index.atom"
-        "http://notch.tumblr.com/rss"
-        "http://batsov.com/atom.xml"
-        "http://towerdive.com/feed/"
-        "http://www.shamusyoung.com/twentysidedtale/?feed=rss2"
-        "http://blog.vivekhaldar.com/rss"
-        "http://what-if.xkcd.com/feed.atom"
-        "http://whattheemacsd.com/atom.xml"
-        "http://www.whompcomic.com/feed/"
-        "http://blag.xkcd.com/feed/"
-        "http://xkcd.com/atom.xml"
-        "http://gdata.youtube.com/feeds/base/users/Base14Productions/uploads"
-        "http://gdata.youtube.com/feeds/base/users/BattleBunny1979/uploads"
-        "http://gdata.youtube.com/feeds/base/users/BlueXephos/uploads"
-        "http://gdata.youtube.com/feeds/base/users/Briarstoned/uploads"
-        "http://gdata.youtube.com/feeds/base/users/Campster/uploads"
-        "http://gdata.youtube.com/feeds/base/users/DonkeyPuncher1976/uploads"
-        "http://gdata.youtube.com/feeds/base/users/GetDaved/uploads"
-        "http://gdata.youtube.com/feeds/base/users/GhazPlays/uploads"
-        "http://gdata.youtube.com/feeds/base/users/HuntrBlackLuna/uploads"
-        "http://gdata.youtube.com/feeds/base/users/HuskyStarcraft/uploads"
-        "http://gdata.youtube.com/feeds/base/users/JonTronShow/uploads"
-        "http://gdata.youtube.com/feeds/base/users/MatthiasWandel/uploads"
-        "http://gdata.youtube.com/feeds/base/users/Mestherion/uploads"
-        "http://gdata.youtube.com/feeds/base/users/MrUnderlay/uploads"
-        "http://gdata.youtube.com/feeds/base/users/PlumpHelmetPunk/uploads"
-        "http://gdata.youtube.com/feeds/base/users/Scruit/uploads"
-        "http://gdata.youtube.com/feeds/base/users/Vihart/uploads"
-        "http://gdata.youtube.com/feeds/base/users/ZombieOrpheusEnt/uploads"
-        "http://gdata.youtube.com/feeds/base/users/ZoochosisCom/uploads"
-        "http://gdata.youtube.com/feeds/base/users/davidr64yt/uploads"
-        "http://gdata.youtube.com/feeds/base/users/eEconomics/uploads"
-        "http://gdata.youtube.com/feeds/base/users/emacsrocks/uploads"
-        "http://gdata.youtube.com/feeds/base/users/engineerguyvideo/uploads"
-        "http://gdata.youtube.com/feeds/base/users/friendznet/uploads"
-        "http://gdata.youtube.com/feeds/base/users/jefmajor/uploads"
-        "http://gdata.youtube.com/feeds/base/users/kmgpsu/uploads"
-        "http://gdata.youtube.com/feeds/base/users/phreakindee/uploads"
-        "http://gdata.youtube.com/feeds/base/users/praxgirl/uploads"
-        "http://gdata.youtube.com/feeds/base/users/quill18/uploads"
-        "http://gdata.youtube.com/feeds/base/users/skiptherules/uploads"
-        "http://gdata.youtube.com/feeds/base/users/zzandr1o/uploads"))
+      (loop with youtube =
+            "http://gdata.youtube.com/feeds/base/users/%s/uploads"
+            with playlist =
+            "https://gdata.youtube.com/feeds/api/playlists/%s"
+            for (url . tags) in elfeed-feeds-alist
+            for real-url = (cond
+                            ((member 'youtube tags) (format youtube url))
+                            ((member 'playlist tags) (format playlist url))
+                            (:otherwise url))
+            do (setf (gethash real-url elfeed-tagger-db) tags)
+            collect real-url))
+
+(defun elfeed-tagger-db-tagger (entry)
+  "Tag ENTRY using the `elfeed-tagger-db'."
+  (let* ((feed-url (elfeed-feed-url (elfeed-entry-feed entry)))
+         (tags (gethash feed-url elfeed-tagger-db)))
+    (apply #'elfeed-tag entry tags)))
+
+(add-hook 'elfeed-new-entry-hook 'elfeed-tagger-db-tagger)
 
 (provide 'feed-setup)
 
