@@ -123,7 +123,8 @@
 
 (with-package (simple utility)
   ;; disable so I don't use it by accident
-  (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ()))))
+  (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ())))
+  (add-hook 'tabulated-list-mode-hook 'hl-line-mode))
 
 (with-package* uniquify
   (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
