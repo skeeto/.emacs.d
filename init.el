@@ -11,6 +11,7 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 (setq wdired-allow-to-change-permissions t)
+(add-hook 'dired-mode-hook 'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (setq dabbrev-case-distinction nil)
 (setq dabbrev-case-fold-search nil)
