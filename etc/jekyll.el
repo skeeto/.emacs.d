@@ -50,7 +50,7 @@
   "Return the filename for a new post given the TITLE."
   (expand-file-name (format "%s/_posts/%s-%s.markdown"
                             jekyll-home
-                            (format-time-string "%Y-%m-%d")
+                            (format-time-string "%Y-%m-%d" nil t)
                             (replace-regexp-in-string "\\W+" "-" title))))
 
 (defun jekyll/start ()
