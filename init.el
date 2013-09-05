@@ -65,7 +65,7 @@
         notmuch-fcc-dirs nil
         notmuch-search-oldest-first nil
         notmuch-archive-tags '("-inbox" "-unread" "+archive"))
-  ;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+  ;;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
   (notmuch-address-message-insinuate)
   (custom-set-faces
    '(notmuch-search-subject ((t :foreground "#afa")))
