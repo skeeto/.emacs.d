@@ -269,13 +269,11 @@
   (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
 
-(with-package* (ido ido-ubiquitous)
+(with-package* ido
   (setq ido-enable-flex-matching t)
   (setq ido-show-dot-for-dired t) ; Old habits die hard!
   (setq ido-everywhere t)
-  (ido-mode 1)
-  (ido-ubiquitous-mode)
-  (setq ido-ubiquitous-enable-compatibility nil))
+  (ido-mode 1))
 
 (with-package* smex
   (smex-initialize)
