@@ -265,7 +265,7 @@
   (add-hook 'scheme-mode-hook (bracket-face scheme-font-lock-keywords-2))
   (add-hook 'lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
-  (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords))
+  (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
 
 (with-package* (ido ido-ubiquitous)
   (setq ido-enable-flex-matching t)
@@ -273,7 +273,7 @@
   (setq ido-everywhere t)
   (ido-mode 1)
   (ido-ubiquitous-mode)
-  (setq ido-ubiquitous-enable-compatibility nil)))
+  (setq ido-ubiquitous-enable-compatibility nil))
 
 (with-package* smex
   (smex-initialize)
