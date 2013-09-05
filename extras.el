@@ -233,6 +233,20 @@ Ignores leading comment characters."
     (pp-display-expression (macroexpand-all (pp-last-sexp))
                            "*Pp Macroexpand Output*")))
 
+;; Help mode assistance
+
+(defun push-first-button ()
+  "Find and push the first button in this buffer, intended for `help-mode'."
+  (interactive)
+  (block :find-button
+    (goto-char (point-min))
+    (while (< (point) (point-max))
+      (if (get-text-property (point) 'button)
+          (return-from :find-button (push-button))
+        (forward-char)))))
+
+(define-key help-mode-map "f" 'push-first-button)
+
 (provide 'extras)
 
 ;;; extras.el ends here
