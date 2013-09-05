@@ -18,6 +18,7 @@
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
 (setq vc-follow-symlinks t)
+(setq save-place-file (make-temp-file "save-place"))
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
