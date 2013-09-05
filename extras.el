@@ -245,7 +245,8 @@ Ignores leading comment characters."
           (return-from :find-button (push-button))
         (forward-char)))))
 
-(define-key help-mode-map "f" 'push-first-button)
+(with-package help-mode
+  (define-key help-mode-map "f" 'push-first-button))
 
 (provide 'extras)
 
