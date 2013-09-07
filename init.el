@@ -19,6 +19,7 @@
 (setq delete-active-region nil)
 (setq vc-follow-symlinks t)
 (setq save-place-file (make-temp-file "save-place"))
+(setq custom-file (make-temp-file "emacs-custom"))
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
