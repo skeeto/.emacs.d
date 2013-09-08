@@ -151,6 +151,7 @@
         ("http://www.whompcomic.com/feed/" comic)
         ("http://blag.xkcd.com/feed/" blog)
         ("http://xkcd.com/atom.xml" comic)
+        ("emacs.announce" gmane emacs)
         ("Base14Productions" youtube)
         ("BattleBunny1979" youtube)
         ("BlueXephos" youtube)
@@ -192,10 +193,13 @@
             "http://gdata.youtube.com/feeds/base/users/%s/uploads"
             with playlist =
             "https://gdata.youtube.com/feeds/api/playlists/%s"
+            with gmane =
+            "http://rss.gmane.org/topics/complete/gmane.%s"
             for (url . tags) in elfeed-feeds-alist
             for real-url = (cond
                             ((member 'youtube tags) (format youtube url))
                             ((member 'playlist tags) (format playlist url))
+                            ((member 'gmane tags) (format gmane url))
                             (:otherwise url))
             do (setf (gethash real-url elfeed-tagger-db) tags)
             collect real-url))
