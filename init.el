@@ -18,7 +18,7 @@
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
 (setq vc-follow-symlinks t)
-(setq save-place-file (make-temp-file "save-place"))
+(setq save-place-file (expand-file-name ".sp" temporary-file-directory))
 (setq custom-file (make-temp-file "emacs-custom"))
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
