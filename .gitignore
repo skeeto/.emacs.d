@@ -4,3 +4,4 @@ eshell/
 elpa
 *.elc
 url
+.cask/
