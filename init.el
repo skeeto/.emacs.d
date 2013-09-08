@@ -55,6 +55,7 @@
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 (add-to-list 'auto-mode-alist '("[._]bash.*" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("Cask" . emacs-lisp-mode))
 
 ;;; Individual package configurations
 
