@@ -152,6 +152,7 @@
         ("http://www.whompcomic.com/feed/" comic)
         ("http://blag.xkcd.com/feed/" blog)
         ("http://xkcd.com/atom.xml" comic)
+        ("dailyprogrammer" subreddit)
         ("emacs.announce" gmane emacs)
         ("comp.encryption.gpg.announce" gmane gpg)
         ("Base14Productions" youtube)
