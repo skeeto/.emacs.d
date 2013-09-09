@@ -44,6 +44,9 @@
 (define-key notmuch-hello-mode-map "u"
   (expose #'notmuch-hello-search "tag:unread"))
 
+(define-key notmuch-hello-mode-map "a"
+  (expose #'notmuch-hello-search "tag:archive"))
+
 (provide 'email-setup)
 
 ;;; email-setup.el ends here
