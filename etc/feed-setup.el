@@ -190,19 +190,24 @@
 (defvar elfeed-tagger-db (make-hash-table :test 'equal)
   "Marks what feeds get what tags.")
 
+(defvar feed-patterns
+  '((youtube   "http://gdata.youtube.com/feeds/base/users/%s/uploads")
+    (playlist  "https://gdata.youtube.com/feeds/api/playlists/%s")
+    (gmane     "http://rss.gmane.org/topics/complete/gmane.%s")
+    (subreddit "http://www.reddit.com/r/%s/.rss"))
+  "How certain types of feeds automatically expand.")
+
+(defun feed-expand (tags url)
+  "Expand URL depending on its TAGS."
+  (loop for tag in tags
+        when (assoc tag feed-patterns)
+        return (format (cadr it) url)
+        finally (return url)))
+
 (setq elfeed-feeds
-      (loop with youtube =
-            "http://gdata.youtube.com/feeds/base/users/%s/uploads"
-            with playlist =
-            "https://gdata.youtube.com/feeds/api/playlists/%s"
-            with gmane =
-            "http://rss.gmane.org/topics/complete/gmane.%s"
+      (loop with specials = (mapcar #'car feed-patterns)
             for (url . tags) in elfeed-feeds-alist
-            for real-url = (cond
-                            ((member 'youtube tags) (format youtube url))
-                            ((member 'playlist tags) (format playlist url))
-                            ((member 'gmane tags) (format gmane url))
-                            (:otherwise url))
+            for real-url = (feed-expand tags url)
             do (setf (gethash real-url elfeed-tagger-db) tags)
             collect real-url))
 
