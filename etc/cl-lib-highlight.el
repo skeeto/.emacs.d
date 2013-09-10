@@ -77,8 +77,7 @@ up in an automatically generated list, but shouldn't be highlighted.")
 ;;;###autoload
 (defun cl-lib-highlight-initialize ()
   "Add all cl-lib font lock highlighting to `emacs-lisp-mode'."
-  (cl-macrolet ((opt (syms) (eval-when-compile
-                              `(regexp-opt (mapcar #'symbol-name ,syms) t))))
+  (cl-flet ((opt (syms) (regexp-opt (mapcar #'symbol-name syms) t)))
     (let ((defs (list (concat "(" (opt cl-lib-highlight-defs) "\\>"
                               "[ \t'(]*"
                               "\\(setf[ \t]+\\sw+\\|\\sw+\\)?")
@@ -101,8 +100,7 @@ up in an automatically generated list, but shouldn't be highlighted.")
 (defun cl-lib-highlight-warn-cl-initialize ()
   "Mark all of the old cl functions with `flyspell-incorrect'."
   (require 'flyspell)
-  (let* ((opt (eval-when-compile
-                (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t)))
+  (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
          (old (list (concat "(\\(?:[ \t]*\\)\\<" opt "\\>")
                     '(1 'flyspell-incorrect))))
     (font-lock-add-keywords 'emacs-lisp-mode (list old))
