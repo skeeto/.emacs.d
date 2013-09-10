@@ -358,4 +358,7 @@
   (add-hook 'batch-mode-hook (lambda () (setq mode-name "Batch"))))
 (autoload 'batch-mode "batch-mode.el" nil t)
 
+(with-package (cl-lib-highlight lisp-mode)
+  (cl-lib-highlight-initialize))
+
 (provide 'init) ; make (require 'init) happy
