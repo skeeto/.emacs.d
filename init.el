@@ -32,6 +32,7 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (setq package-enable-at-startup nil)
+(setq package-blacklist '(batch-mode))
 (package-initialize)
 
 ;; Install packages not needing configuration
@@ -355,5 +356,6 @@
 
 (with-package* batch-mode
   (add-hook 'batch-mode-hook (lambda () (setq mode-name "Batch"))))
+(autoload 'batch-mode "batch-mode.el" nil t)
 
 (provide 'init) ; make (require 'init) happy

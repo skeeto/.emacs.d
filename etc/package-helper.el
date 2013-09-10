@@ -31,6 +31,9 @@
 (require 'cl)
 (require 'package)
 
+(defvar package-blacklist ()
+  "List of packages that should never be installed.")
+
 (defun packagep (name)
   "Return t if NAME is an available package."
   (unless package-archive-contents
@@ -68,7 +71,8 @@ literal future `eval', so it appears as data to the compiler."
                          ,@body)))
        ,@(loop for package in packages
                for real-name = (package-real-name package)
-               collect `(when (and (packagep ',real-name)
+               collect `(when (and (not (member ',real-name package-blacklist))
+                                   (packagep ',real-name)
                                    (not (package-installed-p ',real-name)))
                           (package-install ',real-name)))
        ,@(loop for package in packages collect
