@@ -3,6 +3,9 @@
 ;; This is free and unencumbered software released into the public domain.
 
 ;; Author: Christopher Wellons <wellons@nullprogram.com>
+;; URL: https://github.com/skeeto/cl-lib-highlight
+;; Version: 1.0.0
+;; Package-Requires: ((cl-lib "0.3"))
 
 ;;; Commentary:
 
@@ -101,7 +104,7 @@ up in an automatically generated list, but shouldn't be highlighted.")
   "Mark all of the old cl functions with `flyspell-incorrect'."
   (require 'flyspell)
   (let* ((opt (regexp-opt (mapcar #'symbol-name cl-lib-highlight-cl) t))
-         (old (list (concat "(\\(?:[ \t]*\\)\\<" opt "\\>")
+         (old (list (concat "(" opt "\\>")
                     '(1 'flyspell-incorrect))))
     (font-lock-add-keywords 'emacs-lisp-mode (list old))
     (font-lock-add-keywords 'lisp-interaction-mode (list old))))
