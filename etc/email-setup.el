@@ -27,7 +27,7 @@
 ;; Notmuch mail listing keybindings.
 
 (define-key notmuch-search-mode-map "g"
-  'notmuch-search-refresh-view)
+  'notmuch-poll-and-refresh-this-buffer)
 
 (define-key notmuch-search-mode-map "d"
   (notmuch-search-toggle "trash"))
@@ -36,7 +36,7 @@
   (notmuch-search-toggle "spam"))
 
 (define-key notmuch-hello-mode-map "g"
-  'notmuch-hello-poll-and-update)
+  'notmuch-poll-and-refresh-this-buffer)
 
 (define-key notmuch-hello-mode-map "i"
   (expose #'notmuch-hello-search "tag:inbox"))
