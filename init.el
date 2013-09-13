@@ -192,7 +192,7 @@
                   "setTimeout" "setInterval" "location" "skewer"
                   "console" "phantom")))
 
-(with-package (skewer-mode skewer-repl)
+(with-package (skewer-mode skewer-repl sgml-mode css-mode js2-mode)
   (skewer-setup)
   (define-key skewer-repl-mode-map (kbd "C-c C-z") 'quit-window)
   (define-key skewer-mode-map (kbd "C-c $")
