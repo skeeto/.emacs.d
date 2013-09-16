@@ -157,6 +157,7 @@
         ("dailyprogrammer" subreddit)
         ("emacs.announce" gmane emacs)
         ("comp.encryption.gpg.announce" gmane gpg)
+        ("politics.comp.cryptography" gmane crypto)
         ("Base14Productions" youtube)
         ("BattleBunny1979" youtube)
         ("BlueXephos" youtube)
