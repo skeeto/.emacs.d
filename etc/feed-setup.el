@@ -151,6 +151,7 @@
         ("http://what-if.xkcd.com/feed.atom" blog)
         ("http://whattheemacsd.com/atom.xml" emacs)
         ("http://www.whompcomic.com/feed/" comic)
+        ("http://wordsmith.org/awad/rss1.xml" word)
         ("http://blag.xkcd.com/feed/" blog)
         ("http://xkcd.com/atom.xml" comic)
         ("dailyprogrammer" subreddit)
