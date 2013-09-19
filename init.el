@@ -18,7 +18,6 @@
 (setq echo-keystrokes 0.1)
 (setq delete-active-region nil)
 (setq vc-follow-symlinks t)
-(setq save-place-file (expand-file-name ".sp" temporary-file-directory))
 (setq custom-file (make-temp-file "emacs-custom"))
 (mapatoms (lambda (sym)
             (if (get sym 'disabled)
@@ -346,6 +345,9 @@
 
 (with-package* uuid-simple
   (global-set-key "\C-x!" 'uuid-insert)
+  (setq save-place-file
+        (expand-file-name (format "%s.el" (make-uuid))
+                          temporary-file-directory))
   (random (make-uuid)))
 
 (with-package* compile-bind
