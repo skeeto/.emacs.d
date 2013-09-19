@@ -3,6 +3,8 @@
 (require 'elfeed)
 (require 'youtube-dl-mode)
 
+(setq-default elfeed-search-filter "-junk @1-week-ago +unread")
+
 ;; youtube-dl config
 
 (setq youtube-dl-directory "/media/wellons")
@@ -30,7 +32,7 @@
 ;; Special filters
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :before "5 days ago"
+          (elfeed-make-tagger :before "3 days ago"
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook

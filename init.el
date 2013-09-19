@@ -83,7 +83,6 @@
 (global-set-key (kbd "C-x m") 'notmuch)
 
 (with-package (elfeed elfeed-web feed-setup)
-  (setq-default elfeed-search-filter "-junk @5-days-ago +unread")
   (ignore-errors
     (elfeed-web-start)))
 (global-set-key (kbd "C-x w") 'elfeed)
