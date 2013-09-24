@@ -130,6 +130,10 @@
 (with-package* whitespace-cleanup
   (setq-default indent-tabs-mode nil))
 
+(with-package diff-mode
+  (add-hook 'diff-mode-hook #'toggle-whitespace-cleanup)
+  (add-hook 'diff-mode-hook #'read-only-mode))
+
 (with-package (simple utility)
   ;; disable so I don't use it by accident
   (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ())))
