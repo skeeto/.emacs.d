@@ -342,6 +342,7 @@
   (add-hook 'emacs-lisp-mode-hook 'disable-yas))
 
 (with-package multiple-cursors-autoloads
+  (global-set-key (kbd "C-S-e") #'mc/edit-lines)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
