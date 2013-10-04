@@ -82,7 +82,6 @@
         ("http://random.terminally-incoherent.com/rss" image)
         ("http://divisbyzero.com/feed/" blog math)
         ("http://dorophone.blogspot.com/feeds/posts/default" blog dev)
-        ("http://www.drawuntilitsfunny.com/feed/" comic)
         ("http://crawl.develz.org/wordpress/feed" blog gaming product)
         ("http://dvdp.tumblr.com/rss" image)
         ("https://www.digitalocean.com/blog/feed" blog product)
