@@ -54,6 +54,7 @@
         ("http://www.50ply.com/atom.xml" blog dev)
         ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
         ("http://abstrusegoose.com/feed.xml" comic)
+        ("http://english.bouletcorp.com/feed/" comic)
         ("http://curiousprogrammer.wordpress.com/feed/" blog dev)
         ("http://feeds.feedburner.com/amazingsuperpowers" comic)
         ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
