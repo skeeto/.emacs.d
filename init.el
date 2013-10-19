@@ -105,7 +105,9 @@
       (2 'font-lock-function-name-face))))
   (font-lock-add-keywords
    'emacs-lisp-mode
-   '(("(\\(defvar-local\\)\\_>" (1 font-lock-keyword-face)))))
+   '(("(\\(defvar-local\\)\\_>[ \t]*\\(\\sw+\\)?"
+      (1 font-lock-keyword-face)
+      (2 font-lock-variable-name-face nil t)))))
 
 (with-package* time
   (setq display-time-default-load-average nil)
