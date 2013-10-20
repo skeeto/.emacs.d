@@ -76,7 +76,7 @@
         ("http://feeds.feedburner.com/codeincomplete" blog dev)
         ("http://lisptips.com/rss" blog dev lisp)
         ("http://completelyseriouscomics.com/?feed=rss2" comic)
-        ("http://cowbirdsinlove.com/feed/" comic)
+        ("http://feeds.feedburner.com/cowbirdsinlove" comic)
         ("http://feeds.feedburner.com/DamnCoolPics" image)
         ("http://echosa.github.io/atom.xml" blog dev)
         ("http://www.devrand.org/feeds/posts/default" blog dev)
