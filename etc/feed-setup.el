@@ -133,7 +133,6 @@
         ("http://www.schneier.com/blog/atom.xml" blog security)
         ("http://sea-of-memes.com/rss.xml" blog dev)
         ("http://seemikedraw.com.au/feed" comic)
-        ("http://www.skullsecurity.org/blog/feed" blog security)
         ("http://www.smbc-comics.com/rss.php" comic)
         ("http://sorrycomics.blogspot.com/feeds/posts/default" comic)
         ("http://feeds.feedburner.com/spaceavalanche1" comic)
