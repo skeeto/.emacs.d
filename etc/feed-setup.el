@@ -190,6 +190,7 @@
         ("praxgirl" youtube)
         ("quill18" youtube)
         ("skiptherules" youtube)
+        ("szyzyg" youtube)
         ("zzandr1o" youtube)
         ("PLibNZv5Zd0dwAkwoZtRHfn3tPsdOy-VuF" codefellas playlist)))
 
