@@ -156,6 +156,7 @@
         ("http://blag.xkcd.com/feed/" blog)
         ("http://xkcd.com/atom.xml" comic)
         ("dailyprogrammer" subreddit)
+        ("OOTSFeed" subreddit comic)
         ("emacs.announce" gmane emacs)
         ("comp.encryption.gpg.announce" gmane gpg)
         ("politics.comp.cryptography" gmane crypto)
