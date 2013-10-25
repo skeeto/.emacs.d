@@ -295,11 +295,6 @@
 
 (with-package* custom
   (load-theme 'wombat t)
-  (add-hook 'after-make-frame-functions
-            (lambda (frame)
-              (let ((themes custom-enabled-themes))
-                (mapc 'disable-theme themes)
-                (mapc 'enable-theme (reverse themes)))))
   ;; Fix broken faces between Wombat, Magit, and Notmuch
   (custom-set-faces
    '(diff-added           ((t :foreground "green")))
