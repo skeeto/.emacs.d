@@ -208,16 +208,14 @@
 (with-package clojure-mode-autoloads
   (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
 
-(with-package nrepl
-  (defadvice nrepl-popup-buffer-display (after nrepl-focus-errors activate)
+(with-package cider
+  (defadvice cider-popup-buffer-display (after cider-focus-errors activate)
     "Focus the error buffer after errors, like Emacs normally does."
-    (select-window (get-buffer-window nrepl-error-buffer)))
-  (defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
+    (select-window (get-buffer-window cider-error-buffer)))
+  (defadvice cider-eval-last-sexp (after cider-flash-last activate)
     (flash-region (save-excursion (backward-sexp) (point)) (point)))
-  (defadvice nrepl-eval-expression-at-point (after nrepl-flash-at activate)
-    (apply #'flash-region (nrepl-region-for-expression-at-point)))
-  ;; Remove ":headless" to work around Leiningen bug
-  (setq nrepl-server-command "lein repl"))
+  (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
+    (apply #'flash-region (cider--region-for-defun-at-point))))
 
 (with-package inf-ruby
   (defadvice inf-ruby-output-filter (after ruby-echo (output) activate)
