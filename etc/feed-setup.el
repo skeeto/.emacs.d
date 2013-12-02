@@ -103,6 +103,7 @@
         ("http://www.leadpaintcomics.com/feed/" comic)
         ("http://feeds.feedburner.com/lefthandedtoons/awesome" comic)
         ("http://gottwurfelt.wordpress.com/feed/" blog math)
+        ("http://feeds.feedburner.com/LoadingArtist" comic)
         ("http://loldwell.com/?feed=rss2" comic)
         ("http://www.malloc47.com/rss.xml" blog dev)
         ("http://maneggs.com/feed/" comic)
