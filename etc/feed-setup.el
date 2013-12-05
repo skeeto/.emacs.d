@@ -164,7 +164,6 @@
         ("Base14Productions" youtube)
         ("BattleBunny1979" youtube)
         ("BlueXephos" youtube)
-        ("Briarstoned" youtube)
         ("Campster" youtube)
         ("DonkeyPuncher1976" youtube)
         ("GetDaved" youtube)
