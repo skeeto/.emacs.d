@@ -280,9 +280,10 @@
   (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
 
 (with-package* (ido ido-ubiquitous)
-  (setq ido-enable-flex-matching t)
-  (setq ido-show-dot-for-dired t) ; Old habits die hard!
-  (setq ido-everywhere t)
+  (setq ido-enable-flex-matching t
+        ido-show-dot-for-dired t
+        ido-save-directory-list-file nil
+        ido-everywhere t)
   (ido-mode 1)
   (ido-ubiquitous-mode)
   (setq ido-ubiquitous-enable-compatibility nil))
