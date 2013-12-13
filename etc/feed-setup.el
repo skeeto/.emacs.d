@@ -149,6 +149,7 @@
         ("http://batsov.com/atom.xml" blog emacs)
         ("http://towerdive.com/feed/" blog)
         ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
+        ("http://jeremykaye.tumblr.com/rss" comic)
         ("http://blog.vivekhaldar.com/rss" blog)
         ("http://what-if.xkcd.com/feed.atom" blog)
         ("http://whattheemacsd.com/atom.xml" emacs)
