@@ -100,14 +100,15 @@
   (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer*)
   (font-lock-add-keywords
    'emacs-lisp-mode
-   '(("(\\<\\(\\(?:ert-\\)?deftest\\)\\> +\\([^ ()]+\\)"
-      (1 'font-lock-keyword-face)
-      (2 'font-lock-function-name-face))))
-  (font-lock-add-keywords
-   'emacs-lisp-mode
    '(("(\\(defvar-local\\)\\_>[ \t]*\\(\\sw+\\)?"
       (1 font-lock-keyword-face)
-      (2 font-lock-variable-name-face nil t)))))
+      (2 font-lock-variable-name-face nil t))))
+  (let ((macros (regexp-opt '("gv-define-setter" "ert-deftest" "deftest") t)))
+    (font-lock-add-keywords
+     'emacs-lisp-mode
+     `((,(concat "(" macros "\\_>" "[ \t]*" "\\(\\sw+\\)?")
+        (1 font-lock-keyword-face)
+        (2 font-lock-function-name-face nil t))))))
 
 (with-package* time
   (setq display-time-default-load-average nil)
