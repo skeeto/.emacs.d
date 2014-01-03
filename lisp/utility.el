@@ -21,7 +21,7 @@
 (defun constantly (value)
   "Return a function that accepts any number of arguments, has no
 side-effects, and always returns VALUE."
-  (lambda (&rest args) value))
+  (lambda (&rest _) value))
 
 (defun complement (function)
   "Return a function that takes the same arguments as FUNCTION
@@ -75,5 +75,9 @@ right-associatively."
      #'self))
 
 (provide 'utility)
+
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
 
 ;;; utility.el ends here

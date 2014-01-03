@@ -2,6 +2,7 @@
 
 ;;; Code:
 
+(require 'cl)
 (require 'utility)
 (require 'notmuch)
 
@@ -53,5 +54,9 @@
   (expose #'notmuch-hello-search "tag:archive"))
 
 (provide 'email-setup)
+
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
 
 ;;; email-setup.el ends here

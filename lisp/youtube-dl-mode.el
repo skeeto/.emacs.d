@@ -11,10 +11,12 @@
 (require 'url-parse)
 
 (defcustom youtube-dl-directory "~"
-  "Directory in which to run youtube-dl.")
+  "Directory in which to run youtube-dl."
+  :group 'external)
 
 (defcustom youtube-dl-arguments '("--title" "--no-mtime" "--restrict-filenames")
-  "Arguments to be send to youtube-dl.")
+  "Arguments to be send to youtube-dl."
+  :group 'external)
 
 (defvar youtube-dl-hosts '("www.youtube.com" "youtube.com" "youtu.be")
   "Domain names for YouTube.")
@@ -35,6 +37,9 @@
       (quit-window)
     (kill-buffer (current-buffer))))
 
+(defvar youtube-dl-url nil
+  "The URL being downloaded in this buffer.")
+
 (defun youtube-dl-sentinel (process event)
   "Responds to completed youtube-dl processes."
   (let ((buffer (process-buffer process)))
@@ -50,9 +55,6 @@
     (prog1 map
       (define-key map "q" 'youtube-dl-quit)))
   "Keymap for `youtube-dl-mode'.")
-
-(defvar youtube-dl-url nil
-  "The URL being downloaded in this buffer.")
 
 (defun youtube-dl-mode ()
   "Major mode for showing youtube-dl processes. You probably

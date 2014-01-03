@@ -2,18 +2,22 @@
 
 ;;; Code:
 
+(require 'cl)
+(require 'pp)
+(require 'package-helper)
+
 ;; Move line functions
 (defun move-line (n)
   "Move the current line up or down by N lines."
   (interactive "p")
-  (setq col (current-column))
-  (beginning-of-line) (setq start (point))
-  (end-of-line) (forward-char) (setq end (point))
-  (let ((line-text (delete-and-extract-region start end)))
+  (let* ((column (current-column))
+         (start (progn (beginning-of-line) (point)))
+         (end (progn (end-of-line) (forward-char) (point)))
+         (line-text (delete-and-extract-region start end)))
     (forward-line n)
     (insert line-text)
     (forward-line -1)
-    (forward-char col)))
+    (forward-char column)))
 
 (defun move-line-up (n)
   "Move the current line up by N lines."
@@ -111,6 +115,8 @@ prefix argument, the process's buffer is displayed."
 (global-set-key (kbd "s-x") 'launch)
 
 ;; Dictionary lookup
+
+(autoload 'ispell-get-word "ispell")
 
 (defun lookup-word (word)
   (interactive (list (save-excursion (car (ispell-get-word nil)))))
@@ -249,5 +255,9 @@ Ignores leading comment characters."
   (define-key help-mode-map "f" 'push-first-button))
 
 (provide 'extras)
+
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
 
 ;;; extras.el ends here

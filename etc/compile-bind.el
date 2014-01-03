@@ -23,4 +23,8 @@ ant, scons) in a particular keymap."
 
 (provide 'compile-bind)
 
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
+
 ;;; compile-bind.el ends here

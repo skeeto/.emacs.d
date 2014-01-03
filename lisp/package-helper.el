@@ -95,4 +95,8 @@ This is mostly for code organization purposes."
 
 (provide 'package-helper)
 
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
+
 ;;; package-helper.el ends here

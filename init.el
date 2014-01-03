@@ -35,6 +35,10 @@
 ;; Install packages not needing configuration
 (with-package (impatient-mode lua-mode memoize rdp))
 
+;; Compile configuration
+(byte-recompile-directory "~/.emacs.d/lisp/" 0)
+(byte-recompile-directory "~/.emacs.d/etc/" 0)
+
 ;; Load local "packages"
 (require 'imgur)
 (require 'extras)

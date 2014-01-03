@@ -36,4 +36,8 @@
 
 (provide 'imgur)
 
+;; Local Variables:
+;; byte-compile-warnings: (not cl-functions)
+;; End:
+
 ;;; imgur.el ends here
