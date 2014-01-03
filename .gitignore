@@ -5,3 +5,4 @@ elpa
 *.elc
 url
 .cask/
+.mc-lists.el
