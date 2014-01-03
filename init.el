@@ -6,22 +6,20 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (blink-cursor-mode -1)
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
-(setq wdired-allow-to-change-permissions t)
-(add-hook 'dired-mode-hook 'toggle-truncate-lines)
+(setq backup-inhibited t
+      auto-save-default nil
+      inhibit-startup-message t
+      initial-scratch-message nil
+      wdired-allow-to-change-permissions t
+      dabbrev-case-distinction nil
+      dabbrev-case-fold-search nil
+      echo-keystrokes 0.1
+      delete-active-region nil
+      vc-follow-symlinks t
+      custom-file (make-temp-file "emacs-custom"))
+(add-hook 'dired-mode-hook #'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
-(setq dabbrev-case-distinction nil)
-(setq dabbrev-case-fold-search nil)
-(setq echo-keystrokes 0.1)
-(setq delete-active-region nil)
-(setq vc-follow-symlinks t)
-(setq custom-file (make-temp-file "emacs-custom"))
-(mapatoms (lambda (sym)
-            (if (get sym 'disabled)
-                (put sym 'disabled nil))))
+(mapatoms (lambda (s) (when (get s 'disabled) (put s 'disabled nil))))
 
 ;;; Packages
 
