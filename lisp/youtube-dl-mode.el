@@ -30,6 +30,18 @@
     (when (and match (member host youtube-dl-hosts))
       (substring path match (+ match 11)))))
 
+(defun youtube-dl-show-all ()
+  "Show all `youtube-dl-mode' buffers split in the current frame."
+  (interactive)
+  (let ((buffers (remove-if-not
+                  (lambda (b) (string-match-p "^\\*youtube-dl" (buffer-name b)))
+                  (buffer-list))))
+    (delete-other-windows)
+    (while (< (length (window-list)) (length buffers))
+      (split-window)
+      (balance-windows))
+    (cl-mapc (lambda (b w) (set-window-buffer w b)) buffers (window-list))))
+
 (defun youtube-dl-quit ()
   "Kill the current if the process is complete, else bury it."
   (interactive)
