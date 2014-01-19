@@ -33,9 +33,9 @@
 (defun youtube-dl-show-all ()
   "Show all `youtube-dl-mode' buffers split in the current frame."
   (interactive)
-  (let ((buffers (remove-if-not
-                  (lambda (b) (string-match-p "^\\*youtube-dl" (buffer-name b)))
-                  (buffer-list))))
+  (let ((buffers (cl-loop for buffer in (buffer-list)
+                          for mode = (with-current-buffer buffer major-mode)
+                          when (eq 'youtube-dl-mode mode) collect buffer)))
     (delete-other-windows)
     (while (< (length (window-list)) (length buffers))
       (split-window)
