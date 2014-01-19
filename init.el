@@ -283,12 +283,13 @@
   (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
 
-(with-package* (ido ido-ubiquitous)
+(with-package* (ido ido-ubiquitous ido-vertical-mode)
   (setq ido-enable-flex-matching t
         ido-show-dot-for-dired t
         ido-save-directory-list-file nil
         ido-everywhere t)
   (ido-mode 1)
+  (ido-vertical-mode 1)
   (ido-ubiquitous-mode)
   (setq ido-ubiquitous-enable-compatibility nil))
 
