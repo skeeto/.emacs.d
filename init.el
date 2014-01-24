@@ -103,7 +103,8 @@
   (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer*)
   (font-lock-add-keywords
    'emacs-lisp-mode
-   '(("(\\(\\(?:\\sw+-\\)?def\\sw*\\)\\_>[ \t'(]*\\(setf[ \t]+\\sw+\\|\\sw+\\)?"
+   `((,(concat "(\\(\\(?:\\(?:\\sw\\|\\s_\\)+-\\)?def\\sw*\\)\\_>"
+               "\\s-*'?" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
       (1 'font-lock-keyword-face)
       (2 'font-lock-function-name-face nil t)))
    :low-priority))
