@@ -17,11 +17,11 @@
 ;;     (with-package (js2-mode less-css-mode)
 ;;       ... <config depending on both packages> ...)
 
-;; A nice trick is to use <package>-autoloads as the package name.
-;; This sets up configuration after package has been activated but
-;; before it has been loaded. It's useful for adding keybindings to
-;; autoloaded functions. The macros provided here are smart enough to
-;; find the real package name from the autoloads name.
+;; To set up configuration after package has been activated but before
+;; it has been loaded, append a * to the package name. It's useful for
+;; adding keybindings to autoloaded functions. The macros provided
+;; here are smart enough to find the real package name from the
+;; special name.
 
 ;; Remember to call `package-initialize' in your config *before*
 ;; making use of these macros.
@@ -42,7 +42,11 @@
 
 (defun package-real-name (package)
   "PACKAGE may be the name of an autoloads; return the actual package name."
-  (intern (replace-regexp-in-string "-autoloads$" "" (symbol-name package))))
+  (intern (replace-regexp-in-string "\\*$" "" (symbol-name package))))
+
+(defun package-preload-p (package)
+  "Return non-nil if PACKAGE is marked for preloading."
+  (not (null (string-match-p "\\*$" (symbol-name package)))))
 
 (defmacro with-package (packages &rest body)
   "Like `eval-after-load', but also automatically register
@@ -67,7 +71,7 @@ literal future `eval', so it appears as data to the compiler."
                        (unless ,has-run-sym
                          (setq ,has-run-sym t)
                          ,@(loop for package in packages collect
-                                 `(require ',package))
+                                 `(require ',(package-real-name package)))
                          ,@body)))
        ,@(loop for package in packages
                for real-name = (package-real-name package)
@@ -75,8 +79,11 @@ literal future `eval', so it appears as data to the compiler."
                                    (packagep ',real-name)
                                    (not (package-installed-p ',real-name)))
                           (package-install ',real-name)))
-       ,@(loop for package in packages collect
-               `(eval-after-load ',package '(,f-sym))))))
+       ,@(loop for package in packages
+               when (package-preload-p package)
+               collect `(eval-after-load 'emacs '(,f-sym))
+               else
+               collect `(eval-after-load ',package '(,f-sym))))))
 
 (defmacro with-package* (packages &rest body)
   "Like `with-package*' but also `require' all of the packages.
@@ -86,7 +93,8 @@ This is mostly for code organization purposes."
     (setf packages (list packages)))
   `(progn
      (with-package ,packages ,@body)
-     ,@(loop for package in packages collect `(require ',package))))
+     ,@(loop for package in packages
+             collect `(require ',(package-real-name package)))))
 
 (font-lock-add-keywords 'emacs-lisp-mode
   '(("(\\<\\(with-package\\*?\\)\\> +(?\\([^()]+\\))?"

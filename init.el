@@ -156,7 +156,7 @@
             (lambda () (define-key eshell-mode-map [f1] 'quit-window))))
 (global-set-key [f1] 'eshell-as)
 
-(with-package magit-autoloads
+(with-package magit*
   (global-set-key (kbd "C-x g") 'magit-status)
   (setq vc-display-status nil)
   (add-hook 'git-commit-mode-hook
@@ -164,7 +164,7 @@
   (defadvice git-commit-commit (after delete-window activate)
     (delete-window)))
 
-(with-package markdown-mode-autoloads
+(with-package markdown-mode*
   (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("pentadactyl.txt$" . markdown-mode))
@@ -188,7 +188,7 @@
     (interactive)
     (setq httpd-root default-directory)))
 
-(with-package js2-mode-autoloads
+(with-package js2-mode*
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
 
 (with-package js2-mode
@@ -205,7 +205,7 @@
   (define-key skewer-mode-map (kbd "C-c $")
     (expose #'skewer-bower-load "jquery" "1.9.1")))
 
-(with-package clojure-mode-autoloads
+(with-package clojure-mode*
   (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
 
 (with-package cider
@@ -235,7 +235,7 @@
 (with-package ps-print
   (setq ps-print-header nil))
 
-(with-package glsl-mode-autoloads
+(with-package glsl-mode*
   (autoload 'glsl-mode "glsl-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
@@ -258,7 +258,7 @@
     "Begin each ielm prompt with a paredit pair."
     (paredit-open-round)))
 
-(with-package paredit-autoloads
+(with-package paredit*
   (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
   (add-hook 'lisp-mode-hook 'paredit-mode)
   (add-hook 'scheme-mode-hook 'paredit-mode)
@@ -303,7 +303,7 @@
    '(magit-item-highlight ((t :background "black")))
    '(hl-line              ((t :background "gray10")))))
 
-(with-package javadoc-lookup-autoloads
+(with-package javadoc-lookup*
   (global-set-key (kbd "C-h j") 'javadoc-lookup))
 
 (with-package java-mode
@@ -338,7 +338,7 @@
     (yas-minor-mode -1))
   (add-hook 'emacs-lisp-mode-hook 'disable-yas))
 
-(with-package multiple-cursors-autoloads
+(with-package multiple-cursors*
   (global-set-key (kbd "C-S-e") #'mc/edit-lines)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
