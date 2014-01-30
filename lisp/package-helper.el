@@ -96,10 +96,11 @@ This is mostly for code organization purposes."
      ,@(loop for package in packages
              collect `(require ',(package-real-name package)))))
 
-(font-lock-add-keywords 'emacs-lisp-mode
-  '(("(\\<\\(with-package\\*?\\)\\> +(?\\([^()]+\\))?"
-     (1 'font-lock-keyword-face)
-     (2 'font-lock-constant-face))))
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ '(("(\\(with-package\\*?\\)\\(?:\\s-+(?\\([^()]+\\))?\\)?"
+    (1 'font-lock-keyword-face)
+    (2 'font-lock-constant-face nil t))))
 
 (provide 'package-helper)
 
