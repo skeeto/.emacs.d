@@ -96,6 +96,7 @@
     ("http://www.anticscomic.com/?feed=rss2" comic)
     ("http://feeds.feedburner.com/blogspot/TPQSS" blog dev)
     ("http://www.rsspect.com/rss/asw.xml" comic)
+    ("http://feeds.feedburner.com/babynamewizard" blog data)
     ("http://beardfluff.com/feed/" comic)
     ("http://bit-player.org/feed" blog math)
     ("http://feeds.feedburner.com/bitquabit" blog dev)
