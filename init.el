@@ -170,9 +170,6 @@
   (add-to-list 'auto-mode-alist '("pentadactyl.txt$" . markdown-mode))
   (setq sentence-end-double-space nil))
 
-(with-package markdown-mode
-  (define-key markdown-mode-map (kbd "<tab>") nil)) ; fix for YASnippet
-
 (with-package* (simple-httpd jekyll)
   (setq jekyll-home "~/src/skeeto.github.com/")
   (when (file-exists-p jekyll-home)
@@ -331,12 +328,6 @@
 (with-package browse-url
   (when (executable-find "firefox")
     (setq browse-url-browser-function 'browse-url-firefox)))
-
-(with-package* yasnippet
-  (yas-global-mode 1)
-  (defun disable-yas ()
-    (yas-minor-mode -1))
-  (add-hook 'emacs-lisp-mode-hook 'disable-yas))
 
 (with-package multiple-cursors*
   (global-set-key (kbd "C-S-e") #'mc/edit-lines)
