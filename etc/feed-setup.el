@@ -103,6 +103,7 @@
     ("http://blakeembrey.com/feed.xml" blog dev)
     ("http://simblob.blogspot.com/feeds/posts/default" blog dev)
     ("http://blogofholding.com/?feed=rss2" blog gaming)
+    ("http://blog.coinbase.com/rss" product bitcoin)
     ("http://demonastery.org/rss.php" blog gaming)
     ("http://feeds.feedburner.com/Buttersafe" comic)
     ("http://feeds.feedburner.com/CatVersusHuman" comic)
