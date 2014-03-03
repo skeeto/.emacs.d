@@ -150,6 +150,7 @@
     ("http://www.masteringemacs.org/feed/" blog emacs)
     ("http://www.ma3comic.com/comic.rss" comic)
     ("http://mathgifs.blogspot.com/feeds/posts/default" blog math)
+    ("http://www.mazelog.com/rss" math puzzle)
     ("http://www.mercworks.net/feed/" comic)
     ("http://feeds.feedburner.com/MimiAndEunice" comic)
     ("http://mrdiv.tumblr.com/rss" image)
