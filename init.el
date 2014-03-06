@@ -266,15 +266,9 @@
   (show-paren-mode))
 
 (with-package* parenface
-  (set-face-foreground 'paren-face "Gray30")
-  (add-hook 'clojure-mode-hook
-            (paren-face-add-support clojure-font-lock-keywords)))
-
-(with-package* bracket-face
-  (add-hook 'scheme-mode-hook (bracket-face scheme-font-lock-keywords-2))
-  (add-hook 'lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
-  (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
-  (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
+  (set-face-foreground 'parenface-paren-face "Gray30")
+  (set-face-foreground 'parenface-bracket-face "Gray60")
+  (set-face-foreground 'parenface-curly-face "Gray60"))
 
 (with-package* (ido ido-ubiquitous ido-vertical-mode)
   (setq ido-enable-flex-matching t
