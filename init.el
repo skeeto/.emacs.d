@@ -354,4 +354,10 @@
 (with-package (cl-lib-highlight lisp-mode)
   (cl-lib-highlight-initialize))
 
+(with-package yaml-mode
+  (add-hook 'yaml-mode-hook
+            (lambda ()
+              (setq-local paragraph-separate ".*>-$\\|[   ]*$")
+              (setq-local paragraph-start paragraph-separate))))
+
 (provide 'init) ; make (require 'init) happy
