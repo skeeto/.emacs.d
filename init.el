@@ -6,6 +6,7 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (blink-cursor-mode -1)
+(electric-indent-mode -1)
 (setq backup-inhibited t
       auto-save-default nil
       inhibit-startup-message t
