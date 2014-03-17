@@ -234,6 +234,7 @@
     ("quill18" youtube)
     ("skiptherules" youtube)
     ("szyzyg" youtube)
+    ("TheUberHunter" youtube)
     ("zzandr1o" youtube)
     ("PLibNZv5Zd0dwAkwoZtRHfn3tPsdOy-VuF" codefellas playlist)))
 
