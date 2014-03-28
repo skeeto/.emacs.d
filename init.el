@@ -250,6 +250,9 @@
   (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
   (add-to-list 'c-default-style '(c-mode . "k&r")))
 
+(with-package (google-c-style cc-mode)
+  (add-hook 'c++-mode-hook #'google-set-c-style))
+
 (with-package ielm
   (define-key ielm-map (kbd "C-c C-z") 'quit-window)
   (defadvice ielm-eval-input (after ielm-paredit activate)
