@@ -83,7 +83,8 @@
 ;; The actual feeds listing
 
 (defvar elfeed-feeds-alist
-  '(("http://threesixty360.wordpress.com/feed/" blog math)
+  '(("http://www.1111comics.me/rss" comic)
+    ("http://threesixty360.wordpress.com/feed/" blog math)
     ("http://www.50ply.com/atom.xml" blog dev)
     ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
     ("http://abstrusegoose.com/feed.xml" comic)
