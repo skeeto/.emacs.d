@@ -169,6 +169,7 @@
   (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("pentadactyl.txt$" . markdown-mode))
+  (defun markdown-nobreak-p () nil)
   (setq sentence-end-double-space nil))
 
 (with-package* (simple-httpd jekyll)
