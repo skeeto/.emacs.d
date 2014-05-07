@@ -170,7 +170,7 @@
     ("http://feeds.wnyc.org/radiolab" audio)
     ("http://raganwald.com/atom.xml" blog dev)
     ("http://research.swtch.com/feed.atom" blog security)
-    ("http://richardwiseman.wordpress.com/feed/" blog puzzle)
+    ("https://richardwiseman.wordpress.com/feed/" blog puzzle)
     ("http://feeds.feedburner.com/rolang" blog gaming)
     ("http://www.safelyendangered.com/feed/" comic)
     ("http://www.schneier.com/blog/atom.xml" blog security)
