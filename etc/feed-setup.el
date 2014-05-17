@@ -93,6 +93,7 @@
     ("http://curiousprogrammer.wordpress.com/feed/" blog dev)
     ("http://feeds.feedburner.com/amazingsuperpowers" comic)
     ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
+    ("http://austingwalters.com/feed/" blog)
     ("http://pages.cs.wisc.edu/~psilord/blog/rssfeed.rss" blog)
     ("http://www.anticscomic.com/?feed=rss2" comic)
     ("http://feeds.feedburner.com/blogspot/TPQSS" blog dev)
