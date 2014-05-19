@@ -106,6 +106,7 @@
     ("http://simblob.blogspot.com/feeds/posts/default" blog dev)
     ("http://blogofholding.com/?feed=rss2" blog gaming)
     ("http://blog.coinbase.com/rss" product bitcoin)
+    ("http://www.commitstrip.com/en/feed/" comic dev)
     ("http://www.rsspect.com/rss/deathbulge.xml" comic)
     ("http://demonastery.org/rss.php" blog gaming)
     ("http://feeds.feedburner.com/Buttersafe" comic)
