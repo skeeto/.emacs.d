@@ -17,10 +17,10 @@
       echo-keystrokes 0.1
       delete-active-region nil
       vc-follow-symlinks t
+      disabled-command-function nil
       custom-file (make-temp-file "emacs-custom"))
 (add-hook 'dired-mode-hook #'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
-(mapatoms (lambda (s) (when (get s 'disabled) (put s 'disabled nil))))
 
 ;;; Packages
 
