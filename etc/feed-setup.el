@@ -100,6 +100,7 @@
     ("http://www.rsspect.com/rss/asw.xml" comic)
     ("http://feeds.feedburner.com/babynamewizard" blog data)
     ("http://beardfluff.com/feed/" comic)
+    ("http://www.bergerandwyse.com/blog/atom.xml" comic)
     ("http://bit-player.org/feed" blog math)
     ("http://feeds.feedburner.com/bitquabit" blog dev)
     ("http://blakeembrey.com/feed.xml" blog dev)
