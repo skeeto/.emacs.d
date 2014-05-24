@@ -135,7 +135,7 @@
     ("http://www.ericsink.com/rss.xml" blog dev)
     ("http://feeds.feedburner.com/Explosm" comic)
     ("http://www.extrafabulouscomics.com/1/feed" comic)
-    ("http://exocomics.com/feed" comic)
+    ("http://www.exocomics.com/feed" comic)
     ("http://feeds.feedburner.com/Pidjin" comic)
     ("http://www.happyjar.com/feed/" comic)
     ("http://inkwellideas.com/feed/" blog gaming)
