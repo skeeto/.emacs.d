@@ -190,6 +190,7 @@
     ("https://github.com/blog.atom" blog dev product)
     ("http://feeds.feedburner.com/thetechnium" blog)
     ("http://blog.plover.com/index.atom" blog dev)
+    ("http://use-the-index-luke.com/blog/feed" blog dev databases)
     ("http://notch.tumblr.com/rss" blog gaming)
     ("http://batsov.com/atom.xml" blog emacs)
     ("http://towerdive.com/feed/" blog)
