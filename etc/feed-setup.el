@@ -187,6 +187,7 @@
     ("http://www.terminally-incoherent.com/blog/feed/" blog)
     ("http://bradcolbow.com/feed/" comic)
     ("http://thecodelesscode.com/rss" dev story)
+    ("http://sachachua.com/blog/feed/" dev blog)
     ("https://github.com/blog.atom" blog dev product)
     ("http://feeds.feedburner.com/thetechnium" blog)
     ("http://blog.plover.com/index.atom" blog dev)
