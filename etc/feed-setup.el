@@ -29,39 +29,6 @@
 (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
 (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
 
-;; Special JonTron downloading:
-
-(defun jontron-video-id (url)
-  "Get the video ID for URL."
-  (let ((buffer (url-retrieve-synchronously url)))
-    (unwind-protect
-        (with-current-buffer buffer
-          (setf (point) (point-min))
-          (search-forward "player.php?id=JonTronShow-")
-          (prin1-to-string (read (current-buffer))))
-      (kill-buffer buffer))))
-
-(defun jontron-video-download (url)
-  "Download the JonTron video at URL."
-  (let* ((id (jontron-video-id url))
-         (domain "rtmp://206.217.201.108/vod/")
-         (out (expand-file-name (format "JonTron-%s.mp4" id) youtube-dl-directory)))
-    (start-process "jontron" (generate-new-buffer "*jontron*") "rtmpdump"
-                   "-r" (format "%s/JonTronShow-%s_high.mp4" domain id)
-                   "-o" out)
-    (message "Downloading JonTron %s ..." id)))
-
-(defun jontron-elfeed-download ()
-  "Download the current entry with youtube-dl."
-  (interactive)
-  (let ((entry (elfeed-search-selected :single)))
-    (jontron-video-download (elfeed-entry-link entry))
-    (elfeed-untag entry 'unread)
-    (elfeed-search-update-entry entry)
-    (unless (use-region-p) (forward-line))))
-
-(define-key elfeed-search-mode-map "j" 'jontron-elfeed-download)
-
 ;; Special filters
 
 (add-hook 'elfeed-new-entry-hook
