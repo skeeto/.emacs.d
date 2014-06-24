@@ -111,6 +111,7 @@
     ("http://gottwurfelt.wordpress.com/feed/" blog math)
     ("http://feeds.feedburner.com/LoadingArtist" comic)
     ("http://loldwell.com/?feed=rss2" comic)
+    ("http://www.lunarbaboon.com/comics/rss.xml" comic)
     ("http://maneggs.com/feed/" comic)
     ("http://www.masteringemacs.org/feed/" blog emacs)
     ("http://www.ma3comic.com/comic.rss" comic)
