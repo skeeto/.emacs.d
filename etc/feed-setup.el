@@ -163,9 +163,6 @@
     ("http://xkcd.com/atom.xml" comic)
     ("dailyprogrammer" subreddit)
     ("OOTSFeed" subreddit comic)
-    ("emacs.announce" gmane emacs)
-    ("comp.encryption.gpg.announce" gmane gpg)
-    ("politics.comp.cryptography" gmane crypto)
     ("BattleBunny1979" youtube)
     ("BlueXephos" youtube)
     ("Campster" youtube)
@@ -204,7 +201,6 @@
 (defvar feed-patterns
   '((youtube   "http://gdata.youtube.com/feeds/base/users/%s/uploads")
     (playlist  "https://gdata.youtube.com/feeds/api/playlists/%s")
-    (gmane     "http://rss.gmane.org/topics/complete/gmane.%s")
     (subreddit "http://www.reddit.com/r/%s/.rss"))
   "How certain types of feeds automatically expand.")
 
