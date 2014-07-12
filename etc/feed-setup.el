@@ -200,15 +200,13 @@
     ("skiptherules" youtube)
     ("szyzyg" youtube)
     ("TheUberHunter" youtube)
-    ("zzandr1o" youtube)
-    ("PLibNZv5Zd0dwAkwoZtRHfn3tPsdOy-VuF" codefellas playlist)))
+    ("zzandr1o" youtube)))
 
 (defvar elfeed-tagger-db (make-hash-table :test 'equal)
   "Marks what feeds get what tags.")
 
 (defvar feed-patterns
   '((youtube   "http://gdata.youtube.com/feeds/base/users/%s/uploads")
-    (playlist  "https://gdata.youtube.com/feeds/api/playlists/%s")
     (subreddit "http://www.reddit.com/r/%s/.rss"))
   "How certain types of feeds automatically expand.")
 
