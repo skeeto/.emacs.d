@@ -47,6 +47,12 @@
                               :add 'junk
                               :remove 'unread))
 
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "JimKB"
+                              :entry-link '(not "\/r\/comics\/")
+                              :add 'junk
+                              :remove 'unread))
+
 ;; The actual feeds listing
 
 (defvar elfeed-feeds-alist
@@ -103,6 +109,7 @@
     ("http://feeds.feedburner.com/InvisibleBread" comic)
     ("http://blog.ioactive.com/feeds/posts/default" blog security)
     ("http://irreal.org/blog/?feed=rss2" blog emacs)
+    ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
     ("http://feeds.feedburner.com/JoelKirchartz" blog)
     ("http://normalboots.com/author/jontronshow/feed/" video)
     ("http://jorgetavares.com/feed/" blog dev)
