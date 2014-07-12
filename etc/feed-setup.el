@@ -132,6 +132,7 @@
     ("http://nklein.com/feed/" blog dev)
     ("http://www.npccomic.com/feed/" comic)
     ("http://nullprogram.com/feed/" blog dev myself)
+    ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
     ("http://www.optipess.com/feed/" comic)
     ("http://pandyland.net/feed/" comic)
     ("http://www.rsspect.com/rss/pfsc.xml" comic)
