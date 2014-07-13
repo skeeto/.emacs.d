@@ -55,13 +55,15 @@
 
 ;; The actual feeds listing
 
+(defvar youtube-feed-format
+  "http://gdata.youtube.com/feeds/base/users/%s/uploads?max-results=50")
+
 (defun elfeed--expand (listing)
   "Expand feed URLs depending on their tags."
-  (let ((youtube "http://gdata.youtube.com/feeds/base/users/%s/uploads"))
-    (cl-destructuring-bind (url . tags) listing
-      (cond
-       ((member 'youtube tags) (cons (format youtube url) tags))
-       (listing)))))
+  (cl-destructuring-bind (url . tags) listing
+    (cond
+     ((member 'youtube tags) (cons (format youtube-feed-format url) tags))
+     (listing))))
 
 (defmacro elfeed-config (&rest feeds)
   "Minimizes feed listing indentation without being weird about it."
