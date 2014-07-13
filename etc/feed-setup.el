@@ -48,7 +48,7 @@
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "JimKB"
+          (elfeed-make-tagger :feed-url "\\(JimKB\\|tubeytoons\\)"
                               :entry-link '(not "\/r\/comics\/")
                               :add 'junk
                               :remove 'unread))
@@ -124,7 +124,6 @@
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
   ("http://irreal.org/blog/?feed=rss2" blog emacs)
-  ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
   ("http://feeds.feedburner.com/JoelKirchartz" blog)
   ("http://normalboots.com/author/jontronshow/feed/" video)
   ("http://jorgetavares.com/feed/" blog dev)
@@ -147,7 +146,6 @@
   ("http://nklein.com/feed/" blog dev)
   ("http://www.npccomic.com/feed/" comic)
   ("http://nullprogram.com/feed/" blog dev myself)
-  ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.optipess.com/feed/" comic)
   ("http://pandyland.net/feed/" comic)
   ("http://www.rsspect.com/rss/pfsc.xml" comic)
@@ -184,8 +182,11 @@
   ("http://wordsmith.org/awad/rss1.xml" word)
   ("http://blag.xkcd.com/feed/" blog)
   ("http://xkcd.com/atom.xml" comic)
+  ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("http://www.reddit.com/r/OOTSFeed/.rss" subreddit comic)
+  ("http://www.reddit.com/user/tubeytoons/submitted.rss" comic)
+  ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
   ("Campster" youtube)
