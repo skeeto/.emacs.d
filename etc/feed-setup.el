@@ -71,7 +71,6 @@
   `(setf elfeed-feeds ',(mapcar #'elfeed--expand feeds)))
 
 (elfeed-config
-  ("http://www.1111comics.me/rss" comic)
   ("http://www.50ply.com/atom.xml" blog dev)
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://abstrusegoose.com/feed.xml" comic)
