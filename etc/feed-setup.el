@@ -102,6 +102,7 @@
   ("http://feeds.feedburner.com/codeincomplete" blog dev)
   ("http://completelyseriouscomics.com/?feed=rss2" comic)
   ("http://feeds.feedburner.com/DamnCoolPics" image)
+  ("http://deep-dark-fears.tumblr.com/rss" comic)
   ("http://echosa.github.io/atom.xml" blog dev)
   ("http://www.devrand.org/feeds/posts/default" blog dev)
   ("http://random.terminally-incoherent.com/rss" image)
