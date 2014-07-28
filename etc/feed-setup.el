@@ -98,7 +98,6 @@
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
   ("http://chainsawsuit.com/feed/" comic)
   ("http://feeds.feedburner.com/channelATE" comic)
-  ("http://www.cheeseburgersinthesky.com/feed/" comic)
   ("http://feeds.feedburner.com/codeincomplete" blog dev)
   ("http://completelyseriouscomics.com/?feed=rss2" comic)
   ("http://feeds.feedburner.com/DamnCoolPics" image)
