@@ -68,7 +68,7 @@
 (defmacro elfeed-config (&rest feeds)
   "Minimizes feed listing indentation without being weird about it."
   (declare (indent 0))
-  `(setf elfeed-feeds ',(mapcar #'elfeed--expand feeds)))
+  `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
   ("http://www.50ply.com/atom.xml" blog dev)
