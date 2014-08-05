@@ -19,7 +19,7 @@
       vc-follow-symlinks t
       disabled-command-function nil
       custom-file (make-temp-file "emacs-custom")
-      large-file-warning-threshold (* 512 (expt 1024 2)))
+      large-file-warning-threshold 536870911)
 (add-hook 'dired-mode-hook #'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
