@@ -20,6 +20,8 @@
       disabled-command-function nil
       custom-file (make-temp-file "emacs-custom")
       large-file-warning-threshold 536870911)
+(when (fboundp 'set-horizontal-scroll-bar-mode)
+  (set-horizontal-scroll-bar-mode nil))
 (add-hook 'dired-mode-hook #'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
