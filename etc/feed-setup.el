@@ -155,7 +155,6 @@
   ("http://www.safelyendangered.com/feed/" comic)
   ("http://www.schneier.com/blog/atom.xml" blog security)
   ("http://sea-of-memes.com/rss.xml" blog dev)
-  ("http://seemikedraw.com.au/feed" comic)
   ("http://www.smbc-comics.com/rss.php" comic)
   ("http://feeds.feedburner.com/spaceavalanche1" comic)
   ("http://stevelosh.com/feed/" blog dev)
