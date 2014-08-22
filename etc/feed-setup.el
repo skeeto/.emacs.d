@@ -139,6 +139,7 @@
   ("http://www.mercworks.net/feed/" comic)
   ("http://mrdiv.tumblr.com/rss" image)
   ("http://www.mrlovenstein.com/rss.xml" comic)
+  ("http://mortoray.com/feed/" blog dev)
   ("http://mycardboardlife.com/feed" comic)
   ("http://nedroid.com/feed/" comic)
   ("http://nklein.com/feed/" blog dev)
