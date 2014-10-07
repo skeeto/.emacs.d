@@ -112,6 +112,7 @@
   ("http://bay12games.com/dwarves/dev_now.rss" blog gaming product)
   ("http://www.soa-world.de/echelon/feed" blog dev)
   ("http://emacsredux.com/atom.xml" blog dev emacs)
+  ("http://feeds.exploringbinary.com/ExploringBinary" blog dev)
   ("http://feeds.feedburner.com/Explosm" comic)
   ("http://www.extrafabulouscomics.com/1/feed" comic)
   ("http://www.exocomics.com/feed" comic)
