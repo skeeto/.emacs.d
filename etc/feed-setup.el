@@ -163,6 +163,7 @@
   ("http://feeds.feedburner.com/spaceavalanche1" comic)
   ("http://stevelosh.com/feed/" blog dev)
   ("http://storyboardcomics.blogspot.com/feeds/posts/default" comic)
+  ("http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss" audio)
   ("http://www.terminally-incoherent.com/blog/feed/" blog)
   ("http://bradcolbow.com/feed/" comic)
   ("http://thecodelesscode.com/rss" dev story)
