@@ -221,21 +221,6 @@
   (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
     (apply #'flash-region (cider--region-for-defun-at-point))))
 
-(with-package inf-ruby
-  (defadvice inf-ruby-output-filter (after ruby-echo (output) activate)
-    (macrolet ((r (regex input) `(replace-regexp-in-string ,regex "" ,input)))
-      (let ((echo (r "[ \n\r\t]+$" (r inf-ruby-prompt-pattern output))))
-        (when (> (length echo) 0)
-          (message "%s" echo)))))
-  (defadvice ruby-send-last-sexp (after ruby-flash-last activate)
-    (flash-region (save-excursion (ruby-backward-sexp) (point)) (point)))
-  (defadvice ruby-send-definition (after ruby-flash-defun activate)
-    (save-excursion
-      (ruby-end-of-defun)
-      (let ((end (point)))
-        (ruby-beginning-of-defun)
-        (flash-region (point) end)))))
-
 (with-package ps-print
   (setq ps-print-header nil))
 
