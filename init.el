@@ -261,9 +261,9 @@
   (show-paren-mode))
 
 (with-package* parenface
-  (set-face-foreground 'parenface-paren-face "Gray30")
-  (set-face-foreground 'parenface-bracket-face "Gray60")
-  (set-face-foreground 'parenface-curly-face "Gray60"))
+  (set-face-foreground 'parenface-paren-face "snow4")
+  (set-face-foreground 'parenface-bracket-face "DarkGray")
+  (set-face-foreground 'parenface-curly-face "DimGray"))
 
 (with-package* (ido ido-ubiquitous ido-vertical-mode)
   (setq ido-enable-flex-matching t
