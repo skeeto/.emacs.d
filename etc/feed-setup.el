@@ -48,7 +48,7 @@
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "\\(JimKB\\|tubeytoons\\)"
+          (elfeed-make-tagger :feed-url "JimKB"
                               :entry-link '(not "\/r\/comics\/")
                               :add 'junk
                               :remove 'unread))
@@ -175,6 +175,7 @@
   ("http://notch.tumblr.com/rss" blog gaming)
   ("http://batsov.com/atom.xml" blog emacs)
   ("http://towerdive.com/feed/" blog)
+  ("http://tubeytoons.com/feed.php" comic)
   ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("http://jeremykaye.tumblr.com/rss" comic)
   ("http://blog.vivekhaldar.com/rss" blog)
@@ -187,7 +188,6 @@
   ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("http://www.reddit.com/r/OOTSFeed/.rss" subreddit comic)
-  ("http://www.reddit.com/user/tubeytoons/submitted.rss" comic)
   ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
