@@ -36,12 +36,6 @@
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "github\\.com"
-                              :entry-title "\\(drinkup\\|githubber\\)"
-                              :add 'junk
-                              :remove 'unread))
-
-(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "JimKB"
                               :entry-link '(not "\/r\/comics\/")
                               :add 'junk
@@ -162,7 +156,7 @@
   ("http://www.terminally-incoherent.com/blog/feed/" blog)
   ("http://bradcolbow.com/feed/" comic)
   ("http://thecodelesscode.com/rss" dev story)
-  ("https://github.com/blog.atom" blog dev product)
+  ("https://github.com/blog/all.atom" blog dev product)
   ("http://feeds.feedburner.com/thetechnium" blog)
   ("http://blog.plover.com/index.atom" blog dev)
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
