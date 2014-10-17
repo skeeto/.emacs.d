@@ -36,12 +36,6 @@
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "HuskyStarcraft"
-                              :entry-title '(not "bronze league")
-                              :add 'junk
-                              :remove 'unread))
-
-(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "github\\.com"
                               :entry-title "\\(drinkup\\|githubber\\)"
                               :add 'junk
@@ -197,7 +191,6 @@
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
   ("HuntrBlackLuna" youtube)
-  ("HuskyStarcraft" youtube)
   ("JonTronShow" youtube)
   ("MatthiasWandel" youtube)
   ("Mestherion" youtube)
