@@ -32,19 +32,6 @@
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
 
-;; Convert endlines
-(defun dos2unix ()
-  "Convert a buffer from dos ^M end of lines to unix end of lines"
-  (interactive)
-  (goto-char (point-min))
-  (while (search-forward "\r" nil t) (replace-match "")))
-
-(defun unix2dos ()
-  "Opposite of dos2unix"
-  (interactive)
-  (goto-char (point-min))
-  (while (search-forward "\n" nil t) (replace-match "\r\n")))
-
 ;; Takes a multi-line paragraph and makes it into a single line of text
 (defun unfill-paragraph ()
   (interactive)
