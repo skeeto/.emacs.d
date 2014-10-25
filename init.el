@@ -339,6 +339,7 @@
   (compile-bind* (current-global-map)
                  'make ("C-x c" ""
                         "C-x r" 'run
+                        "C-x t" 'test
                         "C-x C" 'clean)))
 
 (with-package* batch-mode
