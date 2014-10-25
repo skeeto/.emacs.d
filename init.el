@@ -54,8 +54,7 @@
   (global-set-key (kbd "C-S-j") 'join-line)
   (global-set-key "\M-g" 'goto-line)
   (global-set-key "\C-x\C-k" 'compile)
-  (global-set-key [f2] (expose #'revert-buffer nil t))
-  (global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile))))
+  (global-set-key [f5] (expose #'revert-buffer nil t)))
 
 ;;; auto-mode-alist entries
 
