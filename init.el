@@ -24,6 +24,7 @@
   (set-horizontal-scroll-bar-mode nil))
 (add-hook 'dired-mode-hook #'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
+(prefer-coding-system 'utf-8-unix)
 
 ;;; Packages
 
