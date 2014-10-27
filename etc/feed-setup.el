@@ -5,6 +5,12 @@
 
 (setq-default elfeed-search-filter "-junk @1-week-ago +unread")
 
+;; More keybindings
+
+(define-key elfeed-search-mode-map "h"
+  (lambda () (interactive)
+    (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
+
 ;; youtube-dl config
 
 (setq youtube-dl-directory "/media/wellons")
