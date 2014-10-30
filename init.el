@@ -76,6 +76,7 @@
         notmuch-search-oldest-first nil
         notmuch-archive-tags '("-inbox" "-unread" "+archive"))
   ;;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+  (define-key message-mode-map (kbd "C-c C-s") nil) ;; annoying
   (setq hashcash-path (executable-find "hashcash"))
   (notmuch-address-message-insinuate)
   (custom-set-faces
