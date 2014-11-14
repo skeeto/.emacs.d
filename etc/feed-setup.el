@@ -69,6 +69,7 @@
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://abstrusegoose.com/feed.xml" comic)
   ("http://accidental-art.tumblr.com/rss" image math)
+  ("http://kaygun.tumblr.com/rss" blog dev)
   ("http://english.bouletcorp.com/feed/" comic)
   ("http://curiousprogrammer.wordpress.com/feed/" blog dev)
   ("http://feeds.feedburner.com/amazingsuperpowers" comic)
