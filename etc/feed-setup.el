@@ -199,6 +199,7 @@
   ("eEconomics" youtube)
   ("emacsrocks" youtube)
   ("friendznet" youtube)
+  ("handmadeheroarchive" youtube dev)
   ("jefmajor" youtube)
   ("phreakindee" youtube)
   ("quill18" youtube)
