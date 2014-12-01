@@ -341,6 +341,7 @@
   (random (make-uuid)))
 
 (with-package* compile-bind
+  (setq compilation-always-kill t)
   (compile-bind* (current-global-map)
                  'make ("C-x c" ""
                         "C-x r" 'run
