@@ -187,6 +187,7 @@
   ("djflula" youtube)
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
+  ("lseths" youtube)
   ("JonTronShow" youtube)
   ("MatthiasWandel" youtube)
   ("PlumpHelmetPunk" youtube)
