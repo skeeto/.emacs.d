@@ -149,7 +149,6 @@
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://feeds.wnyc.org/radiolab" audio)
   ("http://raganwald.com/atom.xml" blog dev)
-  ("https://richardwiseman.wordpress.com/feed/" blog puzzle)
   ("http://feeds.feedburner.com/rolang" blog gaming)
   ("http://www.safelyendangered.com/feed/" comic)
   ("http://www.schneier.com/blog/atom.xml" blog security)
