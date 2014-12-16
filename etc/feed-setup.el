@@ -67,7 +67,6 @@
 (elfeed-config
   ("http://www.50ply.com/atom.xml" blog dev)
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
-  ("http://abstrusegoose.com/feed.xml" comic)
   ("http://accidental-art.tumblr.com/rss" image math)
   ("http://kaygun.tumblr.com/rss" blog dev)
   ("http://english.bouletcorp.com/feed/" comic)
