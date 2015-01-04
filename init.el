@@ -25,6 +25,7 @@
 (add-hook 'dired-mode-hook #'toggle-truncate-lines)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (prefer-coding-system 'utf-8-unix)
+(setf vc-handled-backends nil)
 
 ;; Adjust scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
