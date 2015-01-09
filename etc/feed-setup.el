@@ -108,6 +108,7 @@
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.happyjar.com/feed/" comic)
+  ("http://www.businesscat.happyjar.com/feed/" comic)
   ("http://inkwellideas.com/feed/" blog gaming)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
