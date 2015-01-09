@@ -173,6 +173,7 @@
   ("BlueXephos" youtube)
   ("Campster" youtube)
   ("djflula" youtube)
+  ("foodwishes" youtube)
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
   ("lseths" youtube)
