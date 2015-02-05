@@ -2,9 +2,12 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 
-(defmacro compile-bind (map key builder target)
+(defvar-local compile-bind-command "make"
+  "Command used for performing builds, without the target.")
+
+(defmacro compile-bind (map key target)
   "Define a key binding for a build system target (i.e. make,
 ant, scons) in a particular keymap."
   `(define-key ,map ,key
@@ -13,18 +16,14 @@ ant, scons) in a particular keymap."
        (let* ((buffer-name (format "*compilation-%d*" n))
               (compilation-buffer-name-function (lambda (x) buffer-name)))
          (save-buffer)
-         (compile (format "%s %s" ,builder ,target) t)))))
+         (compile (format "%s %s" compile-bind-command ,target) t)))))
 
-(defmacro compile-bind* (map builder keys/fns)
+(defmacro compile-bind* (map keys/fns)
   "Create several compile-bind bindings in a row."
   `(progn
-     ,@(loop for (key fn) on keys/fns by 'cddr
-             collecting `(compile-bind ,map (kbd ,key) ,builder ,fn))))
+     ,@(cl-loop for (key fn) on keys/fns by 'cddr
+                collecting `(compile-bind ,map (kbd ,key) ,fn))))
 
 (provide 'compile-bind)
-
-;; Local Variables:
-;; byte-compile-warnings: (not cl-functions)
-;; End:
 
 ;;; compile-bind.el ends here
