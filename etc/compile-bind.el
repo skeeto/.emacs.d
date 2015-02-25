@@ -4,8 +4,20 @@
 
 (require 'cl-lib)
 
-(defvar-local compile-bind-command "make"
-  "Command used for performing builds, without the target.")
+(defcustom compile-bind-command "make"
+  "Command used for performing builds, without the target."
+  :type 'string
+  :risky t)
+
+(defvar compile-bind-command-history ()
+  "History of values for `compile-bind-command'.")
+
+(defun compile-bind-set-command (command)
+  "Set `compile-bind-command' to a new value."
+  (interactive
+   (list (read-shell-command "Compile command: " compile-bind-command '
+                             compile-bind-command-history)))
+  (setf compile-bind-command command))
 
 (defmacro compile-bind (map key target)
   "Define a key binding for a build system target (i.e. make,
