@@ -76,7 +76,6 @@
   ("http://www.rsspect.com/rss/asw.xml" comic)
   ("http://beardfluff.com/feed/" comic)
   ("http://bit-player.org/feed" blog math)
-  ("http://feeds.feedburner.com/bitquabit" blog dev)
   ("http://blakeembrey.com/feed.xml" blog dev)
   ("http://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("http://blogofholding.com/?feed=rss2" blog gaming)
