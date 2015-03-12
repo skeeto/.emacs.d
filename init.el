@@ -345,6 +345,7 @@
 (with-package* compile-bind
   (setq compilation-always-kill t)
   (global-set-key (kbd "C-h g") #'compile-bind-set-command)
+  (global-set-key (kbd "C-h G") #'compile-bind-set-root-file)
   (compile-bind* (current-global-map)
                  ("C-x c" ""
                   "C-x r" 'run
