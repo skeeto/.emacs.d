@@ -4,7 +4,7 @@
 
 (require 'cl-lib)
 
-(defcustom compile-bind-command "make"
+(defcustom compile-bind-command "make -k"
   "Command used for performing builds, without the target."
   :type 'string
   :risky t)
