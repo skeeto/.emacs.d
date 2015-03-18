@@ -343,7 +343,8 @@
   (random (make-uuid)))
 
 (with-package* compile-bind
-  (setq compilation-always-kill t)
+  (setf compilation-always-kill t
+        compilation-scroll-output 'first-error)
   (global-set-key (kbd "C-h g") #'compile-bind-set-command)
   (global-set-key (kbd "C-h G") #'compile-bind-set-root-file)
   (compile-bind* (current-global-map)
