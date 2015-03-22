@@ -92,7 +92,6 @@
   ("http://echosa.github.io/atom.xml" blog dev)
   ("http://www.devrand.org/feeds/posts/default" blog dev)
   ("http://random.terminally-incoherent.com/rss" image)
-  ("https://glyph.twistedmatrix.com/feeds/atom.xml" blog dev)
   ("http://crawl.develz.org/wordpress/feed" blog gaming product)
   ("http://dvdp.tumblr.com/rss" image)
   ("https://www.digitalocean.com/blog/feed" blog product)
