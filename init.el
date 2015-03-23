@@ -288,6 +288,7 @@
 
 (with-package* custom
   (load-theme 'wombat t)
+  (setq frame-background-mode 'dark)
   ;; Fix broken faces between Wombat, Magit, and Notmuch
   (custom-set-faces
    '(diff-added           ((t :foreground "green")))
