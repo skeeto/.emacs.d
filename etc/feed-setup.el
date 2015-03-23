@@ -32,8 +32,15 @@
       (elfeed-search-update-entry entry)
       (unless (use-region-p) (forward-line)))))
 
+(defun elfeed-search-youtube-comments ()
+  (interactive)
+  (dolist (entry (elfeed-search-selected))
+    (let ((url (elfeed-entry-link entry)))
+      (browse-url (replace-regexp-in-string "/watch" "/all_comments" url)))))
+
 (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
 (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
+(define-key elfeed-search-mode-map "c" 'elfeed-search-youtube-comments)
 
 ;; Special filters
 
