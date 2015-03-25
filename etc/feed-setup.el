@@ -175,7 +175,6 @@
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
   ("Campster" youtube)
-  ("djflula" youtube)
   ("EconStories" youtube)
   ("foodwishes" youtube)
   ("GetDaved" youtube)
