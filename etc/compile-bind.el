@@ -7,11 +7,13 @@
 (defcustom compile-bind-command "make -k"
   "Command used for performing builds, without the target."
   :type 'string
-  :risky t)
+  :risky t
+  :group 'programming)
 
 (defcustom compile-bind-root-regex "^Makefile"
   "File to find before invoking compilation."
-  :type 'string)
+  :type 'string
+  :group 'programming)
 
 (defvar compile-bind-command-history ()
   "History of values for `compile-bind-command'.")
@@ -40,7 +42,7 @@ ant, scons) in a particular keymap."
     (lambda (n)
       (interactive "p")
       (let* ((buffer-name (format "*compilation-%d*" n))
-             (compilation-buffer-name-function (lambda (x) buffer-name))
+             (compilation-buffer-name-function (lambda (_) buffer-name))
              (predicate
               (apply-partially #'string-match-p compile-bind-root-regex)))
         (save-buffer)
