@@ -11,7 +11,7 @@
       delete-active-region nil
       disabled-command-function nil
       custom-file (make-temp-file "emacs-custom")
-      large-file-warning-threshold (* 1024 1024 512)
+      large-file-warning-threshold 536870911
       gc-cons-threshold (* 1024 1024 32))
 
 ;; GUIs are for newbs
