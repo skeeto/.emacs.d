@@ -208,7 +208,11 @@
       (princ (emacs-uptime)))
     (defun httpd-here ()
       (interactive)
-      (setf httpd-root default-directory))))
+      (setf httpd-root default-directory))
+    (defadvice httpd-start (after httpd-query-on-exit-flag activate)
+      (let ((httpd-process (get-process "httpd")))
+        (when httpd-process
+          (set-process-query-on-exit-flag httpd-process nil))))))
 
 (use-package jekyll
   :demand t
