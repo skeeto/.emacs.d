@@ -1,2 +1,3 @@
 clean:
-	find lisp etc -name "*.elc" -exec rm {} \;
+	find lisp etc -name "*.elc" -exec $(RM) {} \;
+	$(RM) init.elc
