@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 
 ;; Higher-order functions
 
@@ -33,7 +33,7 @@ and returns the opposite truth value."
   "Return a function which is created by composing FUNCTIONS
 right-associatively."
   (lambda (x)
-    (reduce #'funcall functions :initial-value x :from-end t)))
+    (cl-reduce #'funcall functions :initial-value x :from-end t)))
 
 (defun expose (function &rest args)
   "Return an interactive version of FUNCTION, 'exposing' it to the user."
@@ -45,10 +45,10 @@ right-associatively."
 
 (defun partition (predicate seq)
   "Divide SEQ into two lists, selected by PREDICATE."
-  (loop for element in (coerce seq 'list)
-        when (funcall predicate element) collect element into a
-        else collect element into b
-        finally (return (list a b))))
+  (cl-loop for element in (cl-coerce seq 'list)
+           when (funcall predicate element) collect element into a
+           else collect element into b
+           finally (return (list a b))))
 
 ;; Anaphoric macros
 

@@ -8,6 +8,7 @@
 
 ;;; Code:
 
+(require 'cl-lib)
 (require 'url-parse)
 
 (defcustom youtube-dl-directory "~"

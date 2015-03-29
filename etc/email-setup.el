@@ -2,14 +2,14 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'utility)
 (require 'notmuch)
 
 ;; Displaying zip/tar inline is a really, really stupid default!
-(setq mm-inlined-types
-      (remove-if (apply-partially #'string-match-p "\\(x-g?tar\\|zip\\)")
-                 mm-inlined-types))
+(setf mm-inlined-types
+      (cl-remove-if (apply-partially #'string-match-p "\\(x-g?tar\\|zip\\)")
+                    mm-inlined-types))
 
 (defun notmuch-address-selection-function (prompt collection initial-input)
   (completing-read prompt collection nil nil nil 'notmuch-address-history

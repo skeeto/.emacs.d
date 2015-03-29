@@ -202,6 +202,7 @@
 (use-package simple-httpd
   :ensure t
   :defer t
+  :functions httpd-send-header
   :config
   (progn
     (defservlet uptime "text/plain" ()
@@ -216,6 +217,7 @@
 
 (use-package jekyll
   :demand t
+  :functions httpd-send-header
   :config
   (progn
     (setf jekyll-home "~/src/skeeto.github.com/")
@@ -224,9 +226,9 @@
       (setf httpd-root (concat jekyll-home "_site"))
       (ignore-errors
         (httpd-start)
-        (jekyll/start)))
-    (defservlet robots.txt text/plain ()
-      (insert "User-agent: *\nDisallow: /\n"))))
+        (jekyll/start))
+      (defservlet robots.txt text/plain ()
+        (insert "User-agent: *\nDisallow: /\n")))))
 
 (use-package js2-mode
   :ensure t

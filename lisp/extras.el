@@ -2,7 +2,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'pp)
 
 ;; Move line functions
@@ -135,6 +135,8 @@ prefix argument, the process's buffer is displayed."
                           (unless (eq major-mode ',mode)
                             (,mode)))))
 
+(declare-function js2-mode nil)
+(declare-function clojure-mode nil)
 (scratch-key (kbd "C-S-s") "*scratch*"    emacs-lisp-mode)
 (scratch-key (kbd "C-S-d") "*javascript*" js2-mode)
 (scratch-key (kbd "C-S-a") "*lisp*"       lisp-mode)
@@ -147,8 +149,8 @@ prefix argument, the process's buffer is displayed."
   "Open all files and sub-directories below the given directory."
   (interactive "DBase directory: ")
   (let* ((list (directory-files dir t "^[^.]"))
-         (files (remove-if 'file-directory-p list))
-         (dirs (remove-if-not 'file-directory-p list)))
+         (files (cl-remove-if 'file-directory-p list))
+         (dirs (cl-remove-if-not 'file-directory-p list)))
     (dolist (file files)
       (find-file-noselect file))
     (dolist (dir dirs)
@@ -175,11 +177,11 @@ everything the original function does, except for modifying
   (with-current-buffer (or buffer (current-buffer))
     (save-excursion
       (goto-char (point-min))
-      (loop while (< (point) (point-max))
-            for sexp = (condition-case e
-                           (read (current-buffer))
-                         (end-of-file nil))
-            do (eval sexp lexical-binding)))
+      (cl-loop while (< (point) (point-max))
+               for sexp = (condition-case e
+                              (read (current-buffer))
+                            (end-of-file nil))
+               do (eval sexp lexical-binding)))
     (message "%S loaded" (current-buffer))))
 
 (defun what-face (pos)
@@ -230,11 +232,11 @@ Ignores leading comment characters."
 (defun push-first-button ()
   "Find and push the first button in this buffer, intended for `help-mode'."
   (interactive)
-  (block :find-button
+  (cl-block :find-button
     (goto-char (point-min))
     (while (< (point) (point-max))
       (if (get-text-property (point) 'button)
-          (return-from :find-button (push-button))
+          (cl-return-from :find-button (push-button))
         (forward-char)))))
 
 (provide 'extras)
