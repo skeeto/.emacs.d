@@ -334,7 +334,7 @@ This modifies the state of variable `apt-sources-around-lines'."
 (defun apt-sources-insert-local-vars ()
   "Insert the current values of buffer local variables."
   (interactive)
-  (end-of-buffer)
+  (goto-char (point-max))
   (and (not (bolp))
        (insert "\n"))   ;insert a newline if the file doesn't end in a blank line.
   (insert "\n"
