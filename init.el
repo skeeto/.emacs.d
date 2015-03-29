@@ -1,68 +1,30 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/etc")
 
-;;; Turn off the annoying crap immediately
-(menu-bar-mode -1)
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(blink-cursor-mode -1)
-(electric-indent-mode -1)
-(setq backup-inhibited t
-      auto-save-default nil
-      inhibit-startup-message t
-      initial-scratch-message nil
-      wdired-allow-to-change-permissions t
-      dabbrev-case-distinction nil
-      dabbrev-case-fold-search nil
-      echo-keystrokes 0.1
-      delete-active-region nil
-      vc-follow-symlinks t
-      disabled-command-function nil
-      custom-file (make-temp-file "emacs-custom")
-      large-file-warning-threshold 536870911)
-(when (fboundp 'set-horizontal-scroll-bar-mode)
-  (set-horizontal-scroll-bar-mode nil))
-(add-hook 'dired-mode-hook #'toggle-truncate-lines)
-(defalias 'yes-or-no-p 'y-or-n-p)
-(prefer-coding-system 'utf-8-unix)
-(setf vc-handled-backends nil)
-
-;; Adjust scrolling
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-(setq scroll-step 1)
-
-;;; Packages
-
+;; Set up package manager
 (require 'package)
-(require 'package-helper)
-
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (setq package-enable-at-startup nil)
-(setq package-blacklist '(batch-mode))
 (package-initialize)
-
-;; Install packages not needing configuration
-(with-package (impatient-mode lua-mode memoize rdp))
-
-;; Compile configuration
-(byte-recompile-directory "~/.emacs.d/lisp/" 0)
-(byte-recompile-directory "~/.emacs.d/etc/" 0)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;; Load local "packages"
+(require 'unannoy)
 (require 'imgur)
 (require 'extras)
+(require 'utility)
 
-;;; Custom global bindings
-
-(with-package* utility
-  (global-set-key (kbd "C-S-j") 'join-line)
-  (global-set-key "\M-g" 'goto-line)
-  (global-set-key "\C-x\C-k" 'compile)
-  (global-set-key [f5] (expose #'revert-buffer nil t)))
+;; Some global keybindings
+(global-set-key (kbd "C-S-j") 'join-line)
+(global-set-key "\M-g" 'goto-line)
+(global-set-key "\C-x\C-k" 'compile)
+(global-set-key [f5] (expose #'revert-buffer nil t))
 
 ;;; auto-mode-alist entries
-
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 (add-to-list 'auto-mode-alist '("[._]bash.*" . shell-script-mode))
@@ -71,301 +33,403 @@
 
 ;;; Individual package configurations
 
-(with-package (notmuch notmuch-address email-setup)
-  (setq notmuch-command "notmuch-remote"
-        message-send-mail-function 'smtpmail-send-it
-        message-kill-buffer-on-exit t
-        smtpmail-smtp-server "localhost"
-        smtpmail-smtp-service 2525
-        notmuch-address-command "addrlookup-remote"
-        notmuch-fcc-dirs nil
-        notmuch-search-oldest-first nil
-        notmuch-archive-tags '("-inbox" "-unread" "+archive"))
-  ;;(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
-  (define-key message-mode-map (kbd "C-c C-s") nil) ;; annoying
-  (setq hashcash-path (executable-find "hashcash"))
-  (notmuch-address-message-insinuate)
-  (custom-set-faces
-   '(notmuch-search-subject ((t :foreground "#afa")))
-   '(notmuch-search-date    ((t :foreground "#aaf")))
-   '(notmuch-search-count   ((t :foreground "#777"))))
-  (setq notmuch-hello-sections
-        '(notmuch-hello-insert-header
-          notmuch-hello-insert-saved-searches
-          notmuch-hello-insert-search)))
-(global-set-key (kbd "C-x m") 'notmuch)
+(use-package dabbrev
+  :config (setf dabbrev-case-fold-search nil))
 
-(with-package (elfeed elfeed-web feed-setup)
-  (ignore-errors
-    (elfeed-web-start)))
-(global-set-key (kbd "C-x w") 'elfeed)
+(use-package impatient-mode
+  :defer t
+  :ensure t)
 
-(with-package (lisp-mode)
-  (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
-  (defun ielm-repl ()
-    (interactive)
-    (pop-to-buffer (get-buffer-create "*ielm*"))
-    (ielm))
-  (defun ert-silently ()
-    (interactive)
-    (ert t))
-  (define-key emacs-lisp-mode-map (kbd "C-x r") (expose #'ert t))
-  (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
-  (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer*)
-  (font-lock-add-keywords
-   'emacs-lisp-mode
-   `((,(concat "(\\(\\(?:\\(?:\\sw\\|\\s_\\)+-\\)?"
-               "def\\(?:\\sw\\|\\s_\\)*\\)\\_>"
-               "\\s-*'?" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
-      (1 'font-lock-keyword-face)
-      (2 'font-lock-function-name-face nil t)))
-   :low-priority))
+(use-package lua-mode
+  :defer t
+  :ensure t)
 
-(with-package* time
-  (setq display-time-default-load-average nil)
-  (setq display-time-use-mail-icon t)
-  (setq display-time-24hr-format t)
-  (display-time-mode t))
+(use-package memoize
+  :defer t
+  :ensure t)
 
-(with-package comint
-  (message "comint loaded: %s" (featurep 'comint))
-  (setq comint-prompt-read-only t
-        comint-history-isearch t)
-  (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
-  (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
-  (define-key comint-mode-map (kbd "C-n") 'comint-next-input)
-  (define-key comint-mode-map (kbd "C-p") 'comint-previous-input)
-  (define-key comint-mode-map (kbd "C-r") 'comint-history-isearch-backward))
+(use-package dired
+  :config (add-hook 'dired-mode-hook #'toggle-truncate-lines))
 
-(with-package tramp
-  (setq tramp-persistency-file-name
+(use-package message
+  :defer t
+  :config (define-key message-mode-map "C-c C-s" nil)) ; super annoying
+
+(use-package notmuch
+  :ensure t
+  :bind ("C-x m" . notmuch)
+  :functions notmuch-address-message-insinuate
+  :config
+  (progn
+    (require 'email-setup)
+    (require 'notmuch-address)
+    (setf notmuch-command "notmuch-remote"
+          message-send-mail-function 'smtpmail-send-it
+          message-kill-buffer-on-exit t
+          smtpmail-smtp-server "localhost"
+          smtpmail-smtp-service 2525
+          notmuch-address-command "addrlookup-remote"
+          notmuch-fcc-dirs nil
+          notmuch-search-oldest-first nil
+          notmuch-archive-tags '("-inbox" "-unread" "+archive")
+          hashcash-path (executable-find "hashcash"))
+    (notmuch-address-message-insinuate)
+    (custom-set-faces
+     '(notmuch-search-subject ((t :foreground "#afa")))
+     '(notmuch-search-date    ((t :foreground "#aaf")))
+     '(notmuch-search-count   ((t :foreground "#777"))))
+    (setq notmuch-hello-sections
+          '(notmuch-hello-insert-header
+            notmuch-hello-insert-saved-searches
+            notmuch-hello-insert-search))))
+
+(use-package elfeed
+  :ensure t
+  :bind ("C-x w" . elfeed)
+  :config (require 'feed-setup))
+
+(use-package lisp-mode
+  :config
+  (progn
+    (defun ert-all ()
+      (interactive)
+      (ert t))
+    (defun ielm-repl ()
+      (interactive)
+      (pop-to-buffer (get-buffer-create "*ielm*"))
+      (ielm))
+    (define-key emacs-lisp-mode-map "C-x r"   'ert-all)
+    (define-key emacs-lisp-mode-map "C-c C-z" 'ielm-repl)
+    (define-key emacs-lisp-mode-map "C-c C-k" 'eval-buffer*)
+    (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
+    (font-lock-add-keywords
+     'emacs-lisp-mode
+     `((,(concat "(\\(\\(?:\\(?:\\sw\\|\\s_\\)+-\\)?"
+                 "def\\(?:\\sw\\|\\s_\\)*\\)\\_>"
+                 "\\s-*'?" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
+        (1 'font-lock-keyword-face)
+        (2 'font-lock-function-name-face nil t)))
+     :low-priority)
+    (font-lock-add-keywords
+     'emacs-lisp-mode
+     '(("(\\(use-package\\)\\_>\\s-*\\(\\(?:\\sw\\|\\s_\\)+\\)?"
+        (1 'font-lock-keyword-face)
+        (2 'font-lock-function-name-face nil t)))
+     :low-priority)))
+
+(use-package time
+  :config
+  (progn
+    (setf display-time-default-load-average nil
+          display-time-use-mail-icon t
+          display-time-24hr-format t)
+    (display-time-mode t)))
+
+(use-package comint
+  :config
+  (progn
+    (define-key comint-mode-map "<down>" 'comint-next-input)
+    (define-key comint-mode-map "<up>" 'comint-previous-input)
+    (define-key comint-mode-map "C-n" 'comint-next-input)
+    (define-key comint-mode-map "C-p" 'comint-previous-input)
+    (define-key comint-mode-map "C-r" 'comint-history-isearch-backward)
+    (setf comint-prompt-read-only t
+          comint-history-isearch t)))
+
+(use-package tramp
+  :defer t
+  :config
+  (setf tramp-persistency-file-name
         (concat temporary-file-directory "tramp-" (user-login-name))))
 
-(with-package* whitespace-cleanup
-  (setq-default indent-tabs-mode nil))
+(use-package whitespace-cleanup
+  :config (setq-default indent-tabs-mode nil))
 
-(with-package diff-mode
-  (add-hook 'diff-mode-hook #'toggle-whitespace-cleanup)
-  (add-hook 'diff-mode-hook #'read-only-mode))
+(use-package diff-mode
+  :defer t
+  :config
+  (progn
+    (add-hook 'diff-mode-hook #'toggle-whitespace-cleanup)
+    (add-hook 'diff-mode-hook #'read-only-mode)))
 
-(with-package (simple utility)
-  ;; disable so I don't use it by accident
-  (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ())))
-  (add-hook 'tabulated-list-mode-hook 'hl-line-mode))
+(use-package simple
+  :defer t
+  :config
+  (progn
+    ;; disable so I don't use it by accident
+    (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ())))
+    (add-hook 'tabulated-list-mode-hook #'hl-line-mode)))
 
-(with-package* uniquify
-  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+(use-package uniquify
+  :config
+  (setf uniquify-buffer-name-style 'post-forward-angle-brackets))
 
-(with-package* winner
-  (winner-mode 1)
-  (windmove-default-keybindings))
+(use-package winner
+  :config
+  (progn
+    (winner-mode 1)
+    (windmove-default-keybindings)))
 
-(with-package calc
-  (setq calc-display-trail nil))
+(use-package calc
+  :defer t
+  :config (setf calc-display-trail nil))
 
-(with-package eshell
+(use-package eshell
+  :bind ([f1] . eshell-as)
+  :config
   (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
             (lambda () (define-key eshell-mode-map [f1] 'quit-window))))
-(global-set-key [f1] 'eshell-as)
 
-(with-package magit*
-  (global-set-key (kbd "C-x g") 'magit-status)
-  (setq vc-display-status nil)
-  (add-hook 'git-commit-mode-hook
-            (lambda () (when (looking-at "\n") (open-line 1))))
-  (defadvice git-commit-commit (after delete-window activate)
-    (delete-window)))
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status)
+  :config
+  (progn
+    (setf vc-display-status nil)
+    (add-hook 'git-commit-mode-hook
+              (lambda () (when (looking-at "\n") (open-line 1))))
+    (defadvice git-commit-commit (after delete-window activate)
+      (delete-window))))
 
-(with-package markdown-mode*
-  (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-  (add-to-list 'auto-mode-alist
-               '("pentadactyl\\.[[:alnum:].]+\\.txt$" . markdown-mode))
-  (defun markdown-nobreak-p () nil)
-  (setq sentence-end-double-space nil))
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md$" "\\.markdown$" "pentadactyl\\.[[:alnum:].]+\\.txt$")
+  :config
+  (progn
+    (defun markdown-nobreak-p () nil)
+    (setf sentence-end-double-space nil)))
 
-(with-package* (simple-httpd jekyll)
-  (setq jekyll-home "~/src/skeeto.github.com/")
-  (when (file-exists-p jekyll-home)
-    (setq httpd-root (concat jekyll-home "_site"))
-    (ignore-errors
-      (httpd-start)
-      (jekyll/start)))
-  (defservlet robots.txt text/plain ()
-    (insert "User-agent: *\nDisallow: /\n"))
-  (defservlet uptime "text/plain" ()
-    (princ (emacs-uptime)))
-  (defun httpd-here ()
-    (interactive)
-    (setq httpd-root default-directory)))
+(use-package simple-httpd
+  :ensure t
+  :defer t
+  :config
+  (progn
+    (defservlet uptime "text/plain" ()
+      (princ (emacs-uptime)))
+    (defun httpd-here ()
+      (interactive)
+      (setf httpd-root default-directory))))
 
-(with-package js2-mode*
-  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
+(use-package jekyll
+  :demand t
+  :config
+  (progn
+    (setf jekyll-home "~/src/skeeto.github.com/")
+    (when (file-exists-p jekyll-home)
+      (require 'simple-httpd)
+      (setf httpd-root (concat jekyll-home "_site"))
+      (ignore-errors
+        (httpd-start)
+        (jekyll/start)))
+    (defservlet robots.txt text/plain ()
+      (insert "User-agent: *\nDisallow: /\n"))))
 
-(with-package js2-mode
-  (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
-  (setq js2-skip-preprocessor-directives t)
-  (setq-default js2-additional-externs
-                '("$" "unsafeWindow" "localStorage" "jQuery"
-                  "setTimeout" "setInterval" "location" "skewer"
-                  "console" "phantom")))
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js$"
+  :config
+  (progn
+    (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
+    (setf js2-skip-preprocessor-directives t)
+    (setq-default js2-additional-externs
+                  '("$" "unsafeWindow" "localStorage" "jQuery"
+                    "setTimeout" "setInterval" "location" "skewer"
+                    "console" "phantom"))))
 
-(with-package (skewer-mode skewer-repl sgml-mode css-mode js2-mode)
-  (skewer-setup)
-  (define-key skewer-repl-mode-map (kbd "C-c C-z") 'quit-window)
+(use-package skewer-mode
+  :ensure t
+  :defer t
+  :init (skewer-setup)
+  :config
   (define-key skewer-mode-map (kbd "C-c $")
     (expose #'skewer-bower-load "jquery" "1.9.1")))
 
-(with-package clojure-mode*
-  (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
+(use-package skewer-repl
+  :defer t
+  :config (define-key skewer-repl-mode-map (kbd "C-c C-z") #'quit-window))
 
-(with-package cider
-  (defadvice cider-popup-buffer-display (after cider-focus-errors activate)
-    "Focus the error buffer after errors, like Emacs normally does."
-    (select-window (get-buffer-window cider-error-buffer)))
-  (defadvice cider-eval-last-sexp (after cider-flash-last activate)
-    (flash-region (save-excursion (backward-sexp) (point)) (point)))
-  (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
-    (apply #'flash-region (cider--region-for-defun-at-point))))
+(use-package clojure-mode
+  :ensure t
+  :mode "\\.cljs$")
 
-(with-package ps-print
-  (setq ps-print-header nil))
+(use-package cider
+  :ensure t
+  :defer t
+  :config
+  (progn
+    (defadvice cider-popup-buffer-display (after cider-focus-errors activate)
+      "Focus the error buffer after errors, like Emacs normally does."
+      (select-window (get-buffer-window cider-error-buffer)))
+    (defadvice cider-eval-last-sexp (after cider-flash-last activate)
+      (flash-region (save-excursion (backward-sexp) (point)) (point)))
+    (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
+      (apply #'flash-region (cider--region-for-defun-at-point)))))
 
-(with-package glsl-mode*
-  (autoload 'glsl-mode "glsl-mode" nil t)
-  (add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.frag$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.fs$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode))) ; OpenCL
+(use-package ps-print
+  :defer t
+  :config (setf ps-print-header nil))
 
-(with-package erc
+(use-package glsl-mode
+  :ensure t
+  :mode ("\\.fs$" "\\.vs$"))
+
+(use-package erc
+  :defer t
+  :config
   (when (eq 0 (string-match "wello" (user-login-name)))
-    (setq erc-nick "skeeto")))
+    (setf erc-nick "skeeto")))
 
-(with-package cc-mode
-  (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
-  (add-to-list 'c-default-style '(c-mode . "k&r")))
+(use-package cc-mode
+  :defer t
+  :config
+  (progn
+    (define-key java-mode-map (kbd "C-x I") #'add-java-import)
+    (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
+    (add-to-list 'c-default-style '(c-mode . "k&r"))))
 
-(with-package (google-c-style cc-mode)
-  (add-hook 'c++-mode-hook #'google-set-c-style))
+(use-package google-c-style
+  :ensure t
+  :defer t
+  :init (add-hook 'c++-mode-hook #'google-set-c-style))
 
-(with-package ielm
-  (define-key ielm-map (kbd "C-c C-z") 'quit-window)
-  (defadvice ielm-eval-input (after ielm-paredit activate)
-    "Begin each ielm prompt with a paredit pair."
-    (paredit-open-round)))
+(use-package ielm
+  :config
+  (progn
+    (define-key ielm-map (kbd "C-c C-z") #'quit-window)
+    (defadvice ielm-eval-input (after ielm-paredit activate)
+      "Begin each ielm prompt with a paredit pair."
+      (paredit-open-round))))
 
-(with-package paredit*
-  (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-  (add-hook 'lisp-mode-hook 'paredit-mode)
-  (add-hook 'scheme-mode-hook 'paredit-mode)
-  (add-hook 'ielm-mode-hook 'paredit-mode)
-  (add-hook 'clojure-mode-hook 'paredit-mode))
+(use-package paredit
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+    (add-hook 'lisp-mode-hook #'paredit-mode)
+    (add-hook 'scheme-mode-hook #'paredit-mode)
+    (add-hook 'ielm-mode-hook #'paredit-mode)
+    (add-hook 'clojure-mode-hook #'paredit-mode)))
 
-(with-package* paren
-  (show-paren-mode))
+(use-package paren
+  :config (show-paren-mode))
 
-(with-package* parenface
-  (set-face-foreground 'parenface-paren-face "snow4")
-  (set-face-foreground 'parenface-bracket-face "DarkGray")
-  (set-face-foreground 'parenface-curly-face "DimGray"))
+(use-package parenface
+  :ensure t
+  :config
+  (progn
+    (set-face-foreground 'parenface-paren-face "snow4")
+    (set-face-foreground 'parenface-bracket-face "DarkGray")
+    (set-face-foreground 'parenface-curly-face "DimGray")))
 
-(with-package* (ido ido-ubiquitous ido-vertical-mode)
-  (setq ido-enable-flex-matching t
-        ido-show-dot-for-dired t
-        ido-save-directory-list-file nil
-        ido-everywhere t)
-  (ido-mode 1)
-  (ido-vertical-mode 1)
-  (ido-ubiquitous-mode)
-  (setq ido-ubiquitous-enable-compatibility nil))
+(use-package ido-vertical-mode
+  :ensure t
+  :config (ido-vertical-mode 1))
 
-(with-package* smex
-  (smex-initialize)
-  (global-set-key (kbd "M-x") 'smex))
+(use-package ido-ubiquitous
+  :ensure t
+  :config
+  (progn
+    (ido-mode 1)
+    (ido-ubiquitous-mode)
+    (setf ido-enable-flex-matching t
+          ido-show-dot-for-dired t
+          ido-save-directory-list-file nil
+          ido-everywhere t
+          ido-ubiquitous-enable-compatibility nil)))
 
-(with-package* custom
-  (load-theme 'wombat t)
-  (setq frame-background-mode 'dark)
-  ;; Fix broken faces between Wombat, Magit, and Notmuch
-  (custom-set-faces
-   '(diff-added           ((t :foreground "green")))
-   '(diff-removed         ((t :foreground "red")))
-   '(highlight            ((t (:background "black"))))
-   '(magit-item-highlight ((t :background "black")))
-   '(hl-line              ((t :background "gray10")))))
+(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind ("M-x" . smex))
 
-(with-package javadoc-lookup*
-  (global-set-key (kbd "C-h j") 'javadoc-lookup))
+(use-package custom
+  :config
+  (progn
+    (load-theme 'wombat t)
+    (setf frame-background-mode 'dark)
+    ;; Fix broken faces between Wombat, Magit, and Notmuch
+    (custom-set-faces
+     '(diff-added           ((t :foreground "green")))
+     '(diff-removed         ((t :foreground "red")))
+     '(highlight            ((t (:background "black"))))
+     '(magit-item-highlight ((t :background "black")))
+     '(hl-line              ((t :background "gray10"))))))
 
-(with-package java-mode
-  (global-set-key (kbd "C-x I") 'add-java-import))
+(use-package javadoc-lookup
+  :ensure t
+  :bind ("C-h j" . javadoc-lookup)
+  :config
+  (ignore-errors
+    (javadoc-add-artifacts
+     [org.lwjgl.lwjgl lwjgl "2.8.2"]
+     [com.nullprogram native-guide "0.2"]
+     [junit junit "4.10"]
+     [org.projectlombok lombok "0.10.4"]
+     [org.mockito mockito-all "1.9.0"]
+     [com.beust jcommander "1.25"]
+     [com.google.guava guava "12.0"]
+     [org.jbox2d jbox2d-library "2.1.2.2"]
+     [org.apache.commons commons-math3 "3.0"]
+     [org.pcollections pcollections "2.1.2"]
+     [org.xerial sqlite-jdbc "3.7.2"]
+     [com.googlecode.lanterna lanterna "2.1.2"]
+     [joda-time joda-time "2.1"]
+     [org.apache.lucene lucene-core "3.3.0"])))
 
-(with-package javadoc-lookup
-  (condition-case _
-      (javadoc-add-artifacts
-       [org.lwjgl.lwjgl lwjgl "2.8.2"]
-       [com.nullprogram native-guide "0.2"]
-       [junit junit "4.10"]
-       [org.projectlombok lombok "0.10.4"]
-       [org.mockito mockito-all "1.9.0"]
-       [com.beust jcommander "1.25"]
-       [com.google.guava guava "12.0"]
-       [org.jbox2d jbox2d-library "2.1.2.2"]
-       [org.apache.commons commons-math3 "3.0"]
-       [org.pcollections pcollections "2.1.2"]
-       [org.xerial sqlite-jdbc "3.7.2"]
-       [com.googlecode.lanterna lanterna "2.1.2"]
-       [joda-time joda-time "2.1"]
-       [org.apache.lucene lucene-core "3.3.0"])
-    (file-error nil)))
-
-(with-package browse-url
+(use-package browse-url
+  :defer t
+  :config
   (when (executable-find "firefox")
-    (setq browse-url-browser-function 'browse-url-firefox)))
+    (setf browse-url-browser-function #'browse-url-firefox)))
 
-(with-package multiple-cursors*
-  (global-set-key (kbd "C-S-e") #'mc/edit-lines)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-S-e" . mc/edit-lines)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C->" . mc/mark-next-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
 
-(with-package graphviz-dot-mode
-  (setq graphviz-dot-indent-width 2)
-  (setq graphviz-dot-auto-indent-on-semi nil))
+(use-package graphviz-dot-mode
+  :ensure t
+  :defer t
+  :config
+  (setf graphviz-dot-indent-width 2
+        graphviz-dot-auto-indent-on-semi nil))
 
-(with-package* uuid-simple
-  (global-set-key "\C-x!" 'uuid-insert)
-  (setq save-place-file
-        (expand-file-name (format "%s.el" (make-uuid))
-                          temporary-file-directory))
-  (random (make-uuid)))
+(use-package uuid-simple
+  :demand t
+  :bind ("C-x !" . uuid-insert)
+  :config (random (make-uuid)))
 
-(with-package* compile-bind
-  (setf compilation-always-kill t
-        compilation-scroll-output 'first-error)
-  (global-set-key (kbd "C-h g") #'compile-bind-set-command)
-  (global-set-key (kbd "C-h G") #'compile-bind-set-root-file)
-  (compile-bind* (current-global-map)
-                 ("C-x c" ""
-                  "C-x r" 'run
-                  "C-x t" 'test
-                  "C-x C" 'clean)))
+(use-package compile-bind
+  :demand t
+  :bind (("C-h g" . compile-bind-set-command)
+         ("C-h G" . compile-bind-set-root-file))
+  :config
+  (progn
+    (setf compilation-always-kill t
+          compilation-scroll-output 'first-error)
+    (compile-bind* (current-global-map)
+                   ("C-x c" ""
+                    "C-x r" 'run
+                    "C-x t" 'test
+                    "C-x C" 'clean))))
 
-(with-package* batch-mode
-  (add-hook 'batch-mode-hook (lambda () (setq mode-name "Batch"))))
-(autoload 'batch-mode "batch-mode.el" nil t)
+(use-package batch-mode
+  :defer t)
 
-(with-package (cl-lib-highlight lisp-mode)
-  (cl-lib-highlight-initialize))
-
-(with-package yaml-mode
+(use-package yaml-mode
+  :ensure t
+  :config
   (add-hook 'yaml-mode-hook
             (lambda ()
               (setq-local paragraph-separate ".*>-$\\|[   ]*$")
               (setq-local paragraph-start paragraph-separate))))
+
+(use-package help-mode
+  :config
+  (define-key help-mode-map "f" 'push-first-button))
 
 ;; Cygwin compatibility
 
@@ -382,5 +446,9 @@
           (let ((drive (match-string 1 filename))
                 (path (match-string 2 filename)))
             (setf filename (concat drive ":/" path))))))))
+
+;; Compile configuration
+(byte-recompile-directory "~/.emacs.d/lisp/" 0)
+(byte-recompile-directory "~/.emacs.d/etc/" 0)
 
 (provide 'init) ; make (require 'init) happy

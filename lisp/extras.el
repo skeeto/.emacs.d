@@ -4,7 +4,6 @@
 
 (require 'cl)
 (require 'pp)
-(require 'package-helper)
 
 ;; Move line functions
 (defun move-line (n)
@@ -237,9 +236,6 @@ Ignores leading comment characters."
       (if (get-text-property (point) 'button)
           (return-from :find-button (push-button))
         (forward-char)))))
-
-(with-package help-mode
-  (define-key help-mode-map "f" 'push-first-button))
 
 (provide 'extras)
 
