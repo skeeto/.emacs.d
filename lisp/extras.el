@@ -1,4 +1,4 @@
-;;; extras.el --- a bunch of small clutter that doesn't fit elsewhere
+;;; extras.el --- small extra functions -*- lexical-binding: t; -*-
 
 ;;; Code:
 
@@ -238,6 +238,17 @@ Ignores leading comment characters."
       (if (get-text-property (point) 'button)
           (cl-return-from :find-button (push-button))
         (forward-char)))))
+
+;; Window dimmer
+
+(defun my-make-dimmer (x)
+  (lambda ()
+    (interactive)
+    (let ((alpha (or (frame-parameter (selected-frame) 'alpha) 100)))
+      (setf (frame-parameter (selected-frame) 'alpha)
+            (min 100 (max 0 (+ alpha x)))))))
+(global-set-key (kbd "M-[") (my-make-dimmer -5))
+(global-set-key (kbd "M-]") (my-make-dimmer 5))
 
 (provide 'extras)
 
