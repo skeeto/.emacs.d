@@ -110,9 +110,9 @@
       (interactive)
       (pop-to-buffer (get-buffer-create "*ielm*"))
       (ielm))
-    (define-key emacs-lisp-mode-map "C-x r"   'ert-all)
-    (define-key emacs-lisp-mode-map "C-c C-z" 'ielm-repl)
-    (define-key emacs-lisp-mode-map "C-c C-k" 'eval-buffer*)
+    (define-key emacs-lisp-mode-map (kbd "C-x r")   'ert-all)
+    (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
+    (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer*)
     (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
     (font-lock-add-keywords
      'emacs-lisp-mode
