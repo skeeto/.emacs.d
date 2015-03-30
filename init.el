@@ -109,12 +109,6 @@
                  "\\s-*'?" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
         (1 'font-lock-keyword-face)
         (2 'font-lock-function-name-face nil t)))
-     :low-priority)
-    (font-lock-add-keywords
-     'emacs-lisp-mode
-     '(("(\\(use-package\\)\\_>\\s-*\\(\\(?:\\sw\\|\\s_\\)+\\)?"
-        (1 'font-lock-keyword-face)
-        (2 'font-lock-function-name-face nil t)))
      :low-priority)))
 
 (use-package time
