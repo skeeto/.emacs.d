@@ -1,3 +1,15 @@
+;;; init.el --- -*- lexical-binding: t; -*-
+
+;;; Commentary:
+
+;; Use this at the top of your .emacs file for local overrides:
+;;     (let ((init "~/.emacs.d/init.elc"))
+;;       (if (file-exists-p init)
+;;           (load-file init)
+;;         (load-file (substring init 0 -1))))
+
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/etc")
 
