@@ -31,7 +31,7 @@
 (require 'utility)
 
 ;; Some global keybindings
-(global-set-key (kbd "C-S-j") 'join-line)
+(global-set-key (kbd "C-j") 'join-line)
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-x\C-k" 'compile)
 (global-set-key [f5] (expose #'revert-buffer nil t))
@@ -321,7 +321,8 @@
     (add-hook 'lisp-mode-hook #'paredit-mode)
     (add-hook 'scheme-mode-hook #'paredit-mode)
     (add-hook 'ielm-mode-hook #'paredit-mode)
-    (add-hook 'clojure-mode-hook #'paredit-mode)))
+    (add-hook 'clojure-mode-hook #'paredit-mode))
+  :config (define-key paredit-mode-map (kbd "C-j") #'join-line))
 
 (use-package paren
   :config (show-paren-mode))
@@ -387,10 +388,9 @@
 
 (use-package multiple-cursors
   :ensure t
-  :bind (("C-S-e" . mc/edit-lines)
+  :bind (("C-c C-e" . mc/edit-lines)
          ("C-<" . mc/mark-previous-like-this)
-         ("C->" . mc/mark-next-like-this)
-         ("C-c C-<" . mc/mark-all-like-this)))
+         ("C->" . mc/mark-next-like-this)))
 
 (use-package graphviz-dot-mode
   :ensure t
