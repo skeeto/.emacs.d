@@ -65,7 +65,7 @@
 
 (use-package message
   :defer t
-  :config (define-key message-mode-map "C-c C-s" nil)) ; super annoying
+  :config (define-key message-mode-map (kbd "C-c C-s") nil)) ; super annoying
 
 (use-package notmuch
   :ensure t
@@ -110,9 +110,9 @@
       (interactive)
       (pop-to-buffer (get-buffer-create "*ielm*"))
       (ielm))
-    (define-key emacs-lisp-mode-map (kbd "C-x r")   'ert-all)
-    (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
-    (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer*)
+    (define-key emacs-lisp-mode-map (kbd "C-x r")   #'ert-all)
+    (define-key emacs-lisp-mode-map (kbd "C-c C-z") #'ielm-repl)
+    (define-key emacs-lisp-mode-map (kbd "C-c C-k") #'eval-buffer*)
     (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
     (font-lock-add-keywords
      'emacs-lisp-mode
@@ -134,11 +134,11 @@
 (use-package comint
   :config
   (progn
-    (define-key comint-mode-map "<down>" 'comint-next-input)
-    (define-key comint-mode-map "<up>" 'comint-previous-input)
-    (define-key comint-mode-map "C-n" 'comint-next-input)
-    (define-key comint-mode-map "C-p" 'comint-previous-input)
-    (define-key comint-mode-map "C-r" 'comint-history-isearch-backward)
+    (define-key comint-mode-map (kbd "<down>") #'comint-next-input)
+    (define-key comint-mode-map (kbd "<up>") #'comint-previous-input)
+    (define-key comint-mode-map (kbd "C-n") #'comint-next-input)
+    (define-key comint-mode-map (kbd "C-p") #'comint-previous-input)
+    (define-key comint-mode-map (kbd "C-r") #'comint-history-isearch-backward)
     (setf comint-prompt-read-only t
           comint-history-isearch t)))
 
@@ -184,7 +184,7 @@
   :bind ([f1] . eshell-as)
   :config
   (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
-            (lambda () (define-key eshell-mode-map [f1] 'quit-window))))
+            (lambda () (define-key eshell-mode-map [f1] #'quit-window))))
 
 (use-package magit
   :ensure t
@@ -431,7 +431,7 @@
 
 (use-package help-mode
   :config
-  (define-key help-mode-map "f" 'push-first-button))
+  (define-key help-mode-map (kbd "f") #'push-first-button))
 
 ;; Cygwin compatibility
 
