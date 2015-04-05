@@ -176,7 +176,7 @@ everything the original function does, except for modifying
     (save-excursion
       (goto-char (point-min))
       (cl-loop while (< (point) (point-max))
-               for sexp = (condition-case e
+               for sexp = (condition-case _
                               (read (current-buffer))
                             (end-of-file nil))
                do (eval sexp lexical-binding)))
