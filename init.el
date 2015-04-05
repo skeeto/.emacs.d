@@ -433,6 +433,15 @@
   :config
   (define-key help-mode-map (kbd "f") #'push-first-button))
 
+(use-package iasm-mode
+  :ensure t
+  :defer t
+  :init (define-key c-mode-map (kbd "C-c C-l") 'iasm-disasm))
+
+(use-package vimrc-mode
+  :ensure t
+  :defer t)
+
 ;; Cygwin compatibility
 
 (let ((cygwin-root "c:/cygwin64"))
