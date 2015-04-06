@@ -389,7 +389,7 @@
 
 (use-package multiple-cursors
   :ensure t
-  :bind (("C-c C-e" . mc/edit-lines)
+  :bind (("C-c e" . mc/edit-lines)
          ("C-<" . mc/mark-previous-like-this)
          ("C->" . mc/mark-next-like-this)))
 
