@@ -295,7 +295,8 @@
   :defer t
   :config
   (progn
-    (define-key java-mode-map (kbd "C-x I") #'add-java-import)
+    (define-key java-mode-map (kbd "C-x I") 'add-java-import)
+    (define-key c-mode-map (kbd "C-c C-l") 'iasm-disasm)
     (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
     (add-to-list 'c-default-style '(c-mode . "k&r"))))
 
@@ -435,8 +436,7 @@
 
 (use-package iasm-mode
   :ensure t
-  :defer t
-  :init (define-key c-mode-map (kbd "C-c C-l") 'iasm-disasm))
+  :defer t)
 
 (use-package vimrc-mode
   :ensure t
