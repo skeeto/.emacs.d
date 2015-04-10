@@ -243,8 +243,8 @@ Ignores leading comment characters."
     (let ((alpha (or (frame-parameter (selected-frame) 'alpha) 100)))
       (setf (frame-parameter (selected-frame) 'alpha)
             (min 100 (max 0 (+ alpha x)))))))
-(global-set-key (kbd "M-[") (my-make-dimmer -5))
-(global-set-key (kbd "M-]") (my-make-dimmer 5))
+(global-set-key (kbd "M-<next>") (my-make-dimmer -5))
+(global-set-key (kbd "M-<prior>") (my-make-dimmer 5))
 
 (provide 'extras)
 
