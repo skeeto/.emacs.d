@@ -31,10 +31,10 @@
 (require 'utility)
 
 ;; Some global keybindings
-(global-set-key (kbd "C-j") 'join-line)
-(global-set-key "\M-g" 'goto-line)
-(global-set-key "\C-x\C-k" 'compile)
-(global-set-key [f5] (expose #'revert-buffer nil t))
+(global-set-key (kbd "C-j") #'join-line)
+(global-set-key (kbd "M-g") #'goto-line)
+(global-set-key (kbd "C-x C-k") #'compile)
+(global-set-key (kbd "<f5>") (expose #'revert-buffer nil t))
 
 ;;; auto-mode-alist entries
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
@@ -184,7 +184,8 @@
   :bind ([f1] . eshell-as)
   :config
   (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
-            (lambda () (define-key eshell-mode-map [f1] #'quit-window))))
+            (lambda ()
+              (define-key eshell-mode-map (kbd "<f1>") #'quit-window))))
 
 (use-package magit
   :ensure t

@@ -56,7 +56,7 @@ argument, set so that number of columns instead."
   (interactive)
   (set-window-width (or current-prefix-arg 80)))
 
-(global-set-key "\C-x~" 'set-80-columns)
+(global-set-key (kbd "C-x ~") #'set-80-columns)
 
 ;; ID: 6a3f3d99-f0da-329a-c01c-bb6b868f3239
 (defmacro measure-time (&rest body)
@@ -163,7 +163,7 @@ prefix argument, the process's buffer is displayed."
              (if dedicated "no longer " "")
              (buffer-name))))
 
-(global-set-key [pause] 'toggle-current-window-dedication)
+(global-set-key (kbd "<pause>") #'toggle-current-window-dedication)
 
 (defun eval-buffer* (&optional buffer)
   "Like `eval-buffer', but obey `lexical-binding'. It does
@@ -199,7 +199,7 @@ everything the original function does, except for modifying
 
 ;;; Process menu killing
 
-(define-key process-menu-mode-map "k" 'process-menu-kill)
+(define-key process-menu-mode-map (kbd "k") #'process-menu-kill)
 
 (defun process-menu-kill ()
   "Kill selected process in the process menu buffer."
