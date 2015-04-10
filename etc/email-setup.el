@@ -55,8 +55,4 @@
 
 (provide 'email-setup)
 
-;; Local Variables:
-;; byte-compile-warnings: (not cl-functions)
-;; End:
-
 ;;; email-setup.el ends here

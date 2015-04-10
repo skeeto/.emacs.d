@@ -248,8 +248,4 @@ Ignores leading comment characters."
 
 (provide 'extras)
 
-;; Local Variables:
-;; byte-compile-warnings: (not cl-functions)
-;; End:
-
 ;;; extras.el ends here

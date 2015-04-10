@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'json)
 
 (defun imgur/get-json (url)
@@ -18,7 +18,7 @@
 
 (defun imgur/get-hashes (json)
   "Get the list of image hash IDs from JSON."
-  (map 'list (lambda (e) (cdr (assoc 'hash e))) (cdr (assoc 'items json))))
+  (cl-map 'list (lambda (e) (cdr (assoc 'hash e))) (cdr (assoc 'items json))))
 
 (defun imgur/insert-wget-script (prefix hashes)
   "Insert a download script with a filename PREFIX for the list of HASHES."
@@ -26,7 +26,7 @@
     (dolist (hash hashes)
       (insert (format "wget -O %s-%03d-%s.jpg http://i.imgur.com/%s.jpg\n"
                       prefix count hash hash))
-      (incf count))))
+      (cl-incf count))))
 
 ;;;###autoload
 (defun imgur/gen-script (prefix url)
@@ -35,9 +35,5 @@
   (imgur/insert-wget-script prefix (imgur/get-hashes (imgur/get-json url))))
 
 (provide 'imgur)
-
-;; Local Variables:
-;; byte-compile-warnings: (not cl-functions)
-;; End:
 
 ;;; imgur.el ends here

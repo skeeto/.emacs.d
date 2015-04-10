@@ -76,8 +76,4 @@ right-associatively."
 
 (provide 'utility)
 
-;; Local Variables:
-;; byte-compile-warnings: (not cl-functions)
-;; End:
-
 ;;; utility.el ends here
