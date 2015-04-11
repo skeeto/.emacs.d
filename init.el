@@ -358,16 +358,18 @@
   :init (smex-initialize)
   :bind ("M-x" . smex))
 
-(use-package custom
-  :config
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t
+  :init
   (progn
-    (load-theme 'wombat t)
+    (load-theme 'sanityinc-tomorrow-night :no-confirm)
     (setf frame-background-mode 'dark)
-    ;; Fix broken faces between Wombat, Magit, and Notmuch
+    (global-hl-line-mode 1)
     (custom-set-faces
-     '(diff-added           ((t :foreground "green")))
-     '(diff-removed         ((t :foreground "red")))
-     '(highlight            ((t (:background "black"))))
+     '(cursor               ((t :background "#eebb28")))
+     '(diff-added           ((t :foreground "green" :underline nil)))
+     '(diff-removed         ((t :foreground "red" :underline nil)))
+     '(highlight            ((t :background "black" :underline nil)))
      '(magit-item-highlight ((t :background "black")))
      '(hl-line              ((t :background "gray10"))))))
 
