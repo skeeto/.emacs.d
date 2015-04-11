@@ -190,6 +190,8 @@
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status)
+  :init
+  (setf magit-last-seen-setup-instructions "1.4.0")
   :config
   (progn
     (setf vc-display-status nil)
