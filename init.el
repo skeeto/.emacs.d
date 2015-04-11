@@ -375,6 +375,10 @@
      '(magit-item-highlight ((t :background "black")))
      '(hl-line              ((t :background "gray10"))))))
 
+(use-package websocket
+  :ensure t
+  :defer t)
+
 (use-package javadoc-lookup
   :ensure t
   :bind ("C-h j" . javadoc-lookup)
