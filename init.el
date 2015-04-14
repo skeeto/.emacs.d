@@ -46,6 +46,7 @@
 ;;; Individual package configurations
 
 (use-package dabbrev
+  :defer t
   :config (setf dabbrev-case-fold-search nil))
 
 (use-package impatient-mode
@@ -61,6 +62,7 @@
   :ensure t)
 
 (use-package dired
+  :defer t
   :config (add-hook 'dired-mode-hook #'toggle-truncate-lines))
 
 (use-package message
@@ -101,6 +103,7 @@
   :config (require 'feed-setup))
 
 (use-package lisp-mode
+  :defer t
   :config
   (progn
     (defun ert-all ()
@@ -132,6 +135,7 @@
     (display-time-mode t)))
 
 (use-package comint
+  :defer t
   :config
   (progn
     (define-key comint-mode-map (kbd "<down>") #'comint-next-input)
@@ -309,6 +313,7 @@
   :init (add-hook 'c++-mode-hook #'google-set-c-style))
 
 (use-package ielm
+  :defer t
   :config
   (progn
     (define-key ielm-map (kbd "C-c C-z") #'quit-window)
@@ -433,6 +438,7 @@
 
 (use-package yaml-mode
   :ensure t
+  :defer t
   :config
   (add-hook 'yaml-mode-hook
             (lambda ()
@@ -440,6 +446,7 @@
               (setq-local paragraph-start paragraph-separate))))
 
 (use-package help-mode
+  :defer t
   :config
   (define-key help-mode-map (kbd "f") #'push-first-button))
 
