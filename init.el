@@ -344,26 +344,17 @@
     (set-face-foreground 'parenface-bracket-face "DarkGray")
     (set-face-foreground 'parenface-curly-face "DimGray")))
 
-(use-package ido-vertical-mode
+(use-package helm
   :ensure t
-  :config (ido-vertical-mode 1))
-
-(use-package ido-ubiquitous
-  :ensure t
+  :init
+  (progn
+    (require 'helm-config)
+    (helm-mode))
   :config
   (progn
-    (ido-mode 1)
-    (ido-ubiquitous-mode)
-    (setf ido-enable-flex-matching t
-          ido-show-dot-for-dired t
-          ido-save-directory-list-file nil
-          ido-everywhere t
-          ido-ubiquitous-enable-compatibility nil)))
-
-(use-package smex
-  :ensure t
-  :init (smex-initialize)
-  :bind ("M-x" . smex))
+    (setf helm-move-to-line-cycle-in-source t)
+    (define-key helm-map (kbd "C-s") #'helm-next-line)
+    (define-key helm-map (kbd "C-r") #'helm-previous-line)))
 
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
