@@ -352,9 +352,18 @@
     (helm-mode))
   :config
   (progn
-    (setf helm-move-to-line-cycle-in-source t)
+    (setf helm-move-to-line-cycle-in-source t
+          helm-recentf-fuzzy-match t
+          helm-buffers-fuzzy-matching t
+          helm-M-x-fuzzy-match t
+          helm-imenu-fuzzy-match t)
+    (global-set-key (kbd "C-x b") #'helm-mini)
+    (global-set-key (kbd "C-h w") #'helm-man-woman)
+    (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
     (define-key helm-map (kbd "C-s") #'helm-next-line)
-    (define-key helm-map (kbd "C-r") #'helm-previous-line)))
+    (define-key helm-map (kbd "C-r") #'helm-previous-line)
+    (define-key helm-buffer-map (kbd "C-s") #'helm-next-line)
+    (define-key helm-buffer-map (kbd "C-r") #'helm-previous-line)))
 
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
