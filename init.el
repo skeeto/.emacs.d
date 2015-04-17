@@ -365,6 +365,16 @@
     (define-key helm-buffer-map (kbd "C-s") #'helm-next-line)
     (define-key helm-buffer-map (kbd "C-r") #'helm-previous-line)))
 
+(use-package ggtags
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                  (ggtags-mode 1))))))
+
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
   :init
