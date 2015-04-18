@@ -200,9 +200,7 @@
   (progn
     (setf vc-display-status nil)
     (add-hook 'git-commit-mode-hook
-              (lambda () (when (looking-at "\n") (open-line 1))))
-    (defadvice git-commit-commit (after delete-window activate)
-      (delete-window))))
+              (lambda () (when (looking-at "\n") (open-line 1))))))
 
 (use-package markdown-mode
   :ensure t
