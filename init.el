@@ -312,6 +312,11 @@
   :defer t
   :init (add-hook 'c++-mode-hook #'google-set-c-style))
 
+(use-package nasm-mode
+  :ensure t
+  :defer t
+  :mode ("\\.nasm$" "\\.asm$" "\\.s$"))
+
 (use-package ielm
   :defer t
   :config
