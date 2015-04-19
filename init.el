@@ -352,7 +352,8 @@
   :init
   (progn
     (require 'helm-config)
-    (helm-mode))
+    (helm-mode)
+    (helm-adaptive-mode 1))
   :config
   (progn
     (setf helm-move-to-line-cycle-in-source t
