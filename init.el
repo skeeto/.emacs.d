@@ -313,7 +313,8 @@
 (use-package nasm-mode
   :ensure t
   :defer t
-  :mode ("\\.nasm$" "\\.asm$" "\\.s$"))
+  :mode ("\\.nasm$" "\\.asm$" "\\.s$")
+  :config (add-hook 'nasm-mode-hook (lambda () (setf indent-tabs-mode t))))
 
 (use-package ielm
   :defer t
