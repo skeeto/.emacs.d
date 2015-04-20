@@ -57,7 +57,7 @@
 ;; The actual feeds listing
 
 (defvar youtube-feed-format
-  "http://gdata.youtube.com/feeds/base/users/%s/uploads?max-results=50")
+  "https://www.youtube.com/feeds/videos.xml?user=%s")
 
 (defun elfeed--expand (listing)
   "Expand feed URLs depending on their tags."
