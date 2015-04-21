@@ -100,6 +100,7 @@
 (use-package elfeed
   :ensure t
   :bind ("C-x w" . elfeed)
+  :init (setf url-queue-timeout 30)
   :config (require 'feed-setup))
 
 (use-package lisp-mode
