@@ -246,6 +246,15 @@ Ignores leading comment characters."
 (global-set-key (kbd "M-<next>") (my-make-dimmer -5))
 (global-set-key (kbd "M-<prior>") (my-make-dimmer 5))
 
+;; Buffers
+
+(defun list-all-buffers (&optional files-only)
+  "Display a list of names of existing buffers.
+The list is displayed in a buffer named `*Buffer List*'.
+Non-null optional arg FILES-ONLY means mention only file buffers."
+  (interactive "P")
+  (display-buffer (list-buffers-noselect files-only (buffer-list))))
+
 (provide 'extras)
 
 ;;; extras.el ends here
