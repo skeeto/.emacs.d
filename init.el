@@ -365,6 +365,7 @@
           helm-imenu-fuzzy-match t)
     (global-set-key (kbd "C-x b") #'helm-mini)
     (global-set-key (kbd "C-h w") #'helm-man-woman)
+    (global-set-key (kbd "M-x") #'helm-M-x)
     (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
     (define-key helm-map (kbd "C-s") #'helm-next-line)
     (define-key helm-map (kbd "C-r") #'helm-previous-line)
