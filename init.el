@@ -367,6 +367,7 @@
     (global-set-key (kbd "C-h w") #'helm-man-woman)
     (global-set-key (kbd "M-x") #'helm-M-x)
     (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
+    (define-key helm-map (kbd "C-i") #'helm-execute-persistent-action) ; term
     (define-key helm-map (kbd "C-s") #'helm-next-line)
     (define-key helm-map (kbd "C-r") #'helm-previous-line)
     (define-key helm-buffer-map (kbd "C-s") #'helm-next-line)
