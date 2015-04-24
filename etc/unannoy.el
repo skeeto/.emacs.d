@@ -4,6 +4,7 @@
 
 (setf backup-inhibited t
       auto-save-default nil
+      auto-save-list-file-prefix (locate-user-emacs-file "local/saves")
       inhibit-startup-message t
       initial-scratch-message nil
       wdired-allow-to-change-permissions t

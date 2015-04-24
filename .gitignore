@@ -1,9 +1,5 @@
-auto-save-list
-*-cache/
-eshell/
-elpa
-*.elc
-url
+local/
+elpa/
+auto-save-list/
 .cask/
-.mc-lists.el
-games/
+*.elc

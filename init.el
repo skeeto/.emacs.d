@@ -10,6 +10,7 @@
 
 ;;; Code:
 
+(make-directory (locate-user-emacs-file "local") :no-error)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/etc")
 
@@ -47,6 +48,7 @@
 
 (use-package dabbrev
   :defer t
+  :init (setf abbrev-file-name (locate-user-emacs-file "local/abbrev_defs"))
   :config (setf dabbrev-case-fold-search nil))
 
 (use-package impatient-mode
@@ -187,6 +189,8 @@
 
 (use-package eshell
   :bind ([f1] . eshell-as)
+  :init
+  (setf eshell-directory-name (locate-user-emacs-file "local/eshell"))
   :config
   (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
             (lambda ()
@@ -259,8 +263,10 @@
   :defer t
   :init (skewer-setup)
   :config
-  (define-key skewer-mode-map (kbd "C-c $")
-    (expose #'skewer-bower-load "jquery" "1.9.1")))
+  (progn
+    (setf skewer-bower-cache-dir (locate-user-emacs-file "local/skewer"))
+    (define-key skewer-mode-map (kbd "C-c $")
+      (expose #'skewer-bower-load "jquery" "1.9.1"))))
 
 (use-package skewer-repl
   :defer t
@@ -362,7 +368,9 @@
           helm-recentf-fuzzy-match t
           helm-buffers-fuzzy-matching t
           helm-M-x-fuzzy-match t
-          helm-imenu-fuzzy-match t)
+          helm-imenu-fuzzy-match t
+          helm-adaptive-history-file (locate-user-emacs-file "local/helm")
+          recentf-save-file (locate-user-emacs-file "local/recentf"))
     (global-set-key (kbd "C-x b") #'helm-mini)
     (global-set-key (kbd "C-h w") #'helm-man-woman)
     (global-set-key (kbd "M-x") #'helm-M-x)
@@ -404,9 +412,11 @@
 
 (use-package javadoc-lookup
   :ensure t
+  :defer t
   :bind ("C-h j" . javadoc-lookup)
   :config
   (ignore-errors
+    (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))
     (javadoc-add-artifacts
      [org.lwjgl.lwjgl lwjgl "2.8.2"]
      [com.nullprogram native-guide "0.2"]
@@ -415,6 +425,7 @@
 
 (use-package browse-url
   :defer t
+  :init (setf url-cache-directory (locate-user-emacs-file "local/url"))
   :config
   (when (executable-find "firefox")
     (setf browse-url-browser-function #'browse-url-firefox)))
@@ -423,7 +434,8 @@
   :ensure t
   :bind (("C-c e" . mc/edit-lines)
          ("C-<" . mc/mark-previous-like-this)
-         ("C->" . mc/mark-next-like-this)))
+         ("C->" . mc/mark-next-like-this))
+  :init (setf mc/list-file (locate-user-emacs-file "local/mc-lists.el")))
 
 (use-package graphviz-dot-mode
   :ensure t
@@ -489,6 +501,11 @@
         (if (region-active-p)
             (call-interactively #'json-reformat-region)
           (json-reformat-region (point-min) (point-max)))))))
+
+(use-package gamegrid
+  :defer t
+  :init
+  (setf gamegrid-user-score-file-directory (locate-user-emacs-file "games")))
 
 ;; Cygwin compatibility
 
