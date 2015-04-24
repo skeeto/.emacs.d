@@ -12,7 +12,8 @@
       disabled-command-function nil
       custom-file (make-temp-file "emacs-custom")
       large-file-warning-threshold 536870911
-      gc-cons-threshold (* 1024 1024 32))
+      gc-cons-threshold (* 1024 1024 32)
+      ring-bell-function (lambda ()))
 
 ;; GUIs are for newbs
 (menu-bar-mode -1)
