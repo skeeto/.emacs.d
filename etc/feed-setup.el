@@ -114,6 +114,7 @@
   ("http://www.businesscat.happyjar.com/feed/" comic)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
+  ("http://irreal.org/blog/?feed=rss2" blog emacs)
   ("http://feeds.feedburner.com/JoelKirchartz" blog)
   ("http://normalboots.com/author/jontronshow/feed/" video)
   ("http://blog.reverberate.org/feeds/posts/default" dev blog)
