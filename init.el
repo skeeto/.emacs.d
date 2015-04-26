@@ -507,6 +507,10 @@
   :init
   (setf gamegrid-user-score-file-directory (locate-user-emacs-file "games")))
 
+(use-package apt-sources-mode
+  :defer t
+  :mode "sources.list$")
+
 ;; Cygwin compatibility
 
 (let ((cygwin-root "c:/cygwin64"))

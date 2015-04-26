@@ -502,6 +502,6 @@ This function will rise an error if we are not on a source line."
 
 (run-hooks 'apt-sources-load-hook)
 (add-to-list 'auto-mode-alist '("sources.list$" . apt-sources-mode))
-(provide 'apt-sources)
+(provide 'apt-sources-mode)
 
 ;;; apt-sources.el ends here
