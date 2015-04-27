@@ -65,7 +65,14 @@
 
 (use-package dired
   :defer t
-  :config (add-hook 'dired-mode-hook #'toggle-truncate-lines))
+  :config
+  (progn
+    (add-hook 'dired-mode-hook #'toggle-truncate-lines)
+    (setf dired-guess-shell-alist-user
+          '(("\\.pdf\\'" "evince")
+            ("\\(\\.ods\\|\\.xlsx?\\|\\.docx?\\|\\.csv\\)\\'" "libreoffice")
+            ("\\(\\.png\\|\\.jpe?g\\)\\'" "qiv")
+            ("\\.gif\\'" "animate")))))
 
 (use-package message
   :defer t
