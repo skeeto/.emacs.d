@@ -1,5 +1,6 @@
 ;;; feed-setup.el --- customize my web feeds
 
+(require 'cl-lib)
 (require 'elfeed)
 (require 'youtube-dl-mode)
 
@@ -8,8 +9,21 @@
 ;; More keybindings
 
 (define-key elfeed-search-mode-map "h"
-  (lambda () (interactive)
+  (lambda ()
+    (interactive)
     (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
+
+(define-key elfeed-search-mode-map "t"
+  (lambda ()
+    (interactive)
+    (cl-macrolet ((re (re rep str) `(replace-regexp-in-string ,re ,rep ,str)))
+      (elfeed-search-set-filter
+       (cond
+        ((string-match-p "-youtube" elfeed-search-filter)
+         (re " *-youtube" " +youtube" elfeed-search-filter))
+        ((string-match-p "\\+youtube" elfeed-search-filter)
+         (re " *\\+youtube" " -youtube" elfeed-search-filter))
+        ((concat elfeed-search-filter " -youtube")))))))
 
 ;; youtube-dl config
 
