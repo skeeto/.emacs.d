@@ -316,13 +316,15 @@
   (progn
     (define-key java-mode-map (kbd "C-x I") 'add-java-import)
     (define-key c-mode-map (kbd "C-c C-l") 'iasm-disasm)
-    (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
-    (add-to-list 'c-default-style '(c-mode . "k&r"))))
-
-(use-package google-c-style
-  :ensure t
-  :defer t
-  :init (add-hook 'c++-mode-hook #'google-set-c-style))
+    (defun my-c-hook ()
+      (setf c-basic-offset 4)
+      (c-set-offset 'case-label '+)
+      (c-set-offset 'access-label '/)
+      (c-set-offset 'label '/))
+    (add-hook 'c-mode-hook #'my-c-hook)
+    (add-hook 'c++-mode-hook #'my-c-hook)
+    (add-to-list 'c-default-style '(c-mode . "k&r"))
+    (add-to-list 'c-default-style '(c++-mode . "k&r"))))
 
 (use-package nasm-mode
   :ensure t
