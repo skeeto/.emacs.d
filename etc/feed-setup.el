@@ -158,7 +158,6 @@
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://feeds.wnyc.org/radiolab" audio)
   ("http://raganwald.com/atom.xml" blog dev)
-  ("http://feeds.feedburner.com/rolang" blog gaming)
   ("http://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("http://sea-of-memes.com/rss.xml" blog dev)
