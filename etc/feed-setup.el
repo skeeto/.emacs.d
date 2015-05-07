@@ -184,6 +184,7 @@
   ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
+  ("1veritasium" youtube)
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
   ("Campster" youtube)
