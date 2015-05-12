@@ -73,11 +73,19 @@
 (defvar youtube-feed-format
   "https://www.youtube.com/feeds/videos.xml?user=%s")
 
+(defvar youtube-feed-channel-format
+  "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
+
 (defun elfeed--expand (listing)
   "Expand feed URLs depending on their tags."
   (cl-destructuring-bind (url . tags) listing
     (cond
-     ((member 'youtube tags) (cons (format youtube-feed-format url) tags))
+     ((member 'youtube tags)
+      (cons
+       (format (if (string-match-p "^UC" url)
+                   youtube-feed-channel-format
+                 youtube-feed-format) url)
+       tags))
      (listing))))
 
 (defmacro elfeed-config (&rest feeds)
@@ -184,6 +192,7 @@
   ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
+  ("UCLfDq-ReBz9heEGqyT3EVnQ" youtube)
   ("1veritasium" youtube)
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
