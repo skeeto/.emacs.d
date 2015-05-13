@@ -162,6 +162,7 @@
   ("http://www.optipess.com/feed/" comic)
   ("http://owlturd.com/rss" comic)
   ("http://pandyland.net/feed/" comic)
+  ("http://piecomic.tumblr.com/rss" comic)
   ("http://planet.emacsen.org/atom.xml" emacs planet)
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://feeds.wnyc.org/radiolab" audio)
