@@ -195,6 +195,7 @@
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
   ("Campster" youtube)
+  ("destinws2" youtube)
   ("EconStories" youtube)
   ("engineerguyvideo" youtube)
   ("foodwishes" youtube)
