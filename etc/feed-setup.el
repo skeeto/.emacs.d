@@ -102,7 +102,6 @@
   ("http://feeds.feedburner.com/amazingsuperpowers" comic)
   ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
   ("http://feeds.feedburner.com/blogspot/TPQSS" blog dev)
-  ("http://www.rsspect.com/rss/asw.xml" comic)
   ("http://beardfluff.com/feed/" comic)
   ("http://bit-player.org/feed" blog math)
   ("http://blakeembrey.com/feed.xml" blog dev)
