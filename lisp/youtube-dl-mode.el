@@ -15,7 +15,8 @@
   "Directory in which to run youtube-dl."
   :group 'external)
 
-(defcustom youtube-dl-arguments '("--title" "--no-mtime" "--restrict-filenames")
+(defcustom youtube-dl-arguments
+  '("--title" "--no-mtime" "--restrict-filenames" "--format" "22")
   "Arguments to be send to youtube-dl."
   :group 'external)
 
