@@ -210,7 +210,6 @@
   ("Vihart" youtube)
   ("ZombieOrpheusEnt" youtube)
   ("ZoochosisCom" youtube)
-  ("davidr64yt" youtube)
   ("eEconomics" youtube)
   ("emacsrocks" youtube)
   ("friendznet" youtube)
