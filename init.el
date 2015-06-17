@@ -214,6 +214,14 @@
     (add-hook 'git-commit-mode-hook
               (lambda () (when (looking-at "\n") (open-line 1))))))
 
+(use-package gitconfig-mode
+  :ensure t
+  :defer t
+  :config (add-hook 'gitconfig-mode-hook
+                    (lambda ()
+                      (setf indent-tabs-mode nil
+                            tab-width 4))))
+
 (use-package markdown-mode
   :ensure t
   :mode ("\\.md$" "\\.markdown$" "pentadactyl\\.[[:alnum:].]+\\.txt$")
