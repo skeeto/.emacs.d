@@ -194,6 +194,7 @@
   ("BattleBunny1979" youtube)
   ("BlueXephos" youtube)
   ("Campster" youtube)
+  ("Computerphile" youtube)
   ("destinws2" youtube)
   ("EconStories" youtube)
   ("engineerguyvideo" youtube)
