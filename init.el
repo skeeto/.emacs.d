@@ -246,21 +246,6 @@
         (when httpd-process
           (set-process-query-on-exit-flag httpd-process nil))))))
 
-(use-package jekyll
-  :demand t
-  :functions httpd-send-header
-  :config
-  (progn
-    (setf jekyll-home "~/src/skeeto.github.com/")
-    (when (file-exists-p jekyll-home)
-      (require 'simple-httpd)
-      (setf httpd-root (concat jekyll-home "_site"))
-      (ignore-errors
-        (httpd-start)
-        (jekyll/start))
-      (defservlet robots.txt text/plain ()
-        (insert "User-agent: *\nDisallow: /\n")))))
-
 (use-package js2-mode
   :ensure t
   :mode "\\.js$"
@@ -491,6 +476,21 @@
             (lambda ()
               (setq-local paragraph-separate ".*>-$\\|[   ]*$")
               (setq-local paragraph-start paragraph-separate))))
+
+(use-package jekyll
+  :demand t
+  :functions httpd-send-header
+  :config
+  (progn
+    (setf jekyll-home "~/src/skeeto.github.com/")
+    (when (file-exists-p jekyll-home)
+      (require 'simple-httpd)
+      (setf httpd-root (concat jekyll-home "_site"))
+      (ignore-errors
+        (httpd-start)
+        (jekyll/start))
+      (defservlet robots.txt text/plain ()
+        (insert "User-agent: *\nDisallow: /\n")))))
 
 (use-package help-mode
   :defer t
