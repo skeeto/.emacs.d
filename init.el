@@ -162,15 +162,16 @@
   (setf tramp-persistency-file-name
         (concat temporary-file-directory "tramp-" (user-login-name))))
 
-(use-package whitespace-cleanup
-  :config (setq-default indent-tabs-mode nil))
+(use-package whitespace-cleanup-mode
+  :ensure t
+  :init
+  (progn
+    (setq-default indent-tabs-mode nil)
+    (global-whitespace-cleanup-mode)))
 
 (use-package diff-mode
   :defer t
-  :config
-  (progn
-    (add-hook 'diff-mode-hook #'toggle-whitespace-cleanup)
-    (add-hook 'diff-mode-hook #'read-only-mode)))
+  :config (add-hook 'diff-mode-hook #'read-only-mode))
 
 (use-package simple
   :defer t
