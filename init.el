@@ -306,15 +306,16 @@
 
 (use-package cc-mode
   :defer t
+  :init
+  (defun my-c-hook ()
+    (setf c-basic-offset 4)
+    (c-set-offset 'case-label '+)
+    (c-set-offset 'access-label '/)
+    (c-set-offset 'label '/))
   :config
   (progn
     (define-key java-mode-map (kbd "C-x I") 'add-java-import)
     (define-key c-mode-map (kbd "C-c C-l") 'iasm-disasm)
-    (defun my-c-hook ()
-      (setf c-basic-offset 4)
-      (c-set-offset 'case-label '+)
-      (c-set-offset 'access-label '/)
-      (c-set-offset 'label '/))
     (add-hook 'c-mode-hook #'my-c-hook)
     (add-hook 'c++-mode-hook #'my-c-hook)
     (add-to-list 'c-default-style '(c-mode . "k&r"))
