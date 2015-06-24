@@ -175,7 +175,6 @@
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
   ("http://batsov.com/atom.xml" blog emacs)
   ("http://towerdive.com/feed/" blog)
-  ("http://tubeytoons.com/feed.php" comic)
   ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("http://jeremykaye.tumblr.com/rss" comic)
   ("http://blog.vivekhaldar.com/rss" blog)
