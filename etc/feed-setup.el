@@ -94,7 +94,6 @@
   `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
-  ("http://www.50ply.com/atom.xml" blog dev)
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
   ("http://kaygun.tumblr.com/rss" blog dev)
@@ -117,7 +116,6 @@
   ("http://feeds.feedburner.com/DamnCoolPics" image)
   ("http://deep-dark-fears.tumblr.com/rss" comic)
   ("http://echosa.github.io/atom.xml" blog dev)
-  ("http://www.devrand.org/feeds/posts/default" blog dev)
   ("http://crawl.develz.org/wordpress/feed" blog gaming product)
   ("http://dvdp.tumblr.com/rss" image)
   ("https://www.digitalocean.com/blog/feed" blog product)
