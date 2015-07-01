@@ -189,7 +189,6 @@
   ("UCLfDq-ReBz9heEGqyT3EVnQ" youtube)
   ("1veritasium" youtube)
   ("BattleBunny1979" youtube)
-  ("BlueXephos" youtube)
   ("Campster" youtube)
   ("Computerphile" youtube)
   ("destinws2" youtube)
