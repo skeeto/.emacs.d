@@ -151,6 +151,7 @@
   ("http://www.mrlovenstein.com/rss.xml" comic)
   ("http://mortoray.com/feed/" blog dev)
   ("http://mycardboardlife.com/feed" comic)
+  ("http://namelesscomic.com/rss.xml" comic)
   ("http://nedroid.com/feed/" comic)
   ("http://nklein.com/feed/" blog dev)
   ("http://www.npccomic.com/feed/" comic)
