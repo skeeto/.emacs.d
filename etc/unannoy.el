@@ -42,8 +42,11 @@
       vc-follow-symlinks t)
 
 ;; Stop scrolling by huge leaps
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-(setq scroll-step 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+      scroll-step 1
+      scroll-preserve-screen-position t)
+(global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
+(global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
 
 (provide 'unannoy)
 
