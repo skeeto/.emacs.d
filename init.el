@@ -354,13 +354,22 @@
 (use-package paren
   :config (show-paren-mode))
 
-(use-package parenface
+(use-package rainbow-delimiters
   :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+    (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode))
   :config
   (progn
-    (set-face-foreground 'parenface-paren-face "snow4")
-    (set-face-foreground 'parenface-bracket-face "DarkGray")
-    (set-face-foreground 'parenface-curly-face "DimGray")))
+    (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")
+    (setf rainbow-delimiters-max-face-count 1)
+    (set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                        :foreground 'unspecified
+                        :inherit 'error)
+    (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")))
 
 (use-package helm
   :ensure t
