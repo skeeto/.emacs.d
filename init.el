@@ -212,8 +212,8 @@
   :config
   (progn
     (setf vc-display-status nil)
-    (add-hook 'git-commit-mode-hook
-              (lambda () (when (looking-at "\n") (open-line 1))))))
+    (remove-hook 'git-commit-finish-query-functions
+                 'git-commit-check-style-conventions)))
 
 (use-package gitconfig-mode
   :ensure t
