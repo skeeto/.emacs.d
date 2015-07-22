@@ -86,6 +86,7 @@
   (progn
     (require 'email-setup)
     (require 'notmuch-address)
+    (define-key notmuch-common-keymap "q" (expose #'kill-buffer))
     (setf notmuch-command "notmuch-remote"
           message-send-mail-function 'smtpmail-send-it
           message-kill-buffer-on-exit t
