@@ -128,6 +128,7 @@
   ("http://www.exocomics.com/feed" comic)
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("http://feeds.feedburner.com/Pidjin" comic)
+  ("http://www.goneintorapture.com/feed/" comic)
   ("http://www.happyjar.com/feed/" comic)
   ("http://www.businesscat.happyjar.com/feed/" comic)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
