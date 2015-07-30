@@ -212,7 +212,8 @@
   (setf magit-last-seen-setup-instructions "1.4.0")
   :config
   (progn
-    (setf vc-display-status nil)
+    (setf vc-display-status nil
+          magit-push-always-verify nil)
     (remove-hook 'git-commit-finish-query-functions
                  'git-commit-check-style-conventions)))
 
