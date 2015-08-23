@@ -68,7 +68,8 @@
   :config
   (progn
     (add-hook 'dired-mode-hook #'toggle-truncate-lines)
-    (setf dired-guess-shell-alist-user
+    (setf dired-listing-switches "-alhG"
+          dired-guess-shell-alist-user
           '(("\\.pdf\\'" "evince")
             ("\\(\\.ods\\|\\.xlsx?\\|\\.docx?\\|\\.csv\\)\\'" "libreoffice")
             ("\\(\\.png\\|\\.jpe?g\\)\\'" "qiv")
