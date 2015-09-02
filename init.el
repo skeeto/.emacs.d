@@ -209,14 +209,12 @@
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status)
-  :init
-  (setf magit-last-seen-setup-instructions "1.4.0")
+  :init (setf magit-last-seen-setup-instructions "2.1.0")
   :config
-  (progn
-    (setf vc-display-status nil
-          magit-push-always-verify nil)
-    (remove-hook 'git-commit-finish-query-functions
-                 'git-commit-check-style-conventions)))
+  (setf vc-display-status nil
+        magit-push-always-verify nil)
+  (remove-hook 'git-commit-finish-query-functions
+               'git-commit-check-style-conventions))
 
 (use-package gitconfig-mode
   :ensure t
