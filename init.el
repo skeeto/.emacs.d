@@ -512,10 +512,6 @@
   :config
   (define-key help-mode-map (kbd "f") #'push-first-button))
 
-(use-package iasm-mode
-  :ensure t
-  :defer t)
-
 (use-package vimrc-mode
   :ensure t
   :defer t)
