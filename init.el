@@ -53,7 +53,14 @@
 
 (use-package impatient-mode
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (defun imp-markdown-filter (in)
+    (let ((out (current-buffer)))
+      (with-current-buffer in
+        (markdown out))))
+  (push (cons 'markdown-mode #'imp-markdown-filter)
+        imp-default-user-filters))
 
 (use-package lua-mode
   :defer t
@@ -228,12 +235,12 @@
   :ensure t
   :mode ("\\.md$" "\\.markdown$" "pentadactyl\\.[[:alnum:].]+\\.txt$")
   :config
-  (progn
-    (add-hook 'markdown-mode-hook
-              (lambda ()
-                (remove-hook 'fill-nobreak-predicate
-                             'markdown-inside-link-text-p t)))
-    (setf sentence-end-double-space nil)))
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (remove-hook 'fill-nobreak-predicate
+                           'markdown-inside-link-text-p t)))
+  (setf sentence-end-double-space nil
+        markdown-command "pandoc -f markdown -t html5 -s"))
 
 (use-package simple-httpd
   :ensure t
