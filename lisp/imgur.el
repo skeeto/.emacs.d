@@ -13,12 +13,14 @@
   "Get JSON data from an imgur album at URL."
   (with-current-buffer (url-retrieve-synchronously url)
     (goto-char (point-min))
-    (re-search-forward "images[[:space:]]*:")
+    (let ((case-fold-search nil))
+      (re-search-forward "image[[:space:]]*:"))
     (json-read)))
 
 (defun imgur/get-hashes (json)
   "Get the list of image hash IDs from JSON."
-  (cl-map 'list (lambda (e) (cdr (assoc 'hash e))) (cdr (assoc 'items json))))
+  (cl-map 'list (lambda (e) (cdr (assoc 'hash e)))
+          (cdr (assoc 'images (cdr (assoc 'album_images json))))))
 
 (defun imgur/insert-wget-script (prefix hashes)
   "Insert a download script with a filename PREFIX for the list of HASHES."
