@@ -174,7 +174,7 @@
   ("http://jeremykaye.tumblr.com/rss" comic)
   ("http://blog.vivekhaldar.com/rss" blog)
   ("http://what-if.xkcd.com/feed.atom" blog)
-  ("http://www.whompcomic.com/feed/" comic)
+  ("http://www.whompcomic.com/rss.php" comic)
   ("http://wordsmith.org/awad/rss1.xml" word)
   ("http://blag.xkcd.com/feed/" blog)
   ("http://xkcd.com/atom.xml" comic)
