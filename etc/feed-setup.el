@@ -168,6 +168,7 @@
   ("https://github.com/blog/all.atom" blog dev product)
   ("http://blog.plover.com/index.atom" blog dev)
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
+  ("http://modern-sql.com/feed" blog dev databases)
   ("http://batsov.com/atom.xml" blog emacs)
   ("http://towerdive.com/feed/" blog)
   ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
