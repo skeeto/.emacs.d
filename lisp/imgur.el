@@ -14,7 +14,7 @@
   (with-current-buffer (url-retrieve-synchronously url)
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (re-search-forward "image[[:space:]]*:"))
+      (re-search-forward " image[[:space:]]*:"))
     (json-read)))
 
 (defun imgur/get-hashes (json)
