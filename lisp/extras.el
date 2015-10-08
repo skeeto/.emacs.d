@@ -5,6 +5,17 @@
 (require 'cl-lib)
 (require 'pp)
 
+;; System
+
+(defun numcores ()
+  "Return the number of logical processors on this system."
+  (or (when (file-exists-p "/proc/cpuinfo")
+        (with-temp-buffer
+          (insert-file-contents "/proc/cpuinfo")
+          (how-many "^processor[[:space:]]+:")))
+      (getenv "NUMBER_OF_PROCESSORS")
+      1))
+
 ;; Move line functions
 (defun move-line (n)
   "Move the current line up or down by N lines."

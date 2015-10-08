@@ -481,7 +481,8 @@
   :config
   (progn
     (setf compilation-always-kill t
-          compilation-scroll-output 'first-error)
+          compilation-scroll-output 'first-error
+          compile-bind-command (format "make -kj%d" (numcores)))
     (compile-bind* (current-global-map)
                    ("C-x c" ""
                     "C-x r" 'run
