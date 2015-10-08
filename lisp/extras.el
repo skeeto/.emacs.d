@@ -13,7 +13,9 @@
         (with-temp-buffer
           (insert-file-contents "/proc/cpuinfo")
           (how-many "^processor[[:space:]]+:")))
-      (getenv "NUMBER_OF_PROCESSORS")
+      (let ((number-of-processors (getenv "NUMBER_OF_PROCESSORS")))
+        (when number-of-processors
+          (string-to-number number-of-processors)))
       1))
 
 ;; Move line functions
