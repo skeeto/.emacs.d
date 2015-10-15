@@ -71,21 +71,19 @@
 ;; The actual feeds listing
 
 (defvar youtube-feed-format
-  "https://www.youtube.com/feeds/videos.xml?user=%s")
-
-(defvar youtube-feed-channel-format
-  "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
+  '(("^UC" . "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
+    ("^PL" . "https://www.youtube.com/feeds/videos.xml?playlist_id=%s")
+    (""    . "https://www.youtube.com/feeds/videos.xml?user=%s")))
 
 (defun elfeed--expand (listing)
   "Expand feed URLs depending on their tags."
   (cl-destructuring-bind (url . tags) listing
     (cond
      ((member 'youtube tags)
-      (cons
-       (format (if (string-match-p "^UC" url)
-                   youtube-feed-channel-format
-                 youtube-feed-format) url)
-       tags))
+      (let* ((case-fold-search nil)
+             (test (lambda (s r) (string-match-p r s)))
+             (format (cl-assoc url youtube-feed-format :test test)))
+        (cons (format (cdr format) url) tags)))
      (listing))))
 
 (defmacro elfeed-config (&rest feeds)
