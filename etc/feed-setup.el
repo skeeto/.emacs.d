@@ -115,6 +115,7 @@
   ("http://dvdp.tumblr.com/rss" image)
   ("https://www.digitalocean.com/blog/feed" blog product)
   ("http://bay12games.com/dwarves/dev_now.rss" blog gaming product)
+  ("http://www.earthexplodes.com/rssFeed/" comic)
   ("http://emacshorrors.com/feed.atom" blog emacs)
   ("http://emacsredux.com/atom.xml" blog dev emacs)
   ("http://feeds.exploringbinary.com/ExploringBinary" blog dev)
