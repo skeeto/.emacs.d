@@ -209,7 +209,8 @@
   ("jefmajor" youtube)
   ("phreakindee" youtube)
   ("quill18" youtube)
-  ("szyzyg" youtube))
+  ("szyzyg" youtube)
+  ("PLdGl5mi0XeW2iK2sVp2ni_VDRKrmfF_-Z" youtube))
 
 (provide 'feed-setup)
 
