@@ -64,7 +64,17 @@
 
 (use-package lua-mode
   :defer t
-  :ensure t)
+  :ensure t
+  :bind (("C-x C-e" . lua-send-current-line)
+         ("C-M-x"   . lua-send-defun)
+         ("C-c C-k" . skeeto/lua-send-buffer)
+         ("C-c C-z" . skeeto/lua-toggle-process-buffer))
+  :config
+  (require 'lua-extras)
+  (setf lua-default-application "luajit"
+        lua-always-show nil)
+  (add-function :after (symbol-function 'lua-start-process)
+                #'skeeto/lua-add-filter))
 
 (use-package memoize
   :defer t
