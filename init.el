@@ -65,14 +65,14 @@
 (use-package lua-mode
   :defer t
   :ensure t
-  :bind (("C-x C-e" . lua-send-current-line)
-         ("C-M-x"   . lua-send-defun)
-         ("C-c C-k" . skeeto/lua-send-buffer)
-         ("C-c C-z" . skeeto/lua-toggle-process-buffer))
   :config
   (require 'lua-extras)
   (setf lua-default-application "luajit"
         lua-always-show nil)
+  (define-key lua-mode-map (kbd "C-x C-e") #'lua-send-current-line)
+  (define-key lua-mode-map (kbd "C-M-x")   #'lua-send-defun)
+  (define-key lua-mode-map (kbd "C-c C-k") #'skeeto/lua-send-buffer)
+  (define-key lua-mode-map (kbd "C-c C-z") #'skeeto/lua-toggle-process-buffer)
   (add-function :after (symbol-function 'lua-start-process)
                 #'skeeto/lua-add-filter))
 
