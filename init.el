@@ -99,7 +99,6 @@
 (use-package notmuch
   :ensure t
   :bind ("C-x m" . notmuch)
-  :functions notmuch-address-message-insinuate
   :config
   (progn
     (require 'email-setup)
@@ -115,7 +114,6 @@
           notmuch-search-oldest-first nil
           notmuch-archive-tags '("-inbox" "-unread" "+archive")
           hashcash-path (executable-find "hashcash"))
-    (notmuch-address-message-insinuate)
     (custom-set-faces
      '(notmuch-search-subject ((t :foreground "#afa")))
      '(notmuch-search-date    ((t :foreground "#aaf")))
