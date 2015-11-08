@@ -349,6 +349,18 @@
   (add-hook 'nasm-mode-hook (lambda () (setf indent-tabs-mode t)))
   (define-key nasm-mode-map (kbd "C-j") #'nasm-join-line))
 
+(use-package x86-lookup
+  :ensure t
+  :defer t
+  :init
+  (global-set-key (kbd "C-h x") #'x86-lookup)
+  :config
+  (let ((pdf-regexp "^64-ia-32-.*-instruction-set-.*\\.pdf$")
+        (pdf-dir "~/doc/"))
+    (setf x86-lookup-browse-pdf-function #'x86-lookup-browse-pdf-evince
+          x86-lookup-pdf (ignore-errors
+                           (car (directory-files pdf-dir t pdf-regexp))))))
+
 (use-package ielm
   :defer t
   :config
