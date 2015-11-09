@@ -346,8 +346,7 @@
   :defer t
   :mode ("\\.nasm$" "\\.asm$" "\\.s$")
   :config
-  (add-hook 'nasm-mode-hook (lambda () (setf indent-tabs-mode t)))
-  (define-key nasm-mode-map (kbd "C-j") #'nasm-join-line))
+  (add-hook 'nasm-mode-hook (lambda () (setf indent-tabs-mode t))))
 
 (use-package x86-lookup
   :ensure t
