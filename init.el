@@ -351,8 +351,7 @@
 (use-package x86-lookup
   :ensure t
   :defer t
-  :init
-  (global-set-key (kbd "C-h x") #'x86-lookup)
+  :bind ("C-h x" . x86-lookup)
   :config
   (let ((pdf-regexp "^64-ia-32-.*-instruction-set-.*\\.pdf$")
         (pdf-dir "~/doc/"))
