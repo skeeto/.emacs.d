@@ -335,7 +335,6 @@
   :config
   (progn
     (define-key java-mode-map (kbd "C-x I") 'add-java-import)
-    (define-key c-mode-map (kbd "C-c C-l") 'iasm-disasm)
     (add-hook 'c-mode-hook #'skeeto/c-hook)
     (add-hook 'c++-mode-hook #'skeeto/c-hook)
     (add-to-list 'c-default-style '(c-mode . "k&r"))
