@@ -37,6 +37,10 @@
 ;; Always use the one true encoding
 (prefer-coding-system 'utf-8-unix)
 
+;; Insert key is stupid
+(define-key global-map [(insert)] nil)
+(define-key global-map [(control insert)] 'overwrite-mode)
+
 ;; Magit is the only front-end I care about
 (setf vc-handled-backends nil
       vc-follow-symlinks t)
