@@ -29,6 +29,13 @@
 
 (setq youtube-dl-directory "/media/wellons")
 
+(defface elfeed-youtube
+  '((t :foreground "#f9f"))
+  "Marks YouTube videos in Elfeed.")
+
+(push '(youtube elfeed-youtube)
+      elfeed-search-face-alist)
+
 (defun elfeed-show-youtube-dl ()
   "Download the current entry with youtube-dl."
   (interactive)
@@ -67,6 +74,15 @@
                               :entry-link '(not "\/r\/comics\/")
                               :add 'junk
                               :remove 'unread))
+
+;; Custom faces
+
+(defface elfeed-comic
+  '((t :foreground "#BFF"))
+  "Marks YouTube videos in Elfeed.")
+
+(push '(comic elfeed-comic)
+      elfeed-search-face-alist)
 
 ;; The actual feeds listing
 
