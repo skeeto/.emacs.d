@@ -79,9 +79,16 @@
 
 (defface elfeed-comic
   '((t :foreground "#BFF"))
-  "Marks YouTube videos in Elfeed.")
+  "Marks comics in Elfeed.")
 
 (push '(comic elfeed-comic)
+      elfeed-search-face-alist)
+
+(defface elfeed-audio
+  '((t :foreground "#FA0"))
+  "Marks podcasts in Elfeed.")
+
+(push '(audio elfeed-audio)
       elfeed-search-face-alist)
 
 ;; The actual feeds listing
