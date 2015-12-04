@@ -38,7 +38,6 @@
 (global-set-key (kbd "<f5>") (expose #'revert-buffer nil t))
 
 ;;; auto-mode-alist entries
-(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 (add-to-list 'auto-mode-alist '("[._]bash.*" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("Cask" . emacs-lisp-mode))
@@ -252,6 +251,12 @@
   (setf sentence-end-double-space nil
         markdown-command
         "pandoc -f markdown -t html5 -s --self-contained --smart"))
+
+(use-package octave
+  :defer t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+  (setf octave-block-offset 4))
 
 (use-package simple-httpd
   :ensure t
