@@ -364,6 +364,7 @@
   :ensure t
   :defer t
   :bind ("C-h x" . x86-lookup)
+  :functions x86-lookup-browse-pdf-evince
   :config
   (let ((pdf-regexp "^64-ia-32-.*-instruction-set-.*\\.pdf$")
         (pdf-dir "~/doc/"))

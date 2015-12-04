@@ -31,7 +31,8 @@
 
 (defface elfeed-youtube
   '((t :foreground "#f9f"))
-  "Marks YouTube videos in Elfeed.")
+  "Marks YouTube videos in Elfeed."
+  :group 'elfeed)
 
 (push '(youtube elfeed-youtube)
       elfeed-search-face-alist)
@@ -79,14 +80,16 @@
 
 (defface elfeed-comic
   '((t :foreground "#BFF"))
-  "Marks comics in Elfeed.")
+  "Marks comics in Elfeed."
+  :group 'elfeed)
 
 (push '(comic elfeed-comic)
       elfeed-search-face-alist)
 
 (defface elfeed-audio
   '((t :foreground "#FA0"))
-  "Marks podcasts in Elfeed.")
+  "Marks podcasts in Elfeed."
+  :group 'elfeed)
 
 (push '(audio elfeed-audio)
       elfeed-search-face-alist)
