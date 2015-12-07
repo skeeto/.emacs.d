@@ -79,17 +79,11 @@
   :defer t
   :ensure t)
 
-(use-package noflet
-  :ensure t)
-
 (use-package dired
   :defer t
   :config
   (progn
-    (add-hook 'dired-mode-hook
-              (lambda ()
-                (noflet ((message (&rest _)))
-                  (toggle-truncate-lines))))
+    (add-hook 'dired-mode-hook #'toggle-truncate-lines)
     (setf dired-listing-switches "-alhG"
           dired-guess-shell-alist-user
           '(("\\.pdf\\'" "evince")
