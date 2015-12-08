@@ -133,7 +133,6 @@
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
   ("http://chainsawsuit.com/feed/" comic)
   ("http://feeds.feedburner.com/channelATE" comic)
-  ("http://completelyseriouscomics.com/?feed=rss2" comic)
   ("http://feeds.feedburner.com/DamnCoolPics" image)
   ("http://deep-dark-fears.tumblr.com/rss" comic)
   ("http://echosa.github.io/atom.xml" blog dev)
