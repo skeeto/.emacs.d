@@ -16,7 +16,7 @@
   :group 'external)
 
 (defcustom youtube-dl-arguments
-  '("--title" "--no-mtime" "--restrict-filenames" "--format" "mp4")
+  '("--title" "--no-mtime" "--restrict-filenames")
   "Arguments to be send to youtube-dl."
   :group 'external)
 

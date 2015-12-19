@@ -27,7 +27,7 @@
 
 ;; youtube-dl config
 
-(setq youtube-dl-directory "/media/wellons")
+(setq youtube-dl-directory "~/netshare")
 
 (defface elfeed-youtube
   '((t :foreground "#f9f"))
