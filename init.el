@@ -242,7 +242,7 @@
 
 (use-package markdown-mode
   :ensure t
-  :mode ("\\.md$" "\\.markdown$" "pentadactyl\\.[[:alnum:].]+\\.txt$")
+  :mode ("\\.md$" "\\.markdown$" "vimperator-.+\\.tmp$")
   :config
   (add-hook 'markdown-mode-hook
             (lambda ()
