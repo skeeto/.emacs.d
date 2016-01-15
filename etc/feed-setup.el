@@ -174,6 +174,7 @@
   ("http://nklein.com/feed/" blog dev)
   ("http://www.npccomic.com/feed/" comic)
   ("http://nullprogram.com/feed/" blog dev myself)
+  ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
   ("http://www.optipess.com/feed/" comic)
   ("http://owlturd.com/rss" comic)
   ("http://piecomic.tumblr.com/rss" comic)
