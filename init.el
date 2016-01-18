@@ -407,31 +407,21 @@
                         :inherit 'error)
     (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")))
 
-(use-package helm
+(use-package swiper
   :ensure t
-  :init
-  (progn
-    (require 'helm-config)
-    (helm-mode)
-    (helm-adaptive-mode 1))
+  :defer nil
+  :init (ivy-mode 1)
   :config
-  (progn
-    (setf helm-move-to-line-cycle-in-source t
-          helm-recentf-fuzzy-match t
-          helm-buffers-fuzzy-matching t
-          helm-M-x-fuzzy-match t
-          helm-imenu-fuzzy-match t
-          helm-adaptive-history-file (locate-user-emacs-file "local/helm")
-          recentf-save-file (locate-user-emacs-file "local/recentf"))
-    (global-set-key (kbd "C-x b") #'helm-mini)
-    (global-set-key (kbd "C-h w") #'helm-man-woman)
-    (global-set-key (kbd "M-x") #'helm-M-x)
-    (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
-    (define-key helm-map (kbd "C-i") #'helm-execute-persistent-action) ; term
-    (define-key helm-map (kbd "C-s") #'helm-next-line)
-    (define-key helm-map (kbd "C-r") #'helm-previous-line)
-    (define-key helm-buffer-map (kbd "C-s") #'helm-next-line)
-    (define-key helm-buffer-map (kbd "C-r") #'helm-previous-line)))
+  (setf ivy-wrap t)
+  (define-key ivy-minibuffer-map (kbd "C-s") #'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-r") #'ivy-previous-line)
+  (define-key ivy-minibuffer-map (kbd "C-l")
+    (lambda ()
+      "Be like like Helm."
+      (interactive)
+      (unless (eql (char-before) ?/)
+        (ivy-backward-kill-word))
+      (ivy-backward-delete-char))))
 
 (use-package ggtags
   :ensure t
