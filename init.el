@@ -407,12 +407,19 @@
                         :inherit 'error)
     (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")))
 
+(use-package counsel
+  :ensure t)
+
+(use-package flx
+  :ensure t)
+
 (use-package swiper
   :ensure t
   :defer nil
   :init (ivy-mode 1)
   :config
-  (setf ivy-wrap t)
+  (setf ivy-wrap t
+        ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   (define-key ivy-minibuffer-map (kbd "C-s") #'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-r") #'ivy-previous-line)
   (define-key ivy-minibuffer-map (kbd "C-l")
