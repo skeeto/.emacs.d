@@ -36,6 +36,7 @@
 (global-set-key (kbd "M-g") #'goto-line)
 (global-set-key (kbd "C-x C-k") #'compile)
 (global-set-key (kbd "<f5>") (expose #'revert-buffer nil t))
+(global-set-key (kbd "C-=") #'calc)
 
 ;;; auto-mode-alist entries
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
