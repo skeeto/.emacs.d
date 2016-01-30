@@ -210,6 +210,7 @@
   ("BattleBunny1979" youtube)
   ("Campster" youtube)
   ("Computerphile" youtube)
+  ("DemolitionRanch" youtube)
   ("destinws2" youtube)
   ("EconStories" youtube)
   ("engineerguyvideo" youtube)
