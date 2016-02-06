@@ -223,6 +223,7 @@
   ("JonTronShow" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
+  ("24hrMrLocksmith" youtube)
   ("PlumpHelmetPunk" youtube)
   ("Scruit" youtube)
   ("Vihart" youtube)
