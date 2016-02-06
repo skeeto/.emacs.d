@@ -143,6 +143,7 @@
   ("http://www.earthexplodes.com/rssFeed/" comic)
   ("http://emacshorrors.com/feed.atom" blog emacs)
   ("http://emacsredux.com/atom.xml" blog dev emacs)
+  ("http://embedsysweekly.com/feed/" dev newsletter)
   ("http://feeds.exploringbinary.com/ExploringBinary" blog dev)
   ("http://feeds.feedburner.com/Explosm" comic)
   ("http://www.extrafabulouscomics.com/1/feed" comic)
