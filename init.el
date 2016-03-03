@@ -468,8 +468,6 @@
   (ignore-errors
     (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))
     (javadoc-add-artifacts
-     [org.lwjgl.lwjgl lwjgl "2.8.2"]
-     [com.nullprogram native-guide "0.2"]
      [junit junit "4.10"]
      [org.projectlombok lombok "0.10.4"])))
 
