@@ -109,6 +109,14 @@
 (push '(audio elfeed-audio)
       elfeed-search-face-alist)
 
+(defface elfeed-important
+  '((t :foreground "#E33"))
+  "Marks important entries in Elfeed."
+  :group 'elfeed)
+
+(push '(important elfeed-important)
+      elfeed-search-face-alist)
+
 ;; The actual feeds listing
 
 (defvar youtube-feed-format
