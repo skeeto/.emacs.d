@@ -476,7 +476,9 @@
   :init (setf url-cache-directory (locate-user-emacs-file "local/url"))
   :config
   (when (executable-find "firefox")
-    (setf browse-url-browser-function #'browse-url-firefox)))
+    (setf browse-url-browser-function #'browse-url-firefox
+          browse-url-generic-program "xombrero"
+          browse-url-generic-args '("-n"))))
 
 (use-package multiple-cursors
   :ensure t
