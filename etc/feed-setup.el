@@ -13,6 +13,13 @@
     (interactive)
     (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
 
+(define-key elfeed-search-mode-map (kbd "l")
+  (lambda ()
+    (interactive)
+    (let ((buffer (get-buffer "*elfeed-log*")))
+      (when buffer
+        (switch-to-buffer buffer)))))
+
 (define-key elfeed-search-mode-map "t"
   (lambda ()
     (interactive)
