@@ -307,19 +307,6 @@
   :ensure t
   :mode "\\.cljs$")
 
-(use-package cider
-  :ensure t
-  :defer t
-  :config
-  (progn
-    (defadvice cider-popup-buffer-display (after cider-focus-errors activate)
-      "Focus the error buffer after errors, like Emacs normally does."
-      (select-window (get-buffer-window cider-error-buffer)))
-    (defadvice cider-eval-last-sexp (after cider-flash-last activate)
-      (flash-region (save-excursion (backward-sexp) (point)) (point)))
-    (defadvice cider-eval-defun-at-point (after cider-flash-at activate)
-      (apply #'flash-region (cider--region-for-defun-at-point)))))
-
 (use-package ps-print
   :defer t
   :config (setf ps-print-header nil))
