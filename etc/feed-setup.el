@@ -222,6 +222,7 @@
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
   ("http://modern-sql.com/feed" blog dev databases)
   ("http://batsov.com/atom.xml" blog emacs)
+  ("http://www.thingsinsquares.com/feed/" comic)
   ("http://towerdive.com/feed/" blog)
   ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("http://upandoutcomic.tumblr.com/rss" comic)
