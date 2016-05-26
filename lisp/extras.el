@@ -288,6 +288,16 @@ buffer is not visiting a file."
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+;; Tabs
+
+(defun toggle-tab-width ()
+  (interactive)
+  (let* ((loop [8 4 2])
+         (match (or (cl-position tab-width loop) -1)))
+    (setf tab-width (aref loop (mod (1+ match) (length loop))))))
+
+(global-set-key (kbd "C-h t") #'toggle-tab-width)
+
 (provide 'extras)
 
 ;;; extras.el ends here
