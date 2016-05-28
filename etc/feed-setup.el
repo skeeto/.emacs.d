@@ -81,6 +81,10 @@
                               :add 'junk
                               :remove 'unread))
 
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :entry-title "^upandoutcomic:"
+                              :add 'junk))
+
 ;; Helpers
 
 (cl-defun elfeed-dead-feeds (&optional (years 1.0))
