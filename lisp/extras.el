@@ -300,4 +300,11 @@ buffer is not visiting a file."
 
 (provide 'extras)
 
+;; Civ 5 game search
+
+(defun filthyrobot-playlist (n)
+  (interactive "nGame number: ")
+  (browse-url
+   (format "https://www.youtube.com/results?search_query=filthyrobot+%%22game+%d%%22&filters=playlist" n)))
+
 ;;; extras.el ends here
