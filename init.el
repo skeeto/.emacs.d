@@ -462,6 +462,10 @@
   (ignore-errors
     (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))))
 
+(use-package gnuplot-mode
+  :ensure t
+  :defer t)
+
 (use-package browse-url
   :defer t
   :init (setf url-cache-directory (locate-user-emacs-file "local/url"))
