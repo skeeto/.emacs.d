@@ -460,10 +460,7 @@
   :bind ("C-h j" . javadoc-lookup)
   :config
   (ignore-errors
-    (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))
-    (javadoc-add-artifacts
-     [junit junit "4.10"]
-     [org.projectlombok lombok "0.10.4"])))
+    (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))))
 
 (use-package browse-url
   :defer t
