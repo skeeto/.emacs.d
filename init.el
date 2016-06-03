@@ -568,22 +568,6 @@
   :defer t
   :mode "sources.list$")
 
-;; Cygwin compatibility
-
-(let ((cygwin-root "c:/cygwin64"))
-  (when (file-directory-p cygwin-root)
-    (setenv "PATH" (concat cygwin-root "/bin" ";" (getenv "PATH")))
-    (push (concat cygwin-root "/bin") exec-path)
-    (setf shell-file-name "bash.exe")
-    ;; Translate paths for Cygwin Git
-    (defadvice magit-expand-git-file-name
-        (before magit-expand-git-file-name-cygwin activate)
-      (save-match-data
-        (when (string-match "^/cygdrive/\\([a-z]\\)/\\(.*\\)" filename)
-          (let ((drive (match-string 1 filename))
-                (path (match-string 2 filename)))
-            (setf filename (concat drive ":/" path))))))))
-
 ;; Compile configuration
 (byte-recompile-directory "~/.emacs.d/lisp/" 0)
 (byte-recompile-directory "~/.emacs.d/etc/" 0)

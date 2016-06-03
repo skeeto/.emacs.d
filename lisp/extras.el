@@ -298,7 +298,23 @@ buffer is not visiting a file."
 
 (global-set-key (kbd "C-h t") #'toggle-tab-width)
 
-(provide 'extras)
+;; Cygwin compatibility
+
+(defun cygwin-init ()
+  (let ((cygwin-root "c:/cygwin64"))
+    (unless (file-directory-p cygwin-root)
+      (error "Can't find cygwin"))
+    (setenv "PATH" (concat cygwin-root "/bin" ";" (getenv "PATH")))
+    (push (concat cygwin-root "/bin") exec-path)
+    (setf shell-file-name "bash.exe")
+    ;; Translate paths for Cygwin Git
+    (defadvice magit-expand-git-file-name
+        (before magit-expand-git-file-name-cygwin activate)
+      (save-match-data
+        (when (string-match "^/cygdrive/\\([a-z]\\)/\\(.*\\)" filename)
+          (let ((drive (match-string 1 filename))
+                (path (match-string 2 filename)))
+            (setf filename (concat drive ":/" path))))))))
 
 ;; Civ 5 game search
 
@@ -306,5 +322,7 @@ buffer is not visiting a file."
   (interactive "nGame number: ")
   (browse-url
    (format "https://www.youtube.com/results?search_query=filthyrobot+%%22game+%d%%22&filters=playlist" n)))
+
+(provide 'extras)
 
 ;;; extras.el ends here
