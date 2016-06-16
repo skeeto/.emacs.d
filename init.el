@@ -568,6 +568,10 @@
   :defer t
   :mode "sources.list$")
 
+(use-package pov-mode
+  :defer t
+  :ensure t)
+
 ;; Compile configuration
 (byte-recompile-directory "~/.emacs.d/lisp/" 0)
 (byte-recompile-directory "~/.emacs.d/etc/" 0)
