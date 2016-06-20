@@ -261,7 +261,6 @@
   ("PlumpHelmetPunk" youtube)
   ("Scruit" youtube)
   ("Thunderf00t" youtube)
-  ("Vihart" youtube)
   ("ZombieOrpheusEnt" youtube)
   ("ZoochosisCom" youtube)
   ("eEconomics" youtube)
