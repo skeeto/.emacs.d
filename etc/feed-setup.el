@@ -254,6 +254,7 @@
   ("GhazPlays" youtube)
   ("KiteTales" youtube)
   ("lseths" youtube)
+  ("jastownsendandson" youtube)
   ("JonTronShow" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
