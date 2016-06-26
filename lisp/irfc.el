@@ -829,7 +829,8 @@ not found."
              (goto-char original-position))
            ;; Revert render status.
            (unless (equal original-render-status irfc-render-p)
-             (irfc-render-toggle))))))
+             (irfc-render-toggle)))))
+  (recenter 0))
 
 (defun irfc-page-next (arg)
   "Move to next ARGth page.
@@ -895,7 +896,8 @@ does not exist in `irfc-directory'."
     (if (eq new-point nil)
 	(message "Cannot find heading \"%s\"" NAME)
       (goto-char new-point)
-      (back-to-indentation))))
+      (back-to-indentation)
+      (recenter 0))))
 
 (defun irfc-head-next ()
   "Move to next heading."
@@ -941,7 +943,8 @@ If optional argument PRINT is non-nil, print the name before returning it."
     (if (eq new-point nil)
 	(irfc-head-number-goto (concat NAME "."))
       (goto-char new-point)
-      (back-to-indentation))))
+      (back-to-indentation)
+      (recenter 0))))
 
 (defun irfc-scroll-up-one-line ()
   "Scroll up one line."
