@@ -272,8 +272,8 @@
   ("phreakindee" youtube)
   ("quill18" youtube)
   ("szyzyg" youtube)
-  ("UCsXVk37bltHxD1rDPwtNM8Q" youtube) ; Kurzgesagt – In a Nutshell
-  ("PLdGl5mi0XeW2iK2sVp2ni_VDRKrmfF_-Z" youtube))
+  ("UCsXVk37bltHxD1rDPwtNM8Q" youtube)) ; Kurzgesagt – In a Nutshell
+
 
 (provide 'feed-setup)
 
