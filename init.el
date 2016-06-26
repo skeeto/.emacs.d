@@ -572,6 +572,13 @@
   :defer t
   :ensure t)
 
+(use-package pov-mode
+  :defer t
+  :init
+  (setf irfc-directory (locate-user-emacs-file "local/rfc")
+        irfc-assoc-mode t)
+  (mkdir irfc-directory t))
+
 ;; Compile configuration
 (byte-recompile-directory "~/.emacs.d/lisp/" 0)
 (byte-recompile-directory "~/.emacs.d/etc/" 0)
