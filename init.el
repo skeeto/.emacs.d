@@ -575,6 +575,8 @@
 (use-package pov-mode
   :defer t
   :init
+  (autoload 'irfc-mode "irfc" nil t)
+  (autoload 'irfc-visit "irfc" nil t)
   (setf irfc-directory (locate-user-emacs-file "local/rfc")
         irfc-assoc-mode t)
   (mkdir irfc-directory t))
