@@ -152,6 +152,7 @@
 (elfeed-config
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
+  ("http://www.askamanager.org/feed" blog)
   ("http://english.bouletcorp.com/feed/" comic)
   ("http://feeds.feedburner.com/amazingsuperpowers" comic)
   ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
