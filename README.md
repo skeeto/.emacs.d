@@ -3,7 +3,7 @@
 This is my personal Emacs configuration. This is the second repository
 I clone -- after [my dotfiles](https://github.com/skeeto/dotfiles) --
 when settling in on a new computer . I'm using `package.el` and Emacs
-24 themes, so **this requires at least Emacs 24.3!**
+24 themes, so **this requires at least Emacs 24.4!**
 
 To use it, clone it into your home directory, or at least wherever
 Emacs thinks your home directory is. Move your existing `.emacs` file
