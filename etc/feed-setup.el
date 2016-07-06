@@ -169,6 +169,7 @@
   ("http://feeds.feedburner.com/channelATE" comic)
   ("http://deep-dark-fears.tumblr.com/rss" comic)
   ("http://crawl.develz.org/wordpress/feed" blog gaming product)
+  ("https://www.blogger.com/feeds/19727420/posts/default" blog)
   ("https://www.debian.org/security/dsa" debian list security important)
   ("http://dvdp.tumblr.com/rss" image)
   ("https://www.digitalocean.com/blog/feed" blog product)
