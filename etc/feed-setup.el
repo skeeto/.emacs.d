@@ -214,11 +214,10 @@
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://preshing.com/feed" dev blog)
   ("http://feeds.wnyc.org/radiolab" audio)
-  ("http://redpanels.com/rss/redpanelsRSS.xml" comic)
   ("http://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("http://www.smbc-comics.com/rss.php" comic)
-  ;;("https://haneefmubarak.com/rss/" dev blog) ; Emacs bug #20465
+  ("https://haneefmubarak.com/rss/" dev blog) ; curl only: Emacs bug#20465
   ("http://feeds.feedburner.com/spaceavalanche1" comic)
   ("http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss" audio)
   ("http://thecodelesscode.com/rss" dev story)
