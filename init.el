@@ -581,6 +581,10 @@
         irfc-assoc-mode t)
   (mkdir irfc-directory t))
 
+(use-package ospl-mode
+  :init
+  (autoload 'ospl-mode "ospl-mode"))
+
 ;; Compile configuration
 (byte-recompile-directory "~/.emacs.d/lisp/" 0)
 (byte-recompile-directory "~/.emacs.d/etc/" 0)
