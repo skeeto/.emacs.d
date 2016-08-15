@@ -203,6 +203,7 @@
   ("http://mortoray.com/feed/" blog dev)
   ("http://mycardboardlife.com/feed" comic)
   ("http://nedroid.com/feed/" comic)
+  ("https://nickdesaulniers.github.io/atom.xml" blog dev)
   ("http://nklein.com/feed/" blog dev)
   ("http://www.npccomic.com/feed/" comic)
   ("http://nullprogram.com/feed/" blog dev myself)
