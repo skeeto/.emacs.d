@@ -241,6 +241,7 @@
   ("DemolitionRanch" youtube)
   ("destinws2" youtube)
   ("engineerguyvideo" youtube)
+  ("everyframeapainting" youtube)
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
   ("GetDaved" youtube)
