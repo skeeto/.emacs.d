@@ -587,6 +587,10 @@
   :init
   (autoload 'ospl-mode "ospl-mode"))
 
+(use-package sql-mode
+  :init
+  (setf sql-product 'sqlite))
+
 ;; Compile configuration
 (byte-recompile-directory "~/.emacs.d/lisp/" 0)
 (byte-recompile-directory "~/.emacs.d/etc/" 0)
