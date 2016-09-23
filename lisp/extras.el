@@ -95,6 +95,15 @@ argument, set so that number of columns instead."
   (insert (number-to-string (random n))))
 (global-set-key (kbd "C-c r") 'insert-random)
 
+(cl-defun insert-random-hex (&optional (size 64))
+  "Insert a random, SIZE-bit number as hexadecimal."
+  (interactive)
+  (let ((string (make-string (/ size 4) 0))
+        (digits "0123456789abcdef"))
+    (dotimes (i (/ size 4))
+      (setf (aref string i) (aref digits (cl-random 16))))
+    (insert string)))
+
 (defun eval-and-replace (value)
   "Evaluate the sexp at point and replace it with its value."
   (interactive (list (eval-last-sexp nil)))
