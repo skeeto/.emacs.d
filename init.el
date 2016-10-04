@@ -404,7 +404,8 @@
     (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")))
 
 (use-package counsel
-  :ensure t)
+  :ensure t
+  :bind (("M-x" . counsel-M-x)))
 
 (use-package flx
   :ensure t)
