@@ -193,6 +193,7 @@
   ("http://gottwurfelt.wordpress.com/feed/" blog math)
   ("http://feeds.feedburner.com/LoadingArtist" comic)
   ("http://www.lunarbaboon.com/comics/rss.xml" comic)
+  ("http://lwn.net/headlines/newrss" dev security)
   ("https://www.masteringemacs.org/feed" blog emacs)
   ("http://www.ma3comic.com/comic.rss" comic)
   ("http://www.mazelog.com/rss" math puzzle)
