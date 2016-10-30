@@ -215,7 +215,8 @@ display purposes anyway."
   (hl-line-mode)
   (setf truncate-lines t
           header-line-format
-          (format " %-11s %-6.6s %-12.12s %s"
+          (format "%s%-11s %-6.6s %-12.12s %s"
+                  (propertize " " 'display '((space :align-to 0)))
                   "id" "done" "size" "title")))
 
 (defun youtube-dl--buffer ()
