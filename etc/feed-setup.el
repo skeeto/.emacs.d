@@ -67,6 +67,7 @@
 
 (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
 (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
+(define-key elfeed-search-mode-map "L" 'youtube-dl-list)
 (define-key elfeed-search-mode-map "c" 'elfeed-search-youtube-comments)
 
 ;; Special filters
