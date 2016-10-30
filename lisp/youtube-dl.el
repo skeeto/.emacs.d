@@ -173,7 +173,8 @@ display purposes anyway."
               (kill-process youtube-dl-process)
             (youtube-dl--redisplay)))))))
 
-(defun youtube-dl-list-priority--modify (delta)
+(defun youtube-dl-list-priority-modify (delta)
+  "Change priority of item under point by DELTA."
   (let* ((n (1- (line-number-at-pos)))
          (item (nth n youtube-dl-items)))
     (when item
@@ -189,26 +190,38 @@ display purposes anyway."
             (kill-process youtube-dl-process)))))))
 
 (defun youtube-dl-list-priority-up ()
+  "Decrease priority of item under point."
   (interactive)
-  (youtube-dl-list-priority--modify 1))
+  (youtube-dl-list-priority-modify 1))
 
 (defun youtube-dl-list-priority-down ()
+  "Increase priority of item under point."
   (interactive)
-  (youtube-dl-list-priority--modify -1))
+  (youtube-dl-list-priority-modify -1))
+
+(defvar youtube-dl-list-mode-map
+  (let ((map (make-sparse-keymap)))
+    (prog1 map
+      (define-key map "g" #'youtube-dl-list-redisplay)
+      (define-key map "k" #'youtube-dl-list-kill)
+      (define-key map "]" #'youtube-dl-list-priority-up)
+      (define-key map "[" #'youtube-dl-list-priority-down)))
+  "Keymap for `youtube-dl-list-mode'")
+
+(define-derived-mode youtube-dl-list-mode special-mode "youtube-dl"
+  "Major mode for listing the youtube-dl download queue."
+  :group 'youtube-dl
+  (use-local-map youtube-dl-list-mode-map)
+  (hl-line-mode)
+  (setf truncate-lines t
+          header-line-format
+          (format " %-11s %-6.6s %-12.12s %s"
+                  "id" "done" "size" "title")))
 
 (defun youtube-dl--buffer ()
   "Returns the queue listing buffer."
   (with-current-buffer (get-buffer-create "*youtube-dl list*")
-    (special-mode)
-    (hl-line-mode)
-    (setf truncate-lines t
-          header-line-format
-          (format " %-11s %-6.6s %-12.12s %s"
-                  "id" "done" "size" "title"))
-    (local-set-key "g" #'youtube-dl-list-redisplay)
-    (local-set-key "k" #'youtube-dl-list-kill)
-    (local-set-key "]" #'youtube-dl-list-priority-up)
-    (local-set-key "[" #'youtube-dl-list-priority-down)
+    (youtube-dl-list-mode)
     (current-buffer)))
 
 (defun youtube-dl--fill-listing ()
