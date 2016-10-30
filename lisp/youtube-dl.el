@@ -39,7 +39,7 @@
 
 (cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create))
   "Represents a single video to be downloaded with youtube-dl."
-  id failures destination progress total)
+  id failures priority title progress total)
 
 (defvar youtube-dl-items ()
   "List of all items still to be downloaded.")
@@ -49,14 +49,18 @@
 
 (defun youtube-dl--next ()
   "Returns the next item to be downloaded."
-  (let (best)
+  (let (best best-score)
     (dolist (item youtube-dl-items best)
-      (let ((failures (youtube-dl-item-failures item)))
+      (let* ((failures (youtube-dl-item-failures item))
+             (priority (youtube-dl-item-priority item))
+             (score (- priority failures)))
         (when (< failures youtube-dl-max-failures)
           (cond ((null best)
-                 (setf best item))
-                ((< failures (youtube-dl-item-failures best))
-                 (setf best item))))))))
+                 (setf best item
+                       best-score score))
+                ((> score best-score)
+                 (setf best item
+                       best-score score))))))))
 
 (defun youtube-dl--remove (item)
   "Remove ITEM from the queue."
@@ -94,15 +98,16 @@ display purposes anyway."
     (match-string 1 output)))
 
 (defun youtube-dl--filter (proc output)
-  (let ((item (plist-get (process-plist proc) :item))
-        (progress (youtube-dl--progress output))
-        (destination (youtube-dl--destination output)))
+  (let* ((item (plist-get (process-plist proc) :item))
+         (progress (youtube-dl--progress output))
+         (destination (unless (youtube-dl-item-title item)
+                        (youtube-dl--destination output))))
     (when progress
       (cl-destructuring-bind (percentage . total) progress
         (setf (youtube-dl-item-progress item) percentage
               (youtube-dl-item-total item) total)))
     (when destination
-      (setf (youtube-dl-item-destination item) destination))
+      (setf (youtube-dl-item-title item) destination))
     (youtube-dl--redisplay)))
 
 (defun youtube-dl--run ()
@@ -127,10 +132,11 @@ display purposes anyway."
     (when id-start
       (substring url id-start (+ id-start 11)))))
 
-(defun youtube-dl (url)
+(cl-defun youtube-dl (url &key title)
   "Queues URL for download using youtube-dl."
   (let* ((id (youtube-dl--id-from-url url))
-         (item (youtube-dl-item--create :id id :failures 0)))
+         (item (youtube-dl-item--create
+                :id id :failures 0 :priority 0 :title title)))
     (when id
       (youtube-dl--add item)
       (if youtube-dl-process
@@ -142,7 +148,9 @@ display purposes anyway."
   (interactive)
   (let ((point (point)))
     (youtube-dl--fill-listing)
-    (setf (point) point)))
+    (setf (point) point)
+    (when (> point (point-max))
+      (beginning-of-line))))
 
 (defun youtube-dl--redisplay ()
   "Redraw the queue list buffer only if visible."
@@ -165,37 +173,78 @@ display purposes anyway."
               (kill-process youtube-dl-process)
             (youtube-dl--redisplay)))))))
 
+(defun youtube-dl-list-priority--modify (delta)
+  (let* ((n (1- (line-number-at-pos)))
+         (item (nth n youtube-dl-items)))
+    (when item
+      (cl-incf (youtube-dl-item-priority item) delta)
+      (if (null youtube-dl-process)
+          (youtube-dl--redisplay)
+        (let* ((plist (process-plist youtube-dl-process))
+               (current-item (plist-get plist :item)))
+          (if (eq current-item (youtube-dl--next))
+              (youtube-dl--redisplay)
+            ;; Switch to higher priority job. But offset error count.
+            (cl-decf (youtube-dl-item-failures current-item))
+            (kill-process youtube-dl-process)))))))
+
+(defun youtube-dl-list-priority-up ()
+  (interactive)
+  (youtube-dl-list-priority--modify 1))
+
+(defun youtube-dl-list-priority-down ()
+  (interactive)
+  (youtube-dl-list-priority--modify -1))
+
 (defun youtube-dl--buffer ()
   "Returns the queue listing buffer."
   (with-current-buffer (get-buffer-create "*youtube-dl list*")
     (special-mode)
     (hl-line-mode)
-    (setf header-line-format
-          (format " %-11s %-6.6s %-12.12s %-40.40s"
-                  "id" "done" "size" "destination"))
+    (setf truncate-lines t
+          header-line-format
+          (format " %-11s %-6.6s %-12.12s %s"
+                  "id" "done" "size" "title"))
     (local-set-key "g" #'youtube-dl-list-redisplay)
     (local-set-key "k" #'youtube-dl-list-kill)
+    (local-set-key "]" #'youtube-dl-list-priority-up)
+    (local-set-key "[" #'youtube-dl-list-priority-down)
     (current-buffer)))
 
 (defun youtube-dl--fill-listing ()
   "Erase and redraw the queue in the queue listing buffer."
   (with-current-buffer (youtube-dl--buffer)
-    (let ((inhibit-read-only t))
+    (let* ((inhibit-read-only t)
+           (plist (when youtube-dl-process
+                    (process-plist youtube-dl-process)))
+           (active  (plist-get plist :item)))
       (erase-buffer)
       (dolist (item youtube-dl-items)
         (let ((id (youtube-dl-item-id item))
               (failures (youtube-dl-item-failures item))
+              (priority (youtube-dl-item-priority item))
               (progress (youtube-dl-item-progress item))
               (total (youtube-dl-item-total item))
-              (destination (youtube-dl-item-destination item)))
-          (insert (format "%-11s %-6.6s %-12.12s %-40.40s%s\n"
-                          id
-                          (or progress "0.0%")
-                          (or total "???")
-                          (or destination "")
-                          (cond ((= failures 0) "")
-                                ((= failures 1) "1 try")
-                                (t (format " %d tries" failures))))))))))
+              (title (youtube-dl-item-title item)))
+          (insert
+           (format "%-11s %-6.6s %-12.12s %s%s%s\n"
+                   (if (eq active item)
+                       (propertize id 'face 'font-lock-function-name-face)
+                     id)
+                   (or progress "0.0%")
+                   (or total "???")
+                   (if (= failures 0)
+                       ""
+                     (propertize (format "[%d] " failures)
+                                        'face 'font-lock-warning-face))
+                   (if (= priority 0)
+                       ""
+                     (propertize (format "(%d) " priority)
+                                 'face 'font-lock-keyword-face))
+                   (or title "")))))
+      (when youtube-dl-items
+        ;; Remove extra newline.
+        (delete-char -1)))))
 
 (defun youtube-dl-list ()
   "Display a list of all videos queued for download."
