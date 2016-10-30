@@ -252,7 +252,7 @@ display purposes anyway."
                                         'face 'font-lock-warning-face))
                    (if (= priority 0)
                        ""
-                     (propertize (format "(%d) " priority)
+                     (propertize (format "%+d " priority)
                                  'face 'font-lock-keyword-face))
                    (or title "")))))
       (when youtube-dl-items
