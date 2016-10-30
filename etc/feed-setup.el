@@ -2,7 +2,7 @@
 
 (require 'cl-lib)
 (require 'elfeed)
-(require 'youtube-dl-mode)
+(require 'youtube-dl)
 
 (setq-default elfeed-search-filter "-junk @1-week-ago +unread")
 
@@ -45,14 +45,14 @@
 (defun elfeed-show-youtube-dl ()
   "Download the current entry with youtube-dl."
   (interactive)
-  (pop-to-buffer (youtube-dl-download (elfeed-entry-link elfeed-show-entry))))
+  (pop-to-buffer (youtube-dl (elfeed-entry-link elfeed-show-entry))))
 
 (defun elfeed-search-youtube-dl ()
   "Download the current entry with youtube-dl."
   (interactive)
   (let ((entries (elfeed-search-selected)))
     (dolist (entry entries)
-      (if (null (youtube-dl-download (elfeed-entry-link entry)))
+      (if (null (youtube-dl (elfeed-entry-link entry)))
           (message "Entry is not a YouTube link!")
         (message "Downloading %s" (elfeed-entry-title entry)))
       (elfeed-untag entry 'unread)
