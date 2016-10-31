@@ -18,7 +18,9 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup nil
+      ;; work around package.el bug in Emacs 25
+      package--init-file-ensured t)
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
