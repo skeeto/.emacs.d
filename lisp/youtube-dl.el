@@ -148,9 +148,7 @@ display purposes anyway."
   (interactive)
   (let ((point (point)))
     (youtube-dl--fill-listing)
-    (setf (point) point)
-    (when (> point (point-max))
-      (beginning-of-line))))
+    (setf (point) point)))
 
 (defun youtube-dl--redisplay ()
   "Redraw the queue list buffer only if visible."
@@ -163,6 +161,8 @@ display purposes anyway."
   (let* ((n (1- (line-number-at-pos)))
          (item (nth n youtube-dl-items)))
     (when item
+      (when (= n (1- (length youtube-dl-items)))
+        (forward-line -1))
       (youtube-dl--remove item)
       (if (null youtube-dl-process)
           (youtube-dl--redisplay)
@@ -255,10 +255,7 @@ display purposes anyway."
                        ""
                      (propertize (format "%+d " priority)
                                  'face 'font-lock-keyword-face))
-                   (or title "")))))
-      (when youtube-dl-items
-        ;; Remove extra newline.
-        (delete-char -1)))))
+                   (or title ""))))))))
 
 (defun youtube-dl-list ()
   "Display a list of all videos queued for download."
