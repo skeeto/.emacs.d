@@ -56,7 +56,7 @@ each sentence."
       (forward-sentence) 
       (while (< (point) end-of-paragraph)
         (just-one-space)
-        (delete-backward-char 1)
+        (delete-char -1)
         (newline)
         (forward-sentence))
       (set-marker end-of-paragraph nil)))) 
