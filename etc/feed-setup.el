@@ -83,10 +83,6 @@
                               :add 'junk
                               :remove 'unread))
 
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :entry-title "^upandoutcomic:"
-                              :add 'junk))
-
 ;; Helpers
 
 (cl-defun elfeed-dead-feeds (&optional (years 1.0))
@@ -224,7 +220,6 @@
   ("http://modern-sql.com/feed" blog dev databases)
   ("http://www.thingsinsquares.com/feed/" comic)
   ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
-  ("http://upandoutcomic.tumblr.com/rss" comic)
   ("http://blog.vivekhaldar.com/rss" blog)
   ("http://what-if.xkcd.com/feed.atom" blog)
   ("http://www.whompcomic.com/rss.php" comic)
