@@ -165,9 +165,10 @@ display purposes anyway."
 (defun youtube-dl-list-redisplay ()
   "Immediately redraw the queue list buffer."
   (interactive)
-  (let ((point (point)))
-    (youtube-dl--fill-listing)
-    (setf (point) point)))
+  (with-current-buffer (youtube-dl--buffer)
+    (let ((point (point)))
+      (youtube-dl--fill-listing)
+      (setf (point) point))))
 
 (defun youtube-dl--redisplay ()
   "Redraw the queue list buffer only if visible."
