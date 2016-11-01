@@ -4,12 +4,14 @@
 
 ;;; Commentary:
 
-;; The `youtube-dl' function enqueues a URL for download. Only one
-;; video is downloaded at a time, and failures are retried up to
-;; `youtube-dl-max-failures'.
+;; The `youtube-dl' command queues a URL for download. Only one video
+;; is downloaded at a time, and failures are retried up to
+;; `youtube-dl-max-failures'. Items can be paused or downloaded at a
+;; slow rate (`youtube-dl-slow-rate').
 
-;; The `youtube-dl-list' command displays a list of all active
-;; video downloads.
+;; The `youtube-dl-list' command displays a list of all active video
+;; downloads. From this list, items under point can be canceled (k),
+;; paused (p), slowed (s), and have its priority adjusted ([ and ]).
 
 ;;; Code:
 
