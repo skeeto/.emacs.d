@@ -144,6 +144,8 @@ display purposes anyway."
 
 (cl-defun youtube-dl (url &key title (priority 0) paused slow)
   "Queues URL for download using youtube-dl, returning the new item."
+  (interactive
+   (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
   (let* ((id (youtube-dl--id-from-url url))
          (item (youtube-dl-item--create :id id
                                         :failures 0
