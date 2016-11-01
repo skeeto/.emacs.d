@@ -136,6 +136,9 @@
   (require 'feed-setup)
   (setf bookmark-default-file (locate-user-emacs-file "local/bookmarks")))
 
+(use-package youtube-dl
+  :bind ("C-x y" . youtube-dl-list))
+
 (use-package lisp-mode
   :defer t
   :config
