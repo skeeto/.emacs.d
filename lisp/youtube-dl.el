@@ -41,7 +41,7 @@
   "Arguments to be send to youtube-dl."
   :group 'youtube-dl)
 
-(defcustom youtube-dl-max-failures 10
+(defcustom youtube-dl-max-failures 8
   "Maximum number of retries for a single video."
   :group 'youtube-dl)
 
