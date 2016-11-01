@@ -258,6 +258,7 @@ display purposes anyway."
 (defvar youtube-dl-list-mode-map
   (let ((map (make-sparse-keymap)))
     (prog1 map
+      (define-key map "a" #'youtube-dl)
       (define-key map "g" #'youtube-dl-list-redisplay)
       (define-key map "k" #'youtube-dl-list-kill)
       (define-key map "p" #'youtube-dl-list-toggle-pause)
