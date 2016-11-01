@@ -424,13 +424,7 @@
         ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   (define-key ivy-minibuffer-map (kbd "C-s") #'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-r") #'ivy-previous-line)
-  (define-key ivy-minibuffer-map (kbd "C-l")
-    (lambda ()
-      "Be like like Helm."
-      (interactive)
-      (unless (eql (char-before) ?/)
-        (ivy-backward-kill-word))
-      (ivy-backward-delete-char))))
+  (define-key ivy-minibuffer-map (kbd "TAB") #'ivy-alt-done))
 
 (use-package ggtags
   :ensure t
