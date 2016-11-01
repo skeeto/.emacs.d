@@ -36,9 +36,10 @@
   :group 'youtube-dl)
 
 (defcustom youtube-dl-arguments
-  '("--title" "--no-mtime" "--restrict-filenames"
+  '("--no-mtime" "--restrict-filenames"
     "--format" "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best")
-  "Arguments to be send to youtube-dl."
+  "Arguments to be send to youtube-dl.
+Instead of --rate-limit use `youtube-dl-slow-rate'."
   :group 'youtube-dl)
 
 (defcustom youtube-dl-max-failures 8
@@ -51,7 +52,7 @@
 
 (cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create))
   "Represents a single video to be downloaded with youtube-dl."
-  id failures priority title progress total paused-p slow-p)
+  id directory output failures priority title progress total paused-p slow-p)
 
 (defvar youtube-dl-items ()
   "List of all items still to be downloaded.")
@@ -128,16 +129,22 @@ display purposes anyway."
   "Try to launch a new download."
   (let ((item (youtube-dl--next)))
     (when item
-      (let* ((default-directory
-               (concat (directory-file-name youtube-dl-directory) "/"))
+      (let* ((directory (youtube-dl-item-directory item))
+             (output (youtube-dl-item-output item))
+             (default-directory
+               (if directory
+                   (concat (directory-file-name directory) "/")
+                 (concat (directory-file-name youtube-dl-directory) "/")))
              (id (youtube-dl-item-id item))
              (slow-p (youtube-dl-item-slow-p item))
              (proc (apply #'start-process
                           "youtube-dl" nil youtube-dl-program "--newline"
-                          (append youtube-dl-arguments
-                                  (when slow-p
-                                    (list "--rate-limit" youtube-dl-slow-rate))
-                                  (list "--" id)))))
+                          (nconc (cl-copy-list youtube-dl-arguments)
+                                 (when slow-p
+                                   (list "--rate-limit" youtube-dl-slow-rate))
+                                 (when output
+                                   (list "--output" output))
+                                 (list "--" id)))))
         (set-process-plist proc (list :item item))
         (set-process-sentinel proc #'youtube-dl--sentinel)
         (set-process-filter proc #'youtube-dl--filter)
@@ -150,7 +157,7 @@ display purposes anyway."
     (when id-start
       (substring url id-start (+ id-start 11)))))
 
-(cl-defun youtube-dl (url &key title (priority 0) paused slow)
+(cl-defun youtube-dl (url &key title (priority 0) directory output paused slow)
   "Queues URL for download using youtube-dl, returning the new item."
   (interactive
    (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
@@ -160,6 +167,8 @@ display purposes anyway."
                                         :priority priority
                                         :paused-p paused
                                         :slow-p slow
+                                        :directory directory
+                                        :output output
                                         :title title)))
     (prog1 item
       (when id
