@@ -329,7 +329,7 @@ display purposes anyway."
   (hl-line-mode)
   (setf truncate-lines t
           header-line-format
-          (format "%s%-11s %-6.6s %-12.12s %s"
+          (format "%s%-11s %-6.6s %-10.10s %s"
                   (propertize " " 'display '((space :align-to 0)))
                   "id" "done" "size" "title")))
 
@@ -357,7 +357,7 @@ display purposes anyway."
               (total (youtube-dl-item-total item))
               (title (youtube-dl-item-title item)))
           (insert
-           (format "%-11s %-6.6s %-12.12s %s%s%s%s\n"
+           (format "%-11s %-6.6s %-10.10s %s%s%s%s\n"
                    (if (eq active item)
                        (propertize id 'face 'font-lock-function-name-face)
                      id)
