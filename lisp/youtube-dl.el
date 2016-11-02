@@ -19,8 +19,12 @@
 ;; downloads. From this list, items under point can be canceled (k),
 ;; paused (p), slowed (s), and have its priority adjusted ([ and ]).
 
+;; The `youtube-dl-playlist' command queues an entire playlist, just
+;; as if you had individually queued each video on the playlist.
+
 ;;; Code:
 
+(require 'json)
 (require 'cl-lib)
 
 (defgroup youtube-dl ()
@@ -176,6 +180,48 @@ display purposes anyway."
         (if youtube-dl-process
             (youtube-dl--redisplay)
           (youtube-dl--run))))))
+
+(defun youtube-dl--playlist-list (playlist)
+  "For each video, return one plist with :index, :id, and :title."
+  (with-temp-buffer
+    (when (zerop (call-process youtube-dl-program nil t nil
+                               "--ignore-config"
+                               "--dump-json"
+                               "--flat-playlist"
+                               playlist))
+      (setf (point) (point-min))
+      (cl-loop with json-object-type = 'plist
+               for index upfrom 1
+               for video = (ignore-errors (json-read))
+               while video
+               collect (list :index index
+                             :id    (plist-get video :id)
+                             :title (plist-get video :title))))))
+
+(cl-defun youtube-dl-playlist (url &key (priority 0) directory paused slow)
+  "Add entire playlist to download queue, with index prefixes."
+  (interactive
+   (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
+  (message "Fetching playlist ...")
+  (let ((videos (youtube-dl--playlist-list url)))
+    (if (null videos)
+        (error "Failed to fetch playlist (%s)." url)
+      (let* ((width (1+ (floor (log (length videos) 10))))
+             (prefix-format (format "%%0%dd" width)))
+        (dolist (video videos)
+          (let* ((index (plist-get video :index))
+                 (prefix (format prefix-format index))
+                 (title (format "%s-%s" prefix (plist-get video :title)))
+                 (output (format "%s-%s" prefix "%(title)s-%(id)s.%(ext)s")))
+            (youtube-dl (plist-get video :id)
+                        :title title
+                        :priority priority
+                        :directory directory
+                        :output output
+                        :paused paused
+                        :slow slow)))))))
+
+;; List user interface:
 
 (defun youtube-dl-list-redisplay ()
   "Immediately redraw the queue list buffer."
