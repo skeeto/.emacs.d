@@ -129,30 +129,43 @@ display purposes anyway."
       (setf (youtube-dl-item-title item) destination))
     (youtube-dl--redisplay)))
 
+(defun youtube-dl--current ()
+  "Return the item currently being downloaded."
+  (when youtube-dl-process
+    (plist-get (process-plist youtube-dl-process) :item)))
+
 (defun youtube-dl--run ()
-  "Try to launch a new download."
-  (let ((item (youtube-dl--next)))
-    (when item
-      (let* ((directory (youtube-dl-item-directory item))
-             (output (youtube-dl-item-output item))
-             (default-directory
-               (if directory
-                   (concat (directory-file-name directory) "/")
-                 (concat (directory-file-name youtube-dl-directory) "/")))
-             (id (youtube-dl-item-id item))
-             (slow-p (youtube-dl-item-slow-p item))
-             (proc (apply #'start-process
-                          "youtube-dl" nil youtube-dl-program "--newline"
-                          (nconc (cl-copy-list youtube-dl-arguments)
-                                 (when slow-p
-                                   (list "--rate-limit" youtube-dl-slow-rate))
-                                 (when output
-                                   (list "--output" output))
-                                 (list "--" id)))))
-        (set-process-plist proc (list :item item))
-        (set-process-sentinel proc #'youtube-dl--sentinel)
-        (set-process-filter proc #'youtube-dl--filter)
-        (setf youtube-dl-process proc)))
+  "As necessary, start or switch to the highest priority item."
+  (let ((item (youtube-dl--next))
+        (current-item (youtube-dl--current)))
+    (if (eq item current-item)
+        (youtube-dl--redisplay) ; do nothing
+      (if youtube-dl-process
+          (progn
+            ;; Switch to higher priority job, but offset error count first.
+            (cl-decf (youtube-dl-item-failures current-item))
+            (kill-process youtube-dl-process)) ; sentinel will clean up
+        ;; No subprocess running, start a one.
+        (let* ((directory (youtube-dl-item-directory item))
+               (output (youtube-dl-item-output item))
+               (default-directory
+                 (if directory
+                     (concat (directory-file-name directory) "/")
+                   (concat (directory-file-name youtube-dl-directory) "/")))
+               (id (youtube-dl-item-id item))
+               (slow-p (youtube-dl-item-slow-p item))
+               (proc (apply #'start-process
+                            "youtube-dl" nil youtube-dl-program "--newline"
+                            (nconc (cl-copy-list youtube-dl-arguments)
+                                   (when slow-p
+                                     (list "--rate-limit" youtube-dl-slow-rate))
+                                   (when output
+                                     (list "--output" output))
+                                   (list "--" id)))))
+          (set-process-plist proc (list :item item))
+          (set-process-sentinel proc #'youtube-dl--sentinel)
+          (set-process-filter proc #'youtube-dl--filter)
+          (setf youtube-dl-process proc))))
     (youtube-dl--redisplay)))
 
 (defun youtube-dl--id-from-url (url)
@@ -177,9 +190,7 @@ display purposes anyway."
     (prog1 item
       (when id
         (youtube-dl--add item)
-        (if youtube-dl-process
-            (youtube-dl--redisplay)
-          (youtube-dl--run))))))
+        (youtube-dl--run)))))
 
 (defun youtube-dl--playlist-list (playlist)
   "For each video, return one plist with :index, :id, and :title."
@@ -236,11 +247,6 @@ display purposes anyway."
   (when (get-buffer-window (youtube-dl--buffer))
     (youtube-dl-list-redisplay)))
 
-(defun youtube-dl--current ()
-  "Return the item currently being downloaded."
-  (when youtube-dl-process
-    (plist-get (process-plist youtube-dl-process) :item)))
-
 (defun youtube-dl-list-yank ()
   "Copy the URL of the video under point to the clipboard."
   (interactive)
@@ -255,60 +261,40 @@ display purposes anyway."
   "Remove the selected item from the queue."
   (interactive)
   (let* ((n (1- (line-number-at-pos)))
-         (item (nth n youtube-dl-items))
-         (current-item (youtube-dl--current)))
+         (item (nth n youtube-dl-items)))
     (when item
       (when (= n (1- (length youtube-dl-items)))
         (forward-line -1))
       (youtube-dl--remove item)
-      (if (eq item current-item)
-          (kill-process youtube-dl-process) ; sentinel will clean up
-        (youtube-dl--redisplay)))))
+      (youtube-dl--run))))
 
 (defun youtube-dl-list-priority-modify (delta)
   "Change priority of item under point by DELTA."
   (let* ((n (1- (line-number-at-pos)))
-         (item (nth n youtube-dl-items))
-         (current-item (youtube-dl--current)))
+         (item (nth n youtube-dl-items)))
     (when item
       (cl-incf (youtube-dl-item-priority item) delta)
-      (if (eq current-item (youtube-dl--next))
-          (youtube-dl--redisplay)
-        ;; Switch to higher priority job, but offset error count.
-        (cl-decf (youtube-dl-item-failures current-item))
-        (kill-process youtube-dl-process)))))
+      (youtube-dl--run))))
 
 (defun youtube-dl-list-toggle-pause ()
   "Toggle pause on item under point."
   (interactive)
   (let* ((n (1- (line-number-at-pos)))
-         (item (nth n youtube-dl-items))
-         (current-item (youtube-dl--current)))
+         (item (nth n youtube-dl-items)))
     (when item
       (let ((paused-p (youtube-dl-item-paused-p item)))
         (setf (youtube-dl-item-paused-p item) (not paused-p))
-        (if (eq current-item (youtube-dl--next))
-            (youtube-dl--redisplay)
-          (if (null youtube-dl-process)
-              (youtube-dl--run)
-            ;; Switch to another item, but offset error count.
-            (cl-decf (youtube-dl-item-failures current-item))
-            (kill-process youtube-dl-process)))))))
+        (youtube-dl--run)))))
 
 (defun youtube-dl-list-toggle-slow ()
   "Toggle slow mode on item under point."
   (interactive)
   (let* ((n (1- (line-number-at-pos)))
-         (item (nth n youtube-dl-items))
-         (current-item (youtube-dl--current)))
+         (item (nth n youtube-dl-items)))
     (when item
       (let ((slow-p (youtube-dl-item-slow-p item)))
         (setf (youtube-dl-item-slow-p item) (not slow-p))
-        (if (not (eq current-item item))
-            (youtube-dl--redisplay)
-          ;; Restart item, but offset error count.
-          (cl-decf (youtube-dl-item-failures current-item))
-          (kill-process youtube-dl-process))))))
+        (youtube-dl--run)))))
 
 (defun youtube-dl-list-priority-up ()
   "Decrease priority of item under point."
