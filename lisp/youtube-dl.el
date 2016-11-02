@@ -241,6 +241,16 @@ display purposes anyway."
   (when youtube-dl-process
     (plist-get (process-plist youtube-dl-process) :item)))
 
+(defun youtube-dl-list-yank ()
+  "Copy the URL of the video under point to the clipboard."
+  (interactive)
+  (let* ((n (1- (line-number-at-pos)))
+         (item (nth n youtube-dl-items)))
+    (when item
+      (let ((url (concat "https://youtu.be/" (youtube-dl-item-id item))))
+        (x-set-selection 'PRIMARY url)
+        (message "Yanked %s" url)))))
+
 (defun youtube-dl-list-kill ()
   "Remove the selected item from the queue."
   (interactive)
@@ -315,6 +325,7 @@ display purposes anyway."
     (prog1 map
       (define-key map "a" #'youtube-dl)
       (define-key map "g" #'youtube-dl-list-redisplay)
+      (define-key map "y" #'youtube-dl-list-yank)
       (define-key map "k" #'youtube-dl-list-kill)
       (define-key map "p" #'youtube-dl-list-toggle-pause)
       (define-key map "s" #'youtube-dl-list-toggle-slow)
