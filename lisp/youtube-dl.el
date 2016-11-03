@@ -52,7 +52,32 @@ Instead of --rate-limit use `youtube-dl-slow-rate'."
 
 (defcustom youtube-dl-slow-rate "2M"
   "Download speed for \"slow\" items (argument for --rate-limit)."
-  :group 'youtube)
+  :group 'youtube-dl)
+
+(defface youtube-dl-active
+  '((t :inherit font-lock-function-name-face))
+  "Face for highlighting the active download item."
+  :group 'youtube-dl)
+
+(defface youtube-dl-slow
+  '((t :inherit font-lock-variable-name-face))
+  "Face for highlighting the slow (S) tag."
+  :group 'youtube-dl)
+
+(defface youtube-dl-pause
+  '((t :inherit font-lock-type-face))
+  "Face for highlighting the pause (P) tag."
+  :group 'youtube-dl)
+
+(defface youtube-dl-priority
+  '((t :inherit font-lock-keyword-face))
+  "Face for highlighting the priority marker."
+  :group 'youtube-dl)
+
+(defface youtube-dl-failure
+  '((t :inherit font-lock-warning-face))
+  "Face for highlighting the failure marker."
+  :group 'youtube-dl)
 
 (cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create))
   "Represents a single video to be downloaded with youtube-dl."
@@ -340,8 +365,8 @@ display purposes anyway."
   (with-current-buffer (youtube-dl--buffer)
     (let* ((inhibit-read-only t)
            (active (youtube-dl--current))
-           (string-slow (propertize "S" 'face 'font-lock-variable-name-face))
-           (string-paused (propertize "P" 'face 'font-lock-type-face)))
+           (string-slow (propertize "S" 'face 'youtube-dl-slow))
+           (string-paused (propertize "P" 'face 'youtube-dl-pause)))
       (erase-buffer)
       (dolist (item youtube-dl-items)
         (let ((id (youtube-dl-item-id item))
@@ -355,18 +380,18 @@ display purposes anyway."
           (insert
            (format "%-11s %-6.6s %-10.10s %s%s%s%s\n"
                    (if (eq active item)
-                       (propertize id 'face 'font-lock-function-name-face)
+                       (propertize id 'face 'youtube-dl-active)
                      id)
                    (or progress "0.0%")
                    (or total "???")
                    (if (= failures 0)
                        ""
                      (propertize (format "[%d] " failures)
-                                        'face 'font-lock-warning-face))
+                                 'face 'youtube-dl-failure))
                    (if (= priority 0)
                        ""
                      (propertize (format "%+d " priority)
-                                 'face 'font-lock-keyword-face))
+                                 'face 'youtube-dl-priority))
                    (cond ((and slow-p paused-p)
                           (concat string-slow string-paused " "))
                          (slow-p
