@@ -323,7 +323,6 @@ display purposes anyway."
   "Major mode for listing the youtube-dl download queue."
   :group 'youtube-dl
   (use-local-map youtube-dl-list-mode-map)
-  (hl-line-mode)
   (setf truncate-lines t
           header-line-format
           (format "%s%-11s %-6.6s %-10.10s %s"
