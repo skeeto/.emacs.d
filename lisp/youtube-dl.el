@@ -199,6 +199,7 @@ display purposes anyway."
     (when id-start
       (substring url id-start (+ id-start 11)))))
 
+;;;###autoload
 (cl-defun youtube-dl (url &key title (priority 0) directory output paused slow)
   "Queues URL for download using youtube-dl, returning the new item."
   (interactive
@@ -234,6 +235,7 @@ display purposes anyway."
                              :id    (plist-get video :id)
                              :title (plist-get video :title))))))
 
+;;;###autoload
 (cl-defun youtube-dl-playlist (url &key (priority 0) directory paused slow)
   "Add entire playlist to download queue, with index prefixes."
   (interactive
@@ -401,6 +403,7 @@ display purposes anyway."
                          (""))
                    (or title ""))))))))
 
+;;;###autoload
 (defun youtube-dl-list ()
   "Display a list of all videos queued for download."
   (interactive)
