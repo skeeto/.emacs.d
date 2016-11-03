@@ -351,10 +351,10 @@ display purposes anyway."
   :group 'youtube-dl
   (use-local-map youtube-dl-list-mode-map)
   (setf truncate-lines t
-          header-line-format
-          (format "%s%-11s %-6.6s %-10.10s %s"
-                  (propertize " " 'display '((space :align-to 0)))
-                  "id" "done" "size" "title")))
+        header-line-format
+        (format "%s%-11s %-6.6s %-10.10s %s"
+                (propertize " " 'display '((space :align-to 0)))
+                "id" "done" "size" "title")))
 
 (defun youtube-dl--buffer ()
   "Returns the queue listing buffer."
