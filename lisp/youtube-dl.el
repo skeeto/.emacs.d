@@ -321,7 +321,10 @@ display purposes anyway."
     (when item
       (let ((slow-p (youtube-dl-item-slow-p item)))
         (setf (youtube-dl-item-slow-p item) (not slow-p))
-        (youtube-dl--run)))))
+        (when (eq item (youtube-dl--current))
+          ;; Offset error count and restart the process.
+          (cl-decf (youtube-dl-item-failures item))
+          (kill-process youtube-dl-process))))))
 
 (defun youtube-dl-list-priority-up ()
   "Decrease priority of item under point."
