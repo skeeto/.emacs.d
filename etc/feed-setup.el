@@ -194,7 +194,6 @@
   ("https://www.masteringemacs.org/feed" blog emacs)
   ("http://www.ma3comic.com/comic.rss" comic)
   ("http://www.mazelog.com/rss" math puzzle)
-  ("http://mercworks.net/feed/" comic)
   ("http://www.mrlovenstein.com/rss.xml" comic)
   ("http://mortoray.com/feed/" blog dev)
   ("http://nedroid.com/feed/" comic)
