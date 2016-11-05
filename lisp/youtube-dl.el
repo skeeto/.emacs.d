@@ -321,7 +321,8 @@ display purposes anyway."
     (when item
       (let ((slow-p (youtube-dl-item-slow-p item)))
         (setf (youtube-dl-item-slow-p item) (not slow-p))
-        (when (eq item (youtube-dl--current))
+        (if (not (eq item (youtube-dl--current)))
+            (youtube-dl--redisplay)
           ;; Offset error count and restart the process.
           (cl-decf (youtube-dl-item-failures item))
           (kill-process youtube-dl-process))))))
