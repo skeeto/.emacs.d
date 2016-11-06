@@ -79,6 +79,9 @@ Instead of --rate-limit use `youtube-dl-slow-rate'."
   "Face for highlighting the failure marker."
   :group 'youtube-dl)
 
+(defvar-local youtube-dl--log-item nil
+  "Item currently being displayed in the log buffer.")
+
 (cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create))
   "Represents a single video to be downloaded with youtube-dl."
   id           ; YouTube video ID (string)
@@ -89,6 +92,8 @@ Instead of --rate-limit use `youtube-dl-slow-rate'."
   title        ; Listing display title (string or nil)
   progress     ; Current download progress (string or nil)
   total        ; Total download size (string or nil)
+  log          ; All program output (list of strings)
+  log-end      ; Last log item (list of strings)
   paused-p     ; Non-nil if download is paused
   slow-p)      ; Non-nil if download should be rate limited
 
@@ -155,10 +160,19 @@ display purposes anyway."
          (progress (youtube-dl--progress output))
          (destination (unless (youtube-dl-item-title item)
                         (youtube-dl--destination output))))
+    ;; Append to program log.
+    (let ((logged (list output)))
+      (if (youtube-dl-item-log item)
+          (setf (cdr (youtube-dl-item-log-end item)) logged
+                (youtube-dl-item-log-end item) logged)
+        (setf (youtube-dl-item-log item) logged
+              (youtube-dl-item-log-end item) logged)))
+    ;; Update progress information.
     (when progress
       (cl-destructuring-bind (percentage . total) progress
         (setf (youtube-dl-item-progress item) percentage
               (youtube-dl-item-total item) total)))
+    ;; Set a title if needed.
     (when destination
       (setf (youtube-dl-item-title item) destination))
     (youtube-dl--redisplay)))
@@ -281,8 +295,27 @@ display purposes anyway."
 
 (defun youtube-dl--redisplay ()
   "Redraw the queue list buffer only if visible."
+  (let ((log-buffer (youtube-dl--log-buffer)))
+    (when log-buffer
+      (with-current-buffer log-buffer
+        (save-excursion
+          (let ((inhibit-read-only t)
+                (window (get-buffer-window log-buffer)))
+            (erase-buffer)
+            (mapc #'insert (youtube-dl-item-log youtube-dl--log-item))
+            (when window
+              (set-window-point window (point-max))))))))
   (when (get-buffer-window (youtube-dl--buffer))
     (youtube-dl-list-redisplay)))
+
+(defun youtube-dl-list-log ()
+  "Display the log of the video under point."
+  (interactive)
+  (let* ((n (1- (line-number-at-pos)))
+         (item (nth n youtube-dl-items)))
+    (when item
+      (display-buffer (youtube-dl--log-buffer item))
+      (youtube-dl--redisplay))))
 
 (defun youtube-dl-list-yank ()
   "Copy the URL of the video under point to the clipboard."
@@ -352,6 +385,7 @@ display purposes anyway."
     (prog1 map
       (define-key map "a" #'youtube-dl)
       (define-key map "g" #'youtube-dl-list-redisplay)
+      (define-key map "l" #'youtube-dl-list-log)
       (define-key map "y" #'youtube-dl-list-yank)
       (define-key map "k" #'youtube-dl-list-kill)
       (define-key map "p" #'youtube-dl-list-toggle-pause)
@@ -375,6 +409,18 @@ display purposes anyway."
   (with-current-buffer (get-buffer-create " *youtube-dl list*")
     (youtube-dl-list-mode)
     (current-buffer)))
+
+(defun youtube-dl--log-buffer (&optional item)
+  "Returns a youtube-dl log buffer for ITEM."
+  (let* ((name " *youtube-dl log*")
+         (buffer (if item (get-buffer-create name) (get-buffer name))))
+    (when (or item (and buffer (get-buffer-window buffer)))
+      (with-current-buffer buffer
+        (unless (eq major-mode 'special-mode)
+          (special-mode))
+        (when item
+          (setf youtube-dl--log-item item))
+        (current-buffer)))))
 
 (defun youtube-dl--fill-listing ()
   "Erase and redraw the queue in the queue listing buffer."
