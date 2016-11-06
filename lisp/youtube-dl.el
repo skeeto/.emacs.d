@@ -26,6 +26,7 @@
 
 (require 'json)
 (require 'cl-lib)
+(require 'hl-line)
 
 (defgroup youtube-dl ()
   "Download queue for the youtube-dl command line program."
@@ -289,9 +290,14 @@ display purposes anyway."
   "Immediately redraw the queue list buffer."
   (interactive)
   (with-current-buffer (youtube-dl--buffer)
-    (let ((point (point)))
+    (let ((save-point (point))
+          (window (get-buffer-window (current-buffer))))
       (youtube-dl--fill-listing)
-      (setf (point) point))))
+      (setf (point) save-point)
+      (when window
+        (set-window-point window save-point))
+      (when hl-line-mode
+        (hl-line-highlight)))))
 
 (defun youtube-dl--redisplay ()
   "Redraw the queue list buffer only if visible."
@@ -405,6 +411,7 @@ display purposes anyway."
   "Major mode for listing the youtube-dl download queue."
   :group 'youtube-dl
   (use-local-map youtube-dl-list-mode-map)
+  (hl-line-mode)
   (setf truncate-lines t
         header-line-format
         (format "%s%-11s %-6.6s %-10.10s %s"
