@@ -298,13 +298,12 @@ display purposes anyway."
   (let ((log-buffer (youtube-dl--log-buffer)))
     (when log-buffer
       (with-current-buffer log-buffer
-        (save-excursion
-          (let ((inhibit-read-only t)
-                (window (get-buffer-window log-buffer)))
-            (erase-buffer)
-            (mapc #'insert (youtube-dl-item-log youtube-dl--log-item))
-            (when window
-              (set-window-point window (point-max))))))))
+        (let ((inhibit-read-only t)
+              (window (get-buffer-window log-buffer)))
+          (erase-buffer)
+          (mapc #'insert (youtube-dl-item-log youtube-dl--log-item))
+          (when window
+            (set-window-point window (point-max)))))))
   (when (get-buffer-window (youtube-dl--buffer))
     (youtube-dl-list-redisplay)))
 
