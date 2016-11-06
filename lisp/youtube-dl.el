@@ -372,7 +372,7 @@ display purposes anyway."
 
 (defun youtube-dl--buffer ()
   "Returns the queue listing buffer."
-  (with-current-buffer (get-buffer-create "*youtube-dl list*")
+  (with-current-buffer (get-buffer-create " *youtube-dl list*")
     (youtube-dl-list-mode)
     (current-buffer)))
 
