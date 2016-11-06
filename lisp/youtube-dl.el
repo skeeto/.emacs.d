@@ -317,6 +317,13 @@ display purposes anyway."
       (display-buffer (youtube-dl--log-buffer item))
       (youtube-dl--redisplay))))
 
+(defun youtube-dl-list-kill-log ()
+  "Kill the youtube-dl log buffer."
+  (interactive)
+  (let ((buffer (youtube-dl--log-buffer)))
+    (when buffer
+      (kill-buffer buffer))))
+
 (defun youtube-dl-list-yank ()
   "Copy the URL of the video under point to the clipboard."
   (interactive)
@@ -386,6 +393,7 @@ display purposes anyway."
       (define-key map "a" #'youtube-dl)
       (define-key map "g" #'youtube-dl-list-redisplay)
       (define-key map "l" #'youtube-dl-list-log)
+      (define-key map "L" #'youtube-dl-list-kill-log)
       (define-key map "y" #'youtube-dl-list-yank)
       (define-key map "k" #'youtube-dl-list-kill)
       (define-key map "p" #'youtube-dl-list-toggle-pause)
