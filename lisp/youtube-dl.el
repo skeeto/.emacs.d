@@ -81,7 +81,16 @@ Instead of --rate-limit use `youtube-dl-slow-rate'."
 
 (cl-defstruct (youtube-dl-item (:constructor youtube-dl-item--create))
   "Represents a single video to be downloaded with youtube-dl."
-  id directory output failures priority title progress total paused-p slow-p)
+  id           ; YouTube video ID (string)
+  directory    ; Working directory for youtube-dl (string or nil)
+  destination  ; Preferred destination file (string or nil)
+  failures     ; Number of video download failures (integer)
+  priority     ; Download priority (integer)
+  title        ; Listing display title (string or nil)
+  progress     ; Current download progress (string or nil)
+  total        ; Total download size (string or nil)
+  paused-p     ; Non-nil if download is paused
+  slow-p)      ; Non-nil if download should be rate limited
 
 (defvar youtube-dl-items ()
   "List of all items still to be downloaded.")
@@ -172,7 +181,7 @@ display purposes anyway."
             (kill-process youtube-dl-process)) ; sentinel will clean up
         ;; No subprocess running, start a one.
         (let* ((directory (youtube-dl-item-directory item))
-               (output (youtube-dl-item-output item))
+               (destination (youtube-dl-item-destination item))
                (default-directory
                  (if directory
                      (concat (directory-file-name directory) "/")
@@ -184,8 +193,8 @@ display purposes anyway."
                             (nconc (cl-copy-list youtube-dl-arguments)
                                    (when slow-p
                                      (list "--rate-limit" youtube-dl-slow-rate))
-                                   (when output
-                                     (list "--output" output))
+                                   (when destination
+                                     (list "--output" destination))
                                    (list "--" id)))))
           (set-process-plist proc (list :item item))
           (set-process-sentinel proc #'youtube-dl--sentinel)
@@ -200,7 +209,8 @@ display purposes anyway."
       (substring url id-start (+ id-start 11)))))
 
 ;;;###autoload
-(cl-defun youtube-dl (url &key title (priority 0) directory output paused slow)
+(cl-defun youtube-dl
+    (url &key title (priority 0) directory destination paused slow)
   "Queues URL for download using youtube-dl, returning the new item."
   (interactive
    (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
@@ -211,7 +221,7 @@ display purposes anyway."
                                         :paused-p paused
                                         :slow-p slow
                                         :directory directory
-                                        :output output
+                                        :destination destination
                                         :title title)))
     (prog1 item
       (when id
@@ -250,12 +260,12 @@ display purposes anyway."
           (let* ((index (plist-get video :index))
                  (prefix (format prefix-format index))
                  (title (format "%s-%s" prefix (plist-get video :title)))
-                 (output (format "%s-%s" prefix "%(title)s-%(id)s.%(ext)s")))
+                 (dest (format "%s-%s" prefix "%(title)s-%(id)s.%(ext)s")))
             (youtube-dl (plist-get video :id)
                         :title title
                         :priority priority
                         :directory directory
-                        :output output
+                        :destination dest
                         :paused paused
                         :slow slow)))))))
 
