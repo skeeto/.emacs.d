@@ -237,6 +237,7 @@
   ("KiteTales" youtube)
   ("jastownsendandson" youtube)
   ("JonTronShow" youtube)
+  ("JordanPetersonVideos" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
   ("24hrMrLocksmith" youtube)
