@@ -213,6 +213,7 @@
   ("http://blog.plover.com/index.atom" blog dev)
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
   ("http://modern-sql.com/feed" blog dev databases)
+  ("http://slatestarcodex.com/feed/" blog philosophy)
   ("http://www.thingsinsquares.com/feed/" comic)
   ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("http://blog.vivekhaldar.com/rss" blog)
