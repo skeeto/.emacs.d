@@ -109,6 +109,7 @@
     (require 'email-setup)
     (require 'notmuch-address)
     (define-key notmuch-common-keymap "q" (expose #'kill-buffer))
+    (define-key notmuch-message-mode-map (kbd "C-x C-s") nil)
     (setf notmuch-command "notmuch-remote"
           message-send-mail-function 'smtpmail-send-it
           message-kill-buffer-on-exit t
