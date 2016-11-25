@@ -47,18 +47,22 @@
   (interactive)
   (pop-to-buffer (youtube-dl (elfeed-entry-link elfeed-show-entry))))
 
-(defun elfeed-search-youtube-dl ()
+(cl-defun elfeed-search-youtube-dl (&key slow)
   "Download the current entry with youtube-dl."
   (interactive)
   (let ((entries (elfeed-search-selected)))
     (dolist (entry entries)
       (if (null (youtube-dl (elfeed-entry-link entry)
-                            :title (elfeed-entry-title entry)))
+                            :title (elfeed-entry-title entry)
+                            :slow slow))
           (message "Entry is not a YouTube link!")
         (message "Downloading %s" (elfeed-entry-title entry)))
       (elfeed-untag entry 'unread)
       (elfeed-search-update-entry entry)
       (unless (use-region-p) (forward-line)))))
+
+(defalias 'elfeed-search-youtube-dl-slow
+  (expose #'elfeed-search-youtube-dl :slow t))
 
 (defun elfeed-search-youtube-comments ()
   (interactive)
@@ -67,6 +71,7 @@
       (browse-url (replace-regexp-in-string "/watch" "/all_comments" url)))))
 
 (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
+(define-key elfeed-show-mode-map "D" 'elfeed-show-youtube-dl-slow)
 (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
 (define-key elfeed-search-mode-map "L" 'youtube-dl-list)
 (define-key elfeed-search-mode-map "c" 'elfeed-search-youtube-comments)
