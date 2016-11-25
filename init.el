@@ -257,7 +257,7 @@
   (add-hook 'markdown-mode-hook
             (lambda ()
               (remove-hook 'fill-nobreak-predicate
-                           'markdown-inside-link-text-p t)))
+                           'markdown-inside-link-p t)))
   (setf sentence-end-double-space nil
         markdown-command
         "pandoc -f markdown -t html5 -s --self-contained --smart"))
