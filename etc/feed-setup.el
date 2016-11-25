@@ -225,6 +225,7 @@
   ("http://what-if.xkcd.com/feed.atom" blog)
   ("http://www.whompcomic.com/rss.php" comic)
   ("http://xkcd.com/atom.xml" comic)
+  ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
   ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
