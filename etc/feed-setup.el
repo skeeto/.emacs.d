@@ -252,6 +252,7 @@
   ("ZombieOrpheusEnt" youtube)
   ("handmadeheroarchive" youtube dev)
   ("jefmajor" youtube)
+  ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
   ("phreakindee" youtube)
   ("quill18" youtube)
   ("szyzyg" youtube)
