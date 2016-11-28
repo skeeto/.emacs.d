@@ -593,6 +593,10 @@
   :init
   (setf sql-product 'sqlite))
 
+(use-package enriched
+  :config
+  (define-key enriched-mode-map "\C-m" nil))
+
 ;; Compile configuration
 (byte-recompile-directory "~/.emacs.d/lisp/" 0)
 (byte-recompile-directory "~/.emacs.d/etc/" 0)
