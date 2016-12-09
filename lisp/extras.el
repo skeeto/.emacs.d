@@ -84,6 +84,8 @@ argument, set so that number of columns instead."
 (defmacro measure-time (&rest body)
   "Measure and return the running time of the code block."
   (declare (indent defun))
+  ;; Fresh garbage collection before making any measurements.
+  (garbage-collect)
   (let ((start (make-symbol "start")))
     `(let ((,start (float-time)))
        ,@body
