@@ -88,6 +88,23 @@
                               :add 'junk
                               :remove 'unread))
 
+(defun tagize-for-elfeed (string)
+  "Try to turn STRING into a reasonable Elfeed tag."
+  (when (and (< (length string) 24)
+             (string-match-p "^[/#]?[[:space:][:alnum:]]+$" string))
+    (let* ((down (downcase string))
+           (dashed (replace-regexp-in-string "[[:space:]]+" "-" down))
+           (truncated (replace-regexp-in-string "^[/#]" "" dashed)))
+      (intern truncated))))
+
+(defun add-entry-categories-to-tags (entry)
+  (dolist (category (elfeed-meta entry :categories) entry)
+    (let ((tag (tagize-for-elfeed category)))
+      (when tag
+        (elfeed-tag entry tag)))))
+
+(add-hook 'elfeed-new-entry-hook #'add-entry-categories-to-tags)
+
 ;; Helpers
 
 (cl-defun elfeed-dead-feeds (&optional (years 1.0))
