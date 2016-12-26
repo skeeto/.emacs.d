@@ -241,6 +241,7 @@
   ("GhazPlays" youtube)
   ("whoisjimmy" youtube)
   ("KiteTales" youtube)
+  ("UCXNxwOuuR7LT-SkEfOJiwgA" youtube) ; Long Plays
   ("jastownsendandson" youtube)
   ("JonTronShow" youtube)
   ("JordanPetersonVideos" youtube)
@@ -248,10 +249,10 @@
   ("MatthiasWandel" youtube)
   ("24hrMrLocksmith" youtube)
   ("PlumpHelmetPunk" youtube)
+  ("ProZD" youtube)
   ("Thunderf00t" youtube)
   ("ZombieOrpheusEnt" youtube)
   ("handmadeheroarchive" youtube dev)
-  ("jefmajor" youtube)
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
   ("phreakindee" youtube)
   ("quill18" youtube)
