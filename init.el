@@ -588,7 +588,7 @@
   :init
   (autoload 'ospl-mode "ospl-mode"))
 
-(use-package sql-mode
+(use-package sql
   :init
   (setf sql-product 'sqlite))
 
