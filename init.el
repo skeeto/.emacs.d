@@ -418,7 +418,6 @@
 
 (use-package swiper
   :ensure t
-  :defer nil
   :init (ivy-mode 1)
   :config
   (setf ivy-wrap t
