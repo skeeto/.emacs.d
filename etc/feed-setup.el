@@ -256,7 +256,7 @@
   ("foodwishes" youtube)
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
-  ("whoisjimmy" youtube)
+  ("whoisjimmy" youtube) ; How Ridiculous
   ("KiteTales" youtube)
   ("UCXNxwOuuR7LT-SkEfOJiwgA" youtube) ; Long Plays
   ("jastownsendandson" youtube)
@@ -274,8 +274,8 @@
   ("phreakindee" youtube)
   ("quill18" youtube)
   ("szyzyg" youtube)
-  ("UCsXVk37bltHxD1rDPwtNM8Q" youtube)) ; Kurzgesagt – In a Nutshell
-
+  ("UCsXVk37bltHxD1rDPwtNM8Q" youtube) ; Kurzgesagt – In a Nutshell
+  ("Wendoverproductions" youtube))
 
 (provide 'feed-setup)
 
