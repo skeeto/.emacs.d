@@ -261,7 +261,8 @@ display purposes anyway."
                              :title (plist-get video :title))))))
 
 ;;;###autoload
-(cl-defun youtube-dl-playlist (url &key (priority 0) directory paused slow)
+(cl-defun youtube-dl-playlist
+    (url &key (priority 0) directory paused slow (first 1))
   "Add entire playlist to download queue, with index prefixes."
   (interactive
    (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
@@ -271,7 +272,7 @@ display purposes anyway."
         (error "Failed to fetch playlist (%s)." url)
       (let* ((width (1+ (floor (log (length videos) 10))))
              (prefix-format (format "%%0%dd" width)))
-        (dolist (video videos)
+        (dolist (video (nthcdr (1- first) videos))
           (let* ((index (plist-get video :index))
                  (prefix (format prefix-format index))
                  (title (format "%s-%s" prefix (plist-get video :title)))
