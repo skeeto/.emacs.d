@@ -336,4 +336,43 @@ buffer is not visiting a file."
 
 (provide 'extras)
 
+;; Super-format (string interpolated format)
+
+(defun superf--parts (format)
+  "Return a list of format string parts from FORMAT."
+  (let ((parts ())
+        (start 0)
+        (match nil))
+    (while (setf match (string-match-p "%" format start))
+      (if (not (eql ?% (aref format (1+ match))))
+          ;; interpolation directive
+          (cl-destructuring-bind
+              (value . end) (read-from-string format (1+ match))
+            (when (> match start)
+              (push (substring format start match) parts))
+            (push value parts)
+            (setf start end))
+        ;; literal %
+        (push (substring format start (1+ match)) parts)
+        (setf start (+ 2 match))))
+    (when (< start (length format))
+      (push (substring format start) parts))
+    (nreverse parts)))
+
+(defmacro superf (format)
+  "Formatted output with string interpolation in FORMAT.
+
+The FORMAT argument *must* be a compile-time string because it is
+parsed at macro-expansion time. Lisp expressions following a
+single % are evaluated when the `superf' is evaluated. A double
+%% represents a literal %."
+  (let ((parts (superf--parts format)))
+    `(with-temp-buffer
+       ,@(cl-loop for part in parts
+                  when (stringp part)
+                  collect `(insert ,part)
+                  else
+                  collect `(princ ,part (current-buffer)))
+       (buffer-string))))
+
 ;;; extras.el ends here
