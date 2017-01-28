@@ -238,7 +238,7 @@ everything the original function does, except for modifying
   "Kill selected process in the process menu buffer."
   (interactive)
   (let ((process (get-text-property (point) 'tabulated-list-id)))
-    (when (processp process) (kill-process process))
+    (when (processp process) (delete-process process))
     (run-at-time 0.1 nil (lambda ()
                            (let ((n (line-number-at-pos)))
                              (revert-buffer)
