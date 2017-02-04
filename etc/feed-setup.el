@@ -199,6 +199,7 @@
   ("http://www.exocomics.com/feed" comic)
   ("https://www.factorio.com/blog/rss" blog dev gaming product)
   ("http://www.tedunangst.com/flak/rss" dev blog)
+  ("http://firefly.nu/feeds/all.atom.xml" blog dev)
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.goneintorapture.com/rss" comic)
   ("http://www.businesscat.happyjar.com/feed/" comic)
