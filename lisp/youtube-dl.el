@@ -203,14 +203,16 @@ display purposes anyway."
                    (concat (directory-file-name youtube-dl-directory) "/")))
                (id (youtube-dl-item-id item))
                (slow-p (youtube-dl-item-slow-p item))
-               (proc (apply #'start-process
-                            "youtube-dl" nil youtube-dl-program "--newline"
-                            (nconc (cl-copy-list youtube-dl-arguments)
-                                   (when slow-p
-                                     (list "--rate-limit" youtube-dl-slow-rate))
-                                   (when destination
-                                     (list "--output" destination))
-                                   (list "--" id)))))
+               (proc (progn
+                       (mkdir default-directory t)
+                       (apply #'start-process
+                              "youtube-dl" nil youtube-dl-program "--newline"
+                              (nconc (cl-copy-list youtube-dl-arguments)
+                                     (when slow-p
+                                       `("--rate-limit" ,youtube-dl-slow-rate))
+                                     (when destination
+                                       `("--output" ,destination))
+                                     `("--" ,id))))))
           (set-process-plist proc (list :item item))
           (set-process-sentinel proc #'youtube-dl--sentinel)
           (set-process-filter proc #'youtube-dl--filter)
@@ -230,12 +232,13 @@ display purposes anyway."
   (interactive
    (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
   (let* ((id (youtube-dl--id-from-url url))
+         (full-dir (expand-file-name (or directory "") youtube-dl-directory))
          (item (youtube-dl-item--create :id id
                                         :failures 0
                                         :priority priority
                                         :paused-p paused
                                         :slow-p slow
-                                        :directory directory
+                                        :directory full-dir
                                         :destination destination
                                         :title title)))
     (prog1 item
