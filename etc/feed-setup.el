@@ -197,6 +197,7 @@
   ("http://feeds.feedburner.com/Explosm" comic)
   ("http://www.extrafabulouscomics.com/1/feed" comic)
   ("http://www.exocomics.com/feed" comic)
+  ("https://www.factorio.com/blog/rss" blog dev gaming product)
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.goneintorapture.com/rss" comic)
