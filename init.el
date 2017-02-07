@@ -81,10 +81,6 @@
   (add-function :after (symbol-function 'lua-start-process)
                 #'skeeto/lua-add-filter))
 
-(use-package memoize
-  :defer t
-  :ensure t)
-
 (use-package dired
   :defer t
   :config
@@ -310,10 +306,6 @@
   :defer t
   :config (define-key skewer-repl-mode-map (kbd "C-c C-z") #'quit-window))
 
-(use-package clojure-mode
-  :ensure t
-  :mode "\\.cljs$")
-
 (use-package ps-print
   :defer t
   :config (setf ps-print-header nil))
@@ -385,8 +377,7 @@
     (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
     (add-hook 'lisp-mode-hook #'paredit-mode)
     (add-hook 'scheme-mode-hook #'paredit-mode)
-    (add-hook 'ielm-mode-hook #'paredit-mode)
-    (add-hook 'clojure-mode-hook #'paredit-mode))
+    (add-hook 'ielm-mode-hook #'paredit-mode))
   :config (define-key paredit-mode-map (kbd "C-j") #'join-line))
 
 (use-package paren
@@ -398,7 +389,6 @@
   :init
   (progn
     (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
     (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode))
   :config
   (progn
@@ -450,10 +440,6 @@
      '(highlight            ((t :background "black" :underline nil)))
      '(magit-item-highlight ((t :background "black")))
      '(hl-line              ((t :background "gray10"))))))
-
-(use-package websocket
-  :ensure t
-  :defer t)
 
 (use-package javadoc-lookup
   :ensure t
@@ -570,10 +556,6 @@
 (use-package apt-sources-mode
   :defer t
   :mode "sources.list$")
-
-(use-package pov-mode
-  :defer t
-  :ensure t)
 
 (use-package pov-mode
   :defer t
