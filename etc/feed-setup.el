@@ -268,6 +268,7 @@
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
   ("phreakindee" youtube)
   ("quill18" youtube)
+  ("sciencium" youtube)
   ("szyzyg" youtube)
   ("UCsXVk37bltHxD1rDPwtNM8Q" youtube) ; Kurzgesagt – In a Nutshell
   ("Wendoverproductions" youtube))
