@@ -93,10 +93,6 @@
             ("\\(\\.png\\|\\.jpe?g\\)\\'" "qiv")
             ("\\.gif\\'" "animate")))))
 
-(use-package message
-  :defer t
-  :config (define-key message-mode-map (kbd "C-c C-s") nil)) ; super annoying
-
 (use-package notmuch
   :ensure t
   :bind ("C-x m" . notmuch)
@@ -106,6 +102,7 @@
     (require 'notmuch-address)
     (define-key notmuch-common-keymap "q" (expose #'kill-buffer))
     (define-key notmuch-message-mode-map (kbd "C-x C-s") nil)
+    (define-key notmuch-message-mode-map (kbd "C-c C-s") nil) ; super annoying
     (setf notmuch-command "notmuch-remote"
           message-send-mail-function 'smtpmail-send-it
           message-kill-buffer-on-exit t
