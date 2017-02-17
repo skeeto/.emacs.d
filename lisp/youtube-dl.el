@@ -372,19 +372,29 @@ display purposes anyway."
         (setf (youtube-dl-item-paused-p item) (not paused-p))
         (youtube-dl--run)))))
 
-(defun youtube-dl-list-toggle-slow ()
+(defun youtube-dl-list-toggle-slow (item)
   "Toggle slow mode on item under point."
+  (interactive
+   (let* ((n (1- (line-number-at-pos))))
+     (list (nth n youtube-dl-items))))
+  (when item
+    (let ((slow-p (youtube-dl-item-slow-p item)))
+      (setf (youtube-dl-item-slow-p item) (not slow-p))
+      (if (not (eq item (youtube-dl--current)))
+          (youtube-dl--redisplay)
+        ;; Offset error count and restart the process.
+        (cl-decf (youtube-dl-item-failures item))
+        (kill-process youtube-dl-process)))))
+
+(defun youtube-dl-list-toggle-slow-all ()
+  "Toggle slow mode on all items."
   (interactive)
-  (let* ((n (1- (line-number-at-pos)))
-         (item (nth n youtube-dl-items)))
-    (when item
-      (let ((slow-p (youtube-dl-item-slow-p item)))
-        (setf (youtube-dl-item-slow-p item) (not slow-p))
-        (if (not (eq item (youtube-dl--current)))
-            (youtube-dl--redisplay)
-          ;; Offset error count and restart the process.
-          (cl-decf (youtube-dl-item-failures item))
-          (kill-process youtube-dl-process))))))
+  (let* ((count (length  youtube-dl-items))
+         (slow-count (cl-count-if #'youtube-dl-item-slow-p youtube-dl-items))
+         (target (< slow-count (- count slow-count))))
+    (dolist (item youtube-dl-items)
+      (unless (eq target (youtube-dl-item-slow-p item))
+        (youtube-dl-list-toggle-slow item)))))
 
 (defun youtube-dl-list-priority-up ()
   "Decrease priority of item under point."
@@ -407,6 +417,7 @@ display purposes anyway."
       (define-key map "k" #'youtube-dl-list-kill)
       (define-key map "p" #'youtube-dl-list-toggle-pause)
       (define-key map "s" #'youtube-dl-list-toggle-slow)
+      (define-key map "S" #'youtube-dl-list-toggle-slow-all)
       (define-key map "]" #'youtube-dl-list-priority-up)
       (define-key map "[" #'youtube-dl-list-priority-down)))
   "Keymap for `youtube-dl-list-mode'")
