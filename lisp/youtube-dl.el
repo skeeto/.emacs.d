@@ -221,9 +221,10 @@ display purposes anyway."
 
 (defun youtube-dl--id-from-url (url)
   "Return the 11-character video ID for URL."
-  (let ((id-start (string-match-p "[-_a-zA-Z0-9]\\{11\\}" url)))
-    (when id-start
-      (substring url id-start (+ id-start 11)))))
+  (save-match-data
+    (when (string-match
+           "\\(?:\\.be/\\|v=\\|v%3D\\)\\([-_a-zA-Z0-9]\\{11\\}\\)" url)
+      (match-string 1 url))))
 
 ;;;###autoload
 (cl-defun youtube-dl
