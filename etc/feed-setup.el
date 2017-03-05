@@ -212,7 +212,6 @@
   ("http://feeds.feedburner.com/LoadingArtist" comic)
   ("http://www.lunarbaboon.com/comics/rss.xml" comic)
   ("https://www.masteringemacs.org/feed" blog emacs)
-  ("http://www.ma3comic.com/comic.rss" comic)
   ("http://www.mazelog.com/rss" math puzzle)
   ("http://www.mrlovenstein.com/rss.xml" comic)
   ("http://mortoray.com/feed/" blog dev)
