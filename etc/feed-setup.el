@@ -244,7 +244,6 @@
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("Campster" youtube)
-  ("Computerphile" youtube)
   ("damo2986" youtube)
   ("DemolitionRanch" youtube)
   ("destinws2" youtube)
