@@ -13,6 +13,9 @@
     (interactive)
     (elfeed-search-set-filter (default-value 'elfeed-search-filter))))
 
+(define-key elfeed-search-mode-map (kbd "j") #'next-line)
+(define-key elfeed-search-mode-map (kbd "k") #'previous-line)
+
 (define-key elfeed-search-mode-map (kbd "l")
   (lambda ()
     (interactive)
