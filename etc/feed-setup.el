@@ -262,7 +262,6 @@
   ("JonTronShow" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
-  ("24hrMrLocksmith" youtube)
   ("PlumpHelmetPunk" youtube)
   ("ProZD" youtube)
   ("Thunderf00t" youtube)
