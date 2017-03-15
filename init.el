@@ -273,6 +273,7 @@
               (remove-hook 'fill-nobreak-predicate
                            'markdown-inside-link-p t)))
   (setf sentence-end-double-space nil
+        markdown-indent-on-enter nil
         markdown-command
         "pandoc -f markdown -t html5 -s --self-contained --smart"))
 
