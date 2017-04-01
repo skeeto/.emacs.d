@@ -183,6 +183,7 @@
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
   ("https://blog.coinbase.com/rss/" product bitcoin)
   ("http://www.commitstrip.com/en/feed/" comic dev)
+  ("http://www.bitercomics.com/feed/" comic)
   ("http://feeds.feedburner.com/Buttersafe" comic)
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
   ("http://chainsawsuit.com/feed/" comic)
@@ -246,6 +247,7 @@
   ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
+  ("adric22" youtube) ; The 8-bit Guy
   ("Campster" youtube)
   ("damo2986" youtube)
   ("DemolitionRanch" youtube)
