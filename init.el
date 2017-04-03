@@ -70,6 +70,8 @@
 (add-hook 'after-make-frame-functions #'my-set-preferred-font)
 (add-hook 'after-make-frame-functions #'my-set-frame-fullscreen t)
 
+(load-theme 'wombat :no-confirm)
+
 ;;; Individual package configurations
 
 (use-package dabbrev
@@ -449,9 +451,6 @@
         (pop head))
       (let ((default-directory directory))
         (apply #'call-process "etags" nil nil nil results)))))
-
-(use-package wombat
-  :init (load-theme 'wombat :no-confirm))
 
 (use-package javadoc-lookup
   :ensure t
