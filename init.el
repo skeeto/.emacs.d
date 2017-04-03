@@ -70,8 +70,6 @@
 (add-hook 'after-make-frame-functions #'my-set-preferred-font)
 (add-hook 'after-make-frame-functions #'my-set-frame-fullscreen t)
 
-(load-theme 'wombat :no-confirm)
-
 ;;; Individual package configurations
 
 (use-package dabbrev
@@ -221,6 +219,21 @@
 (use-package diff-mode
   :defer t
   :config (add-hook 'diff-mode-hook #'read-only-mode))
+
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t
+  :init
+  (progn
+    (load-theme 'sanityinc-tomorrow-night :no-confirm)
+    (setf frame-background-mode 'dark)
+    (global-hl-line-mode 1)
+    (custom-set-faces
+     '(cursor               ((t :background "#eebb28")))
+     '(diff-added           ((t :foreground "green" :underline nil)))
+     '(diff-removed         ((t :foreground "red" :underline nil)))
+     '(highlight            ((t :background "black" :underline nil)))
+     '(magit-item-highlight ((t :background "black")))
+     '(hl-line              ((t :background "gray10"))))))
 
 (use-package simple
   :defer t
