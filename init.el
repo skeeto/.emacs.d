@@ -175,7 +175,9 @@
         (define-key map "g" 'magit-status))))
   (define-key evil-normal-state-map "\\" my-leader-map)
   (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
+  (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
   (add-to-list 'evil-emacs-state-modes 'special-mode)
+  (add-to-list 'evil-emacs-state-modes 'youtube-dl-list-mode)
   (add-hook 'emacs-lisp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
 
