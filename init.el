@@ -163,6 +163,26 @@
         (2 'font-lock-function-name-face nil t)))
      :low-priority)))
 
+(use-package evil
+  :ensure t
+  :init (evil-mode)
+  :config
+  (defvar my-leader-map
+    (let ((map (make-sparse-keymap)))
+      (prog1 map
+        (define-key map "w" 'elfeed)
+        (define-key map "m" 'notmuch)
+        (define-key map "g" 'magit-status))))
+  (define-key evil-normal-state-map "\\" my-leader-map)
+  (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
+  (add-to-list 'evil-emacs-state-modes 'special-mode)
+  (add-hook 'emacs-lisp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
+  (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
+
+(use-package evil-magit
+  :ensure t
+  :init (require 'evil-magit))
+
 (use-package time
   :config
   (progn
