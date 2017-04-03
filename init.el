@@ -455,13 +455,6 @@
           browse-url-generic-program "xombrero"
           browse-url-generic-args '("-n"))))
 
-(use-package multiple-cursors
-  :ensure t
-  :bind (("C-c e" . mc/edit-lines)
-         ("C-<" . mc/mark-previous-like-this)
-         ("C->" . mc/mark-next-like-this))
-  :init (setf mc/list-file (locate-user-emacs-file "local/mc-lists.el")))
-
 (use-package graphviz-dot-mode
   :ensure t
   :defer t
