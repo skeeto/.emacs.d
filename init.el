@@ -404,47 +404,35 @@
                         :inherit 'error)
     (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")))
 
-(use-package counsel
-  :ensure t
-  :bind (("M-x" . counsel-M-x)))
+(use-package icomplete
+  :init (icomplete-mode)
+  :bind (:map icomplete-minibuffer-map
+              ("<C-tab>" . minibuffer-force-complete)))
 
-(use-package flx
-  :ensure t)
-
-(use-package swiper
-  :ensure t
-  :init (ivy-mode 1)
-  :config
-  (setf ivy-wrap t
-        ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
-  (define-key ivy-minibuffer-map (kbd "C-s") #'ivy-next-line)
-  (define-key ivy-minibuffer-map (kbd "C-r") #'ivy-previous-line)
-  (define-key ivy-minibuffer-map (kbd "TAB") #'ivy-alt-done))
-
-(use-package ggtags
-  :ensure t
+(use-package etags
   :defer t
-  :init
-  (progn
-    (add-hook 'c-mode-common-hook
-              (lambda ()
-                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-                  (ggtags-mode 1))))))
+  :config
+  (defun etags-build (directory)
+    (interactive "DDirectory: ")
+    (let* ((results ())
+           (head (list directory))
+           (tail head))
+      (while head
+        (dolist (file (directory-files (car head) t nil t))
+          (cond ((and (not (string-match "\\.$" file))
+                      (not (string-match "\\.\\.$" file))
+                      (file-directory-p file))
+                 (let ((new-tail (list file)))
+                   (setf (cdr tail) new-tail
+                         tail new-tail)))
+                ((string-match "\\.[ch]$" file)
+                 (push file results))))
+        (pop head))
+      (let ((default-directory directory))
+        (apply #'call-process "etags" nil nil nil results)))))
 
-(use-package color-theme-sanityinc-tomorrow
-  :ensure t
-  :init
-  (progn
-    (load-theme 'sanityinc-tomorrow-night :no-confirm)
-    (setf frame-background-mode 'dark)
-    (global-hl-line-mode 1)
-    (custom-set-faces
-     '(cursor               ((t :background "#eebb28")))
-     '(diff-added           ((t :foreground "green" :underline nil)))
-     '(diff-removed         ((t :foreground "red" :underline nil)))
-     '(highlight            ((t :background "black" :underline nil)))
-     '(magit-item-highlight ((t :background "black")))
-     '(hl-line              ((t :background "gray10"))))))
+(use-package wombat
+  :init (load-theme 'wombat :no-confirm))
 
 (use-package javadoc-lookup
   :ensure t
