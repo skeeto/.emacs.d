@@ -516,24 +516,6 @@
   :config
   (define-key help-mode-map (kbd "f") #'push-first-button))
 
-(use-package vimrc-mode
-  :ensure t
-  :defer t)
-
-(use-package json-mode
-  :ensure t
-  :defer t
-  :config
-  (progn
-    (setf json-reformat:pretty-string? t
-          json-reformat:indent-width 2)
-    (define-key json-mode-map (kbd "M-q")
-      (lambda ()
-        (interactive)
-        (if (region-active-p)
-            (call-interactively #'json-reformat-region)
-          (json-reformat-region (point-min) (point-max)))))))
-
 (use-package gamegrid
   :defer t
   :init
