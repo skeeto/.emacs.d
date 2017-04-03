@@ -151,7 +151,6 @@
       (interactive)
       (pop-to-buffer (get-buffer-create "*ielm*"))
       (ielm))
-    (define-key emacs-lisp-mode-map (kbd "C-x r")   #'ert-all)
     (define-key emacs-lisp-mode-map (kbd "C-c C-z") #'ielm-repl)
     (define-key emacs-lisp-mode-map (kbd "C-c C-k") #'eval-buffer*)
     (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
@@ -480,7 +479,6 @@
       (compile-bind-set-command "nmake -nologo "))
     (compile-bind* (current-global-map)
                    ("C-x c" ""
-                    "C-x r" 'run
                     "C-x t" 'test
                     "C-x C" 'clean))))
 
