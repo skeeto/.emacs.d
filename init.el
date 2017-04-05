@@ -178,6 +178,7 @@
   (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
   (add-to-list 'evil-emacs-state-modes 'special-mode)
   (add-to-list 'evil-emacs-state-modes 'youtube-dl-list-mode)
+  (evil-select-search-module 'evil-search-module 'evil-search)
   (add-hook 'emacs-lisp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
 
