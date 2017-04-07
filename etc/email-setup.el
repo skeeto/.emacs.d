@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require 'cl-lib)
-(require 'utility)
 (require 'notmuch)
 
 ;; Displaying zip/tar inline is a really, really stupid default!

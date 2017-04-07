@@ -27,58 +27,11 @@
    ;; Default
    1))
 
-;; Move line functions
-(defun move-line (n)
-  "Move the current line up or down by N lines."
-  (interactive "p")
-  (let* ((column (current-column))
-         (start (progn (beginning-of-line) (point)))
-         (end (progn (end-of-line) (forward-char) (point)))
-         (line-text (delete-and-extract-region start end)))
-    (forward-line n)
-    (insert line-text)
-    (forward-line -1)
-    (forward-char column)))
-
-(defun move-line-up (n)
-  "Move the current line up by N lines."
-  (interactive "p")
-  (move-line (if (null n) -1 (- n))))
-
-(defun move-line-down (n)
-  "Move the current line down by N lines."
-  (interactive "p")
-  (move-line (if (null n) 1 n)))
-
-(global-set-key (kbd "M-<up>") 'move-line-up)
-(global-set-key (kbd "M-<down>") 'move-line-down)
-
 ;; Takes a multi-line paragraph and makes it into a single line of text
 (defun unfill-paragraph ()
   (interactive)
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
-
-;; Fibonacci
-
-(defun fib (n)
-  "Fibanacci sequence, slow implementation."
-  (if (<= n 2) 1
-    (+ (fib (- n 2)) (fib (- n 1)))))
-
-;; Window width
-
-(defun set-window-width (n)
-  "Set the selected window's width."
-  (adjust-window-trailing-edge (selected-window) (- n (window-width)) t))
-
-(defun set-80-columns ()
-  "Set the selected window to 80 columns. If given a prefix
-argument, set so that number of columns instead."
-  (interactive)
-  (set-window-width (or current-prefix-arg 80)))
-
-(global-set-key (kbd "C-x ~") #'set-80-columns)
 
 ;; ID: 6a3f3d99-f0da-329a-c01c-bb6b868f3239
 (defmacro measure-time (&rest body)
@@ -112,25 +65,6 @@ argument, set so that number of columns instead."
   (kill-sexp -1)
   (insert (format "%S" value)))
 
-(defun launch (command)
-  "Launch an application from Emacs, with its own output
-buffer. This is like asynch-shell-command but allows for any
-number of processes at a time, rather than just one. If given a
-prefix argument, the process's buffer is displayed."
-  (interactive (list (read-shell-command (concat default-directory "$ "))))
-  (let* ((name (car (split-string-and-unquote command)))
-         (buffer (generate-new-buffer (concat "*" name "*"))))
-    (set-process-sentinel (start-process-shell-command name buffer command)
-                          'launch-sentinel)
-    (if (eq (car current-prefix-arg) 4)
-        (display-buffer buffer))))
-
-(defun launch-sentinel (proc event)
-  "Reports on changes in `launch'ed applications."
-  (message (format "%s: %s" proc event)))
-
-(global-set-key (kbd "s-x") 'launch)
-
 ;; Dictionary lookup
 
 (autoload 'ispell-get-word "ispell")
@@ -140,22 +74,6 @@ prefix argument, the process's buffer is displayed."
   (browse-url (format "http://en.wiktionary.org/wiki/%s" word)))
 
 (global-set-key (kbd "M-#") 'lookup-word)
-
-;; Region fashing (from Slime)
-
-(defun flash-region (start end &optional timeout)
-  "Temporarily highlight region from START to END."
-  (let ((overlay (make-overlay start end)))
-    (overlay-put overlay 'face 'secondary-selection)
-    (run-with-timer (or timeout 0.2) nil 'delete-overlay overlay)))
-
-;; File input
-
-(defun slurp (file)
-  "Return FILE contents as a string."
-  (with-temp-buffer
-    (insert-file-contents file)
-    (buffer-string)))
 
 ;; Quick switch to scratch buffers
 
@@ -197,21 +115,6 @@ prefix argument, the process's buffer is displayed."
              (buffer-name))))
 
 (global-set-key (kbd "<pause>") #'toggle-current-window-dedication)
-
-(defun eval-buffer* (&optional buffer)
-  "Like `eval-buffer', but obey `lexical-binding'. It does
-everything the original function does, except for modifying
-`load-history'."
-  (interactive)
-  (with-current-buffer (or buffer (current-buffer))
-    (save-excursion
-      (goto-char (point-min))
-      (cl-loop while (< (point) (point-max))
-               for sexp = (condition-case _
-                              (read (current-buffer))
-                            (end-of-file nil))
-               do (eval sexp lexical-binding)))
-    (message "%S loaded" (current-buffer))))
 
 (defun what-face (pos)
   "Show the name of face under point."
@@ -281,13 +184,6 @@ Ignores leading comment characters."
 
 ;; Buffers
 
-(defun list-all-buffers (&optional files-only)
-  "Display a list of names of existing buffers.
-The list is displayed in a buffer named `*Buffer List*'.
-Non-null optional arg FILES-ONLY means mention only file buffers."
-  (interactive "P")
-  (display-buffer (list-buffers-noselect files-only (buffer-list))))
-
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root.
 With a prefix ARG prompt for a file to visit.
@@ -335,44 +231,5 @@ buffer is not visiting a file."
    (format "https://www.youtube.com/results?search_query=filthyrobot+%%22game+%d%%22&filters=playlist" n)))
 
 (provide 'extras)
-
-;; Super-format (string interpolated format)
-
-(defun superf--parts (format)
-  "Return a list of format string parts from FORMAT."
-  (let ((parts ())
-        (start 0)
-        (match nil))
-    (while (setf match (string-match-p "%" format start))
-      (if (not (eql ?% (aref format (1+ match))))
-          ;; interpolation directive
-          (cl-destructuring-bind
-              (value . end) (read-from-string format (1+ match))
-            (when (> match start)
-              (push (substring format start match) parts))
-            (push value parts)
-            (setf start end))
-        ;; literal %
-        (push (substring format start (1+ match)) parts)
-        (setf start (+ 2 match))))
-    (when (< start (length format))
-      (push (substring format start) parts))
-    (nreverse parts)))
-
-(defmacro superf (format)
-  "Formatted output with string interpolation in FORMAT.
-
-The FORMAT argument *must* be a compile-time string because it is
-parsed at macro-expansion time. Lisp expressions following a
-single % are evaluated when the `superf' is evaluated. A double
-%% represents a literal %."
-  (let ((parts (superf--parts format)))
-    `(with-temp-buffer
-       ,@(cl-loop for part in parts
-                  when (stringp part)
-                  collect `(insert ,part)
-                  else
-                  collect `(princ ,part (current-buffer)))
-       (buffer-string))))
 
 ;;; extras.el ends here

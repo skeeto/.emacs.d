@@ -31,7 +31,13 @@
 (require 'unannoy)
 (require 'imgur)
 (require 'extras)
-(require 'utility)
+
+;; Define `expose' since it's used everywhere.
+(defun expose (function &rest args)
+  "Return an interactive version of FUNCTION, 'exposing' it to the user."
+  (lambda ()
+    (interactive)
+    (apply function args)))
 
 ;; Some global keybindings
 (global-set-key (kbd "C-j") #'join-line)
@@ -152,7 +158,6 @@
       (pop-to-buffer (get-buffer-create "*ielm*"))
       (ielm))
     (define-key emacs-lisp-mode-map (kbd "C-c C-z") #'ielm-repl)
-    (define-key emacs-lisp-mode-map (kbd "C-c C-k") #'eval-buffer*)
     (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
     (font-lock-add-keywords
      'emacs-lisp-mode
