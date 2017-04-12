@@ -29,7 +29,6 @@
 
 ;; Load local "packages"
 (require 'unannoy)
-(require 'imgur)
 (require 'extras)
 
 ;; Define `expose' since it's used everywhere.
