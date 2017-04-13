@@ -24,9 +24,6 @@
 ;; Too distracting
 (blink-cursor-mode -1)
 
-;; Don't jerk me around
-(electric-indent-mode -1)
-
 ;; I never want to use this
 (when (fboundp 'set-horizontal-scroll-bar-mode)
   (set-horizontal-scroll-bar-mode nil))
