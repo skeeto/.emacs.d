@@ -190,6 +190,10 @@
   :ensure t
   :init (require 'evil-magit))
 
+(use-package evil-cleverparens
+  :ensure t
+  :init (setf evil-cleverparens-use-additional-movement-keys nil))
+
 (use-package time
   :config
   (progn
