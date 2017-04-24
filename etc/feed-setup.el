@@ -192,6 +192,7 @@
   ("http://crawl.develz.org/wordpress/feed" blog gaming product)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
   ("https://www.debian.org/security/dsa" debian list security important)
+  ("https://www.debian.org/News/news" debian list)
   ("http://dvdp.tumblr.com/rss" image)
   ("https://www.digitalocean.com/blog/feed" blog product)
   ("http://bay12games.com/dwarves/dev_now.rss" blog gaming product)
@@ -214,7 +215,6 @@
   ("http://feeds.feedburner.com/lefthandedtoons/awesome" comic)
   ("http://gottwurfelt.wordpress.com/feed/" blog math)
   ("http://feeds.feedburner.com/LoadingArtist" comic)
-  ("http://www.lunarbaboon.com/comics/rss.xml" comic)
   ("https://www.masteringemacs.org/feed" blog emacs)
   ("http://www.mazelog.com/rss" math puzzle)
   ("http://www.mrlovenstein.com/rss.xml" comic)
@@ -266,6 +266,7 @@
   ("MatthiasWandel" youtube)
   ("PlumpHelmetPunk" youtube)
   ("ProZD" youtube)
+  ("UCO8DQrSp5yEP937qNqTooOw" youtube) ; Strange Parts
   ("Thunderf00t" youtube)
   ("handmadeheroarchive" youtube dev)
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
