@@ -189,7 +189,6 @@
   ("http://chainsawsuit.com/feed/" comic)
   ("http://feeds.feedburner.com/channelATE" comic)
   ("http://deep-dark-fears.tumblr.com/rss" comic)
-  ("http://crawl.develz.org/wordpress/feed" blog gaming product)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
   ("https://www.debian.org/security/dsa" debian list security important)
   ("https://www.debian.org/News/news" debian list)
@@ -248,7 +247,6 @@
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-bit Guy
-  ("Campster" youtube)
   ("damo2986" youtube)
   ("DemolitionRanch" youtube)
   ("destinws2" youtube)
