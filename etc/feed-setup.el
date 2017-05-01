@@ -175,6 +175,7 @@
 (elfeed-config
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
+  ("https://www.npr.org/rss/podcast.php?id=510299" audio)
   ("http://english.bouletcorp.com/feed/" comic)
   ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
   ("http://bit-player.org/feed" blog math)
@@ -203,6 +204,7 @@
   ("http://www.exocomics.com/feed" comic)
   ("https://www.factorio.com/blog/rss" blog dev gaming product)
   ("http://www.tedunangst.com/flak/rss" dev blog)
+  ("https://flapenguin.me/atom.xml" dev blog)
   ("http://firefly.nu/feeds/all.atom.xml" blog dev)
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.goneintorapture.com/rss" comic)
