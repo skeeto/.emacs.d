@@ -105,35 +105,6 @@
             ("\\(\\.png\\|\\.jpe?g\\)\\'" "qiv")
             ("\\.gif\\'" "animate")))))
 
-(use-package notmuch
-  :ensure t
-  :bind ("C-x m" . notmuch)
-  :config
-  (progn
-    (require 'email-setup)
-    (require 'notmuch-address)
-    (define-key notmuch-common-keymap "q" (expose #'kill-buffer))
-    (define-key notmuch-message-mode-map (kbd "C-x C-s") nil)
-    (define-key notmuch-message-mode-map (kbd "C-c C-s") nil) ; super annoying
-    (setf notmuch-command "notmuch-remote"
-          message-send-mail-function 'smtpmail-send-it
-          message-kill-buffer-on-exit t
-          smtpmail-smtp-server "localhost"
-          smtpmail-smtp-service 2525
-          notmuch-address-command "addrlookup-remote"
-          notmuch-fcc-dirs nil
-          notmuch-search-oldest-first nil
-          notmuch-archive-tags '("-inbox" "-unread" "+archive")
-          hashcash-path (executable-find "hashcash"))
-    (custom-set-faces
-     '(notmuch-search-subject ((t :foreground "#afa")))
-     '(notmuch-search-date    ((t :foreground "#aaf")))
-     '(notmuch-search-count   ((t :foreground "#777"))))
-    (setq notmuch-hello-sections
-          '(notmuch-hello-insert-header
-            notmuch-hello-insert-saved-searches
-            notmuch-hello-insert-search))))
-
 (use-package elfeed
   :ensure t
   :bind ("C-x w" . elfeed)
@@ -175,7 +146,6 @@
     (let ((map (make-sparse-keymap)))
       (prog1 map
         (define-key map "w" 'elfeed)
-        (define-key map "m" 'notmuch)
         (define-key map "g" 'magit-status))))
   (define-key evil-normal-state-map "\\" my-leader-map)
   (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
