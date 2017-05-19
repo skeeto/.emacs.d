@@ -51,6 +51,9 @@
       scroll-conservatively most-positive-fixnum
       scroll-preserve-screen-position t)
 
+;; Don't middle-click paste under the mouse!
+(setf mouse-yank-at-point t)
+
 (provide 'unannoy)
 
 ;;; unannoy.el ends here
