@@ -204,6 +204,7 @@
   ("http://www.extrafabulouscomics.com/1/feed" comic)
   ("http://www.exocomics.com/feed" comic)
   ("https://www.factorio.com/blog/rss" blog dev gaming product)
+  ("http://freakonomics.com/feed/" audio)
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("https://flapenguin.me/atom.xml" dev blog)
   ("http://firefly.nu/feeds/all.atom.xml" blog dev)
