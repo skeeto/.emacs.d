@@ -210,12 +210,7 @@
     (setf frame-background-mode 'dark)
     (global-hl-line-mode 1)
     (custom-set-faces
-     '(cursor               ((t :background "#eebb28")))
-     '(diff-added           ((t :foreground "green" :underline nil)))
-     '(diff-removed         ((t :foreground "red" :underline nil)))
-     '(highlight            ((t :background "black" :underline nil)))
-     '(magit-item-highlight ((t :background "black")))
-     '(hl-line              ((t :background "gray10"))))))
+     '(cursor               ((t :background "#eebb28"))))))
 
 (use-package simple
   :defer t
