@@ -58,6 +58,7 @@
 
 (defvar my-preferred-fonts
   '("Droid Sans Mono-10"
+    "Noto Mono-10"
     "Inconsolata-12"))
 
 (defun my-set-preferred-font (&optional frame)
