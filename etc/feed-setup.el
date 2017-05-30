@@ -213,6 +213,7 @@
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.goneintorapture.com/rss" comic)
   ("http://www.businesscat.happyjar.com/feed/" comic)
+  ("https://heredragonsabound.blogspot.com/feeds/posts/default" dev blog)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
   ("http://irreal.org/blog/?feed=rss2" blog)
