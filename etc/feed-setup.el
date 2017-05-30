@@ -177,6 +177,7 @@
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
+  ("http://bartlebysbackpack.com/feed/" blog gaming)
   ("http://english.bouletcorp.com/feed/" comic)
   ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
   ("http://bit-player.org/feed" blog math)
