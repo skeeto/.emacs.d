@@ -257,6 +257,7 @@
   ("damo2986" youtube)
   ("DemolitionRanch" youtube)
   ("destinws2" youtube)
+  ("EEVblog" youtube)
   ("everyframeapainting" youtube)
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
