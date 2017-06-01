@@ -258,6 +258,7 @@
   ("DemolitionRanch" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
+  ("UCkGvUEt8iQLmq3aJIMjT2qQ" youtube) ; EEVdiscover
   ("everyframeapainting" youtube)
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
