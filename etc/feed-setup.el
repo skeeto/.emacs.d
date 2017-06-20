@@ -214,6 +214,7 @@
   ("http://www.goneintorapture.com/rss" comic)
   ("http://www.businesscat.happyjar.com/feed/" comic)
   ("https://heredragonsabound.blogspot.com/feeds/posts/default" dev blog)
+  ("https://fasiha.github.io/atom.xml" blog dev)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
   ("http://irreal.org/blog/?feed=rss2" blog)
@@ -269,10 +270,10 @@
   ("KiteTales" youtube)
   ("UCXNxwOuuR7LT-SkEfOJiwgA" youtube) ; Long Plays
   ("jastownsendandson" youtube)
-  ("JonTronShow" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
   ("PlumpHelmetPunk" youtube)
+  ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
   ("ProZD" youtube)
   ("UCO8DQrSp5yEP937qNqTooOw" youtube) ; Strange Parts
   ("Thunderf00t" youtube)
