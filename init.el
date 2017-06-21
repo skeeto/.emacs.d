@@ -40,7 +40,6 @@
 
 ;; Some global keybindings
 (global-set-key (kbd "M-g") #'goto-line)
-(global-set-key (kbd "C-x C-k") #'compile)
 (global-set-key (kbd "<f5>") (expose #'revert-buffer nil t))
 (global-set-key (kbd "C-=") #'calc)
 (global-set-key (kbd "C-x k") #'kill-this-buffer)
