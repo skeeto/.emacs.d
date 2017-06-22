@@ -5,8 +5,12 @@
 ;;; Commentary:
 
 ;; Git submodules are terrible and I refuse to use them to manage
-;; packages. This package downloads and compiles packages from Git
-;; repositories at specific revisions.
+;; packages. This package downloads packages directly from Git
+;; repositories and compiles them at specific commits.
+
+;; It's a brute-force process with no dependency management. Some
+;; packages require massaging in order to get them working, such as
+;; using the :removal feature to delete unnecessary files.
 
 ;;; Code:
 
