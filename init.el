@@ -14,29 +14,14 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/etc")
 
-;; Set up package manager
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(setq package-enable-at-startup nil
-      ;; work around package.el bug in Emacs 25
-      package--init-file-ensured t)
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; Package bootstrap
+(load-file "~/.emacs.d/packages.el")
+(setf package-enable-at-startup nil)
 (require 'use-package)
 
-;; Load local "packages"
+;; "Local" packages
 (require 'unannoy)
 (require 'extras)
-
-;; Define `expose' since it's used everywhere.
-(defun expose (function &rest args)
-  "Return an interactive version of FUNCTION, 'exposing' it to the user."
-  (lambda ()
-    (interactive)
-    (apply function args)))
 
 ;; Some global keybindings
 (global-set-key (kbd "M-g") #'goto-line)
@@ -83,7 +68,6 @@
 
 (use-package impatient-mode
   :defer t
-  :ensure t
   :config
   (defun imp-markdown-filter (in)
     (let ((out (current-buffer)))
@@ -105,7 +89,6 @@
             ("\\.gif\\'" "animate")))))
 
 (use-package elfeed
-  :ensure t
   :bind ("C-x w" . elfeed)
   :init (setf url-queue-timeout 30)
   :config
@@ -138,9 +121,8 @@
      :low-priority)))
 
 (use-package evil
-  :ensure t
-  :init (evil-mode)
   :config
+  (evil-mode)
   (defvar my-leader-map
     (let ((map (make-sparse-keymap)))
       (prog1 map
@@ -157,11 +139,9 @@
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
 
 (use-package evil-magit
-  :ensure t
   :init (require 'evil-magit))
 
 (use-package evil-cleverparens
-  :ensure t
   :init (setf evil-cleverparens-use-additional-movement-keys nil))
 
 (use-package time
@@ -191,25 +171,21 @@
         (concat temporary-file-directory "tramp-" (user-login-name))))
 
 (use-package whitespace-cleanup-mode
-  :ensure t
-  :init
-  (progn
-    (setq-default indent-tabs-mode nil)
-    (global-whitespace-cleanup-mode)))
+  :config
+  (setq-default indent-tabs-mode nil)
+  (global-whitespace-cleanup-mode))
 
 (use-package diff-mode
   :defer t
   :config (add-hook 'diff-mode-hook #'read-only-mode))
 
 (use-package color-theme-sanityinc-tomorrow
-  :ensure t
-  :init
-  (progn
-    (load-theme 'sanityinc-tomorrow-night :no-confirm)
-    (setf frame-background-mode 'dark)
-    (global-hl-line-mode 1)
-    (custom-set-faces
-     '(cursor               ((t :background "#eebb28"))))))
+  :config
+  (setf custom-safe-themes t)
+  (color-theme-sanityinc-tomorrow-night)
+  (global-hl-line-mode 1)
+  (custom-set-faces
+   '(cursor ((t :background "#eebb28")))))
 
 (use-package simple
   :defer t
@@ -243,7 +219,6 @@
               (define-key eshell-mode-map (kbd "<f1>") #'quit-window))))
 
 (use-package magit
-  :ensure t
   :bind ("C-x g" . magit-status)
   :init (setf magit-last-seen-setup-instructions "2.1.0")
   :config
@@ -253,7 +228,6 @@
                'git-commit-check-style-conventions))
 
 (use-package gitconfig-mode
-  :ensure t
   :defer t
   :config (add-hook 'gitconfig-mode-hook
                     (lambda ()
@@ -261,7 +235,6 @@
                             tab-width 4))))
 
 (use-package markdown-mode
-  :ensure t
   :mode ("\\.md$" "\\.markdown$" "vimperator-.+\\.tmp$")
   :config
   (add-hook 'markdown-mode-hook
@@ -280,7 +253,6 @@
   (setf octave-block-offset 4))
 
 (use-package simple-httpd
-  :ensure t
   :defer t
   :functions httpd-send-header
   :config
@@ -296,7 +268,6 @@
           (set-process-query-on-exit-flag httpd-process nil))))))
 
 (use-package js2-mode
-  :ensure t
   :mode "\\.js$"
   :config
   (progn
@@ -308,14 +279,11 @@
                     "console" "phantom"))))
 
 (use-package skewer-mode
-  :ensure t
-  :defer t
-  :init (skewer-setup)
+  :init
+  (require 'skewer-setup)
   :config
-  (progn
-    (setf skewer-bower-cache-dir (locate-user-emacs-file "local/skewer"))
-    (define-key skewer-mode-map (kbd "C-c $")
-      (expose #'skewer-bower-load "jquery" "1.9.1"))))
+  (skewer-setup)
+  (setf skewer-bower-cache-dir (locate-user-emacs-file "local/skewer")))
 
 (use-package skewer-repl
   :defer t
@@ -326,7 +294,6 @@
   :config (setf ps-print-header nil))
 
 (use-package glsl-mode
-  :ensure t
   :mode ("\\.fs$" "\\.vs$"))
 
 (use-package erc
@@ -352,7 +319,6 @@
     (add-to-list 'c-default-style '(c++-mode . "k&r"))))
 
 (use-package nasm-mode
-  :ensure t
   :defer t
   :mode ("\\.nasm$" "\\.asm$" "\\.s$")
   :config
@@ -364,7 +330,6 @@
                                             tab-always-indent t))))
 
 (use-package x86-lookup
-  :ensure t
   :defer t
   :bind ("C-h x" . x86-lookup)
   :functions x86-lookup-browse-pdf-evince
@@ -385,7 +350,6 @@
       (paredit-open-round))))
 
 (use-package paredit
-  :ensure t
   :defer t
   :init
   (progn
@@ -399,20 +363,15 @@
   :config (show-paren-mode))
 
 (use-package rainbow-delimiters
-  :ensure t
-  :defer t
-  :init
-  (progn
-    (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-    (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode))
   :config
-  (progn
-    (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")
-    (setf rainbow-delimiters-max-face-count 1)
-    (set-face-attribute 'rainbow-delimiters-unmatched-face nil
-                        :foreground 'unspecified
-                        :inherit 'error)
-    (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")))
+  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode)
+  (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")
+  (setf rainbow-delimiters-max-face-count 1)
+  (set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                      :foreground 'unspecified
+                      :inherit 'error)
+  (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4"))
 
 (use-package icomplete
   :init (icomplete-mode)
@@ -442,7 +401,6 @@
         (apply #'call-process "etags" nil nil nil results)))))
 
 (use-package javadoc-lookup
-  :ensure t
   :defer t
   :bind ("C-h j" . javadoc-lookup)
   :config
@@ -450,7 +408,6 @@
     (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))))
 
 (use-package gnuplot-mode
-  :ensure t
   :defer t)
 
 (use-package browse-url
@@ -463,7 +420,6 @@
           browse-url-generic-args '("-n"))))
 
 (use-package graphviz-dot-mode
-  :ensure t
   :defer t
   :config
   (setf graphviz-dot-indent-width 2
@@ -494,7 +450,6 @@
   :defer t)
 
 (use-package yaml-mode
-  :ensure t
   :defer t
   :config
   (add-hook 'yaml-mode-hook
@@ -551,10 +506,5 @@
 (use-package enriched
   :config
   (define-key enriched-mode-map "\C-m" nil))
-
-;; Compile configuration
-(byte-recompile-directory "~/.emacs.d/lisp/" 0)
-(byte-recompile-directory "~/.emacs.d/etc/" 0)
-(byte-recompile-file "~/.emacs.d/init.el" nil 0)
 
 (provide 'init) ; make (require 'init) happy

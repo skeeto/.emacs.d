@@ -1,5 +1,6 @@
 local/
 elpa/
+gpkg/
 auto-save-list/
 .cask/
 *.elc

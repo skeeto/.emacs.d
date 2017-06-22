@@ -5,6 +5,12 @@
 (require 'cl-lib)
 (require 'pp)
 
+(defun expose (function &rest args)
+  "Return an interactive version of FUNCTION, 'exposing' it to the user."
+  (lambda ()
+    (interactive)
+    (apply function args)))
+
 ;; System
 
 (defun numcores ()
