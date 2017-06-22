@@ -19,9 +19,11 @@
   "1.4.6")
  ("htmlize" "https://github.com/hniksic/emacs-htmlize"
   "release/1.51")
- ("impatient-mode" "https://github.com/skeeto/impatient-mode" "1.0.0")
+ ("impatient-mode" "https://github.com/skeeto/impatient-mode"
+  "1.0.0")
  ("whitespace-cleanup-mode"
-  "https://github.com/purcell/whitespace-cleanup-mode" "0.2")
+  "https://github.com/purcell/whitespace-cleanup-mode"
+  "0.2")
  ("async" "https://github.com/jwiegley/emacs-async"
   "v1.9.2")
  ("dash" "https://github.com/magnars/dash.el"
