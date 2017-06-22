@@ -79,6 +79,7 @@
   (byte-recompile-directory gpkg-root 0))
 
 (defmacro gpkg-config (&rest packages)
+  "Thread each list as arguments for `gpkg-install'."
   (cl-loop for package in packages
            collect `(gpkg-install ,@package) into sexp
            finally return `(progn ,@sexp)))
