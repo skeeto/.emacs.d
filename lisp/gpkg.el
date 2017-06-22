@@ -67,7 +67,7 @@
                  (equal (gpkg-package-id name)
                         (gpkg-package-id name ref)))
       (let ((default-directory root))
-        (gpkg-git "fetch" url root)
+        (gpkg-git "fetch")
         (gpkg-git "clean" "-dfx")
         (gpkg-git "checkout" ref)
         (gpkg-purge root (append removal gpkg-removal))))
