@@ -448,9 +448,6 @@
                     "C-x t" 'test
                     "C-x C" 'clean))))
 
-(use-package batch-mode
-  :defer t)
-
 (use-package yaml-mode
   :defer t
   :config
@@ -483,10 +480,6 @@
   :defer t
   :init
   (setf gamegrid-user-score-file-directory (locate-user-emacs-file "games")))
-
-(use-package apt-sources-mode
-  :defer t
-  :mode "sources.list$")
 
 (use-package pov-mode
   :defer t
