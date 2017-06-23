@@ -12,12 +12,15 @@
 
 (make-directory (locate-user-emacs-file "local") :no-error)
 (add-to-list 'load-path
+             (format "~/.emacs.d/site-lisp/%s" emacs-version))
+(add-to-list 'load-path
              (format "~/.emacs.d/site-lisp/%s/lisp" emacs-version))
 (add-to-list 'load-path
              (format "~/.emacs.d/site-lisp/%s/etc" emacs-version))
 
 ;; Package bootstrap
 (load-file "~/.emacs.d/packages.el")
+(require 'autoloads)
 (setf package-enable-at-startup nil)
 (require 'use-package)
 
@@ -90,6 +93,7 @@
             ("\\.gif\\'" "animate")))))
 
 (use-package elfeed
+  :defer t
   :bind ("C-x w" . elfeed)
   :init (setf url-queue-timeout 30)
   :config
@@ -97,6 +101,7 @@
   (setf bookmark-default-file (locate-user-emacs-file "local/bookmarks")))
 
 (use-package youtube-dl
+  :defer t
   :bind ("C-x y" . youtube-dl-list))
 
 (use-package lisp-mode
@@ -140,12 +145,13 @@
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
 
 (use-package evil-magit
+  :defer t
   :init (require 'evil-magit))
 
 (use-package evil-cleverparens
+  :defer t
   :init
   (setf evil-cleverparens-use-additional-movement-keys nil)
-  :config
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode))
 
 (use-package time
@@ -200,20 +206,21 @@
     (add-hook 'tabulated-list-mode-hook #'hl-line-mode)))
 
 (use-package uniquify
+  :defer t
   :config
   (setf uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 (use-package winner
   :config
-  (progn
-    (winner-mode 1)
-    (windmove-default-keybindings)))
+  (winner-mode 1)
+  (windmove-default-keybindings))
 
 (use-package calc
   :defer t
   :config (setf calc-display-trail nil))
 
 (use-package eshell
+  :defer t
   :bind ([f1] . eshell-as)
   :init
   (setf eshell-directory-name (locate-user-emacs-file "local/eshell"))
@@ -223,6 +230,7 @@
               (define-key eshell-mode-map (kbd "<f1>") #'quit-window))))
 
 (use-package magit
+  :defer t
   :bind ("C-x g" . magit-status)
   :init (setf magit-last-seen-setup-instructions "2.1.0")
   :config
@@ -239,6 +247,7 @@
                             tab-width 4))))
 
 (use-package markdown-mode
+  :defer t
   :mode ("\\.md$" "\\.markdown$" "vimperator-.+\\.tmp$")
   :config
   (add-hook 'markdown-mode-hook
@@ -272,22 +281,20 @@
           (set-process-query-on-exit-flag httpd-process nil))))))
 
 (use-package js2-mode
+  :defer t
   :mode "\\.js$"
   :config
-  (progn
-    (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
-    (setf js2-skip-preprocessor-directives t)
-    (setq-default js2-additional-externs
-                  '("$" "unsafeWindow" "localStorage" "jQuery"
-                    "setTimeout" "setInterval" "location" "skewer"
-                    "console" "phantom"))))
+  (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
+  (setf js2-skip-preprocessor-directives t)
+  (setq-default js2-additional-externs
+                '("$" "unsafeWindow" "localStorage" "jQuery"
+                  "setTimeout" "setInterval" "location" "skewer"
+                  "console" "phantom")))
 
 (use-package skewer-mode
+  :defer t
   :init
-  (require 'skewer-setup)
-  :config
-  (skewer-setup)
-  (setf skewer-bower-cache-dir (locate-user-emacs-file "local/skewer")))
+  (skewer-setup))
 
 (use-package skewer-repl
   :defer t
@@ -298,6 +305,7 @@
   :config (setf ps-print-header nil))
 
 (use-package glsl-mode
+  :defer t
   :mode ("\\.fs$" "\\.vs$"))
 
 (use-package erc
@@ -329,7 +337,8 @@
   (add-hook 'nasm-mode-hook (lambda () (setf indent-tabs-mode t))))
 
 (use-package asm-mode
-  :config
+  :defer t
+  :init
   (add-hook 'asm-mode-hook (lambda () (setf indent-tabs-mode t
                                             tab-always-indent t))))
 
@@ -367,9 +376,11 @@
   :config (show-paren-mode))
 
 (use-package rainbow-delimiters
-  :config
+  :defer t
+  :init
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode)
+  :config
   (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")
   (setf rainbow-delimiters-max-face-count 1)
   (set-face-attribute 'rainbow-delimiters-unmatched-face nil
@@ -378,7 +389,8 @@
   (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4"))
 
 (use-package icomplete
-  :init (icomplete-mode)
+  :init
+  (icomplete-mode)
   :bind (:map icomplete-minibuffer-map
               ("<C-tab>" . minibuffer-force-complete)))
 
@@ -416,7 +428,8 @@
 
 (use-package browse-url
   :defer t
-  :init (setf url-cache-directory (locate-user-emacs-file "local/url"))
+  :init
+  (setf url-cache-directory (locate-user-emacs-file "local/url"))
   :config
   (when (executable-find "firefox")
     (setf browse-url-browser-function #'browse-url-firefox
@@ -493,14 +506,17 @@
   (mkdir irfc-directory t))
 
 (use-package ospl-mode
+  :defer t
   :init
   (autoload 'ospl-mode "ospl-mode"))
 
 (use-package sql
+  :defer t
   :init
   (setf sql-product 'sqlite))
 
 (use-package enriched
+  :defer t
   :config
   (define-key enriched-mode-map "\C-m" nil))
 
