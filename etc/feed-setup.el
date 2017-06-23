@@ -200,7 +200,6 @@
   ("http://bay12games.com/dwarves/dev_now.rss" blog gaming product)
   ("http://danwang.co/feed/" blog philosophy)
   ("http://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
-  ("http://emacshorrors.com/feed.atom" blog emacs)
   ("http://feeds.exploringbinary.com/ExploringBinary" blog dev)
   ("http://feeds.feedburner.com/Explosm" comic)
   ("http://www.extrafabulouscomics.com/1/feed" comic)
