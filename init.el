@@ -141,8 +141,9 @@
   :init (require 'evil-magit))
 
 (use-package evil-cleverparens
-  :config
+  :init
   (setf evil-cleverparens-use-additional-movement-keys nil)
+  :config
   (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode))
 
 (use-package time
