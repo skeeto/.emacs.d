@@ -64,6 +64,9 @@
  ("pov-mode" "https://github.com/melmothx/pov-mode"
   "9fc1db3"))
 
+;; Magit annoyance workaround
+(setf magit-version (gpkg-package-ref "magit"))
+
 ;; Set up some extra load-path directories
-(add-to-list 'load-path (gpkg-root "evil" "lib"))
-(add-to-list 'load-path (gpkg-root "magit" "lisp"))
+(add-to-list 'load-path (gpkg-path "evil" "lib"))
+(add-to-list 'load-path (gpkg-path "magit" "lisp"))
