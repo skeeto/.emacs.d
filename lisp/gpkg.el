@@ -18,6 +18,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'autoload)
 
 (defvar gpkg-root "~/.emacs.d/gpkg"
   "Directory that stores Git repositories.")
@@ -86,7 +87,9 @@
 (defun gpkg-checkout (name)
   "Checkout files for NAME."
   (mkdir (file-name-as-directory gpkg-install) t)
-  (let ((default-directory (file-name-as-directory gpkg-install)))
+  (let* ((install (expand-file-name emacs-version gpkg-install))
+         (generated-autoload-file (expand-file-name "autoloads.el" install))
+         (default-directory (file-name-as-directory gpkg-install)))
     (call-process-shell-command
      (format
       "git -C \"%s\" archive --format=tar --prefix=\"%s/%s/\" \"%s\" | tar xf -"
@@ -95,7 +98,8 @@
       (shell-quote-argument name)
       (shell-quote-argument (gpkg-package-ref name))))
     (gpkg-purge (gpkg-path name)
-                (append (gpkg-package-removal name) gpkg-removal))))
+                (append (gpkg-package-removal name) gpkg-removal))
+    (update-directory-autoloads (gpkg-path name))))
 
 (defun gpkg-ref-to-commit (name ref)
   "Return the commit for NAME at optional REF (HEAD)."
