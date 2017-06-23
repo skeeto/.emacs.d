@@ -25,15 +25,19 @@
 (defvar gpkg-removal '("^t$" "^tests?$" "-pkg.el$")
   "Files/directories in packages matching these patterns are deleted.")
 
-(defun gpkg-git (&rest args)
+(defun gpkg-git (name &rest args)
   "Run git with the given command line arguments."
-  (apply #'call-process "git" nil nil nil args))
+  (when name
+    (push (gpkg-root name) args)
+    (push "-C" args))
+  (princ (format "%S\n" (cons 'git args)))
+  (apply #'call-process "git" nil '(:file "/dev/stdout") nil args))
 
-(cl-defun gpkg-package-id (name &optional (ref "HEAD"))
+(cl-defun gpkg-id (name &optional (ref "HEAD"))
   "Return the commit ID for NAME at optional REF (HEAD)."
   (with-temp-buffer
-    (let ((default-directory (gpkg-root name)))
-      (call-process "git" nil t nil "rev-parse" (format "%s^{commit}" ref)))
+    (call-process "git" nil t nil "-C" (gpkg-root name)
+                  "rev-parse" (format "%s^{commit}" ref))
     (buffer-substring (point-min) (1- (point-max)))))
 
 (defun gpkg-purge (dir removal)
@@ -59,18 +63,17 @@
   (let ((root (gpkg-root name))
         (fresh-clone nil))
     (unless (file-exists-p root)
-      (gpkg-git "clone" url root)
+      (gpkg-git nil "clone" url root)
       (setf fresh-clone t)
-      (let ((default-directory root))
-        (gpkg-git "gc")))
+      (gpkg-git name "gc"))
     (unless (and (not fresh-clone)
-                 (equal (gpkg-package-id name)
-                        (gpkg-package-id name ref)))
-      (let ((default-directory root))
-        (gpkg-git "fetch")
-        (gpkg-git "clean" "-dfx")
-        (gpkg-git "checkout" ref)
-        (gpkg-purge root (append removal gpkg-removal))))
+                 (equal (gpkg-id name)
+                        (gpkg-id name ref)))
+      (gpkg-git name "fetch")
+      (gpkg-git name "gc")
+      (gpkg-git name "clean" "-dfx")
+      (gpkg-git name "reset" "--hard" ref)
+      (gpkg-purge root (append removal gpkg-removal)))
     (cl-pushnew name gpkg-packages :test #'equal)
     (cl-pushnew root load-path :test #'equal)))
 
