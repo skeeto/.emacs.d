@@ -11,8 +11,10 @@
 ;;; Code:
 
 (make-directory (locate-user-emacs-file "local") :no-error)
-(add-to-list 'load-path "~/.emacs.d/lisp")
-(add-to-list 'load-path "~/.emacs.d/etc")
+(add-to-list 'load-path
+             (format "~/.emacs.d/site-lisp/%s/lisp" emacs-version))
+(add-to-list 'load-path
+             (format "~/.emacs.d/site-lisp/%s/etc" emacs-version))
 
 ;; Package bootstrap
 (load-file "~/.emacs.d/packages.el")

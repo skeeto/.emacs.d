@@ -1,18 +1,22 @@
-EMACS = emacs
+EMACS   = emacs
+VERSION = $$($(EMACS) -Q -batch --eval '(princ emacs-version)')
 
 compile: init
-	$(EMACS) -Q -batch -L lisp -L etc -l setup.el
+	$(EMACS) -Q -batch -l init.el -l compile.el
 
 init:
-	$(EMACS) -Q -batch -L lisp -l packages.el -f gpkg-compile
+	$(EMACS) -Q -batch -L lisp -l packages.el
+	cp -r lisp etc site-lisp/$(VERSION)
 
 clean:
-	find lisp etc -name "*.elc" -exec rm {} \;
-	rm -f init.elc
-	rm -f -r auto-save-list/
+	rm -rf auto-save-list
+	rm -rf site-lisp/*/lisp site-lisp/*/etc
 
-mostlyclean: clean
-	$(EMACS) -Q -batch -L lisp -l packages.el -f gpkg-clean
+mostlyclean:
+	rm -rf auto-save-list
+	rm -rf site-lisp
 
-distclean: clean
+distclean:
+	rm -rf auto-save-list
+	rm -rf site-lisp
 	rm -rf gpkg

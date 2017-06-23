@@ -1,6 +1,7 @@
 local/
 elpa/
 gpkg/
+site-lisp/
 auto-save-list/
 .cask/
 *.elc

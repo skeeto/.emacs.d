@@ -4,9 +4,12 @@
 
 ;;; Commentary:
 
-;; Git submodules are terrible and I refuse to use them to manage
-;; packages. This package downloads packages directly from Git
-;; repositories and compiles them at specific commits.
+;; Git submodules are terrible, especially for managing packages.
+;; Instead, this utility clones packages directly from Git into
+;; `gpkg-root' and checks out the sources out at a specific commit
+;; into `gpkg-install' under a directory for the current Emacs version
+;; (allowing for parallel installations). This directory is ready for
+;; `byte-recompile-directory'.
 
 ;; It's a brute-force process with no dependency management. Some
 ;; packages require massaging in order to get them working, such as
@@ -17,7 +20,10 @@
 (require 'cl-lib)
 
 (defvar gpkg-root "~/.emacs.d/gpkg"
-  "Installation directory for all packages.")
+  "Directory that stores Git repositories.")
+
+(defvar gpkg-install "~/.emacs.d/site-lisp"
+  "Installation directory for packages.")
 
 (defvar gpkg-packages ()
   "List of all installed packages.")
@@ -57,7 +63,7 @@
 
 (defun gpkg-path (name &rest subdirs)
   "Return the installation root for NAME package."
-  (cl-loop with path = (expand-file-name emacs-version gpkg-root)
+  (cl-loop with path = (expand-file-name emacs-version gpkg-install)
            for dir in (cons name subdirs)
            do (setf path (expand-file-name dir path))
            finally return path))
@@ -79,7 +85,8 @@
 
 (defun gpkg-checkout (name)
   "Checkout files for NAME."
-  (let ((default-directory (file-name-as-directory gpkg-root)))
+  (mkdir (file-name-as-directory gpkg-install) t)
+  (let ((default-directory (file-name-as-directory gpkg-install)))
     (call-process-shell-command
      (format
       "git -C \"%s\" archive --format=tar --prefix=\"%s/%s/\" \"%s\" | tar xf -"
@@ -111,16 +118,6 @@
         (user-error "Unknown ref in %s: %s" name ref)))
     (gpkg-checkout name))
   (cl-pushnew (gpkg-path name) load-path :test #'equal))
-
-(defun gpkg-compile ()
-  "Byte-compile all installed packages."
-  (byte-recompile-directory (expand-file-name emacs-version gpkg-root) 0))
-
-(defun gpkg-clean ()
-  "Remove all non-repository files for all versions of Emacs."
-  (dolist (file (directory-files gpkg-root t "[^.]"))
-    (when (and (file-directory-p file) (not (string-match-p "\\.git$" file)))
-      (delete-directory file t))))
 
 (defmacro gpkg-config (&rest packages)
   "Thread each list as arguments for `gpkg-install'."
