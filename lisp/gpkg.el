@@ -78,6 +78,12 @@
   "Byte-compile all installed packages."
   (byte-recompile-directory gpkg-root 0))
 
+(defun gpkg-clean ()
+  "Clear out all build files from each package."
+  (dolist (package gpkg-packages)
+    (gpkg-git package "clean" "-dfx")
+    (gpkg-git package "reset" "--hard")))
+
 (defmacro gpkg-config (&rest packages)
   "Thread each list as arguments for `gpkg-install'."
   (cl-loop for package in packages

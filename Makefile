@@ -9,5 +9,8 @@ clean:
 	rm -f init.elc
 	rm -f -r auto-save-list/
 
+mostlyclean: clean
+	$(EMACS) -Q -batch -L lisp -l packages.el -f gpkg-clean
+
 distclean: clean
 	rm -rf gpkg
