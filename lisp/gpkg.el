@@ -74,7 +74,8 @@
       (gpkg-git name "clean" "-dfx")
       (gpkg-git name "reset" "--hard" ref)
       (gpkg-purge root (append removal gpkg-removal)))
-    (cl-pushnew name gpkg-packages :test #'equal)
+    (cl-pushnew `(,name :removal ,removal) gpkg-packages
+                :key #'car :test #'equal)
     (cl-pushnew root load-path :test #'equal)))
 
 (defun gpkg-compile ()
@@ -84,8 +85,11 @@
 (defun gpkg-clean ()
   "Clear out all build files from each package."
   (dolist (package gpkg-packages)
-    (gpkg-git package "clean" "-dfx")
-    (gpkg-git package "reset" "--hard")))
+    (let ((name (car package))
+          (removal (plist-get (cdr package) :removal)))
+      (gpkg-git name "clean" "-dfx")
+      (gpkg-git name "reset" "--hard")
+      (gpkg-purge (gpkg-root name) (append removal gpkg-removal)))))
 
 (defmacro gpkg-config (&rest packages)
   "Thread each list as arguments for `gpkg-install'."
