@@ -7,7 +7,7 @@
   "67c4f07f5b0f942f030848f5d657909a1424b597"  ; 2.1.1
   :removal '("^web$"))
  ("evil" "https://github.com/emacs-evil/evil"
-  "73d782a49805f8a26721f39b1526cd62f367b2e9"  ; 1.2.9
+  "cecbcfbdda16653e3b5ddc7de2eab25537ec154b"  ; 1.2.13-ish
   :removal '("evil-tests.el" "^ert.el"))
  ("evil-magit" "https://github.com/emacs-evil/evil-magit"
   "077354f8ebd5da76937bf8f5df5d484f8a0ccc62") ; v0.4.1
