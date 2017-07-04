@@ -244,7 +244,7 @@
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
   ("http://slatestarcodex.com/feed/" blog philosophy)
   ("http://www.thingsinsquares.com/feed/" comic)
-  ("http://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
+  ("https://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("http://what-if.xkcd.com/feed.atom" blog)
   ("http://www.whompcomic.com/rss.php" comic)
   ("http://xkcd.com/atom.xml" comic)
