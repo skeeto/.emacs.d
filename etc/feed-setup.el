@@ -254,7 +254,8 @@
   ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
-  ("adric22" youtube) ; The 8-bit Guy
+  ("adric22" youtube) ; The 8-Bit Guy
+  ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
   ("damo2986" youtube)
   ("DemolitionRanch" youtube)
   ("destinws2" youtube)
