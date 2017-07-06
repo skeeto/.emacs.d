@@ -212,6 +212,7 @@
   ("http://firefly.nu/feeds/all.atom.xml" blog dev)
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.goneintorapture.com/rss" comic)
+  ("https://www.hackerfactor.com/blog/index.php?/feeds/atom.xml" dev blog)
   ("http://www.businesscat.happyjar.com/feed/" comic)
   ("https://heredragonsabound.blogspot.com/feeds/posts/default" dev blog)
   ("https://fasiha.github.io/atom.xml" blog dev)
