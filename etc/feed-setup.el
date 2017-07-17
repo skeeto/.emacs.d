@@ -220,6 +220,7 @@
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
   ("http://irreal.org/blog/?feed=rss2" blog)
   ("http://blog.reverberate.org/feeds/posts/default" dev blog)
+  ("http://kitchingroup.cheme.cmu.edu/blog/feed/atom/" dev emacs blog)
   ("http://feeds.feedburner.com/lefthandedtoons/awesome" comic)
   ("http://gottwurfelt.wordpress.com/feed/" blog math)
   ("http://feeds.feedburner.com/LoadingArtist" comic)
