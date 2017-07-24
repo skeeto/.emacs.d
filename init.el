@@ -127,6 +127,8 @@
      :low-priority)))
 
 (use-package evil
+  :init
+  (setf evil-want-C-u-scroll t)
   :config
   (evil-mode)
   (defvar my-leader-map
