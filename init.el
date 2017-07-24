@@ -142,6 +142,7 @@
   (add-to-list 'evil-emacs-state-modes 'special-mode)
   (add-to-list 'evil-emacs-state-modes 'youtube-dl-list-mode)
   (evil-select-search-module 'evil-search-module 'evil-search)
+  (setf evil-ex-search-highlight-all nil)
   (add-hook 'with-editor-mode-hook 'evil-insert-state)
   (add-hook 'emacs-lisp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
