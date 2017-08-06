@@ -182,7 +182,6 @@
   ("http://amitp.blogspot.com/feeds/posts/default" blog dev)
   ("http://bit-player.org/feed" blog math)
   ("http://simblob.blogspot.com/feeds/posts/default" blog dev)
-  ("http://blog.carlosgaldino.com/atom.xml" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
   ("https://blog.coinbase.com/rss/" product bitcoin)
   ("http://www.commitstrip.com/en/feed/" comic dev)
@@ -263,7 +262,6 @@
   ("destinws2" youtube)
   ("EEVblog" youtube)
   ("UCkGvUEt8iQLmq3aJIMjT2qQ" youtube) ; EEVdiscover
-  ("everyframeapainting" youtube)
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
   ("GetDaved" youtube)
