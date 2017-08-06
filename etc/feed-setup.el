@@ -277,6 +277,7 @@
   ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
   ("ProZD" youtube)
   ("UCO8DQrSp5yEP937qNqTooOw" youtube) ; Strange Parts
+  ("UCy0tKL1T7wFoYcxCe0xjN6Q" youtube) ; Technology Connections
   ("Thunderf00t" youtube)
   ("handmadeheroarchive" youtube dev)
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
