@@ -267,7 +267,6 @@
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
   ("henders007" youtube) ; Grand Illusions
-  ("whoisjimmy" youtube) ; How Ridiculous
   ("KiteTales" youtube)
   ("UCXNxwOuuR7LT-SkEfOJiwgA" youtube) ; Long Plays
   ("jastownsendandson" youtube)
