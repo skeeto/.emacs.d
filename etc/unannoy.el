@@ -28,6 +28,12 @@
 (when (fboundp 'set-horizontal-scroll-bar-mode)
   (set-horizontal-scroll-bar-mode nil))
 
+;; Do sensible clipboard things, please
+(setf select-enable-clipboard nil
+      select-enable-primary t
+      mouse-drag-copy-region t
+      mouse-yank-at-point t)
+
 ;; I hate typing
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -50,9 +56,6 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
       scroll-conservatively most-positive-fixnum
       scroll-preserve-screen-position t)
-
-;; Don't middle-click paste under the mouse!
-(setf mouse-yank-at-point t)
 
 (provide 'unannoy)
 
