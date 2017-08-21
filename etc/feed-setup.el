@@ -67,17 +67,10 @@
 (defalias 'elfeed-search-youtube-dl-slow
   (expose #'elfeed-search-youtube-dl :slow t))
 
-(defun elfeed-search-youtube-comments ()
-  (interactive)
-  (dolist (entry (elfeed-search-selected))
-    (let ((url (elfeed-entry-link entry)))
-      (browse-url (replace-regexp-in-string "/watch" "/all_comments" url)))))
-
 (define-key elfeed-show-mode-map "d" 'elfeed-show-youtube-dl)
 (define-key elfeed-search-mode-map "d" 'elfeed-search-youtube-dl)
 (define-key elfeed-search-mode-map "D" 'elfeed-search-youtube-dl-slow)
 (define-key elfeed-search-mode-map "L" 'youtube-dl-list)
-(define-key elfeed-search-mode-map "c" 'elfeed-search-youtube-comments)
 
 ;; Special filters
 
