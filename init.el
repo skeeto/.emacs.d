@@ -27,6 +27,7 @@
 ;; "Local" packages
 (require 'unannoy)
 (require 'extras)
+(require 'ctags)
 
 ;; Some global keybindings
 (global-set-key (kbd "M-g") #'goto-line)
@@ -137,6 +138,7 @@
         (define-key map "w" 'elfeed)
         (define-key map "g" 'magit-status))))
   (define-key evil-normal-state-map "\\" my-leader-map)
+  (define-key evil-normal-state-map (kbd "M-.") #'ctags-jump)
   (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
   (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
   (add-to-list 'evil-emacs-state-modes 'special-mode)
