@@ -259,6 +259,7 @@
   ("GhazPlays" youtube)
   ("henders007" youtube) ; Grand Illusions
   ("KiteTales" youtube)
+  ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCXNxwOuuR7LT-SkEfOJiwgA" youtube) ; Long Plays
   ("jastownsendandson" youtube)
   ("MatthewPatrick13" youtube)
