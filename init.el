@@ -361,21 +361,7 @@
 (use-package ielm
   :defer t
   :config
-  (progn
-    (define-key ielm-map (kbd "C-c C-z") #'quit-window)
-    (defadvice ielm-eval-input (after ielm-paredit activate)
-      "Begin each ielm prompt with a paredit pair."
-      (paredit-open-round))))
-
-(use-package paredit
-  :defer t
-  :init
-  (progn
-    (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
-    (add-hook 'lisp-mode-hook #'paredit-mode)
-    (add-hook 'scheme-mode-hook #'paredit-mode)
-    (add-hook 'ielm-mode-hook #'paredit-mode))
-  :config (define-key paredit-mode-map (kbd "C-j") #'join-line))
+  (define-key ielm-map (kbd "C-c C-z") #'quit-window))
 
 (use-package paren
   :config (show-paren-mode))
