@@ -11,8 +11,9 @@
   :removal '("evil-tests.el" "^ert.el"))
  ("evil-magit" "https://github.com/emacs-evil/evil-magit"
   "077354f8ebd5da76937bf8f5df5d484f8a0ccc62") ; v0.4.1
- ("evil-cleverparens" "https://github.com/luxbock/evil-cleverparens"
-  "82c920ba04accfd31fa292e11c454d5112b4fd51") ; 2016-06-11T23:04:45+07:00
+ ("evil-smartparens" "https://github.com/expez/evil-smartparens"
+  "7cde5544934930819e9dcaa1e0db2e3c58f0cd6f"  ; 2017-02-12T13:03:55+01:00
+  :removal '("^tests$"))
  ("sanityinc" "https://github.com/purcell/color-theme-sanityinc-tomorrow"
   "81d8990085960824f700520d08027e6aca58feaa") ; 1.17
  ("simple-httpd" "https://github.com/skeeto/emacs-web-server"
@@ -34,8 +35,6 @@
   "d5b747473ab0bf0f0034fca2f57f6497d476b67e") ; 2.10.3
  ("git-modes" "https://github.com/magit/git-modes"
   "af4ff3222f38daa0d352afdf3d20741b4fab2e79") ; 1.2.4
- ("paredit" "http://mumble.net/~campbell/git/paredit.git/"
-  "82bb75ceb2ddc272d6618d94874b7fc13181a409") ; v24
  ("smartparens" "https://github.com/Fuco1/smartparens"
   "7841b2f02a1a99e1cb166d595f24f16a514ccbb5") ; 1.10.1
  ("markdown-mode" "https://github.com/jrblevin/markdown-mode"

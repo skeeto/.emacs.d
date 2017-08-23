@@ -153,11 +153,14 @@
   :defer t
   :init (require 'evil-magit))
 
-(use-package evil-cleverparens
+(use-package evil-smartparens
   :defer t
   :init
-  (setf evil-cleverparens-use-additional-movement-keys nil)
-  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode))
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+  (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
+  :config
+  (sp-pair "'" nil :actions :rem)
+  (sp-use-paredit-bindings))
 
 (use-package time
   :config
