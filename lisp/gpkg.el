@@ -48,7 +48,7 @@
   "Clone the repository for NAME if needed."
   (let ((repository (gpkg-repository name)))
     (unless (file-exists-p repository)
-      (gpkg-git nil "clone" url repository)
+      (gpkg-git nil "clone" "--bare" url repository)
       (gpkg-git name "gc"))))
 
 (defun gpkg-purge (dir removal)
