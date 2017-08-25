@@ -138,7 +138,8 @@
         (define-key map "w" 'elfeed)
         (define-key map "g" 'magit-status))))
   (define-key evil-normal-state-map "\\" my-leader-map)
-  (define-key evil-normal-state-map (kbd "M-.") #'ctags-jump)
+  (define-key evil-normal-state-map (kbd "M-.") #'ctags-find)
+  (define-key evil-normal-state-map (kbd "M-?") #'ctags-find-reference)
   (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
   (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
   (add-to-list 'evil-emacs-state-modes 'special-mode)
@@ -338,6 +339,11 @@
     (add-hook 'c++-mode-hook #'skeeto/c-hook)
     (add-to-list 'c-default-style '(c-mode . "k&r"))
     (add-to-list 'c-default-style '(c++-mode . "k&r"))))
+
+(use-package ctags
+  :init
+  (global-set-key (kbd "M-.") #'ctags-find)
+  (global-set-key (kbd "M-?") #'ctags-find-reference))
 
 (use-package nasm-mode
   :defer t
