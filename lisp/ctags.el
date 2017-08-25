@@ -91,10 +91,9 @@ Given a prefix argument, read TAG from the minibuffer."
     (when entry
       (apply #'ctags--visit entry))))
 
-(defun ctags--grep-tag (tag entries)
-  "Return all references to TAG not included in ENTRIES."
-  (let ((files (cl-delete-duplicates (mapcar #'cadr entries) :test #'equal))
-        (regexp (format "\\<%s\\>" tag)))
+(defun ctags--grep-tag (tag files entries)
+  "Return all references from FILES to TAG not included in ENTRIES."
+  (let ((regexp (format "\\<%s\\>" tag)))
     (ctags--with-temp-buffer
       (apply #'call-process "grep" nil t nil "-n" regexp "/dev/null" files)
       (setf (point) (point-min))
@@ -115,9 +114,12 @@ Tags are discovered using grep, and definitions are skipped in
 this search. When called interactively, TAG is the symbol under
 the point. Given a prefix argument, read TAG from the minibuffer."
   (interactive (list (ctags--guess-tag current-prefix-arg)))
+  ;; TODO: avoid multiple runs of ctags
   (let* ((current (list tag buffer-file-name (line-number-at-pos)))
          (entries (ctags--entries tag))
-         (refs (ctags--grep-tag tag entries))
+         (all-tags (ctags--entries))
+         (files (cl-delete-duplicates (mapcar #'cadr all-tags) :test #'equal))
+         (refs (ctags--grep-tag tag files entries))
          (ref (car (or (cdr (member current refs))
                        refs))))
     (when ref
