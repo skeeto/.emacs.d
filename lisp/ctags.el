@@ -48,7 +48,7 @@ This must only be called after a `re-search-forward' on the tag."
 (defun ctags--entries (&optional tag)
   "Return a list of all tag entries, or just the entries for TAG."
   (ctags--with-temp-buffer
-    (call-process ctags-program-name nil t nil "-Rx")
+    (call-process ctags-program-name nil '(t nil) nil "-Rx")
     (setf (point) (point-min))
     (cl-loop with regexp =
              (if tag
@@ -95,7 +95,8 @@ Given a prefix argument, read TAG from the minibuffer."
   "Return all references from FILES to TAG not included in ENTRIES."
   (let ((regexp (format "\\<%s\\>" tag)))
     (ctags--with-temp-buffer
-      (apply #'call-process "grep" nil t nil "-n" regexp "/dev/null" files)
+      (apply #'call-process "grep" nil '(t nil) nil
+             "-n" regexp "/dev/null" files)
       (setf (point) (point-min))
       (let ((refs ()))
         (while (re-search-forward "^[^:]+" nil t)
