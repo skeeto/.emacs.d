@@ -73,10 +73,8 @@
 
 ;; Dictionary lookup
 
-(autoload 'ispell-get-word "ispell")
-
 (defun lookup-word (word)
-  (interactive (list (save-excursion (car (ispell-get-word nil)))))
+  (interactive (list (thing-at-point 'word)))
   (browse-url (format "http://en.wiktionary.org/wiki/%s" word)))
 
 (global-set-key (kbd "M-#") 'lookup-word)
