@@ -127,6 +127,10 @@
         (2 'font-lock-function-name-face nil t)))
      :low-priority)))
 
+(use-package undo-tree
+  :init
+  (setf undo-tree-mode-lighter ""))
+
 (use-package evil
   :init
   (setf evil-want-C-u-scroll t)
