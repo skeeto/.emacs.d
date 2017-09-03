@@ -175,17 +175,6 @@ Ignores leading comment characters."
           (cl-return-from :find-button (push-button))
         (forward-char)))))
 
-;; Window dimmer
-
-(defun my-make-dimmer (x)
-  (lambda ()
-    (interactive)
-    (let ((alpha (or (frame-parameter (selected-frame) 'alpha) 100)))
-      (setf (frame-parameter (selected-frame) 'alpha)
-            (min 100 (max 0 (+ alpha x)))))))
-(global-set-key (kbd "M-<next>") (my-make-dimmer -5))
-(global-set-key (kbd "M-<prior>") (my-make-dimmer 5))
-
 ;; Buffers
 
 (defun sudo-edit (&optional arg)
