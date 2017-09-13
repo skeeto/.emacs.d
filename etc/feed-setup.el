@@ -194,7 +194,6 @@
   ("http://feeds.exploringbinary.com/ExploringBinary" blog dev)
   ("http://feeds.feedburner.com/Explosm" comic)
   ("http://www.exocomics.com/feed" comic)
-  ("http://robert.ocallahan.org/feeds/posts/default" blog dev)
   ("http://freakonomics.com/feed/" audio)
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("https://flapenguin.me/atom.xml" dev blog)
