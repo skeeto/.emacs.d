@@ -167,6 +167,7 @@
 
 (elfeed-config
   ("https://sanctum.geek.nz/arabesque/feed/" blog dev)
+  ("http://esr.ibiblio.org/?feed=rss2" blog)
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
