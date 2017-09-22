@@ -183,7 +183,6 @@
   ("http://feeds.feedburner.com/Buttersafe" comic)
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
   ("http://feeds.feedburner.com/channelATE" comic)
-  ("http://deep-dark-fears.tumblr.com/rss" comic)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
   ("https://www.debian.org/security/dsa" debian list security important)
   ("https://www.debian.org/News/news" debian list)
