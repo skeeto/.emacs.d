@@ -99,6 +99,7 @@
   :init (setf url-queue-timeout 30)
   :config
   (require 'feed-setup)
+  (push "-k" elfeed-curl-extra-arguments)
   (setf bookmark-default-file (locate-user-emacs-file "local/bookmarks")))
 
 (use-package youtube-dl
