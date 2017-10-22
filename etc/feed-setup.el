@@ -226,6 +226,7 @@
   ("http://planet.emacsen.org/atom.xml" emacs planet)
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://feeds.wnyc.org/radiolab" audio)
+  ("http://feeds.feedburner.com/RevisionistHistory" audio)
   ("http://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("http://www.smbc-comics.com/rss.php" comic)
