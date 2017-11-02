@@ -460,6 +460,7 @@
   :config
   (progn
     (setf compilation-always-kill t
+          compilation-ask-about-save nil
           compilation-scroll-output 'first-error
           compile-bind-command (format "make -kj%d " (numcores)))
     (when (executable-find "nmake.exe")
