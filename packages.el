@@ -12,7 +12,7 @@
  ("evil-magit" "https://github.com/emacs-evil/evil-magit"
   "077354f8ebd5da76937bf8f5df5d484f8a0ccc62") ; v0.4.1
  ("evil-smartparens" "https://github.com/expez/evil-smartparens"
-  "7cde5544934930819e9dcaa1e0db2e3c58f0cd6f"  ; 2017-02-12T13:03:55+01:00
+  "9fe4eed1c6327197afe6c13bb0771e18908aff00"  ; 0.4.0
   :removal '("^tests$"))
  ("sanityinc" "https://github.com/purcell/color-theme-sanityinc-tomorrow"
   "81d8990085960824f700520d08027e6aca58feaa") ; 1.17
