@@ -255,6 +255,7 @@
   ("UCkGvUEt8iQLmq3aJIMjT2qQ" youtube) ; EEVdiscover
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
+  ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
   ("henders007" youtube) ; Grand Illusions
