@@ -264,10 +264,32 @@ display purposes anyway."
                              :id    (plist-get video :id)
                              :title (plist-get video :title))))))
 
+(defun youtube-dl--playlist-reverse (list)
+  "Return a copy of LIST with the indexes reversed."
+  (let ((max (cl-loop for entry in list
+                      maximize (plist-get entry :index))))
+    (cl-loop for entry in list
+             for index = (plist-get entry :index)
+             for copy = (copy-sequence entry)
+             collect (plist-put copy :index (- (1+ max) index)))))
+
 ;;;###autoload
 (cl-defun youtube-dl-playlist
-    (url &key (priority 0) directory paused slow (first 1))
-  "Add entire playlist to download queue, with index prefixes."
+    (url &key directory (first 1) paused (priority 0) reverse slow)
+  "Add entire playlist to download queue, with index prefixes.
+
+:directory PATH -- Destination directory for all videos.
+
+:first INDEX -- Start downloading from a given one-based index.
+
+:paused BOOL -- Start all download entries as paused.
+
+:priority PRIORITY -- Use this priority for all download entries.
+
+:reverse BOOL -- Reverse the video numbering, solving the problem
+of reversed playlists.
+
+:slow BOOL -- Start all download entries in slow mode."
   (interactive
    (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
   (message "Fetching playlist ...")
@@ -276,6 +298,8 @@ display purposes anyway."
         (error "Failed to fetch playlist (%s)." url)
       (let* ((width (1+ (floor (log (length videos) 10))))
              (prefix-format (format "%%0%dd" width)))
+        (when reverse
+          (setf videos (youtube-dl--playlist-reverse videos)))
         (dolist (video (nthcdr (1- first) videos))
           (let* ((index (plist-get video :index))
                  (prefix (format prefix-format index))
