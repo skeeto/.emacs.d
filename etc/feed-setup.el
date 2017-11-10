@@ -4,7 +4,7 @@
 (require 'elfeed)
 (require 'youtube-dl)
 
-(setq-default elfeed-search-filter "-junk @1-week-ago +unread")
+(setq-default elfeed-search-filter "@1-week-ago +unread")
 
 ;; More keybindings
 
@@ -76,12 +76,6 @@
 
 (add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :before "3 days ago"
-                              :remove 'unread))
-
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "JimKB"
-                              :entry-link '(not "\/r\/comics\/")
-                              :add 'junk
                               :remove 'unread))
 
 (defun tagize-for-elfeed (string)
@@ -243,7 +237,6 @@
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
   ("http://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("http://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
-  ("http://www.reddit.com/user/JimKB/submitted.rss" comic)
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-Bit Guy
