@@ -273,6 +273,13 @@ display purposes anyway."
              for copy = (copy-sequence entry)
              collect (plist-put copy :index (- (1+ max) index)))))
 
+(defun youtube-dl--playlist-cutoff (list n)
+  "Return a sorted copy of LIST with all items except where :index < N."
+  (let ((key (lambda (v) (plist-get v :index)))
+        (filter (lambda (v) (< (plist-get v :index) n)))
+        (copy (copy-sequence list)))
+    (cl-delete-if filter (cl-stable-sort copy #'< :key key))))
+
 ;;;###autoload
 (cl-defun youtube-dl-playlist
     (url &key directory (first 1) paused (priority 0) reverse slow)
@@ -296,11 +303,13 @@ of reversed playlists.
   (let ((videos (youtube-dl--playlist-list url)))
     (if (null videos)
         (error "Failed to fetch playlist (%s)." url)
-      (let* ((width (1+ (floor (log (length videos) 10))))
+      (let* ((max (cl-loop for entry in videos
+                           maximize (plist-get entry :index)))
+             (width (1+ (floor (log max 10))))
              (prefix-format (format "%%0%dd" width)))
         (when reverse
           (setf videos (youtube-dl--playlist-reverse videos)))
-        (dolist (video (nthcdr (1- first) videos))
+        (dolist (video (youtube-dl--playlist-cutoff videos first))
           (let* ((index (plist-get video :index))
                  (prefix (format prefix-format index))
                  (title (format "%s-%s" prefix (plist-get video :title)))
