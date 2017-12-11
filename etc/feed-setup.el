@@ -75,7 +75,7 @@
 ;; Special filters
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :before "3 days ago"
+          (elfeed-make-tagger :before "7 days ago"
                               :remove 'unread))
 
 (defun tagize-for-elfeed (string)
