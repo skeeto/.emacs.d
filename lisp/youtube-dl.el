@@ -231,7 +231,9 @@ display purposes anyway."
     (url &key title (priority 0) directory destination paused slow)
   "Queues URL for download using youtube-dl, returning the new item."
   (interactive
-   (list (read-from-minibuffer "URL: " (funcall interprogram-paste-function))))
+   (list (read-from-minibuffer
+          "URL: " (or (thing-at-point 'url)
+                      (funcall interprogram-paste-function)))))
   (let* ((id (youtube-dl--id-from-url url))
          (full-dir (expand-file-name (or directory "") youtube-dl-directory))
          (item (youtube-dl-item--create :id id
