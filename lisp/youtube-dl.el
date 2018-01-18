@@ -41,8 +41,7 @@
   :group 'youtube-dl)
 
 (defcustom youtube-dl-arguments
-  '("--no-mtime" "--restrict-filenames"
-    "--format" "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best")
+  '("--no-mtime" "--restrict-filenames" "--format" "best")
   "Arguments to be send to youtube-dl.
 Instead of --rate-limit use `youtube-dl-slow-rate'."
   :group 'youtube-dl)
