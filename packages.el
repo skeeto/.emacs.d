@@ -4,7 +4,7 @@
  ("use-package" "https://github.com/jwiegley/use-package"
   "cd58b268a8a025451c11c3cb1ba18d4f27f245da") ; 2.3
  ("elfeed" "https://github.com/skeeto/elfeed"
-  "1388922b798cd8f9fd79d85b9e24e3f6c2c030a1"  ; 2017-09-16T16:00:57-04:00
+  "00b25d974abc4f3e61676068397758035bfdfc30"  ; 2.3.0
   :removal '("^web$"))
  ("evil" "https://github.com/emacs-evil/evil"
   "427cf5faa57e8794ac93f594dc3d1972e687a25a"  ; 1.2.13
