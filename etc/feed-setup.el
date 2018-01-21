@@ -173,7 +173,6 @@
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
   ("https://blog.coinbase.com/rss/" product bitcoin)
   ("http://www.commitstrip.com/en/feed/" comic dev)
-  ("http://www.bitercomics.com/feed/" comic)
   ("http://feeds.feedburner.com/Buttersafe" comic)
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
   ("http://feeds.feedburner.com/channelATE" comic)
