@@ -6,6 +6,8 @@
  ("elfeed" "https://github.com/skeeto/elfeed"
   "00b25d974abc4f3e61676068397758035bfdfc30"  ; 2.3.0
   :removal '("^web$"))
+ ("youtube-dl" "https://github.com/skeeto/youtube-dl-emacs"
+  "43758426ddf6bbe87f5a837cd0c6f8e393e003b6") ; 1.0
  ("evil" "https://github.com/emacs-evil/evil"
   "427cf5faa57e8794ac93f594dc3d1972e687a25a"  ; 1.2.13
   :removal '("evil-tests.el" "^ert.el"))
