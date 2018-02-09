@@ -209,6 +209,7 @@
   ("http://www.mazelog.com/rss" math puzzle)
   ("http://www.mrlovenstein.com/rss.xml" comic)
   ("http://mortoray.com/feed/" blog dev)
+  ("http://feeds.feedburner.com/MrMoneyMustache?format=xml" blog philosophy)
   ("http://nedroid.com/feed/" comic)
   ("https://nickdesaulniers.github.io/atom.xml" blog dev)
   ("http://nullprogram.com/feed/" blog dev myself)
