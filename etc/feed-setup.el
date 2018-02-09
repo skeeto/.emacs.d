@@ -196,7 +196,6 @@
   ("http://www.goneintorapture.com/rss" comic)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("http://www.businesscat.happyjar.com/feed/" comic)
-  ("https://heredragonsabound.blogspot.com/feeds/posts/default" dev blog)
   ("https://fasiha.github.io/atom.xml" blog dev)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
