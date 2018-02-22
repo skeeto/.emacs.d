@@ -141,8 +141,7 @@
   (defvar my-leader-map
     (let ((map (make-sparse-keymap)))
       (prog1 map
-        (define-key map "w" 'elfeed)
-        (define-key map "g" 'magit-status))))
+        (define-key map "w" 'elfeed))))
   (define-key evil-normal-state-map "\\" my-leader-map)
   (define-key evil-normal-state-map (kbd "M-.") #'ctags-find)
   (define-key evil-normal-state-map (kbd "M-?") #'ctags-find-reference)
@@ -156,10 +155,6 @@
   (add-hook 'with-editor-mode-hook 'evil-insert-state)
   (add-hook 'emacs-lisp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
-
-(use-package evil-magit
-  :defer t
-  :init (require 'evil-magit))
 
 (use-package evil-smartparens
   :defer t
@@ -245,16 +240,6 @@
   (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
             (lambda ()
               (define-key eshell-mode-map (kbd "<f1>") #'quit-window))))
-
-(use-package magit
-  :defer t
-  :bind ("C-x g" . magit-status)
-  :init (setf magit-last-seen-setup-instructions "2.1.0")
-  :config
-  (setf vc-display-status nil
-        magit-push-always-verify nil)
-  (remove-hook 'git-commit-finish-query-functions
-               'git-commit-check-style-conventions))
 
 (use-package gitconfig-mode
   :defer t

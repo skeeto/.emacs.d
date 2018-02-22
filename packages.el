@@ -11,8 +11,6 @@
  ("evil" "https://github.com/emacs-evil/evil"
   "427cf5faa57e8794ac93f594dc3d1972e687a25a"  ; 1.2.13
   :removal '("evil-tests.el" "^ert.el"))
- ("evil-magit" "https://github.com/emacs-evil/evil-magit"
-  "077354f8ebd5da76937bf8f5df5d484f8a0ccc62") ; v0.4.1
  ("evil-smartparens" "https://github.com/expez/evil-smartparens"
   "9fe4eed1c6327197afe6c13bb0771e18908aff00"  ; 0.4.0
   :removal '("^tests$"))
@@ -26,17 +24,9 @@
   "eba1efce3dd20b5f5017ab64bae0cfb3b181c2b0") ; 1.0.0
  ("whitespace-cleanup-mode" "https://github.com/purcell/whitespace-cleanup-mode"
   "0cb638474c206f342df0f9652f232f17804b478e") ; 0.2
- ("async" "https://github.com/jwiegley/emacs-async"
-  "d6222c2959caaca5c4980038756097da8a51e505") ; v1.9.2
  ("dash" "https://github.com/magnars/dash.el"
   "4ae329aa2160411c8b47794de067fcf29bc38a22"  ; 2.13.0
   :removal '("^dev$"))
- ("with-editor" "https://github.com/magit/with-editor"
-  "3385ffdc6faed5a283e26a7ebf89825c700dd395") ; v2.5.11
- ("magit" "https://github.com/magit/magit"
-  "d5b747473ab0bf0f0034fca2f57f6497d476b67e") ; 2.10.3
- ("git-modes" "https://github.com/magit/git-modes"
-  "af4ff3222f38daa0d352afdf3d20741b4fab2e79") ; 1.2.4
  ("smartparens" "https://github.com/Fuco1/smartparens"
   "7841b2f02a1a99e1cb166d595f24f16a514ccbb5") ; 1.10.1
  ("markdown-mode" "https://github.com/jrblevin/markdown-mode"
@@ -58,9 +48,5 @@
  ("pov-mode" "https://github.com/melmothx/pov-mode"
   "9fc1db3aab7c27155674dd1a87ec62606035d074")); 2016-11-15T08:43:14+01:00
 
-;; Magit annoyance workaround
-(setf magit-version (gpkg-package-ref "magit"))
-
 ;; Set up some extra load-path directories
 (add-to-list 'load-path (gpkg-path "evil" "lib"))
-(add-to-list 'load-path (gpkg-path "magit" "lisp"))

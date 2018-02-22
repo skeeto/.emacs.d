@@ -14,6 +14,7 @@
       custom-file (make-temp-file "emacs-custom")
       large-file-warning-threshold 536870911
       gc-cons-threshold (* 1024 1024 32)
+      vc-display-status nil
       ring-bell-function (lambda ()))
 
 ;; GUIs are for newbs
