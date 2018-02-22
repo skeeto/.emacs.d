@@ -11,6 +11,7 @@
 ;;; Code:
 
 (make-directory (locate-user-emacs-file "local") :no-error)
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path
              (format "~/.emacs.d/site-lisp/%s" emacs-version))
 (add-to-list 'load-path
