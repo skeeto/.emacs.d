@@ -28,7 +28,7 @@
   "4ae329aa2160411c8b47794de067fcf29bc38a22"  ; 2.13.0
   :removal '("^dev$"))
  ("smartparens" "https://github.com/Fuco1/smartparens"
-  "7841b2f02a1a99e1cb166d595f24f16a514ccbb5") ; 1.10.1
+  "4873352b5d0a1c5142658122de1b6950b8fe7e4d") ; 1.11.0
  ("markdown-mode" "https://github.com/jrblevin/markdown-mode"
   "e9bb47d8d87ae8205ed935a3b485e12c12e43aa9") ; v2.2
  ("js2-mode" "https://github.com/mooz/js2-mode"
