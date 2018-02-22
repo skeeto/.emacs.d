@@ -19,7 +19,6 @@
 
 (require 'uuid-simple)
 (require 'markdown-mode)
-(require 'yaml-mode)
 
 (defvar jekyll-home "."
   "The root directory for your Jekyll blog.")
@@ -62,21 +61,6 @@
          (process (start-process-shell-command
                    "jekyll" "*jekyll*" "jekyll build --watch")))
     (set-process-query-on-exit-flag process nil)))
-
-(defun jekyll/edit-yaml ()
-  "Toggle a narrow to the YAML front matter for editing."
-  (interactive)
-  (save-excursion
-    (if (buffer-narrowed-p)
-        (progn
-          (widen)
-          (markdown-mode))
-      (setf (point) (point-min))
-      (search-forward-regexp "^---")
-      (let ((start (1+ (point))))
-        (search-forward-regexp "^---")
-        (narrow-to-region start (- (point) 3))
-        (yaml-mode)))))
 
 (provide 'jekyll)
 

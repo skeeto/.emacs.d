@@ -55,12 +55,6 @@
   "93cd2dc873e7fedca7abc599cd97d46db4376ac7") ; 2.1.3
  ("javadoc-lookup" "https://github.com/skeeto/javadoc-lookup"
   "507a2dd443d60b537b8f779c1847e2cd0ccd1382") ; 1.1.0
- ("gnuplot-mode" "https://github.com/mkmcc/gnuplot-mode"
-  "296ff8d263513cdfb8e85b06e2441c751565b793") ; 2015-11-22T23:39:24-08:00
- ("graphviz-dot-mode" "https://github.com/ppareit/graphviz-dot-mode"
-  "7301cc276206b6995d265bcb9eb308bb83c760be") ; v0.4
- ("yaml-mode" "https://github.com/yoshiki/yaml-mode"
-  "2ace378bef2047a980fba0e42e3e6b5d990f2c66") ; v0.0.13
  ("pov-mode" "https://github.com/melmothx/pov-mode"
   "9fc1db3aab7c27155674dd1a87ec62606035d074")); 2016-11-15T08:43:14+01:00
 

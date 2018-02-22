@@ -431,9 +431,6 @@
   (ignore-errors
     (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))))
 
-(use-package gnuplot-mode
-  :defer t)
-
 (use-package browse-url
   :defer t
   :init
@@ -443,12 +440,6 @@
     (setf browse-url-browser-function #'browse-url-firefox
           browse-url-generic-program "xombrero"
           browse-url-generic-args '("-n"))))
-
-(use-package graphviz-dot-mode
-  :defer t
-  :config
-  (setf graphviz-dot-indent-width 2
-        graphviz-dot-auto-indent-on-semi nil))
 
 (use-package uuid-simple
   :demand t
@@ -471,14 +462,6 @@
                    ("C-x c" ""
                     "C-x t" 'test
                     "C-x C" 'clean))))
-
-(use-package yaml-mode
-  :defer t
-  :config
-  (add-hook 'yaml-mode-hook
-            (lambda ()
-              (setq-local paragraph-separate ".*>-$\\|[   ]*$")
-              (setq-local paragraph-start paragraph-separate))))
 
 (use-package jekyll
   :demand t
