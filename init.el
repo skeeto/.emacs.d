@@ -162,8 +162,8 @@
   (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
   (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
   :config
-  (sp-pair "'" nil :actions :rem)
-  (sp-pair "`" nil :actions :rem)
+  (sp-local-pair '(emacs-lisp-mode) "'" "'" :actions nil)
+  (sp-local-pair '(emacs-lisp-mode) "`" "`" :actions nil)
   (sp-use-paredit-bindings))
 
 (use-package time
