@@ -219,6 +219,7 @@
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("http://www.smbc-comics.com/rss.php" comic)
   ("http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss" audio)
+  ("http://theycantalk.com/rss" comic)
   ("https://github.com/blog/all.atom" blog dev product)
   ("http://blog.plover.com/index.atom" blog dev)
   ("http://use-the-index-luke.com/blog/feed" blog dev databases)
