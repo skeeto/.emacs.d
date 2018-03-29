@@ -213,6 +213,7 @@
   ("http://piecomic.tumblr.com/rss" comic)
   ("http://planet.emacsen.org/atom.xml" emacs planet)
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
+  ("http://puzzlezapper.com/blog/feed/" puzzle blog)
   ("http://feeds.wnyc.org/radiolab" audio)
   ("http://feeds.feedburner.com/RevisionistHistory" audio)
   ("http://www.safelyendangered.com/feed/" comic)
