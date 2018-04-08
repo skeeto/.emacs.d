@@ -228,6 +228,7 @@
   ("http://www.optipess.com/feed/" comic)
   ("http://piecomic.tumblr.com/rss" comic)
   ("http://planet.emacsen.org/atom.xml" emacs planet)
+  ("https://www.npr.org/rss/podcast.php?id=510289" podcast audio economics)
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://puzzlezapper.com/blog/feed/" puzzle blog)
   ("http://feeds.wnyc.org/radiolab" audio)
