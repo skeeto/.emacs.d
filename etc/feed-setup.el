@@ -33,6 +33,22 @@
          (re " *\\+youtube" " -youtube" elfeed-search-filter))
         ((concat elfeed-search-filter " -youtube")))))))
 
+(defun elfeed-podcast-yank ()
+  "Clean up and copy the first enclosure URL into the clipboard."
+  (interactive)
+  (let* ((entry (elfeed-search-selected t))
+         (url (caar (elfeed-entry-enclosures entry)))
+         (fixed (replace-regexp-in-string "\\?.*$" "" url)))
+    (if (fboundp 'gui-set-selection)
+        (gui-set-selection elfeed-search-clipboard-type fixed)
+      (with-no-warnings
+        (x-set-selection elfeed-search-clipboard-type fixed)))
+    (elfeed-untag entry 'unread)
+    (message "Copied: %s" fixed)
+    (unless (use-region-p) (forward-line))))
+
+(define-key elfeed-search-mode-map "Y" #'elfeed-podcast-yank)
+
 ;; youtube-dl config
 
 (setq youtube-dl-directory "~/netshare")
