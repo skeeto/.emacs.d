@@ -213,6 +213,7 @@
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://blog.ioactive.com/feeds/posts/default" blog security)
   ("http://irreal.org/blog/?feed=rss2" blog)
+  ("https://www.joelonsoftware.com/feed/" blog dev)
   ("http://photo.nullprogram.com/feed/" photo myself)
   ("http://feeds.feedburner.com/lefthandedtoons/awesome" comic)
   ("http://gottwurfelt.wordpress.com/feed/" blog math)
