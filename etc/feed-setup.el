@@ -217,6 +217,7 @@
   ("http://photo.nullprogram.com/feed/" photo myself)
   ("http://feeds.feedburner.com/lefthandedtoons/awesome" comic)
   ("http://gottwurfelt.wordpress.com/feed/" blog math)
+  ("http://jdlm.info/feed.xml" math blog)
   ("http://feeds.feedburner.com/LoadingArtist" comic)
   ("http://www.mazelog.com/rss" math puzzle)
   ("http://www.mrlovenstein.com/rss.xml" comic)
