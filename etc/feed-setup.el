@@ -234,6 +234,7 @@
   ("http://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("http://puzzlezapper.com/blog/feed/" puzzle blog)
   ("http://feeds.wnyc.org/radiolab" audio)
+  ("https://randomascii.wordpress.com/feed/" blog dev)
   ("http://feeds.feedburner.com/RevisionistHistory" audio)
   ("http://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
