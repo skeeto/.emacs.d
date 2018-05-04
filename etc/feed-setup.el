@@ -191,6 +191,7 @@
   ("http://feeds.feedburner.com/Buttersafe" comic)
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
   ("http://feeds.feedburner.com/channelATE" comic)
+  ("https://lemire.me/blog/feed/" dev blog)
   ("https://danluu.com/atom.xml" dev blog)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
   ("https://www.debian.org/security/dsa" debian list security important)
