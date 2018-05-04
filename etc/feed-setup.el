@@ -237,6 +237,7 @@
   ("http://feeds.wnyc.org/radiolab" audio)
   ("https://randomascii.wordpress.com/feed/" blog dev)
   ("http://feeds.feedburner.com/RevisionistHistory" audio)
+  ("https://fgiesen.wordpress.com/feed/" dev blog)
   ("http://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("http://www.smbc-comics.com/rss.php" comic)
