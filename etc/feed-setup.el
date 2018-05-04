@@ -262,6 +262,7 @@
   ("EEVblog" youtube)
   ("eevblog2" youtube)
   ("UCkGvUEt8iQLmq3aJIMjT2qQ" youtube) ; EEVdiscover
+  ("UCWXCrItCF6ZgXrdozUS-Idw" youtube) ; ExplosmEntertainment
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
