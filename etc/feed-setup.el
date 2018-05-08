@@ -212,7 +212,6 @@
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("http://www.businesscat.happyjar.com/feed/" comic)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
-  ("http://blog.ioactive.com/feeds/posts/default" blog security)
   ("http://irreal.org/blog/?feed=rss2" blog)
   ("https://www.joelonsoftware.com/feed/" blog dev)
   ("http://photo.nullprogram.com/feed/" photo myself)
