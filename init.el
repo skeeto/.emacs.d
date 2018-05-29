@@ -119,15 +119,7 @@
       (pop-to-buffer (get-buffer-create "*ielm*"))
       (ielm))
     (define-key emacs-lisp-mode-map (kbd "C-c C-z") #'ielm-repl)
-    (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
-    (font-lock-add-keywords
-     'emacs-lisp-mode
-     `((,(concat "(\\(\\(?:\\(?:\\sw\\|\\s_\\)+-\\)?"
-                 "def\\(?:\\sw\\|\\s_\\)*\\)\\_>"
-                 "\\s-*'?" "\\(\\(?:\\sw\\|\\s_\\)+\\)?")
-        (1 'font-lock-keyword-face)
-        (2 'font-lock-function-name-face nil t)))
-     :low-priority)))
+    (defalias 'lisp-interaction-mode 'emacs-lisp-mode)))
 
 (use-package undo-tree
   :init
