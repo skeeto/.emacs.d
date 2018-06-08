@@ -30,6 +30,9 @@
 (require 'extras)
 (require 'ctags)
 
+;; Some global keybindings
+(global-set-key (kbd "C-x k") #'kill-this-buffer)
+
 ;;; auto-mode-alist entries
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 (add-to-list 'auto-mode-alist '("[._]bash.*" . shell-script-mode))
