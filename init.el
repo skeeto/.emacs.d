@@ -260,16 +260,16 @@
   :defer t
   :functions httpd-send-header
   :config
-  (progn
-    (defservlet uptime "text/plain" ()
-      (princ (emacs-uptime)))
-    (defun httpd-here ()
-      (interactive)
-      (setf httpd-root default-directory))
-    (defadvice httpd-start (after httpd-query-on-exit-flag activate)
-      (let ((httpd-process (get-process "httpd")))
-        (when httpd-process
-          (set-process-query-on-exit-flag httpd-process nil))))))
+  (defservlet uptime "text/plain" ()
+    (princ (emacs-uptime)))
+  (defun httpd-here ()
+    (interactive)
+    (setf httpd-root default-directory))
+  (defadvice httpd-start (after httpd-query-on-exit-flag activate)
+    (let ((httpd-process (get-process "httpd")))
+      (when httpd-process
+        (set-process-query-on-exit-flag httpd-process nil))))
+  (setf httpd-host "0.0.0.0"))
 
 (use-package js2-mode
   :defer t
