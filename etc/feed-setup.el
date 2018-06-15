@@ -265,6 +265,7 @@
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("GetDaved" youtube)
   ("GhazPlays" youtube)
+  ("UCPAD3kFSwVNFlFsqW5jEnSw" youtube) ; Heisz Wandel project
   ("henders007" youtube) ; Grand Illusions
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCXNxwOuuR7LT-SkEfOJiwgA" youtube) ; Long Plays
