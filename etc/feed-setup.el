@@ -202,6 +202,7 @@
   ("http://danwang.co/feed/" blog philosophy)
   ("http://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
   ("https://eerielinux.wordpress.com/feed/" blog dev)
+  ("http://feeds.gimletmedia.com/eltshow" audio)
   ("http://feeds.feedburner.com/Explosm" comic)
   ("http://www.exocomics.com/feed" comic)
   ("http://freakonomics.com/feed/" audio)
