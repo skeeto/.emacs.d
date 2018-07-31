@@ -185,7 +185,6 @@
   ("http://bit-player.org/feed" blog math)
   ("http://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
-  ("https://blog.coinbase.com/rss/" product bitcoin)
   ("http://www.commitstrip.com/en/feed/" comic dev)
   ("http://feeds.feedburner.com/Buttersafe" comic)
   ("http://feeds.feedburner.com/CatVersusHuman" comic)
