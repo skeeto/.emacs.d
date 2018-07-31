@@ -196,6 +196,7 @@
   ("https://www.debian.org/security/dsa" debian list security important)
   ("https://www.debian.org/News/news" debian list)
   ("https://dendibakh.github.io/feed.xml" blog dev)
+  ("https://drewdevault.com/feed.xml" blog dev)
   ("http://dvdp.tumblr.com/rss" image)
   ("https://www.digitalocean.com/blog/feed" blog product)
   ("http://bay12games.com/dwarves/dev_now.rss" blog gaming product)
