@@ -226,6 +226,7 @@
   ("https://nickdesaulniers.github.io/atom.xml" blog dev)
   ("http://nullprogram.com/feed/" blog dev myself)
   ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
+  ("http://www.pcg-random.org/rss.xml" blog dev)
   ("http://piecomic.tumblr.com/rss" comic)
   ("http://planet.emacsen.org/atom.xml" emacs planet)
   ("https://www.npr.org/rss/podcast.php?id=510289" podcast audio economics)
