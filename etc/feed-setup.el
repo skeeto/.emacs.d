@@ -176,6 +176,7 @@
   `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
+  ("https://pthree.org/feed" blog)
   ("http://esr.ibiblio.org/?feed=rss2" blog)
   ("http://blog.cryptographyengineering.com/feeds/posts/default" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
