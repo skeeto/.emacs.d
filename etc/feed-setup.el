@@ -211,7 +211,6 @@
   ("http://feeds.feedburner.com/Pidjin" comic)
   ("http://www.goneintorapture.com/rss" comic)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
-  ("http://www.businesscat.happyjar.com/feed/" comic)
   ("http://feeds.feedburner.com/InvisibleBread" comic)
   ("http://irreal.org/blog/?feed=rss2" blog)
   ("https://www.joelonsoftware.com/feed/" blog dev)
