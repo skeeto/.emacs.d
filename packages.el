@@ -7,7 +7,7 @@
   "7e0abfee1470ae6323b559a7a9f843dd0076d622"  ; 3.0.0
   :removal '("^web$"))
  ("youtube-dl" "https://github.com/skeeto/youtube-dl-emacs"
-  "43758426ddf6bbe87f5a837cd0c6f8e393e003b6") ; 1.0
+  "af877b5bc4f01c04fccfa7d47a2c328926f20ef4") ; 2018-10-12T15:08:06Z
  ("evil" "https://github.com/emacs-evil/evil"
   "427cf5faa57e8794ac93f594dc3d1972e687a25a"  ; 1.2.13
   :removal '("evil-tests.el" "^ert.el"))
