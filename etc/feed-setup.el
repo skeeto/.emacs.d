@@ -200,6 +200,7 @@
   ("https://www.digitalocean.com/blog/feed" blog product)
   ("http://bay12games.com/dwarves/dev_now.rss" blog gaming product)
   ("http://danwang.co/feed/" blog philosophy)
+  ("https://www.econlib.org/feed/indexCaplan_xml" blog economics)
   ("http://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
   ("https://eerielinux.wordpress.com/feed/" blog dev)
   ("http://feeds.gimletmedia.com/eltshow" audio)
