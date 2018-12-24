@@ -208,6 +208,7 @@
   ("http://feeds.gimletmedia.com/eltshow" audio)
   ("https://feeds.feedburner.com/Explosm" comic)
   ("https://www.exocomics.com/feed" comic)
+  ("http://fabiensanglard.net/rss.xml" blog dev)
   ("http://freakonomics.com/feed/" audio)
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("https://feeds.feedburner.com/Pidjin" comic)
