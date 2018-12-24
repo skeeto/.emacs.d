@@ -204,6 +204,7 @@
   ("https://www.econlib.org/feed/indexCaplan_xml" blog economics)
   ("https://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
   ("https://eerielinux.wordpress.com/feed/" blog dev)
+  ("https://floooh.github.io/feed.xml" blog dev)
   ("http://feeds.gimletmedia.com/eltshow" audio)
   ("https://feeds.feedburner.com/Explosm" comic)
   ("https://www.exocomics.com/feed" comic)
