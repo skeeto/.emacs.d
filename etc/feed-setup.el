@@ -228,6 +228,7 @@
   ("https://nickdesaulniers.github.io/atom.xml" blog dev)
   ("https://nullprogram.com/feed/" blog dev myself)
   ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
+  ("http://www.overcomingbias.com/feed" blog philosophy)
   ("http://www.pcg-random.org/rss.xml" blog dev)
   ("http://piecomic.tumblr.com/rss" comic)
   ("http://planet.emacsen.org/atom.xml" emacs planet)
