@@ -243,7 +243,7 @@
   ("https://www.smbc-comics.com/comic/rss" comic)
   ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
   ("http://theycantalk.com/rss" comic)
-  ("https://blog.github.com/all.atom" blog dev product)
+  ("https://github.blog/feed/" blog dev product)
   ("https://blog.plover.com/index.atom" blog dev)
   ("https://slatestarcodex.com/feed/" blog philosophy)
   ("https://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
