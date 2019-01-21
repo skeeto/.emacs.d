@@ -181,6 +181,7 @@
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
+  ("https://begriffs.com/atom.xml" blog dev)
   ("http://english.bouletcorp.com/feed/" comic)
   ("http://bit-player.org/feed" blog math)
   ("https://simblob.blogspot.com/feeds/posts/default" blog dev)
