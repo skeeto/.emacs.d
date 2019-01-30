@@ -223,6 +223,7 @@
   ("https://feeds.feedburner.com/LoadingArtist" comic)
   ("http://www.mazelog.com/rss" math puzzle)
   ("https://www.mrlovenstein.com/rss.xml" comic)
+  ("http://feeds.wnyc.org/moreperfect" audio)
   ("https://mortoray.com/feed/" blog dev)
   ("https://feeds.feedburner.com/MrMoneyMustache" blog philosophy)
   ("http://nedroid.com/feed/" comic)
