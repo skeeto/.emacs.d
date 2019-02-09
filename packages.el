@@ -2,14 +2,14 @@
 
 (gpkg-config
  ("use-package" "https://github.com/jwiegley/use-package"
-  "cd58b268a8a025451c11c3cb1ba18d4f27f245da") ; 2.3
+  "39a8b8812c2c9f6f0b299e6a04e504ef393694ce") ; 2.4
  ("elfeed" "https://github.com/skeeto/elfeed"
   "448ad647449b2712409fb784e2cc90af5b8491f1"  ; 3.1.0-2-g448ad64
   :removal '("^web$"))
  ("youtube-dl" "https://github.com/skeeto/youtube-dl-emacs"
   "af877b5bc4f01c04fccfa7d47a2c328926f20ef4") ; 2018-10-12T15:08:06Z
  ("evil" "https://github.com/emacs-evil/evil"
-  "427cf5faa57e8794ac93f594dc3d1972e687a25a"  ; 1.2.13
+  "3766a521a60e6fb0073220199425de478de759ad"  ; 1.2.14
   :removal '("evil-tests.el" "^ert.el"))
  ("evil-smartparens" "https://github.com/expez/evil-smartparens"
   "9fe4eed1c6327197afe6c13bb0771e18908aff00"  ; 0.4.0
@@ -22,8 +22,6 @@
   "88e2cb6588827893d7bc619529393887c264d15a") ; release/1.53
  ("impatient-mode" "https://github.com/skeeto/impatient-mode"
   "eba1efce3dd20b5f5017ab64bae0cfb3b181c2b0") ; 1.1
- ("whitespace-cleanup-mode" "https://github.com/purcell/whitespace-cleanup-mode"
-  "0cb638474c206f342df0f9652f232f17804b478e") ; 0.2
  ("dash" "https://github.com/magnars/dash.el"
   "a74f4cfcdc8d0642a9f602ad494f0354f27dacc9"  ; 2.14.1
   :removal '("^dev$"))
@@ -35,8 +33,6 @@
   "03c679eb9914d58d7d9b7afc2036c482a9a01236") ; 20180301
  ("skewer-mode" "https://github.com/skeeto/skewer-mode"
   "a10955db9ef95b0243ee31bcd30a6fb07ce5302b") ; 1.8.0
- ("glsl-mode" "https://github.com/jimhourihan/glsl-mode"
-  "b4709644bb01b522ba9c8afe16ed2394783c481f") ; 2016-02-09T08:33:51-08:00
  ("nasm-mode" "https://github.com/skeeto/nasm-mode"
   "d990ed94d902b74a5c834fb567e03307607cee45") ; 1.1.1
  ("x86-lookup" "https://github.com/skeeto/x86-lookup"
@@ -44,9 +40,7 @@
  ("rainbow-delimiters" "https://github.com/Fanael/rainbow-delimiters"
   "93cd2dc873e7fedca7abc599cd97d46db4376ac7") ; 2.1.3
  ("javadoc-lookup" "https://github.com/skeeto/javadoc-lookup"
-  "507a2dd443d60b537b8f779c1847e2cd0ccd1382") ; 1.1.0
- ("pov-mode" "https://github.com/melmothx/pov-mode"
-  "9fc1db3aab7c27155674dd1a87ec62606035d074")); 2016-11-15T08:43:14+01:00
+  "507a2dd443d60b537b8f779c1847e2cd0ccd1382")); 1.1.0
 
 ;; Set up some extra load-path directories
 (add-to-list 'load-path (gpkg-path "evil" "lib"))

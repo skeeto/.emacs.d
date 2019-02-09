@@ -181,11 +181,6 @@
   (setf tramp-persistency-file-name
         (concat temporary-file-directory "tramp-" (user-login-name))))
 
-(use-package whitespace-cleanup-mode
-  :config
-  (setq-default indent-tabs-mode nil)
-  (global-whitespace-cleanup-mode))
-
 (use-package diff-mode
   :defer t
   :config (add-hook 'diff-mode-hook #'read-only-mode))
@@ -294,10 +289,6 @@
 (use-package ps-print
   :defer t
   :config (setf ps-print-header nil))
-
-(use-package glsl-mode
-  :defer t
-  :mode ("\\.fs$" "\\.vs$"))
 
 (use-package erc
   :defer t
@@ -461,15 +452,6 @@
   :defer t
   :init
   (setf gamegrid-user-score-file-directory (locate-user-emacs-file "games")))
-
-(use-package pov-mode
-  :defer t
-  :init
-  (autoload 'irfc-mode "irfc" nil t)
-  (autoload 'irfc-visit "irfc" nil t)
-  (setf irfc-directory (locate-user-emacs-file "local/rfc")
-        irfc-assoc-mode t)
-  (mkdir irfc-directory t))
 
 (use-package ospl-mode
   :defer t
