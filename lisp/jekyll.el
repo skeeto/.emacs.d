@@ -59,7 +59,7 @@
   (interactive)
   (let* ((default-directory jekyll-home)
          (process (start-process-shell-command
-                   "jekyll" "*jekyll*" "jekyll build --watch")))
+                   "jekyll" "*jekyll*" "jekyll build --incremental --watch")))
     (set-process-query-on-exit-flag process nil)))
 
 (provide 'jekyll)
