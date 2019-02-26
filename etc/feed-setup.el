@@ -233,7 +233,6 @@
   ("http://www.overcomingbias.com/feed" blog philosophy)
   ("http://www.pcg-random.org/rss.xml" blog dev)
   ("http://piecomic.tumblr.com/rss" comic)
-  ("http://planet.emacsen.org/atom.xml" emacs planet)
   ("https://www.npr.org/rss/podcast.php?id=510289" podcast audio economics)
   ("https://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("https://priioajn.wordpress.com/feed/" blog esperanto)
