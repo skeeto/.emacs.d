@@ -273,6 +273,7 @@
   ("UCPAD3kFSwVNFlFsqW5jEnSw" youtube) ; Heisz Wandel project
   ("henders007" youtube) ; Grand Illusions
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
+  ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
