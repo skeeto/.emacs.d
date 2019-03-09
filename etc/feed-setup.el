@@ -214,6 +214,7 @@
   ("http://www.tedunangst.com/flak/rss" dev blog)
   ("https://feeds.feedburner.com/Pidjin" comic)
   ("http://goneintorapture.com/rss" comic)
+  ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("https://feeds.feedburner.com/InvisibleBread" comic)
   ("http://irreal.org/blog/?feed=rss2" blog)
