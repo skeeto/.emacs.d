@@ -243,6 +243,7 @@
   ("https://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("https://www.smbc-comics.com/comic/rss" comic)
+  ("https://old.reddit.com/user/softwaring/submitted/.rss" image reddit)
   ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
   ("http://theycantalk.com/rss" comic)
   ("https://github.blog/feed/" blog dev product)
