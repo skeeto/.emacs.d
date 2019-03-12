@@ -211,7 +211,7 @@
   ("https://www.exocomics.com/feed" comic)
   ("http://fabiensanglard.net/rss.xml" blog dev)
   ("http://freakonomics.com/feed/" audio)
-  ("http://www.tedunangst.com/flak/rss" dev blog)
+  ("https://flak.tedunangst.com/rss" dev blog)
   ("https://feeds.feedburner.com/Pidjin" comic)
   ("http://goneintorapture.com/rss" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
@@ -254,8 +254,8 @@
   ("https://www.whompcomic.com/comic/rss" comic)
   ("https://xkcd.com/atom.xml" comic)
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
-  ("https://www.reddit.com/domain/nullprogram.com.rss" reddit myself)
-  ("https://www.reddit.com/r/dailyprogrammer/.rss" subreddit)
+  ("https://old.reddit.com/domain/nullprogram.com.rss" reddit myself)
+  ("https://old.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-Bit Guy
