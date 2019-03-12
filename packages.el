@@ -30,7 +30,7 @@
  ("markdown-mode" "https://github.com/jrblevin/markdown-mode"
   "cde5c5d2bcce470c494b76e23cfe1364b6291c20") ; v2.3
  ("js2-mode" "https://github.com/mooz/js2-mode"
-  "03c679eb9914d58d7d9b7afc2036c482a9a01236") ; 20180301
+  "ed955e7f1608cfd2d2713129d65f5fd734842ae4") ; 20190219
  ("skewer-mode" "https://github.com/skeeto/skewer-mode"
   "a10955db9ef95b0243ee31bcd30a6fb07ce5302b") ; 1.8.0
  ("nasm-mode" "https://github.com/skeeto/nasm-mode"
