@@ -35,6 +35,11 @@
       mouse-drag-copy-region t
       mouse-yank-at-point t)
 
+;; Lexical binding by default. Must be delayed since Emacs sets this
+;; on its own to nil after initialization.
+(run-at-time 0 nil (lambda ()
+		     (setq-default lexical-binding t)))
+
 ;; I hate typing
 (defalias 'yes-or-no-p 'y-or-n-p)
 
