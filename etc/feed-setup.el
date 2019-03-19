@@ -241,6 +241,7 @@
   ("https://randomascii.wordpress.com/feed/" blog dev)
   ("https://feeds.megaphone.fm/revisionisthistory" audio)
   ("https://fgiesen.wordpress.com/feed/" dev blog)
+  ("http://sachachua.com/blog/category/emacs/feed/" emacs blog)
   ("https://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("https://www.smbc-comics.com/comic/rss" comic)
