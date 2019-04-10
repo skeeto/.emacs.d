@@ -213,6 +213,7 @@
   ("http://freakonomics.com/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://feeds.feedburner.com/Pidjin" comic)
+  ("https://goblinscomic.com/comic/rss" comic)
   ("http://goneintorapture.com/rss" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
