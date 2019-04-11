@@ -272,6 +272,7 @@
   ("FilmTheorists" youtube)
   ("foodwishes" youtube)
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
+  ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("GetDaved" youtube)
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCPAD3kFSwVNFlFsqW5jEnSw" youtube) ; Heisz Wandel project
