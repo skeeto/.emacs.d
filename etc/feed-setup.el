@@ -248,6 +248,7 @@
   ("https://www.smbc-comics.com/comic/rss" comic)
   ("https://old.reddit.com/user/softwaring/submitted/.rss" image reddit)
   ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
+  ("https://www.swordscomic.com/swords/feed/" comic)
   ("http://theycantalk.com/rss" comic)
   ("https://github.blog/feed/" blog dev product)
   ("https://blog.plover.com/index.atom" blog dev)
