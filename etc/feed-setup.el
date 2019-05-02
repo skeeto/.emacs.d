@@ -178,6 +178,7 @@
 (elfeed-config
   ("https://pthree.org/feed" blog)
   ("http://esr.ibiblio.org/?feed=rss2" blog)
+  ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("http://accidental-art.tumblr.com/rss" image math)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
