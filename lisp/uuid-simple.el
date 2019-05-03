@@ -3,12 +3,16 @@
 ;;; Code:
 
 (defvar uuid--state
-  (if (executable-find "dd")
-      (with-temp-buffer
-        (set-buffer-multibyte nil)
-        (call-process "dd" nil t nil "if=/dev/urandom" "bs=48" "count=1")
-        (buffer-string))
-    (prin1-to-string (list (current-time) (emacs-pid) (random))))
+  (with-temp-buffer
+    (let ((standard-output (current-buffer)))
+      (set-buffer-multibyte nil)
+      (prin1 (random))
+      (prin1 (emacs-pid))
+      (dotimes (_ 256)
+        (prin1 (current-time)))
+      (ignore-errors
+        (call-process "dd" nil t nil "if=/dev/urandom" "bs=32" "count=1"))
+      (secure-hash 'sha512 (current-buffer) nil nil t)))
   "A buffer of random data used for generating UUIDs.")
 
 (defun make-uuid ()
