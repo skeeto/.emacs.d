@@ -290,6 +290,7 @@
   ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
+  ("Cercopithecan" youtube) ; Sebastian Lague
   ("ShamusYoung" youtube)
   ("UCO8DQrSp5yEP937qNqTooOw" youtube) ; Strange Parts
   ("UCy0tKL1T7wFoYcxCe0xjN6Q" youtube) ; Technology Connections
