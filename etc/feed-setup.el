@@ -283,6 +283,7 @@
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
   ("Nerdwriter1" youtube)
+  ("numberphile" youtube)
   ("patrickhwillems" youtube)
   ("PlumpHelmetPunk" youtube)
   ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
