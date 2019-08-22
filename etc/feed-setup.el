@@ -218,6 +218,7 @@
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("https://invisiblebread.com/feed/" comic)
   ("https://irreal.org/blog/?feed=rss2" blog)
+  ("https://jameshfisher.com/feed.xml" blog dev)
   ("https://www.joelonsoftware.com/feed/" blog dev)
   ("https://photo.nullprogram.com/feed/" photo myself)
   ("https://loadingartist.com/feed/" comic)
@@ -275,6 +276,7 @@
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCPAD3kFSwVNFlFsqW5jEnSw" youtube) ; Heisz Wandel project
   ("henders007" youtube) ; Grand Illusions
+  ("gurneyjourney" youtube)
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
