@@ -212,6 +212,7 @@
   ("http://freakonomics.com/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://www.pidjin.net/feed/" comic)
+  ("https://geoff.greer.fm/feed.atom" blog dev)
   ("https://goblinscomic.com/comic/rss" comic)
   ("https://goneintorapture.com/rss" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
