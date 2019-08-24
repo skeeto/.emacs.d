@@ -4,7 +4,7 @@
  ("use-package" "https://github.com/jwiegley/use-package"
   "39a8b8812c2c9f6f0b299e6a04e504ef393694ce") ; 2.4
  ("elfeed" "https://github.com/skeeto/elfeed"
-  "448ad647449b2712409fb784e2cc90af5b8491f1"  ; 3.1.0-2-g448ad64
+  "63b26ee83fd58afdf8f0b3d2c04cdc9cd956772c"  ; 3.2.0
   :removal '("^web$"))
  ("youtube-dl" "https://github.com/skeeto/youtube-dl-emacs"
   "af877b5bc4f01c04fccfa7d47a2c328926f20ef4") ; 2018-10-12T15:08:06Z
