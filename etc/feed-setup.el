@@ -239,6 +239,7 @@
   ("https://www.npr.org/rss/podcast.php?id=510289" podcast audio economics)
   ("https://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("https://priioajn.wordpress.com/feed/" blog esperanto)
+  ("https://rachelbythebay.com/w/atom.xml" blog dev)
   ("http://feeds.wnyc.org/radiolab" audio)
   ("https://randomascii.wordpress.com/feed/" blog dev)
   ("https://feeds.megaphone.fm/revisionisthistory" audio)
