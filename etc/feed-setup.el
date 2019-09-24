@@ -223,6 +223,7 @@
   ("https://www.joelonsoftware.com/feed/" blog dev)
   ("https://photo.nullprogram.com/feed/" photo myself)
   ("https://loadingartist.com/feed/" comic)
+  ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
   ("http://www.mazelog.com/rss" math puzzle)
   ("https://www.mrlovenstein.com/rss.xml" comic)
   ("http://feeds.wnyc.org/moreperfect" audio)
