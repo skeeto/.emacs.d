@@ -265,7 +265,6 @@
   ("adric22" youtube) ; The 8-Bit Guy
   ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
   ("damo2986" youtube)
-  ("DemolitionRanch" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
   ("eevblog2" youtube)
