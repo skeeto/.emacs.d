@@ -187,7 +187,6 @@
   ("http://bit-player.org/feed" blog math)
   ("https://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
-  ("https://www.commitstrip.com/en/feed/" comic dev)
   ("https://www.buttersafe.com/feed/" comic)
   ("http://www.catversushuman.com/feeds/posts/default?redirect=false" comic)
   ("https://lemire.me/blog/feed/" dev blog)
