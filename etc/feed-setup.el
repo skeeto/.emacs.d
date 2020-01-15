@@ -228,6 +228,7 @@
   ("http://feeds.wnyc.org/moreperfect" audio)
   ("https://mortoray.com/feed/" blog dev)
   ("https://www.mrmoneymustache.com/feed/" blog philosophy)
+  ("https://www.natewoodward.org/blog/atom.xml" blog def)
   ("http://nedroid.com/feed/" comic)
   ("https://nickdesaulniers.github.io/atom.xml" blog dev)
   ("https://nullprogram.com/feed/" blog dev myself)
@@ -263,6 +264,7 @@
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-Bit Guy
   ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
+  ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("damo2986" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
