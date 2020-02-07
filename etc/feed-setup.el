@@ -220,6 +220,7 @@
   ("https://irreal.org/blog/?feed=rss2" blog)
   ("https://jameshfisher.com/feed.xml" blog dev)
   ("https://www.joelonsoftware.com/feed/" blog dev)
+  ("http://loup-vaillant.fr/updates.xml" blog dev crypto)
   ("https://photo.nullprogram.com/feed/" photo myself)
   ("https://loadingartist.com/feed/" comic)
   ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
