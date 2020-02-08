@@ -277,6 +277,7 @@
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("GetDaved" youtube)
+  ("PLKtIunYVkv_RwB_yx1SZrZC-ddhxyXanh" youtube) ; Gourmet Makes
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCPAD3kFSwVNFlFsqW5jEnSw" youtube) ; Heisz Wandel project
   ("henders007" youtube) ; Grand Illusions
