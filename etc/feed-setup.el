@@ -213,6 +213,7 @@
   ("https://www.pidjin.net/feed/" comic)
   ("https://geoff.greer.fm/feed.atom" blog dev)
   ("https://goblinscomic.com/comic/rss" comic)
+  ("https://github.com/golang/go/releases.atom" dev release)
   ("https://goneintorapture.com/rss" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
@@ -220,6 +221,7 @@
   ("https://irreal.org/blog/?feed=rss2" blog)
   ("https://jameshfisher.com/feed.xml" blog dev)
   ("https://www.joelonsoftware.com/feed/" blog dev)
+  ("https://jobtalle.com/rss.xml" blog dev)
   ("http://loup-vaillant.fr/updates.xml" blog dev crypto)
   ("https://photo.nullprogram.com/feed/" photo myself)
   ("https://loadingartist.com/feed/" comic)
@@ -252,6 +254,7 @@
   ("https://old.reddit.com/user/softwaring/submitted/.rss" image reddit)
   ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
   ("https://www.swordscomic.com/swords/feed/" comic)
+  ("https://teokajlibroj.wordpress.com/feed/" blog esperanto)
   ("https://theycantalk.com/rss" comic)
   ("https://blog.plover.com/index.atom" blog dev)
   ("https://slatestarcodex.com/feed/" blog philosophy)
@@ -291,6 +294,7 @@
   ("numberphile" youtube)
   ("patrickhwillems" youtube)
   ("PlumpHelmetPunk" youtube)
+  ("UCs8DNFOxYen3kuj87aWKG9g" youtube) ; Primitive Skills
   ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
@@ -301,6 +305,7 @@
   ("UCy0tKL1T7wFoYcxCe0xjN6Q" youtube) ; Technology Connections
   ("UClRwC5Vc8HrB6vGx6Ti-lhA" youtube) ; Technology Connextras
   ("Thunderf00t" youtube)
+  ("UCqrrxZeeFSNCjGmD-33SKMw" youtube) ; u m a m i
   ("handmadeheroarchive" youtube dev)
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
   ("phreakindee" youtube)
