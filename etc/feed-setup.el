@@ -267,6 +267,7 @@
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-Bit Guy
   ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
+  ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("damo2986" youtube)
   ("destinws2" youtube)
