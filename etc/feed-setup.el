@@ -176,11 +176,9 @@
   `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
-  ("https://pthree.org/feed" blog)
   ("http://esr.ibiblio.org/?feed=rss2" blog)
   ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
-  ("https://accidental-art.tumblr.com/rss" image math)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
   ("https://begriffs.com/atom.xml" blog dev)
   ("http://english.bouletcorp.com/feed/" comic)
@@ -228,7 +226,6 @@
   ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
   ("http://www.mazelog.com/rss" math puzzle)
   ("https://www.mrlovenstein.com/rss.xml" comic)
-  ("http://feeds.wnyc.org/moreperfect" audio)
   ("https://mortoray.com/feed/" blog dev)
   ("https://www.mrmoneymustache.com/feed/" blog philosophy)
   ("https://www.natewoodward.org/blog/atom.xml" blog def)
@@ -237,8 +234,6 @@
   ("https://nullprogram.com/feed/" blog dev myself)
   ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
   ("https://www.overcomingbias.com/feed" blog philosophy)
-  ("https://www.pcg-random.org/rss.xml" blog dev)
-  ("https://piecomic.tumblr.com/rss" comic)
   ("https://www.npr.org/rss/podcast.php?id=510289" podcast audio economics)
   ("https://possiblywrong.wordpress.com/feed/" blog math puzzle)
   ("https://priioajn.wordpress.com/feed/" blog esperanto)
