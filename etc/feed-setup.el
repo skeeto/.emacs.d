@@ -214,6 +214,7 @@
   ("https://geoff.greer.fm/feed.atom" blog dev)
   ("https://github.com/golang/go/releases.atom" dev release)
   ("https://goneintorapture.com/rss" comic)
+  ("https://goodbearcomics.com/feed/" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("https://invisiblebread.com/feed/" comic)
@@ -257,6 +258,7 @@
   ("https://theycantalk.com/rss" comic)
   ("https://blog.plover.com/index.atom" blog dev)
   ("https://slatestarcodex.com/feed/" blog philosophy)
+  ("https://www.kohney.com/feed/" comic)
   ("https://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("https://www.whompcomic.com/comic/rss" comic)
   ("https://xkcd.com/atom.xml" comic)
@@ -269,6 +271,7 @@
   ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
+  ("UCk_9hHaw0n1Vbbld6cXyh6A" youtube) ; Brooklyn Duo
   ("damo2986" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
@@ -309,6 +312,7 @@
   ("handmadeheroarchive" youtube dev)
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
   ("phreakindee" youtube)
+  ("UCCj_mkYyeGIb9MPSdb74ykA" youtube) ; GET OFF MY LAWN
   ("szyzyg" youtube)
   ("UCsXVk37bltHxD1rDPwtNM8Q" youtube) ; Kurzgesagt – In a Nutshell
   ("Wendoverproductions" youtube))
