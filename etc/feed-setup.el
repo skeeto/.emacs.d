@@ -255,6 +255,7 @@
   ("https://slatestarcodex.com/feed/" blog philosophy)
   ("https://www.kohney.com/feed/" comic)
   ("https://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
+  ("http://feeds.wnyc.org/TheAnthropoceneReviewed" audio)
   ("https://www.whompcomic.com/comic/rss" comic)
   ("https://xkcd.com/atom.xml" comic)
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
