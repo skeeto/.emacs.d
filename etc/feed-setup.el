@@ -312,6 +312,7 @@
   ("UCCj_mkYyeGIb9MPSdb74ykA" youtube) ; GET OFF MY LAWN
   ("szyzyg" youtube)
   ("UCsXVk37bltHxD1rDPwtNM8Q" youtube) ; Kurzgesagt – In a Nutshell
+  ("WelkerFarmsInc" youtube)
   ("Wendoverproductions" youtube))
 
 (provide 'feed-setup)
