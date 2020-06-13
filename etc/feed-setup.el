@@ -290,6 +290,7 @@
   ("jastownsendandson" youtube)
   ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
+  ("NCommander" youtube)
   ("Nerdwriter1" youtube)
   ("numberphile" youtube)
   ("patrickhwillems" youtube)
