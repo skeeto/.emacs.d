@@ -277,6 +277,7 @@
   ("UCkGvUEt8iQLmq3aJIMjT2qQ" youtube) ; EEVdiscover
   ("UCWXCrItCF6ZgXrdozUS-Idw" youtube) ; ExplosmEntertainment
   ("FilmTheorists" youtube)
+  ("UCHYoe8kQ-7Gn9ASOlmI0k6Q" youtube) ; Food Theory
   ("foodwishes" youtube)
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
