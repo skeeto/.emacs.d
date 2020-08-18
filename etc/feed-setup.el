@@ -186,7 +186,6 @@
   ("https://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
   ("https://www.buttersafe.com/feed/" comic)
-  ("http://www.catversushuman.com/feeds/posts/default?redirect=false" comic)
   ("https://lemire.me/blog/feed/" dev blog)
   ("https://danluu.com/atom.xml" dev blog)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
@@ -200,7 +199,6 @@
   ("https://danwang.co/feed/" blog philosophy)
   ("https://www.econlib.org/feed/indexCaplan_xml" blog economics)
   ("https://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
-  ("https://eerielinux.wordpress.com/feed/" blog dev)
   ("https://floooh.github.io/feed.xml" blog dev)
   ("https://feeds.megaphone.fm/everylittlething" audio)
   ("http://explosm.net/rss" comic)
@@ -208,14 +206,11 @@
   ("https://fabiensanglard.net/rss.xml" blog dev)
   ("https://freakonomics.com/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
-  ("https://www.pidjin.net/feed/" comic)
   ("https://geoff.greer.fm/feed.atom" blog dev)
   ("https://github.com/golang/go/releases.atom" dev release)
-  ("https://goneintorapture.com/rss" comic)
   ("https://goodbearcomics.com/feed/" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
-  ("https://invisiblebread.com/feed/" comic)
   ("https://irreal.org/blog/?feed=rss2" blog)
   ("https://jameshfisher.com/feed.xml" blog dev)
   ("https://www.joelonsoftware.com/feed/" blog dev)
@@ -241,9 +236,7 @@
   ("http://feeds.wnyc.org/radiolab" audio)
   ("https://randomascii.wordpress.com/feed/" blog dev)
   ("https://feeds.megaphone.fm/revisionisthistory" audio)
-  ("https://fgiesen.wordpress.com/feed/" dev blog)
   ("https://sachachua.com/blog/category/emacs/feed/" emacs blog)
-  ("https://www.safelyendangered.com/feed/" comic)
   ("https://www.schneier.com/blog/atom.xml" blog security)
   ("https://www.smbc-comics.com/comic/rss" comic)
   ("https://old.reddit.com/user/softwaring/submitted/.rss" image reddit)
@@ -284,7 +277,6 @@
   ("GetDaved" youtube)
   ("PLKtIunYVkv_RwB_yx1SZrZC-ddhxyXanh" youtube) ; Gourmet Makes
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
-  ("UCPAD3kFSwVNFlFsqW5jEnSw" youtube) ; Heisz Wandel project
   ("henders007" youtube) ; Grand Illusions
   ("gurneyjourney" youtube)
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
