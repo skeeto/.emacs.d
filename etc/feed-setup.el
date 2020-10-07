@@ -219,6 +219,7 @@
   ("https://loadingartist.com/feed/" comic)
   ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
   ("http://www.mazelog.com/rss" math puzzle)
+  ("https://sourceforge.net/projects/mingw-w64/rss?path=/mingw-w64/mingw-w64-release" dev release)
   ("https://www.mrlovenstein.com/rss.xml" comic)
   ("https://mortoray.com/feed/" blog dev)
   ("https://www.mrmoneymustache.com/feed/" blog philosophy)
