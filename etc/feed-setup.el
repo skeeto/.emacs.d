@@ -288,6 +288,7 @@
   ("Nerdwriter1" youtube)
   ("numberphile" youtube)
   ("patrickhwillems" youtube)
+  ("Pixelmusement" youtube)
   ("PlumpHelmetPunk" youtube)
   ("UCs8DNFOxYen3kuj87aWKG9g" youtube) ; Primitive Skills
   ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
