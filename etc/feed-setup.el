@@ -194,7 +194,6 @@
   ("https://dendibakh.github.io/feed.xml" blog dev)
   ("https://www.filfre.net/feed/" blog history essay)
   ("https://drewdevault.com/feed.xml" blog dev)
-  ("https://dvdp.tumblr.com/rss" image)
   ("https://bay12games.com/dwarves/dev_now.rss" blog gaming product)
   ("https://danwang.co/feed/" blog philosophy)
   ("https://www.econlib.org/feed/indexCaplan_xml" blog economics)
