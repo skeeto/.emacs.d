@@ -51,7 +51,10 @@
 
 ;; youtube-dl config
 
-(setq youtube-dl-directory "~/netshare")
+(setq youtube-dl-directory "~/netshare"
+      youtube-dl-arguments
+      (nconc `("-f" "bestvideo[height<=1080]+bestaudio/best[height<=1080]")
+             youtube-dl-arguments))
 
 (defface elfeed-youtube
   '((t :foreground "#f9f"))
