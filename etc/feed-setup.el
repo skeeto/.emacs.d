@@ -207,6 +207,7 @@
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://geoff.greer.fm/feed.atom" blog dev)
   ("https://github.com/golang/go/releases.atom" dev release)
+  ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://goodbearcomics.com/feed/" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
