@@ -183,6 +183,7 @@
   ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
+  ("https://astralcodexten.substack.com/feed/" blog philosophy)
   ("https://begriffs.com/atom.xml" blog dev)
   ("http://english.bouletcorp.com/feed/" comic)
   ("http://bit-player.org/feed" blog math)
