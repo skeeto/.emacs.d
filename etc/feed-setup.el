@@ -266,7 +266,6 @@
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("UCk_9hHaw0n1Vbbld6cXyh6A" youtube) ; Brooklyn Duo
   ("damo2986" youtube)
-  ("PLYZp53E4M0t_8HmPlV4m04vGKUcJIQc53" youtube) ; decino (Analysis)
   ("destinws2" youtube)
   ("EEVblog" youtube)
   ("eevblog2" youtube)
@@ -294,7 +293,6 @@
   ("Pixelmusement" youtube)
   ("PlumpHelmetPunk" youtube)
   ("UCs8DNFOxYen3kuj87aWKG9g" youtube) ; Primitive Skills
-  ("UCAL3JXZSzSm8AlZyD3nQdBA" youtube) ; Primitive Technology
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
