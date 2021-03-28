@@ -180,6 +180,7 @@
 
 (elfeed-config
   ("http://esr.ibiblio.org/?feed=rss2" blog)
+  ("https://andrew-helmer.github.io/feed.xml" dev blog)
   ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("https://www.npr.org/rss/podcast.php?id=510299" audio)
