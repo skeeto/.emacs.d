@@ -243,7 +243,6 @@
   ("https://feeds.megaphone.fm/revisionisthistory" audio)
   ("https://sachachua.com/blog/category/emacs/feed/" emacs blog)
   ("https://www.smbc-comics.com/comic/rss" comic)
-  ("https://old.reddit.com/user/softwaring/submitted/.rss" image reddit)
   ("https://stuartwheaton.com/feed.xml" blog dev)
   ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
   ("https://www.swordscomic.com/swords/feed/" comic)
