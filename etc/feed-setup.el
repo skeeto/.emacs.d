@@ -276,6 +276,7 @@
   ("foodwishes" youtube)
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
+  ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
   ("GetDaved" youtube)
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("henders007" youtube) ; Grand Illusions
