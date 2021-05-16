@@ -263,6 +263,7 @@
   ("adric22" youtube) ; The 8-Bit Guy
   ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
   ("craig1black" youtube)              ; Adrian's Digital Basement
+  ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("UCk_9hHaw0n1Vbbld6cXyh6A" youtube) ; Brooklyn Duo
   ("damo2986" youtube)
