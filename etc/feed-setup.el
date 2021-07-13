@@ -208,6 +208,7 @@
   ("http://explosm.net/rss" comic)
   ("https://www.exocomics.com/feed" comic)
   ("https://fabiensanglard.net/rss.xml" blog dev)
+  ("https://fakenous.net/?feed=rss2" blog philosophy)
   ("https://freakonomics.com/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://geoff.greer.fm/feed.atom" blog dev)
