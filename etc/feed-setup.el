@@ -213,7 +213,6 @@
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://geoff.greer.fm/feed.atom" blog dev)
   ("https://gcc.gnu.org/git/?p=gcc-wwwdocs.git;a=atom;f=htdocs/releases.html" dev release)
-  ("https://groups.google.com/forum/feed/golang-announce/topics/rss.xml?num=50" dev release)
   ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://github.com/rmyorston/busybox-w32/releases.atom" release product)
   ("https://goodbearcomics.com/feed/" comic)
