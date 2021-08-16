@@ -280,7 +280,6 @@
   ("GetDaved" youtube)
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("henders007" youtube) ; Grand Illusions
-  ("gurneyjourney" youtube)
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
