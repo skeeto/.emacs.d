@@ -245,7 +245,6 @@
   ("https://www.smbc-comics.com/comic/rss" comic)
   ("https://stuartwheaton.com/feed.xml" blog dev)
   ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
-  ("https://www.swordscomic.com/swords/feed/" comic)
   ("https://teokajlibroj.wordpress.com/feed/" blog esperanto)
   ("https://theycantalk.com/rss" comic)
   ("https://blog.plover.com/index.atom" blog dev)
