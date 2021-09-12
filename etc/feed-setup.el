@@ -219,6 +219,7 @@
   ("https://goodbearcomics.com/feed/" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
+  ("https://www.internalpointers.com/rss" dev blog)
   ("https://www.joelonsoftware.com/feed/" blog dev)
   ("https://jobtalle.com/rss.xml" blog dev)
   ("https://photo.nullprogram.com/feed/" photo myself)
