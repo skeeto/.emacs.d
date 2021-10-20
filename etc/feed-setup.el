@@ -183,7 +183,6 @@
   ("https://andrew-helmer.github.io/feed.xml" dev blog)
   ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
-  ("https://www.npr.org/rss/podcast.php?id=510299" audio)
   ("https://astralcodexten.substack.com/feed/" blog philosophy)
   ("https://begriffs.com/atom.xml" blog dev)
   ("http://english.bouletcorp.com/feed/" comic)
@@ -261,7 +260,6 @@
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
-  ("UCk_9hHaw0n1Vbbld6cXyh6A" youtube) ; Brooklyn Duo
   ("damo2986" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
@@ -276,7 +274,6 @@
   ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
   ("GetDaved" youtube)
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
-  ("henders007" youtube) ; Grand Illusions
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
