@@ -212,7 +212,6 @@
   ("https://freakonomics.com/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://gcc.gnu.org/git/?p=gcc-wwwdocs.git;a=atom;f=htdocs/releases.html" dev release)
-  ("https://go.dev/blog/feed.atom" dev blog product)
   ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://github.com/rmyorston/busybox-w32/releases.atom" release product)
   ("https://goodbearcomics.com/feed/" comic)
