@@ -212,6 +212,7 @@
   ("https://freakonomics.com/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://gcc.gnu.org/git/?p=gcc-wwwdocs.git;a=atom;f=htdocs/releases.html" dev release)
+  ("https://go.dev/blog/feed.atom" dev blog product)
   ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://github.com/rmyorston/busybox-w32/releases.atom" release product)
   ("https://goodbearcomics.com/feed/" comic)
@@ -260,6 +261,7 @@
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
+  ("UCeUnV5Eh4pPQUjeodp7ZZiA" youtube) ; BlakesSanctum
   ("damo2986" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
@@ -273,6 +275,7 @@
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
   ("GetDaved" youtube)
+  ("UClaEdLrmti779-tyovta8zw" youtube) ; Grandpa Amu
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
@@ -288,6 +291,7 @@
   ("Pixelmusement" youtube)
   ("PlumpHelmetPunk" youtube)
   ("UCs8DNFOxYen3kuj87aWKG9g" youtube) ; Primitive Skills
+  ("UCFeTHAMU4wPstRNVHlKASBQ" youtube) ; ProofofConceptMath
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
