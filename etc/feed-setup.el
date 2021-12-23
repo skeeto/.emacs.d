@@ -292,6 +292,7 @@
   ("UCFeTHAMU4wPstRNVHlKASBQ" youtube) ; ProofofConceptMath
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
+  ("RedLetterMedia" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
   ("ShamusYoung" youtube)
   ("standupmaths" youtube)
