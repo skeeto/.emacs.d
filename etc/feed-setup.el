@@ -205,7 +205,6 @@
   ("https://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
   ("https://floooh.github.io/feed.xml" blog dev)
   ("https://feeds.megaphone.fm/everylittlething" audio)
-  ("http://explosm.net/rss" comic)
   ("https://www.exocomics.com/feed" comic)
   ("https://fabiensanglard.net/rss.xml" blog dev)
   ("https://fakenous.net/?feed=rss2" blog philosophy)
