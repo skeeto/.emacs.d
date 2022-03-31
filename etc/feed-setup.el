@@ -186,7 +186,7 @@
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("https://astralcodexten.substack.com/feed/" blog philosophy)
   ("https://begriffs.com/atom.xml" blog dev)
-  ("https://betonit.blog/feed/" blog economics)
+  ("https://betonit.substack.com/feed/" blog economics)
   ("http://bit-player.org/feed" blog math)
   ("https://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
