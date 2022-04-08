@@ -28,7 +28,6 @@
 ;; "Local" packages
 (require 'unannoy)
 (require 'extras)
-(require 'ctags)
 
 ;; Some global keybindings
 (global-set-key (kbd "C-x k") #'kill-this-buffer)
@@ -69,16 +68,6 @@
   :init (setf abbrev-file-name (locate-user-emacs-file "local/abbrev_defs"))
   :config (setf dabbrev-case-fold-search nil))
 
-(use-package impatient-mode
-  :defer t
-  :config
-  (defun imp-markdown-filter (in)
-    (let ((out (current-buffer)))
-      (with-current-buffer in
-        (markdown out))))
-  (push (cons 'markdown-mode #'imp-markdown-filter)
-        imp-default-user-filters))
-
 (use-package dired
   :defer t
   :config
@@ -118,10 +107,6 @@
     (define-key emacs-lisp-mode-map (kbd "C-c C-z") #'ielm-repl)
     (defalias 'lisp-interaction-mode 'emacs-lisp-mode)))
 
-(use-package undo-tree
-  :init
-  (setf undo-tree-mode-lighter ""))
-
 (use-package evil
   :init
   (setf evil-want-C-u-scroll t)
@@ -132,8 +117,6 @@
       (prog1 map
         (define-key map "w" 'elfeed))))
   (define-key evil-normal-state-map "\\" my-leader-map)
-  (define-key evil-normal-state-map (kbd "M-.") #'ctags-find)
-  (define-key evil-normal-state-map (kbd "M-?") #'ctags-find-reference)
   (add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
   (add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
   (add-to-list 'evil-emacs-state-modes 'special-mode)
@@ -145,16 +128,6 @@
   (add-hook 'emacs-lisp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
   (add-hook 'c-mode-common-hook (lambda () (modify-syntax-entry ?_ "w"))))
 
-(use-package evil-smartparens
-  :defer t
-  :init
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
-  (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
-  :config
-  (sp-local-pair '(emacs-lisp-mode) "'" "'" :actions nil)
-  (sp-local-pair '(emacs-lisp-mode) "`" "`" :actions nil)
-  (sp-use-paredit-bindings))
-
 (use-package time
   :config
   (progn
@@ -163,35 +136,11 @@
           display-time-24hr-format t)
     (display-time-mode t)))
 
-(use-package comint
-  :defer t
+(use-package modus-vivendi-theme
+  :ensure t
   :config
-  (progn
-    (define-key comint-mode-map (kbd "<down>") #'comint-next-input)
-    (define-key comint-mode-map (kbd "<up>") #'comint-previous-input)
-    (define-key comint-mode-map (kbd "C-n") #'comint-next-input)
-    (define-key comint-mode-map (kbd "C-p") #'comint-previous-input)
-    (define-key comint-mode-map (kbd "C-r") #'comint-history-isearch-backward)
-    (setf comint-prompt-read-only t
-          comint-history-isearch t)))
-
-(use-package tramp
-  :defer t
-  :config
-  (setf tramp-persistency-file-name
-        (concat temporary-file-directory "tramp-" (user-login-name))))
-
-(use-package diff-mode
-  :defer t
-  :config (add-hook 'diff-mode-hook #'read-only-mode))
-
-(use-package color-theme-sanityinc-tomorrow
-  :config
-  (setf custom-safe-themes t)
-  (color-theme-sanityinc-tomorrow-night)
-  (global-hl-line-mode 1)
-  (custom-set-faces
-   '(cursor ((t :background "#eebb28")))))
+  (load-theme 'modus-vivendi t)
+  (global-hl-line-mode 1))
 
 (use-package simple
   :defer t
@@ -215,186 +164,14 @@
   :defer t
   :config (setf calc-display-trail nil))
 
-(use-package eshell
-  :defer t
-  :bind ([f1] . eshell-as)
-  :init
-  (setf eshell-directory-name (locate-user-emacs-file "local/eshell"))
-  :config
-  (add-hook 'eshell-mode-hook ; Bad, eshell, bad!
-            (lambda ()
-              (define-key eshell-mode-map (kbd "<f1>") #'quit-window))))
-
-(use-package gitconfig-mode
-  :defer t
-  :config (add-hook 'gitconfig-mode-hook
-                    (lambda ()
-                      (setf indent-tabs-mode nil
-                            tab-width 4))))
-
-(use-package markdown-mode
-  :defer t
-  :mode ("\\.md$" "\\.markdown$" "vimperator-.+\\.tmp$")
-  :config
-  (add-hook 'markdown-mode-hook
-            (lambda ()
-              (remove-hook 'fill-nobreak-predicate
-                           'markdown-inside-link-p t)))
-  (setf sentence-end-double-space nil
-        markdown-indent-on-enter nil
-        markdown-command
-        "pandoc -f markdown -t html5 -s --self-contained --smart"))
-
-(use-package octave
-  :defer t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
-  (setf octave-block-offset 4))
-
-(use-package simple-httpd
-  :defer t
-  :functions httpd-send-header
-  :config
-  (defservlet uptime "text/plain" ()
-    (princ (emacs-uptime)))
-  (defun httpd-here ()
-    (interactive)
-    (setf httpd-root default-directory))
-  (defadvice httpd-start (after httpd-query-on-exit-flag activate)
-    (let ((httpd-process (get-process "httpd")))
-      (when httpd-process
-        (set-process-query-on-exit-flag httpd-process nil))))
-  (setf httpd-host "0.0.0.0"))
-
-(use-package js2-mode
-  :defer t
-  :mode "\\.js$"
-  :config
-  (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
-  (setf js2-skip-preprocessor-directives t)
-  (setq-default js2-additional-externs
-                '("$" "unsafeWindow" "localStorage" "jQuery"
-                  "setTimeout" "setInterval" "location" "skewer"
-                  "console" "phantom")))
-
-(use-package skewer-mode
-  :defer t
-  :init
-  (skewer-setup))
-
-(use-package skewer-repl
-  :defer t
-  :config (define-key skewer-repl-mode-map (kbd "C-c C-z") #'quit-window))
-
-(use-package ps-print
-  :defer t
-  :config (setf ps-print-header nil))
-
-(use-package erc
-  :defer t
-  :config
-  (when (eq 0 (string-match "wello" (user-login-name)))
-    (setf erc-nick "skeeto")))
-
-(use-package cc-mode
-  :defer t
-  :init
-  (defun skeeto/c-hook ()
-    (setf c-basic-offset 4)
-    (c-set-offset 'case-label '+)
-    (c-set-offset 'access-label '/)
-    (c-set-offset 'label '/))
-  :config
-  (progn
-    (define-key java-mode-map (kbd "C-x I") 'add-java-import)
-    (add-hook 'c-mode-hook #'skeeto/c-hook)
-    (add-hook 'c++-mode-hook #'skeeto/c-hook)
-    (add-to-list 'c-default-style '(c-mode . "k&r"))
-    (add-to-list 'c-default-style '(c++-mode . "k&r"))))
-
-(use-package ctags
-  :init
-  (global-set-key (kbd "M-.") #'ctags-find)
-  (global-set-key (kbd "M-?") #'ctags-find-reference))
-
-(use-package nasm-mode
-  :defer t
-  :mode ("\\.nasm$" "\\.asm$" "\\.s$")
-  :config
-  (add-hook 'nasm-mode-hook (lambda () (setf indent-tabs-mode t))))
-
-(use-package asm-mode
-  :defer t
-  :init
-  (add-hook 'asm-mode-hook (lambda () (setf indent-tabs-mode t
-                                            tab-always-indent t))))
-
-(use-package x86-lookup
-  :defer t
-  :bind ("C-h x" . x86-lookup)
-  :functions x86-lookup-browse-pdf-evince
-  :config
-  (let ((pdf-regexp ".*sdm-vol-2abcd\\.pdf$")
-        (pdf-dir "~/doc/"))
-    (setf x86-lookup-browse-pdf-function #'x86-lookup-browse-pdf-evince
-          x86-lookup-pdf (ignore-errors
-                           (car (directory-files pdf-dir t pdf-regexp))))))
-
-(use-package ielm
-  :defer t
-  :config
-  (define-key ielm-map (kbd "C-c C-z") #'quit-window))
-
 (use-package paren
   :config (show-paren-mode))
-
-(use-package rainbow-delimiters
-  :defer t
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode)
-  :config
-  (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4")
-  (setf rainbow-delimiters-max-face-count 1)
-  (set-face-attribute 'rainbow-delimiters-unmatched-face nil
-                      :foreground 'unspecified
-                      :inherit 'error)
-  (set-face-foreground 'rainbow-delimiters-depth-1-face "snow4"))
 
 (use-package icomplete
   :init
   (icomplete-mode)
   :bind (:map icomplete-minibuffer-map
               ("<C-tab>" . minibuffer-force-complete)))
-
-(use-package etags
-  :defer t
-  :config
-  (defun etags-build (directory)
-    (interactive "DDirectory: ")
-    (let* ((results ())
-           (head (list directory))
-           (tail head))
-      (while head
-        (dolist (file (directory-files (car head) t nil t))
-          (cond ((and (not (string-match "\\.$" file))
-                      (not (string-match "\\.\\.$" file))
-                      (file-directory-p file))
-                 (let ((new-tail (list file)))
-                   (setf (cdr tail) new-tail
-                         tail new-tail)))
-                ((string-match "\\.[ch]$" file)
-                 (push file results))))
-        (pop head))
-      (let ((default-directory directory))
-        (apply #'call-process "etags" nil nil nil results)))))
-
-(use-package javadoc-lookup
-  :defer t
-  :bind ("C-h j" . javadoc-lookup)
-  :config
-  (ignore-errors
-    (setf javadoc-lookup-cache-dir (locate-user-emacs-file "local/javadoc"))))
 
 (use-package browse-url
   :defer t
@@ -409,23 +186,6 @@
   :bind ("C-x !" . uuid-insert)
   :config (random (make-uuid)))
 
-(use-package compile-bind
-  :demand t
-  :bind (("C-h g" . compile-bind-set-command)
-         ("C-h G" . compile-bind-set-root-file))
-  :config
-  (progn
-    (setf compilation-always-kill t
-          compilation-ask-about-save nil
-          compilation-scroll-output 'first-error
-          compile-bind-command (format "make -kj%d " (numcores)))
-    (when (executable-find "nmake.exe")
-      (compile-bind-set-command "nmake -nologo "))
-    (compile-bind* (current-global-map)
-                   ("C-x c" ""
-                    "C-x t" 'test
-                    "C-x C" 'clean))))
-
 (use-package jekyll
   :demand t
   :functions httpd-send-header
@@ -433,37 +193,12 @@
   (progn
     (setf jekyll-home "~/src/skeeto.github.com/")
     (when (file-exists-p jekyll-home)
-      (require 'simple-httpd)
-      (setf httpd-root (concat jekyll-home "_site"))
       (ignore-errors
-        (httpd-start)
-        (jekyll/start))
-      (defservlet robots.txt text/plain ()
-        (insert "User-agent: *\nDisallow: /\n")))))
+        (jekyll/start)))))
 
 (use-package help-mode
   :defer t
   :config
   (define-key help-mode-map (kbd "f") #'push-first-button))
-
-(use-package gamegrid
-  :defer t
-  :init
-  (setf gamegrid-user-score-file-directory (locate-user-emacs-file "games")))
-
-(use-package ospl-mode
-  :defer t
-  :init
-  (autoload 'ospl-mode "ospl-mode"))
-
-(use-package sql
-  :defer t
-  :init
-  (setf sql-product 'sqlite))
-
-(use-package enriched
-  :defer t
-  :config
-  (define-key enriched-mode-map "\C-m" nil))
 
 (provide 'init) ; make (require 'init) happy

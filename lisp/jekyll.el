@@ -18,7 +18,6 @@
 ;;; Code:
 
 (require 'uuid-simple)
-(require 'markdown-mode)
 
 (defvar jekyll-home "."
   "The root directory for your Jekyll blog.")
