@@ -253,6 +253,7 @@
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("UCeUnV5Eh4pPQUjeodp7ZZiA" youtube) ; BlakesSanctum
+  ("UCbGGg1xyVana3IY4WInzgyg" youtube) ; Blow Fan
   ("damo2986" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
