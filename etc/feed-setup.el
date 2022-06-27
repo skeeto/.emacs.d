@@ -180,7 +180,6 @@
   `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
-  ("http://esr.ibiblio.org/?feed=rss2" blog)
   ("https://andrew-helmer.github.io/feed.xml" dev blog)
   ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
@@ -197,7 +196,6 @@
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
   ("https://www.debian.org/security/dsa" debian list security important)
   ("https://www.debian.org/News/news" debian list)
-  ("https://dendibakh.github.io/feed.xml" blog dev)
   ("https://www.filfre.net/feed/" blog history essay)
   ("https://drewdevault.com/feed.xml" blog dev)
   ("https://bay12games.com/dwarves/dev_now.rss" blog gaming product)
@@ -224,8 +222,6 @@
   ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
   ("http://www.mazelog.com/rss" math puzzle)
   ("https://sourceforge.net/projects/mingw-w64/rss?path=/mingw-w64/mingw-w64-release" dev release)
-  ("https://www.mrlovenstein.com/rss.xml" comic)
-  ("https://mortoray.com/feed/" blog dev)
   ("https://www.mrmoneymustache.com/feed/" blog philosophy)
   ("https://www.natewoodward.org/blog/atom.xml" blog def)
   ("https://nullprogram.com/feed/" blog dev myself)
@@ -253,7 +249,6 @@
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-Bit Guy
-  ("UCcTt3O4_IW5gnA0c58eXshg" youtube) ; 8-Bit Keys
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
@@ -262,7 +257,6 @@
   ("destinws2" youtube)
   ("EEVblog" youtube)
   ("eevblog2" youtube)
-  ("UCkGvUEt8iQLmq3aJIMjT2qQ" youtube) ; EEVdiscover
   ("UCWXCrItCF6ZgXrdozUS-Idw" youtube) ; ExplosmEntertainment
   ("FilmTheorists" youtube)
   ("UCHYoe8kQ-7Gn9ASOlmI0k6Q" youtube) ; Food Theory
