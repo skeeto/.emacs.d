@@ -239,7 +239,6 @@
   ("https://theycantalk.com/rss" comic)
   ("https://blog.plover.com/index.atom" blog dev)
   ("https://www.kohney.com/feed/" comic)
-  ("https://www.shamusyoung.com/twentysidedtale/?feed=rss2" blog gaming)
   ("http://feeds.wnyc.org/TheAnthropoceneReviewed" audio)
   ("https://www.whompcomic.com/comic/rss" comic)
   ("https://xkcd.com/atom.xml" comic)
