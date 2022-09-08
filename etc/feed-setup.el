@@ -224,6 +224,7 @@
   ("https://sourceforge.net/projects/mingw-w64/rss?path=/mingw-w64/mingw-w64-release" dev release)
   ("https://www.mrmoneymustache.com/feed/" blog philosophy)
   ("https://www.natewoodward.org/blog/atom.xml" blog def)
+  ("https://www.navalgazing.net/?action=rss" blog)
   ("https://nullprogram.com/feed/" blog dev myself)
   ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
   ("https://www.overcomingbias.com/feed" blog philosophy)
