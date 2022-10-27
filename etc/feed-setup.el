@@ -230,7 +230,6 @@
   ("https://www.overcomingbias.com/feed" blog philosophy)
   ("https://www.npr.org/rss/podcast.php?id=510289" podcast audio economics)
   ("https://possiblywrong.wordpress.com/feed/" blog math puzzle)
-  ("https://rachelbythebay.com/w/atom.xml" blog dev)
   ("http://feeds.wnyc.org/radiolab" audio)
   ("https://randomascii.wordpress.com/feed/" blog dev)
   ("https://feeds.megaphone.fm/revisionisthistory" audio)
@@ -288,9 +287,7 @@
   ("RedLetterMedia" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
   ("UC1_uAIS3r8Vu6JjXWvastJg" youtube) ; Mathologer
-  ("ShamusYoung" youtube)
   ("standupmaths" youtube)
-  ("UCO8DQrSp5yEP937qNqTooOw" youtube) ; Strange Parts
   ("UCy0tKL1T7wFoYcxCe0xjN6Q" youtube) ; Technology Connections
   ("UClRwC5Vc8HrB6vGx6Ti-lhA" youtube) ; Technology Connextras
   ("Thunderf00t" youtube)
