@@ -287,6 +287,7 @@
   ("XboxAhoy" youtube)
   ("RedLetterMedia" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
+  ("UC1_uAIS3r8Vu6JjXWvastJg" youtube) ; Mathologer
   ("ShamusYoung" youtube)
   ("standupmaths" youtube)
   ("UCO8DQrSp5yEP937qNqTooOw" youtube) ; Strange Parts
