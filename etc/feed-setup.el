@@ -180,8 +180,6 @@
   `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
-  ("https://andrew-helmer.github.io/feed.xml" dev blog)
-  ("https://arp242.net/feed.xml" blog dev)
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("https://astralcodexten.substack.com/feed/" blog philosophy)
   ("https://begriffs.com/atom.xml" blog dev)
@@ -190,7 +188,6 @@
   ("https://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
   ("https://www.buttersafe.com/feed/" comic)
-  ("https://blog.chuie.io/posts/index.xml" dev blog)
   ("https://lemire.me/blog/feed/" dev blog)
   ("https://danluu.com/atom.xml" dev blog)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
@@ -205,7 +202,6 @@
   ("https://floooh.github.io/feed.xml" blog dev)
   ("https://www.exocomics.com/feed" comic)
   ("https://fabiensanglard.net/rss.xml" blog dev)
-  ("https://fakenous.net/?feed=rss2" blog philosophy)
   ("https://freakonomics.com/series/freakonomics-radio/feed/" audio)
   ("https://freakonomics.com/series/bapu/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
@@ -239,8 +235,6 @@
   ("https://theycantalk.com/rss" comic)
   ("https://blog.plover.com/index.atom" blog dev)
   ("https://www.kohney.com/feed/" comic)
-  ("http://feeds.wnyc.org/TheAnthropoceneReviewed" audio)
-  ("https://www.whompcomic.com/comic/rss" comic)
   ("https://xkcd.com/atom.xml" comic)
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
   ("https://old.reddit.com/domain/nullprogram.com.rss" reddit myself)
@@ -267,7 +261,6 @@
   ("GetDaved" youtube)
   ("UClaEdLrmti779-tyovta8zw" youtube) ; Grandpa Amu
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
-  ("UCErSSa3CaP_GJxmFpdjG9Jw" youtube) ; Lessons from the Screenplay
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
   ("MatthewPatrick13" youtube)
@@ -281,7 +274,6 @@
   ("Pixelmusement" youtube)
   ("PlumpHelmetPunk" youtube)
   ("UCs8DNFOxYen3kuj87aWKG9g" youtube) ; Primitive Skills
-  ("UCFeTHAMU4wPstRNVHlKASBQ" youtube) ; ProofofConceptMath
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
   ("RedLetterMedia" youtube)
