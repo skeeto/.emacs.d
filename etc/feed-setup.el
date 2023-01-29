@@ -180,6 +180,7 @@
   `(setf elfeed-feeds (mapcar #'elfeed--expand ',feeds)))
 
 (elfeed-config
+  ("https://acoup.blog/feed/" blog)
   ("https://blog.cryptographyengineering.com/feed/" blog)
   ("https://astralcodexten.substack.com/feed/" blog philosophy)
   ("https://begriffs.com/atom.xml" blog dev)
