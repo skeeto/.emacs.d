@@ -222,6 +222,7 @@
   ("https://www.mrmoneymustache.com/feed/" blog philosophy)
   ("https://www.natewoodward.org/blog/atom.xml" blog def)
   ("https://www.navalgazing.net/?action=rss" blog)
+  ("https://nrk.neocities.org/rss.xml" blog dev)
   ("https://nullprogram.com/feed/" blog dev myself)
   ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
   ("https://www.overcomingbias.com/feed" blog philosophy)
