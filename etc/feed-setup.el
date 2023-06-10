@@ -276,7 +276,6 @@
   ("patrickhwillems" youtube)
   ("Pixelmusement" youtube)
   ("PlumpHelmetPunk" youtube)
-  ("UCs8DNFOxYen3kuj87aWKG9g" youtube) ; Primitive Skills
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
   ("RedLetterMedia" youtube)
