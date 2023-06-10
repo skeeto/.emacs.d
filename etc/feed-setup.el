@@ -241,6 +241,7 @@
   ("https://xkcd.com/atom.xml" comic)
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
   ("https://old.reddit.com/domain/nullprogram.com.rss" reddit myself)
+  ("https://old.reddit.com/r/C_Programming/.rss?limit=100" subreddit)
   ("https://old.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("1veritasium" youtube)
   ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
