@@ -245,7 +245,6 @@
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("UCeUnV5Eh4pPQUjeodp7ZZiA" youtube) ; BlakesSanctum
   ("UCbGGg1xyVana3IY4WInzgyg" youtube) ; Blow Fan
-  ("UCVBe-ks8xf3lNuqyGLUWA8A" youtube) ; Jonathan Blow Clips
   ("damo2986" youtube)
   ("destinws2" youtube)
   ("EEVblog" youtube)
