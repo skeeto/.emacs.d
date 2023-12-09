@@ -238,7 +238,6 @@
   ("https://old.reddit.com/r/C_Programming/.rss?limit=100" subreddit)
   ("https://old.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("1veritasium" youtube)
-  ("UCYO_jab_esuFRV4b17AJtAw" youtube) ; 3Blue1Brown
   ("adric22" youtube) ; The 8-Bit Guy
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
