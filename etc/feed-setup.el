@@ -257,6 +257,7 @@
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
   ("GetDaved" youtube)
+  ("UCifMPWjBEu7rYx3CVdkjiWA" youtube) ; Jomboy & Jake TV
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
