@@ -249,9 +249,6 @@
   ("EEVblog" youtube)
   ("eevblog2" youtube)
   ("UCWXCrItCF6ZgXrdozUS-Idw" youtube) ; ExplosmEntertainment
-  ("FilmTheorists" youtube)
-  ("UCHYoe8kQ-7Gn9ASOlmI0k6Q" youtube) ; Food Theory
-  ("UCd4t3EEUy0LUOM4MTdjpNHA" youtube) ; Style Theory
   ("foodwishes" youtube)
   ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
@@ -260,7 +257,6 @@
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
-  ("MatthewPatrick13" youtube)
   ("MatthiasWandel" youtube)
   ("UC3_AWXcf2K3l9ILVuQe-XwQ" youtube) ; Matthias random stuff
   ("NCommander" youtube)
