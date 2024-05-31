@@ -240,6 +240,7 @@
   ("adric22" youtube) ; The 8-Bit Guy
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
+  ("UCd8v3SbzGP9_wuSOr_xk_eA" youtube) ; Antique Furniture Restoration
   ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("UCeUnV5Eh4pPQUjeodp7ZZiA" youtube) ; BlakesSanctum
   ("UCbGGg1xyVana3IY4WInzgyg" youtube) ; Blow Fan
