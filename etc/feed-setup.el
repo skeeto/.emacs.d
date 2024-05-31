@@ -272,6 +272,7 @@
   ("Cercopithecan" youtube) ; Sebastian Lague
   ("UC1_uAIS3r8Vu6JjXWvastJg" youtube) ; Mathologer
   ("standupmaths" youtube)
+  ("UCg-_lYeV8hBnDSay7nmphUA" youtube) ; Tally Ho
   ("UCy0tKL1T7wFoYcxCe0xjN6Q" youtube) ; Technology Connections
   ("UClRwC5Vc8HrB6vGx6Ti-lhA" youtube) ; Technology Connextras
   ("timhunkin1" youtube)
