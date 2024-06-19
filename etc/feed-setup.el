@@ -197,7 +197,7 @@
   ("https://www.filfre.net/feed/" blog history essay)
   ("https://bay12games.com/dwarves/dev_now.rss" blog gaming product)
   ("https://danwang.co/feed/" blog philosophy)
-  ("https://www.econlib.org/feed/index_xml" blog economics)
+  ("https://www.econlib.org/feed/indexSumner_xml" blog economics)
   ("https://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
   ("https://floooh.github.io/feed.xml" blog dev)
   ("https://www.exocomics.com/feed" comic)
