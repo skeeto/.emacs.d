@@ -207,7 +207,6 @@
   ("https://gcc.gnu.org/git/?p=gcc-wwwdocs.git;a=atom;f=htdocs/releases.html" dev release)
   ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://github.com/rmyorston/busybox-w32/releases.atom" release product)
-  ("https://goodbearcomics.com/feed/" comic)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("https://photo.nullprogram.com/feed/" photo myself)
@@ -235,13 +234,11 @@
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
   ("https://old.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("https://old.reddit.com/r/C_Programming/.rss?limit=100" subreddit)
-  ("https://old.reddit.com/r/dailyprogrammer/.rss" subreddit)
   ("1veritasium" youtube)
   ("adric22" youtube) ; The 8-Bit Guy
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCd8v3SbzGP9_wuSOr_xk_eA" youtube) ; Antique Furniture Restoration
-  ("UCcAlTqd9zID6aNX3TzwxJXg" youtube) ; The Art of Code
   ("UCeUnV5Eh4pPQUjeodp7ZZiA" youtube) ; BlakesSanctum
   ("UCbGGg1xyVana3IY4WInzgyg" youtube) ; Blow Fan
   ("damo2986" youtube)
@@ -250,7 +247,6 @@
   ("eevblog2" youtube)
   ("UCWXCrItCF6ZgXrdozUS-Idw" youtube) ; ExplosmEntertainment
   ("foodwishes" youtube)
-  ("UCfVFSjHQ57zyxajhhRc7i0g" youtube) ; GameHut
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
   ("GetDaved" youtube)
