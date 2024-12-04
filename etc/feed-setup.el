@@ -193,7 +193,6 @@
   ("https://www.debian.org/security/dsa" debian list security important)
   ("https://www.debian.org/News/news" debian list)
   ("https://www.filfre.net/feed/" blog history essay)
-  ("https://bay12games.com/dwarves/dev_now.rss" blog gaming product)
   ("https://danwang.co/feed/" blog philosophy)
   ("https://www.econlib.org/feed/indexSumner_xml" blog economics)
   ("https://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
@@ -239,7 +238,6 @@
   ("destinws2" youtube)
   ("EEVblog" youtube)
   ("eevblog2" youtube)
-  ("UCWXCrItCF6ZgXrdozUS-Idw" youtube) ; ExplosmEntertainment
   ("foodwishes" youtube)
   ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
