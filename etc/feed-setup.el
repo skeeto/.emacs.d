@@ -186,7 +186,6 @@
   ("https://betonit.substack.com/feed/" blog economics)
   ("https://simblob.blogspot.com/feeds/posts/default" blog dev)
   ("https://utcc.utoronto.ca/~cks/space/blog/?atom" blog dev)
-  ("https://www.buttersafe.com/feed/" comic)
   ("https://lemire.me/blog/feed/" dev blog)
   ("https://danluu.com/atom.xml" dev blog)
   ("https://www.blogger.com/feeds/19727420/posts/default" blog)
