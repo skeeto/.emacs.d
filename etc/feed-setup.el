@@ -159,9 +159,10 @@
 ;; The actual feeds listing
 
 (defvar youtube-feed-format
-  '(("^UC" . "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
-    ("^PL" . "https://www.youtube.com/feeds/videos.xml?playlist_id=%s")
-    (""    . "https://www.youtube.com/feeds/videos.xml?user=%s")))
+  '(("^UC"   . "https://www.youtube.com/feeds/videos.xml?channel_id=%s")
+    ("^UULF" . "https://www.youtube.com/feeds/videos.xml?playlist_id=%s")
+    ("^PL"   . "https://www.youtube.com/feeds/videos.xml?playlist_id=%s")
+    (""      . "https://www.youtube.com/feeds/videos.xml?user=%s")))
 
 (defun elfeed--expand (listing)
   "Expand feed URLs depending on their tags."
