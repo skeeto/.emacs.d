@@ -232,7 +232,6 @@
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
   ("UCd8v3SbzGP9_wuSOr_xk_eA" youtube) ; Antique Furniture Restoration
-  ("UCeUnV5Eh4pPQUjeodp7ZZiA" youtube) ; BlakesSanctum
   ("UCbGGg1xyVana3IY4WInzgyg" youtube) ; Blow Fan
   ("damo2986" youtube)
   ("destinws2" youtube)
@@ -241,7 +240,6 @@
   ("foodwishes" youtube)
   ("UULFtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
   ("UULFN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
-  ("GetDaved" youtube)
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
   ("jastownsendandson" youtube)
@@ -262,7 +260,6 @@
   ("UCg-_lYeV8hBnDSay7nmphUA" youtube) ; Tally Ho
   ("UCy0tKL1T7wFoYcxCe0xjN6Q" youtube) ; Technology Connections
   ("UClRwC5Vc8HrB6vGx6Ti-lhA" youtube) ; Technology Connextras
-  ("timhunkin1" youtube)
   ("UCqrrxZeeFSNCjGmD-33SKMw" youtube) ; u m a m i
   ("handmadeheroarchive" youtube dev)
   ("UCwRqWnW5ZkVaP_lZF7caZ-g" youtube) ; Retro Game Mechanics Explained
