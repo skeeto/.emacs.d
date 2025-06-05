@@ -227,7 +227,7 @@
   ("http://hnapp.com/rss?q=host:nullprogram.com" hackernews myself)
   ("https://old.reddit.com/domain/nullprogram.com.rss" reddit myself)
   ("https://old.reddit.com/r/C_Programming/.rss?limit=100" subreddit)
-  ("1veritasium" youtube)
+  ("UULFHnyfMqiRRG1u-2MsSQLbXA" youtube) ; Veritasium
   ("adric22" youtube) ; The 8-Bit Guy
   ("craig1black" youtube)              ; Adrian's Digital Basement
   ("UCbtwi4wK1YXd9AyV_4UcE6g" youtube) ; Adrian's Digital Basement ][
@@ -239,8 +239,8 @@
   ("EEVblog" youtube)
   ("eevblog2" youtube)
   ("foodwishes" youtube)
-  ("UCtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
-  ("UCN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
+  ("UULFtWCNdtCS-SG2gKYaYhE7BA" youtube) ; Gaming Jay
+  ("UULFN9UPjA8I-uwvAy0-N9maOA" youtube) ; The Generalist Papers
   ("GetDaved" youtube)
   ("UCuCkxoKLYO_EQ2GeFtbM_bw" youtube) ; Half as Interesting
   ("UCm9K6rby98W8JigLoZOh6FQ" youtube) ; LockPickingLawyer
@@ -250,7 +250,7 @@
   ("Nerdwriter1" youtube)
   ("numberphile" youtube)
   ("UCNyGbxoEo6CQvaRVEvItxkA" youtube) ; Pask Makes
-  ("patrickhwillems" youtube)
+  ("UULFF1fG3gT44nGTPU2sVLoFWg" youtube) ; Patrick (H) Willems
   ("Pixelmusement" youtube)
   ("PlumpHelmetPunk" youtube)
   ("ProZD" youtube)
@@ -270,7 +270,7 @@
   ("UCCj_mkYyeGIb9MPSdb74ykA" youtube) ; GET OFF MY LAWN
   ("szyzyg" youtube)
   ("UCsXVk37bltHxD1rDPwtNM8Q" youtube) ; Kurzgesagt – In a Nutshell
-  ("WelkerFarmsInc" youtube)
+  ("UULFtKUW8LJK2Ev8hUy9ZG_PPA" youtube) ; Welker Farms
   ("Wendoverproductions" youtube))
 
 (provide 'feed-setup)
