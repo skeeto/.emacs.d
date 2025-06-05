@@ -253,6 +253,7 @@
   ("PlumpHelmetPunk" youtube)
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
+  ("UULFifMPWjBEu7rYx3CVdkjiWA" youtube) ; Jomboy & Jake TV
   ("RedLetterMedia" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
   ("UC1_uAIS3r8Vu6JjXWvastJg" youtube) ; Mathologer
