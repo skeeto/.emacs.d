@@ -205,7 +205,6 @@
   ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://github.com/rmyorston/busybox-w32/releases.atom" release product)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
-  ("https://www.hackerfactor.com/blog/rss.php?version=2.0" dev blog)
   ("https://photo.nullprogram.com/feed/" photo myself)
   ("https://loadingartist.com/feed/" comic)
   ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
