@@ -197,6 +197,7 @@
   ("https://www.econlib.org/feed/indexSumner_xml" blog economics)
   ("https://eli.thegreenplace.net/feeds/all.atom.xml" blog dev)
   ("https://floooh.github.io/feed.xml" blog dev)
+  ("https://peter0x44.github.io/public/index.xml" blog dev)
   ("https://www.exocomics.com/feed" comic)
   ("https://fabiensanglard.net/rss.xml" blog dev)
   ("https://freakonomics.com/series/freakonomics-radio/feed/" audio)
