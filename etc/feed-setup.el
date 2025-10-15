@@ -53,8 +53,7 @@
 
 (setq youtube-dl-directory "~/netshare"
       youtube-dl-arguments
-      (nconc `("-f" "bestvideo[height<=1080]+bestaudio/best[height<=1080]"
-               "--no-colors")
+      (nconc `("--cookies-from-browser" "firefox" "--no-colors")
              youtube-dl-arguments))
 
 (defface elfeed-youtube
