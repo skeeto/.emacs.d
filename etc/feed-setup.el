@@ -198,7 +198,6 @@
   ("https://peter0x44.github.io/index.xml" blog dev)
   ("https://www.exocomics.com/feed" comic)
   ("https://fabiensanglard.net/rss.xml" blog dev)
-  ("https://freakonomics.com/series/freakonomics-radio/feed/" audio)
   ("https://flak.tedunangst.com/rss" dev blog)
   ("https://gcc.gnu.org/git/?p=gcc-wwwdocs.git;a=atom;f=htdocs/releases.html" dev release)
   ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
