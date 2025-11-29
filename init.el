@@ -136,11 +136,7 @@
           display-time-24hr-format t)
     (display-time-mode t)))
 
-(use-package modus-vivendi-theme
-  :ensure t
-  :config
-  (load-theme 'modus-vivendi t)
-  (global-hl-line-mode 1))
+(load-theme 'modus-vivendi t)
 
 (use-package simple
   :defer t
