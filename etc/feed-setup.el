@@ -33,6 +33,8 @@
          (re " *\\+youtube" " -youtube" elfeed-search-filter))
         ((concat elfeed-search-filter " -youtube")))))))
 
+(setf elfeed-search-clipboard-type 'CLIPBOARD)
+
 (defun elfeed-podcast-yank ()
   "Clean up and copy the first enclosure URL into the clipboard."
   (interactive)
