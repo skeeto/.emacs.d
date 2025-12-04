@@ -29,12 +29,6 @@
 (when (fboundp 'set-horizontal-scroll-bar-mode)
   (set-horizontal-scroll-bar-mode nil))
 
-;; Do sensible clipboard things, please
-(setf select-enable-clipboard nil
-      select-enable-primary t
-      mouse-drag-copy-region t
-      mouse-yank-at-point t)
-
 ;; Lexical binding by default. Must be delayed since Emacs sets this
 ;; on its own to nil after initialization.
 (run-at-time 0 nil (lambda ()
