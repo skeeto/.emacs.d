@@ -54,9 +54,7 @@
 ;; youtube-dl config
 
 (setq youtube-dl-directory "~/netshare"
-      youtube-dl-arguments
-      (nconc `("--cookies-from-browser" "firefox" "--no-colors")
-             youtube-dl-arguments))
+      youtube-dl-arguments '("--no-mtime" "-t" "mp4" "--no-colors"))
 
 (defface elfeed-youtube
   '((t :foreground "#f9f"))
