@@ -198,7 +198,6 @@
   ("https://www.exocomics.com/feed" comic)
   ("https://fabiensanglard.net/rss.xml" blog dev)
   ("https://gcc.gnu.org/git/?p=gcc-wwwdocs.git;a=atom;f=htdocs/releases.html" dev release)
-  ("https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg-doc.git;a=rss;f=web/index.org" dev product)
   ("https://github.com/rmyorston/busybox-w32/releases.atom" release product)
   ("https://backend.deviantart.com/rss.xml?q=by%3AGydw1n" image)
   ("https://photo.nullprogram.com/feed/" photo myself)
@@ -249,7 +248,6 @@
   ("PlumpHelmetPunk" youtube)
   ("ProZD" youtube)
   ("XboxAhoy" youtube)
-  ("UULFifMPWjBEu7rYx3CVdkjiWA" youtube) ; Jomboy & Jake TV
   ("RedLetterMedia" youtube)
   ("Cercopithecan" youtube) ; Sebastian Lague
   ("UC1_uAIS3r8Vu6JjXWvastJg" youtube) ; Mathologer
