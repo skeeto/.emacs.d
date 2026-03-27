@@ -205,7 +205,6 @@
   ("https://marc-b-reynolds.github.io/feed.xml" dev blog math)
   ("http://www.mazelog.com/rss" math puzzle)
   ("https://sourceforge.net/projects/mingw-w64/rss?path=/mingw-w64/mingw-w64-release" dev release)
-  ("https://www.mrmoneymustache.com/feed/" blog philosophy)
   ("https://nrk.neocities.org/rss.xml" blog dev)
   ("https://nullprogram.com/feed/" blog dev myself)
   ("https://blogs.msdn.microsoft.com/oldnewthing/feed" blog dev)
